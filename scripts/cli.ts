@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 /**
- * Простой CLI для управления темой Tokyo Night Lod
- * Без внешних зависимостей
+ * Simple CLI for managing Tokyo Night Lod theme
+ * No external dependencies
  */
 
 import { ThemeValidator } from '../src/validation/themeValidator'
@@ -43,22 +43,23 @@ const command = args[0]
 
 function showHelp() {
   console.log(`
+
 🎨 Tokyo Night Lod CLI v0.4.0
 
-Команды:
-  build                    Собрать стандартный набор тем (dark, hc, minimal, light, accessibility)
-  validate <file>          Валидировать тему
-  info                    Информация о теме
-  help                    Показать эту справку
+Commands:
+  build                    Build standard set of themes (dark, hc, minimal, light, accessibility)
+  validate <file>          Validate theme
+  info                    Theme information
+  help                    Show this help
 
-Примеры:
+Examples:
   node scripts/cli.ts build
   node scripts/cli.ts validate ./themes/theme.json
 `)
 }
 
 function buildCommand() {
-  console.log('🏗️  Сборка полного набора тем...')
+  console.log('🏗️  Building full set of themes...')
   try {
     const outDir = './themes'
     if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true })
@@ -71,7 +72,7 @@ function buildCommand() {
         JSON.stringify(theme, null, 2) + '\n',
         'utf8'
       )
-      console.log(`✅ Сгенерировано: ${outputPath}`)
+      console.log(`✅ Generated: ${outputPath}`)
     }
 
     buildAndWrite('dark', ThemeBuilder.buildStandard())
@@ -81,7 +82,7 @@ function buildCommand() {
     // buildAndWrite('light', ThemeBuilder.buildLight())
     // buildAndWrite('accessibility', ThemeBuilder.buildAccessibility())
   } catch (error) {
-    console.error('❌ Ошибка сборки:', error)
+    console.error('❌ Build error:', error)
     process.exit(1)
   }
 }
@@ -89,11 +90,11 @@ function buildCommand() {
 function validateCommand() {
   const file = args[1]
   if (!file) {
-    console.error('❌ Укажите файл для валидации')
+    console.error('❌ Please specify file to validate')
     process.exit(1)
   }
 
-  console.log(`🔍 Валидация темы: ${file}`)
+  console.log(`🔍 Validating theme: ${file}`)
 
   try {
     const themeContent = fs.readFileSync(file, 'utf8')
@@ -103,9 +104,9 @@ function validateCommand() {
     const result = validator.validateTheme(theme)
 
     if (result.passed) {
-      console.log('✅ Тема прошла валидацию')
+      console.log('✅ Theme passed validation')
     } else {
-      console.log('❌ Обнаружены проблемы:')
+      console.log('❌ Issues found:')
       result.issues.forEach((issue) => {
         const icon =
           issue.severity === 'error'
@@ -124,29 +125,29 @@ function validateCommand() {
       }
     }
   } catch (error) {
-    console.error('❌ Ошибка валидации:', error)
+    console.error('❌ Validation error:', error)
     process.exit(1)
   }
 }
 
-// Удалены команды plugins и config для упрощения
+// Removed plugins and config commands for simplicity
 
 function infoCommand() {
-  console.log('🎨 Tokyo Night Lod — упрощённая архитектура')
-  console.log('📦 Версия: 0.4.0')
+  console.log('🎨 Tokyo Night Lod — simplified architecture')
+  console.log('📦 Version: 0.4.0')
   console.log(
-    '🏗️  Архитектура: Плоская (без конфигов и плагинов), генерация через ThemeBuilder'
+    '🏗️  Architecture: Flat (no configs or plugins), generation via ThemeBuilder'
   )
-  console.log('🎯 Особенности:')
+  console.log('🎯 Features:')
   console.log(
-    '  - Встроенные варианты: dark, high-contrast, minimal, light, accessibility'
+    '  - Built-in variants: dark, high-contrast, minimal, light, accessibility'
   )
-  console.log('  - Автоматическая валидация тем')
-  console.log('  - Цвета строго из палитры + цветокоррекция (без хардкода)')
-  console.log('  - Совместимость с WCAG 2.1 (контрастность)')
+  console.log('  - Automatic theme validation')
+  console.log('  - Colors strictly from palette + color correction (no hardcoding)')
+  console.log('  - WCAG 2.1 compatibility (contrast)')
 }
 
-// Обработка команд
+// Command handling
 switch (command) {
   case 'build':
     buildCommand()
@@ -162,7 +163,7 @@ switch (command) {
     showHelp()
     break
   default:
-    console.error(`❌ Неизвестная команда: ${command}`)
+    console.error(`❌ Unknown command: ${command}`)
     showHelp()
     process.exit(1)
 }

@@ -47,4 +47,21 @@ export class ThemeBuilder {
       tokenColors: tokenColors,
     }
   }
+
+  /**
+   * Create high contrast theme
+   */
+  static buildHighContrast(): ThemeObject {
+    return {
+      name: 'Tokyo Night Lod High Contrast',
+      displayName: 'Tokyo Night Lod High Contrast',
+      author: 'lod',
+      maintainers: ['lod'],
+      type: 'dark',
+      semanticClass: 'tokyo-night-high-contrast',
+      semanticTokenColors: semanticTokenColors,
+      colors: buildColors(),
+      tokenColors: tokenColors,
+    }
+  }
 }

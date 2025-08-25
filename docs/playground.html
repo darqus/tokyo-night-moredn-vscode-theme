@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokyo Night Lod Color Playground</title>
+    <style>
+        :root {
+            --bg-base: #0d1117;
+            --bg-elevated: #121820;
+            --bg-overlay: #171d29;
+            --text-primary: #e8e8e8;
+            --text-muted: #acadaf;
+            --text-subtle: #7a8191;
+            --accent-blue: #7aa2f7;
+            --accent-cyan: #7dcfff;
+            --accent-teal: #73daca;
+            --accent-purple: #9d7cd8;
+            --accent-magenta: #bb9af7;
+            --accent-red: #e46876;
+            --accent-green: #9ece6a;
+            --accent-yellow: #e0af68;
+            --accent-orange: #ff9e64;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--text-subtle);
+        }
+
+        h1 {
+            color: var(--accent-blue);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1em;
+        }
+
+        .playground {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .playground {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .panel {
+            background-color: var(--bg-elevated);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .panel-title {
+            color: var(--accent-cyan);
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--text-subtle);
+        }
+
+        .color-picker {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .color-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .color-option:hover {
+            transform: scale(1.05);
+        }
+
+        .color-swatch {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            border: 2px solid transparent;
+        }
+
+        .color-option.selected .color-swatch {
+            border-color: var(--text-primary);
+            box-shadow: 0 0 0 2px var(--accent-cyan);
+        }
+
+        .color-name {
+            font-size: 0.9em;
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .preview-area {
+            min-height: 200px;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .preview-content {
+            font-size: 1.1em;
+        }
+
+        .preview-content h3 {
+            color: var(--accent-teal);
+            margin-top: 0;
+        }
+
+        .preview-content p {
+            margin-bottom: 15px;
+        }
+
+        .preview-content code {
+            background-color: var(--bg-overlay);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background-color: var(--accent-blue);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #6a92e0;
+        }
+
+        .btn-secondary {
+            background-color: var(--bg-overlay);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: #2a3140;
+        }
+
+        .contrast-report {
+            background-color: var(--bg-elevated);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .contrast-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--text-subtle);
+        }
+
+        .contrast-item:last-child {
+            border-bottom: none;
+        }
+
+        .contrast-ratio {
+            font-weight: bold;
+        }
+
+        .ratio-pass {
+            color: var(--accent-green);
+        }
+
+        .ratio-fail {
+            color: var(--accent-red);
+        }
+
+        .instructions {
+            background-color: var(--bg-overlay);
+            border-left: 4px solid var(--accent-purple);
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--text-subtle);
+            color: var(--text-muted);
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Tokyo Night Lod Color Playground</h1>
+            <p class="subtitle">Experiment with color combinations and test contrast ratios</p>
+        </header>
+
+        <div class="instructions">
+            <h3>How to use:</h3>
+            <p>1. Select background and text colors from the palettes below</p>
+            <p>2. View the preview area to see how they look together</p>
+            <p>3. Check the contrast report to ensure accessibility compliance</p>
+        </div>
+
+        <div class="playground">
+            <div class="panel">
+                <h2 class="panel-title">Background Colors</h2>
+                <div class="color-picker" id="bg-colors">
+                    <!-- Background color options will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <div class="panel">
+                <h2 class="panel-title">Text Colors</h2>
+                <div class="color-picker" id="text-colors">
+                    <!-- Text color options will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <h2 class="panel-title">Preview</h2>
+            <div class="preview-area" id="preview">
+                <div class="preview-content">
+                    <h3>Sample Content</h3>
+                    <p>This is a preview of how your color combination would look in the editor.</p>
+                    <p>Colors play a vital role in the user experience. <code>const example = true;</code></p>
+                    <p>Make sure to check the contrast ratio for accessibility compliance.</p>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="btn" id="randomize">Randomize Colors</button>
+                <button class="btn btn-secondary" id="reset">Reset to Defaults</button>
+            </div>
+
+            <div class="contrast-report">
+                <h3>Contrast Report</h3>
+                <div id="contrast-results">
+                    <!-- Contrast results will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Tokyo Night Lod Theme - Color Playground</p>
+        </footer>
+    </div>
+
+    <script>
+        // Color palette definitions
+        const colors = {
+            background: {
+                'Base': '#0d1117',
+                'Elevated': '#121820',
+                'Overlay': '#171d29',
+                'Input': '#141a23',
+                'Hover': '#192130',
+                'Active': '#1f293d'
+            },
+            text: {
+                'Primary': '#e8e8e8',
+                'Muted': '#acadaf',
+                'Subtle': '#7a8191',
+                'Inactive': '#6a7080',
+                'Soft': '#c0d4e0'
+            },
+            accent: {
+                'Blue': '#7aa2f7',
+                'Cyan': '#7dcfff',
+                'Teal': '#73daca',
+                'Purple': '#9d7cd8',
+                'Magenta': '#bb9af7',
+                'Red': '#e46876',
+                'Green': '#9ece6a',
+                'Yellow': '#e0af68',
+                'Orange': '#ff9e64'
+            }
+        };
+
+        // State management
+        let currentState = {
+            backgroundColor: '#0d1117',
+            textColor: '#e8e8e8'
+        };
+
+        // Initialize the playground
+        function initPlayground() {
+            populateColorPickers();
+            setupEventListeners();
+            updatePreview();
+        }
+
+        // Populate color pickers with color options
+        function populateColorPickers() {
+            const bgContainer = document.getElementById('bg-colors');
+            const textContainer = document.getElementById('text-colors');
+
+            // Populate background colors
+            for (const [name, color] of Object.entries(colors.background)) {
+                const colorOption = createColorOption(name, color, 'background');
+                bgContainer.appendChild(colorOption);
+            }
+
+            // Populate text colors
+            for (const [name, color] of Object.entries(colors.text)) {
+                const colorOption = createColorOption(name, color, 'text');
+                textContainer.appendChild(colorOption);
+            }
+
+            // Add some accent colors as text options
+            for (const [name, color] of Object.entries(colors.accent)) {
+                const colorOption = createColorOption(name, color, 'text');
+                textContainer.appendChild(colorOption);
+            }
+        }
+
+        // Create a color option element
+        function createColorOption(name, color, type) {
+            const option = document.createElement('div');
+            option.className = 'color-option';
+            option.dataset.type = type;
+            option.dataset.color = color;
+            option.dataset.name = name;
+
+            const swatch = document.createElement('div');
+            swatch.className = 'color-swatch';
+            swatch.style.backgroundColor = color;
+
+            const label = document.createElement('div');
+            label.className = 'color-name';
+            label.textContent = name;
+
+            option.appendChild(swatch);
+            option.appendChild(label);
+
+            // Select default colors
+            if ((type === 'background' && color === currentState.backgroundColor) ||
+                (type === 'text' && color === currentState.textColor)) {
+                option.classList.add('selected');
+            }
+
+            return option;
+        }
+
+        // Set up event listeners
+        function setupEventListeners() {
+            // Color selection
+            document.querySelectorAll('.color-option').forEach(option => {
+                option.addEventListener('click', handleColorSelection);
+            });
+
+            // Button actions
+            document.getElementById('randomize').addEventListener('click', randomizeColors);
+            document.getElementById('reset').addEventListener('click', resetColors);
+        }
+
+        // Handle color selection
+        function handleColorSelection(event) {
+            const option = event.currentTarget;
+            const type = option.dataset.type;
+            const color = option.dataset.color;
+
+            // Remove selection from other options of the same type
+            document.querySelectorAll(`.color-option[data-type="${type}"]`).forEach(opt => {
+                opt.classList.remove('selected');
+            });
+
+            // Add selection to clicked option
+            option.classList.add('selected');
+
+            // Update state
+            if (type === 'background') {
+                currentState.backgroundColor = color;
+            } else if (type === 'text') {
+                currentState.textColor = color;
+            }
+
+            // Update preview
+            updatePreview();
+        }
+
+        // Update the preview area
+        function updatePreview() {
+            const preview = document.getElementById('preview');
+            preview.style.backgroundColor = currentState.backgroundColor;
+            preview.style.color = currentState.textColor;
+
+            // Update contrast report
+            updateContrastReport();
+        }
+
+        // Update the contrast report
+        function updateContrastReport() {
+            const resultsContainer = document.getElementById('contrast-results');
+            const ratio = calculateContrastRatio(currentState.backgroundColor, currentState.textColor);
+            const wcagAA = ratio >= 4.5 ? 'Pass' : 'Fail';
+            const wcagAAA = ratio >= 7.0 ? 'Pass' : 'Fail';
+
+            resultsContainer.innerHTML = `
+                <div class="contrast-item">
+                    <span>Background Color</span>
+                    <span>${currentState.backgroundColor}</span>
+                </div>
+                <div class="contrast-item">
+                    <span>Text Color</span>
+                    <span>${currentState.textColor}</span>
+                </div>
+                <div class="contrast-item">
+                    <span>Contrast Ratio</span>
+                    <span class="contrast-ratio">${ratio.toFixed(2)}:1</span>
+                </div>
+                <div class="contrast-item">
+                    <span>WCAG AA (4.5:1)</span>
+                    <span class="contrast-ratio ${wcagAA === 'Pass' ? 'ratio-pass' : 'ratio-fail'}">${wcagAA}</span>
+                </div>
+                <div class="contrast-item">
+                    <span>WCAG AAA (7:1)</span>
+                    <span class="contrast-ratio ${wcagAAA === 'Pass' ? 'ratio-pass' : 'ratio-fail'}">${wcagAAA}</span>
+                </div>
+            `;
+        }
+
+        // Calculate contrast ratio between two colors
+        function calculateContrastRatio(bgColor, textColor) {
+            const bgLuminance = getRelativeLuminance(bgColor);
+            const textLuminance = getRelativeLuminance(textColor);
+            
+            const lighter = Math.max(bgLuminance, textLuminance);
+            const darker = Math.min(bgLuminance, textLuminance);
+            
+            return (lighter + 0.05) / (darker + 0.05);
+        }
+
+        // Calculate relative luminance of a color
+        function getRelativeLuminance(hexColor) {
+            // Convert hex to RGB
+            const r = parseInt(hexColor.substr(1, 2), 16) / 255;
+            const g = parseInt(hexColor.substr(3, 2), 16) / 255;
+            const b = parseInt(hexColor.substr(5, 2), 16) / 255;
+
+            // Apply sRGB to linear RGB transformation
+            const rLinear = r <= 0.03928 ? r / 12.92 : Math.pow((r + 0.055) / 1.055, 2.4);
+            const gLinear = g <= 0.03928 ? g / 12.92 : Math.pow((g + 0.055) / 1.055, 2.4);
+            const bLinear = b <= 0.03928 ? b / 12.92 : Math.pow((b + 0.055) / 1.055, 2.4);
+
+            // Calculate luminance
+            return 0.2126 * rLinear + 0.7152 * gLinear + 0.0722 * bLinear;
+        }
+
+        // Randomize colors
+        function randomizeColors() {
+            const bgColors = Object.values(colors.background);
+            const textColors = [...Object.values(colors.text), ...Object.values(colors.accent)];
+            
+            currentState.backgroundColor = bgColors[Math.floor(Math.random() * bgColors.length)];
+            currentState.textColor = textColors[Math.floor(Math.random() * textColors.length)];
+            
+            updateAllSelections();
+            updatePreview();
+        }
+
+        // Reset to default colors
+        function resetColors() {
+            currentState.backgroundColor = '#0d1117';
+            currentState.textColor = '#e8e8e8';
+            
+            updateAllSelections();
+            updatePreview();
+        }
+
+        // Update all color selections to match current state
+        function updateAllSelections() {
+            document.querySelectorAll('.color-option').forEach(option => {
+                option.classList.remove('selected');
+                
+                const color = option.dataset.color;
+                const type = option.dataset.type;
+                
+                if ((type === 'background' && color === currentState.backgroundColor) ||
+                    (type === 'text' && color === currentState.textColor)) {
+                    option.classList.add('selected');
+                }
+            });
+        }
+
+        // Initialize when the page loads
+        document.addEventListener('DOMContentLoaded', initPlayground);
+    </script>
+</body>
+</html>

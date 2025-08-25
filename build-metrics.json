@@ -1,0 +1,86 @@
+[
+  {
+    "timestamp": "2025-08-25T20:08:14.686Z",
+    "buildTimeMs": 5.329108,
+    "memoryUsedBytes": 1849440,
+    "memoryUsedMB": "1.76"
+  },
+  {
+    "timestamp": "2025-08-25T20:09:25.831Z",
+    "buildTimeMs": 5.19189,
+    "memoryUsedBytes": 1882856,
+    "memoryUsedMB": "1.80"
+  },
+  {
+    "timestamp": "2025-08-25T20:10:04.373Z",
+    "buildTimeMs": 6.497921,
+    "memoryUsedBytes": 1821872,
+    "memoryUsedMB": "1.74"
+  },
+  {
+    "timestamp": "2025-08-25T20:11:12.817Z",
+    "buildTimeMs": 6.686197,
+    "memoryUsedBytes": 1809416,
+    "memoryUsedMB": "1.73"
+  },
+  {
+    "timestamp": "2025-08-25T20:11:47.969Z",
+    "buildTimeMs": 5.322339,
+    "memoryUsedBytes": 1857368,
+    "memoryUsedMB": "1.77"
+  },
+  {
+    "timestamp": "2025-08-25T20:11:50.605Z",
+    "buildTimeMs": 5.089067,
+    "memoryUsedBytes": 1883920,
+    "memoryUsedMB": "1.80"
+  },
+  {
+    "timestamp": "2025-08-25T20:14:29.598Z",
+    "buildTimeMs": 0.129786,
+    "memoryUsedBytes": 6032,
+    "memoryUsedMB": "0.01"
+  },
+  {
+    "timestamp": "2025-08-25T20:14:35.521Z",
+    "buildTimeMs": 0.122914,
+    "memoryUsedBytes": 6032,
+    "memoryUsedMB": "0.01"
+  },
+  {
+    "timestamp": "2025-08-25T20:15:49.437Z",
+    "buildTimeMs": 0.172325,
+    "memoryUsedBytes": 21440,
+    "memoryUsedMB": "0.02"
+  },
+  {
+    "timestamp": "2025-08-25T20:17:44.170Z",
+    "buildTimeMs": 5.118694,
+    "memoryUsedBytes": 1793688,
+    "memoryUsedMB": "1.71"
+  },
+  {
+    "timestamp": "2025-08-25T20:17:51.802Z",
+    "buildTimeMs": 5.578796,
+    "memoryUsedBytes": 1859760,
+    "memoryUsedMB": "1.77"
+  },
+  {
+    "timestamp": "2025-08-25T20:18:10.158Z",
+    "buildTimeMs": 5.17483,
+    "memoryUsedBytes": 1853960,
+    "memoryUsedMB": "1.77"
+  },
+  {
+    "timestamp": "2025-08-25T20:18:12.762Z",
+    "buildTimeMs": 5.385199,
+    "memoryUsedBytes": 1897040,
+    "memoryUsedMB": "1.81"
+  },
+  {
+    "timestamp": "2025-08-25T20:20:15.925Z",
+    "buildTimeMs": 5.385516,
+    "memoryUsedBytes": 1867296,
+    "memoryUsedMB": "1.78"
+  }
+]

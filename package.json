@@ -39,6 +39,11 @@
         "label": "Tokyo Night Lod",
         "uiTheme": "vs-dark",
         "path": "./themes/tokyo-night-dark-color-theme.json"
+      },
+      {
+        "label": "Tokyo Night Lod High Contrast",
+        "uiTheme": "vs-dark",
+        "path": "./themes/tokyo-night-dark-high-contrast-color-theme.json"
       }
     ]
   },
@@ -48,11 +53,18 @@
     "validate:all": "ts-node src/scripts/validate-theme.ts --all",
     "validate:summary": "ts-node src/scripts/validate-theme.ts --all --summary",
     "validate:fix": "ts-node src/scripts/validate-theme.ts --all --fix",
-    "test": "npm run validate:all && npm run test:smoke",
+    "test": "npm run validate:all && npm run test:smoke && npm run test:unit",
+    "test:unit": "jest tests/unit",
+    "test:watch": "jest tests/unit --watch",
+    "test:coverage": "jest tests/unit --coverage",
+    "test:visual": "node scripts/visual-test.js",
     "lint": "npm run lint:hex",
     "lint:hex": "ts-node scripts/lint-hex.ts",
     "test:smoke": "ts-node scripts/smoke-compare.ts",
     "cli": "ts-node scripts/cli.ts",
+    "debug": "node scripts/theme-debug.js",
+    "setup": "node scripts/setup-dev.js",
+    "analyze": "node scripts/bundle-analyzer.js",
     "package": "vsce package",
     "publish": "vsce publish",
     "release": "ts-node scripts/smart-version.ts",
@@ -65,8 +77,11 @@
     "version:dry": "ts-node scripts/smart-version.ts --dry-run"
   },
   "devDependencies": {
+    "@types/jest": "^29.5.14",
     "@types/node": "^20.19.10",
+    "jest": "^29.7.0",
     "standard-version": "^9.5.0",
+    "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
   }

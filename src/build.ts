@@ -22,17 +22,19 @@ import { getDebugColors } from './theme/debug'
 import { getQuickInputColors } from './theme/quickInput'
 import { getMiscColors } from './theme/misc'
 
-// Новые модули улучшенной архитектуры
+// New modules with improved architecture
 import { ThemeValidator } from './validation/themeValidator'
 import { PropertyValidator } from './validation/propertyValidator'
+import { ThemeBuilder } from './variants/themeBuilder'
 import type { ThemeObject } from './variants/themeBuilder'
 
 /**
- * Улучшенный генератор темы с поддержкой новой архитектуры
+ * Improved theme generator with new architecture support
  */
 
 const root = path.resolve(__dirname, '..')
-const themePath = path.join(root, 'themes', 'tokyo-night-dark-color-theme.json')
+const standardThemePath = path.join(root, 'themes', 'tokyo-night-dark-color-theme.json')
+const highContrastThemePath = path.join(root, 'themes', 'tokyo-night-dark-high-contrast-color-theme.json')
 
 export const buildColors = (): Record<string, string> => ({
   ...getBaseColors(),
@@ -58,27 +60,22 @@ export const buildColors = (): Record<string, string> => ({
 })
 
 /**
- * Улучшенная функция сборки с поддержкой конфигурации и плагинов
- */
-// Упрощение архитектуры: удалён слой Config/Plugin.
-// Генерация тем выполняется напрямую через ThemeBuilder, а проверки — через валидаторы ниже.
-
-/**
- * Валидация и сохранение темы
+ * Validate and save theme
  */
 const validateAndSaveTheme = (
   theme: ThemeObject,
   themePath: string,
   themeName: string
 ): void => {
-  // Валидируем свойства темы
+  console.log(`Validating theme: ${themeName}`)
+  // Validate theme properties
   const propertyValidator = new PropertyValidator()
   const propertyValidation = propertyValidator.validateThemeProperties(
     theme as any
   )
 
   if (!propertyValidation.passed) {
-    console.warn(`⚠️  Найдены проблемы с свойствами в ${themeName}:`)
+    console.warn(`⚠️  Issues found with properties in ${themeName}:`)
     propertyValidation.issues.forEach((issue) => {
       const severity =
         issue.severity === 'error'
@@ -92,12 +89,12 @@ const validateAndSaveTheme = (
       }
     })
 
-    // Автоматически исправляем недопустимые свойства
+    // Automatically fix invalid properties
     const { fixedTheme, fixes } = propertyValidator.fixInvalidProperties(
       theme as any
     )
     if (fixes.length > 0) {
-      console.log(`🔧 Автоматически исправлено ${fixes.length} проблем:`)
+      console.log(`🔧 Automatically fixed ${fixes.length} issues:`)
       fixes.forEach((fix) => {
         console.log(`  • ${fix.property}: ${fix.action}`)
       })
@@ -109,15 +106,15 @@ const validateAndSaveTheme = (
       } as ThemeObject
     }
   } else {
-    console.log(`✅ Валидация свойств ${themeName} прошла успешно`)
+    console.log(`✅ Theme properties validation passed for ${themeName}`)
   }
 
-  // Валидируем качество темы (с отключением избыточных информационных сообщений)
+  // Validate theme quality (with disabled excessive info messages)
   const qualityValidator = new ThemeValidator({ skipInfo: true })
   const qualityValidation = qualityValidator.validateTheme(theme)
 
   if (!qualityValidation.passed) {
-    console.warn(`⚠️  Найдены проблемы с качеством в ${themeName}:`)
+    console.warn(`⚠️  Quality issues found in ${themeName}:`)
     qualityValidation.issues.forEach((issue) => {
       const severity =
         issue.severity === 'error'
@@ -132,35 +129,83 @@ const validateAndSaveTheme = (
     })
   }
 
-  // Сохраняем тему
+  // Save theme
+  console.log(`Saving theme to ${themePath}`)
   const out = JSON.stringify(theme, null, 2) + '\n'
   fs.writeFileSync(themePath, out, 'utf8')
+  console.log(`Theme saved to ${themePath}`)
 }
-/**
- * Генерация динамических цветов
- */
-const main = () => {
-  console.log('🏗️  Сборка темы Tokyo Night Lod...')
 
-  // Создаем директорию themes если она не существует
-  const themesDir = path.dirname(themePath)
+/**
+ * Generate dynamic colors
+ */
+const main = async (): Promise<void> => {
+  console.log('🏗️  Building Tokyo Night Lod theme...')
+  console.log('Starting main function execution')
+
+  // Import performance monitor
+  const { BuildPerformanceMonitor } = require('../scripts/build-monitor.js')
+  const monitor = new BuildPerformanceMonitor()
+  monitor.start()
+
+  // Create themes directory if it doesn't exist
+  const themesDir = path.dirname(standardThemePath)
   if (!fs.existsSync(themesDir)) {
     fs.mkdirSync(themesDir, { recursive: true })
   }
 
-  // Импортируем ThemeBuilder
-  const { ThemeBuilder } = require('./variants/themeBuilder')
+  console.log('\n🔍 Validating and building themes...')
 
-  console.log('\n🔍 Валидация и сборка тем...')
+  // Generate standard theme
+  console.log('Generating standard theme...')
+  const standardTheme = ThemeBuilder.buildStandard()
+  console.log('Standard theme generated:', standardTheme.name)
+  console.log('Saving standard theme...')
+  validateAndSaveTheme(standardTheme, standardThemePath, 'Tokyo Night Dark')
+  console.log(`📁 File: ${standardThemePath}`)
 
-  // Генерируем основную тему
-  const theme = ThemeBuilder.buildStandard()
-  validateAndSaveTheme(theme, themePath, 'Tokyo Night Dark')
-  console.log(`📁 Файл: ${themePath}`)
+  // Generate high contrast theme
+  console.log('Generating high contrast theme...')
+  const highContrastTheme = ThemeBuilder.buildHighContrast()
+  console.log('High contrast theme generated:', highContrastTheme.name)
+  console.log('Saving high contrast theme...')
+  validateAndSaveTheme(highContrastTheme, highContrastThemePath, 'Tokyo Night Dark High Contrast')
+  console.log(`📁 File: ${highContrastThemePath}`)
+  console.log('Checking if high contrast theme file exists...')
+  if (fs.existsSync(highContrastThemePath)) {
+    console.log('High contrast theme file exists')
+  } else {
+    console.log('High contrast theme file does NOT exist')
+  }
 
-  console.log('\n🎉 Сборка завершена! Тема прошла валидацию.')
+  // End performance monitoring
+  const metrics = monitor.end()
+  
+  console.log('\n🎉 Build completed! All themes passed validation.')
+  
+  // Show performance comparison
+  const avgMetrics = monitor.getAverageMetrics()
+  if (avgMetrics) {
+    console.log(`\n📈 Average metrics:`)
+    console.log(`   Build time: ${avgMetrics.averageBuildTimeMs.toFixed(2)}ms`)
+    console.log(`   Memory usage: ${avgMetrics.averageMemoryUsedMB}MB`)
+    
+    if (metrics) {
+      const timeDiff = metrics.buildTimeMs - avgMetrics.averageBuildTimeMs
+      const memDiff = parseFloat(metrics.memoryUsedMB) - parseFloat(avgMetrics.averageMemoryUsedMB)
+      
+      console.log(`\n📊 Comparison with average:`)
+      console.log(`   Time: ${timeDiff >= 0 ? '+' : ''}${timeDiff.toFixed(2)}ms ${timeDiff > 0 ? '🔴' : '🟢'}`)
+      console.log(`   Memory: ${memDiff >= 0 ? '+' : ''}${memDiff.toFixed(2)}MB ${memDiff > 0 ? '🔴' : '🟢'}`)
+    }
+  }
 }
 
+console.log('Starting main function...')
 if (require.main === module) {
-  main()
+  console.log('Executing main function...')
+  main().catch((error: Error) => {
+    console.error('❌ Build failed:', error)
+    process.exit(1)
+  })
 }

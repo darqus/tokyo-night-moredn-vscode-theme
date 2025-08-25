@@ -1,8 +1,8 @@
 #!/usr/bin/env ts-node
 
 /**
- * Тестовый скрипт для демонстрации умной системы версионирования
- * Создает тестовые коммиты и показывает как работает анализ
+ * Test script to demonstrate the smart versioning system
+ * Creates test commits and shows how analysis works
  */
 
 import { execSync } from 'child_process'
@@ -42,53 +42,53 @@ const testScenarios: TestScenario[] = [
   {
     name: 'Scenario 1: Only fixes',
     commits: [
-      'fix(theme): исправить контрастность кнопок',
-      'fix(build): исправить сборку на Windows',
-      'docs(readme): обновить инструкцию по установке',
+      'fix(theme): fix button contrast',
+      'fix(build): fix Windows build',
+      'docs(readme): update installation instructions',
     ],
     expectedType: 'patch',
-    description: 'Только исправления - должен быть PATCH релиз',
+    description: 'Only fixes - should be PATCH release',
   },
   {
     name: 'Scenario 2: Features + fixes',
     commits: [
-      'feat(theme): добавить поддержку светлой темы',
-      'feat(variants): новый минимальный вариант',
-      'fix(ui): исправить отступы в панели',
-      'perf(build): ускорить сборку',
+      'feat(theme): add light theme support',
+      'feat(variants): new minimal variant',
+      'fix(ui): fix panel padding',
+      'perf(build): speed up build',
     ],
     expectedType: 'minor',
-    description: 'Новые функции + исправления - должен быть MINOR релиз',
+    description: 'New features + fixes - should be MINOR release',
   },
   {
     name: 'Scenario 3: Breaking changes',
     commits: [
-      'feat(api)!: новый формат конфигурации',
-      'fix(theme): исправить цвета',
-      'refactor(build): переработать систему',
+      'feat(api)!: new config format',
+      'fix(theme): fix colors',
+      'refactor(build): overhaul system',
     ],
     expectedType: 'major',
-    description: 'Breaking changes - должен быть MAJOR релиз',
+    description: 'Breaking changes - should be MAJOR release',
   },
   {
     name: 'Scenario 4: Only documentation',
     commits: [
-      'docs(api): добавить примеры использования',
-      'docs(readme): обновить описание',
-      'style(code): улучшить форматирование',
+      'docs(api): add usage examples',
+      'docs(readme): update description',
+      'style(code): improve formatting',
     ],
     expectedType: 'patch',
-    description: 'Только документация и стили - должен быть PATCH релиз',
+    description: 'Only documentation and styles - should be PATCH release',
   },
   {
     name: 'Scenario 5: Performance improvements',
     commits: [
-      'perf(palette): оптимизировать генерацию цветов',
-      'perf(build): ускорить компиляцию TypeScript',
-      'fix(memory): исправить утечку памяти',
+      'perf(palette): optimize color generation',
+      'perf(build): speed up TypeScript compilation',
+      'fix(memory): fix memory leak',
     ],
     expectedType: 'patch',
-    description: 'Улучшения производительности - должен быть PATCH релиз',
+    description: 'Performance improvements - should be PATCH release',
   },
 ]
 
@@ -100,19 +100,19 @@ class SmartVersionTester {
   }
 
   /**
-   * Запустить все тестовые сценарии
+   * Run all test scenarios
    */
   async runAllTests(): Promise<void> {
-    console.log('🧪 Запуск тестов умной системы версионирования\n')
+    console.log('🧪 Running smart versioning system tests\n')
     console.log('='.repeat(80))
 
     for (let i = 0; i < testScenarios.length; i++) {
       const scenario = testScenarios[i]
       console.log(
-        `\n📋 Тест ${i + 1}/${testScenarios.length}: ${scenario.name}`
+        `\n📋 Test ${i + 1}/${testScenarios.length}: ${scenario.name}`
       )
-      console.log(`📝 Описание: ${scenario.description}`)
-      console.log(`🎯 Ожидается: ${scenario.expectedType.toUpperCase()} релиз`)
+      console.log(`📝 Description: ${scenario.description}`)
+      console.log(`🎯 Expected: ${scenario.expectedType.toUpperCase()} release`)
       console.log('-'.repeat(60))
 
       await this.testScenario(scenario)
@@ -122,21 +122,21 @@ class SmartVersionTester {
       }
     }
 
-    console.log('\n✅ Все тесты завершены!')
+    console.log('\n✅ All tests completed!')
     this.printSummary()
   }
 
   /**
-   * Протестировать один сценарий
+   * Test one scenario
    */
   private async testScenario(scenario: TestScenario): Promise<void> {
     try {
-      console.log('\n📝 Коммиты для теста:')
+      console.log('\n📝 Commits for test:')
       scenario.commits.forEach((commit, index) => {
         console.log(`   ${index + 1}. ${commit}`)
       })
 
-      // Имитируем анализ коммитов создавая временные данные
+      // Simulate commit analysis by creating temporary data
       const mockCommits = scenario.commits
         .map((commit, index) => {
           const conventionalRegex = /^(\w+)(\(.+\))?(!)?:\s*(.+)$/
@@ -159,46 +159,44 @@ class SmartVersionTester {
         })
         .filter((commit) => commit !== null)
 
-      // Анализируем коммиты
+      // Analyze commits
       const analysis = this.analyzeTestCommits(mockCommits as CommitData[])
 
-      console.log('\n🔍 Результат анализа:')
+      console.log('\n🔍 Analysis result:')
       console.log(
-        `   📊 Рекомендуемый тип: ${analysis.recommended.toUpperCase()}`
+        `   📊 Recommended type: ${analysis.recommended.toUpperCase()}`
       )
-      console.log(`   📝 Всего коммитов: ${analysis.stats.total}`)
+      console.log(`   📝 Total commits: ${analysis.stats.total}`)
       console.log(`   ✨ Features: ${analysis.stats.features}`)
       console.log(`   🐛 Fixes: ${analysis.stats.fixes}`)
       console.log(`   💥 Breaking: ${analysis.stats.breaking}`)
       console.log(`   ⚡ Performance: ${analysis.stats.performance}`)
 
-      // Проверяем ожидания
+      // Check expectations
       const isCorrect = analysis.recommended === scenario.expectedType
       console.log(
-        `\n${isCorrect ? '✅' : '❌'} Тест ${
-          isCorrect ? 'ПРОШЕЛ' : 'НЕ ПРОШЕЛ'
-        }`
+        `\n${isCorrect ? '✅' : '❌'} Test ${isCorrect ? 'PASSED' : 'FAILED'}`
       )
 
       if (!isCorrect) {
-        console.log(`   ❌ Ожидался: ${scenario.expectedType.toUpperCase()}`)
-        console.log(`   ❌ Получен: ${analysis.recommended.toUpperCase()}`)
+        console.log(`   ❌ Expected: ${scenario.expectedType.toUpperCase()}`)
+        console.log(`   ❌ Got: ${analysis.recommended.toUpperCase()}`)
       }
 
-      // Показываем краткое содержание
+      // Show summary
       if (analysis.summary.length > 0) {
-        console.log('\n📋 Краткое содержание:')
+        console.log('\n📋 Summary:')
         analysis.summary
           .slice(0, 5)
           .forEach((item: string) => console.log(item))
       }
     } catch (error) {
-      console.error(`❌ Ошибка в тесте: ${error}`)
+      console.error(`❌ Test error: ${error}`)
     }
   }
 
   /**
-   * Анализировать тестовые коммиты (упрощенная версия)
+   * Analyze test commits (simplified version)
    */
   private analyzeTestCommits(commits: CommitData[]): AnalysisResult {
     const stats = {
@@ -244,7 +242,7 @@ class SmartVersionTester {
       }
     }
 
-    // Определяем рекомендуемый тип релиза
+    // Determine recommended release type
     let recommended: 'patch' | 'minor' | 'major' = 'patch'
 
     if (hasBreaking) {
@@ -265,71 +263,72 @@ class SmartVersionTester {
   }
 
   /**
-   * Показать итоговую сводку
+   * Show final summary
    */
   private printSummary(): void {
-    console.log('\n📊 Итоговая сводка:')
-    console.log('   🧪 Тестовые сценарии показывают работу логики анализа')
-    console.log('   ✅ Система корректно определяет типы релизов')
-    console.log('   📈 Приоритет: MAJOR > MINOR > PATCH')
-    console.log('   💡 Breaking changes всегда приводят к MAJOR')
-    console.log('   ⚡ Features без breaking changes дают MINOR')
-    console.log('   🐛 Только fixes/perf дают PATCH')
+    console.log('\n📊 Final summary:')
+    console.log('   🧪 Test scenarios demonstrate analysis logic')
+    console.log('   ✅ System correctly determines release types')
+    console.log('   📈 Priority: MAJOR > MINOR > PATCH')
+    console.log('   💡 Breaking changes always lead to MAJOR')
+    console.log('   ⚡ Features without breaking changes give MINOR')
+    console.log('   🐛 Only fixes/perf give PATCH')
 
-    console.log('\n🚀 Для реального использования:')
-    console.log('   npm run release              # Умный релиз')
-    console.log('   npm run version:analyze      # Только анализ')
-    console.log('   npm run release:dry          # Предварительный просмотр')
+    console.log('\n🚀 For real usage:')
+    console.log('   npm run release              # Smart release')
+    console.log('   npm run version:analyze      # Analysis only')
+    console.log('   npm run release:dry          # Preview')
   }
 
   /**
-   * Демонстрационный режим с интерактивностью
+   * Demo mode with interactivity
    */
   async interactiveDemo(): Promise<void> {
-    console.log('🎮 Интерактивная демонстрация умной системы версионирования\n')
+    console.log('🎮 Interactive demo of smart versioning system\n')
 
-    // Показываем реальный анализ текущих коммитов
-    console.log('📊 Анализ реальных коммитов в репозитории:')
+    // Show real analysis of current commits
+    console.log('📊 Analysis of real commits in repository:')
     console.log('-'.repeat(50))
 
     try {
       const analysis = await this.smartVersion.analyzeCommits({
         verbose: true,
-        force: true, // Игнорируем git статус для демо
+        force: true, // Ignore git status for demo
       })
 
-      console.log('\n🎯 Этот анализ показывает реальное состояние проекта')
-      console.log('📈 Система готова к использованию!')
+      console.log('\n🎯 This analysis shows real project state')
+      console.log('📈 System is ready for use!')
     } catch (error) {
-      console.log('ℹ️  Реальный анализ недоступен (нет git истории или тегов)')
-      console.log('🧪 Запускаем тестовые сценарии вместо этого...\n')
+      console.log('ℹ️  Real analysis unavailable (no git history or tags)')
+      console.log('🧪 Running test scenarios instead...\n')
       await this.runAllTests()
     }
   }
 }
 
-// CLI интерфейс
+// CLI interface
 async function main() {
   const args = process.argv.slice(2)
   const tester = new SmartVersionTester()
 
   if (args.includes('--help') || args.includes('-h')) {
     console.log(`
-🧪 Тестер умной системы версионирования
 
-Использование:
-  npm run test:version              # Запустить все тесты
-  npm run test:version -- --demo    # Интерактивная демонстрация
-  npm run test:version -- --help    # Показать справку
+🧪 Smart Versioning System Tester
 
-Описание:
-  Этот скрипт тестирует логику умной системы версионирования
-  на различных сценариях коммитов, показывая как определяется
-  тип релиза (patch/minor/major) на основе conventional commits.
+Usage:
+  npm run test:version              # Run all tests
+  npm run test:version -- --demo    # Interactive demo
+  npm run test:version -- --help    # Show help
 
-Примеры:
-  test:version                      # Все тестовые сценарии
-  test:version -- --demo            # Демо с реальными данными
+Description:
+  This script tests the logic of the smart versioning system
+  on various commit scenarios, showing how the release type
+  (patch/minor/major) is determined based on conventional commits.
+
+Examples:
+  test:version                      # All test scenarios
+  test:version -- --demo            # Demo with real data
 `)
     return
   }

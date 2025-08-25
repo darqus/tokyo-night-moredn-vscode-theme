@@ -52,7 +52,7 @@ class SmartVersionManager {
   }
 
   /**
-   * Анализировать коммиты и определить тип версии
+   * Analyze commits and determine version type
    */
   async analyzeCommits(
     options: SmartVersionOptions = {}
@@ -72,7 +72,7 @@ class SmartVersionManager {
   }
 
   /**
-   * Выполнить умный релиз
+   * Execute smart release
    */
   async smartRelease(options: SmartVersionOptions = {}): Promise<void> {
     try {
@@ -116,26 +116,26 @@ class SmartVersionManager {
         return
       }
 
-      // Выполняем релиз
+      // Execute release
       await this.executeRelease(releaseType, options)
 
       console.log('\n✅ Smart release successfully completed!')
       this.printNextSteps(nextVersion)
     } catch (error) {
-      console.error('❌ Ошибка умного релиза:', error)
+      console.error('❌ Smart release error:', error)
       process.exit(1)
     }
   }
 
   /**
-   * Получить коммиты с последней версии
+   * Get commits since last release
    */
   private getCommitsSinceLastRelease(since?: string): CommitInfo[] {
     try {
-      // Определяем диапазон коммитов
+      // Determine commit range
       let range = since || this.getLastReleaseTag()
       if (!range) {
-        range = '--all' // Если тегов нет, берем все коммиты
+        range = '--all' // If no tags, take all commits
       } else {
         range = `${range}..HEAD`
       }
@@ -154,13 +154,13 @@ class SmartVersionManager {
         .map((line) => this.parseCommit(line))
         .filter((commit) => commit !== null) as CommitInfo[]
     } catch (error) {
-      console.warn(`⚠️  Не удалось получить коммиты: ${error}`)
+      console.warn(`⚠️  Failed to get commits: ${error}`)
       return []
     }
   }
 
   /**
-   * Получить тег последнего релиза
+   * Get last release tag
    */
   private getLastReleaseTag(): string | null {
     try {
@@ -170,12 +170,12 @@ class SmartVersionManager {
       })
       return output.trim()
     } catch (error) {
-      return null // Нет тегов
+      return null // No tags
     }
   }
 
   /**
-   * Парсить conventional commit
+   * Parse conventional commit
    */
   private parseCommit(line: string): CommitInfo | null {
     const parts = line.split('|')
@@ -189,19 +189,19 @@ class SmartVersionManager {
       return null
     }
 
-    // Парсим conventional commit формат
+    // Parse conventional commit format
     const conventionalRegex = /^(\w+)(\(.+\))?(!)?:\s*(.+)$/
     const match = subject.match(conventionalRegex)
 
     if (!match) {
-      // Если не соответствует conventional commits, пропускаем
+      // If it doesn't match conventional commits, skip
       return null
     }
 
     const [, type, scopeMatch, breakingMark, description] = match
     const scope = scopeMatch ? scopeMatch.slice(1, -1) : undefined
 
-    // Проверяем на breaking changes
+    // Check for breaking changes
     const breaking = !!(
       breakingMark ||
       body.includes('BREAKING CHANGE:') ||
@@ -219,7 +219,7 @@ class SmartVersionManager {
   }
 
   /**
-   * Анализировать типы коммитов
+   * Analyze commit types
    */
   private analyzeCommitTypes(commits: CommitInfo[]): VersionAnalysis {
     const stats = {
@@ -236,7 +236,7 @@ class SmartVersionManager {
     let hasBreaking = false
 
     for (const commit of commits) {
-      // Подсчет статистики
+      // Count statistics
       switch (commit.type) {
         case 'feat':
           stats.features++
@@ -290,7 +290,7 @@ class SmartVersionManager {
       }
     }
 
-    // Определяем рекомендуемый тип релиза
+    // Determine recommended release type
     let recommended: 'patch' | 'minor' | 'major' = 'patch'
 
     if (hasBreaking) {
@@ -311,7 +311,7 @@ class SmartVersionManager {
   }
 
   /**
-   * Напечатать краткий анализ
+   * Print brief analysis
    */
   private printAnalysisSummary(analysis: VersionAnalysis): void {
     console.log('🔍 Commit analysis completed:')
@@ -344,7 +344,7 @@ class SmartVersionManager {
   }
 
   /**
-   * Напечатать детальный анализ
+   * Print detailed analysis
    */
   private printDetailedAnalysis(analysis: VersionAnalysis): void {
     console.log('📊 Detailed commit statistics:')
@@ -367,7 +367,7 @@ class SmartVersionManager {
   }
 
   /**
-   * Получить текущую версию
+   * Get current version
    */
   private getCurrentVersion(): string {
     const pkg = JSON.parse(readFileSync(this.packagePath, 'utf8'))
@@ -375,7 +375,7 @@ class SmartVersionManager {
   }
 
   /**
-   * Вычислить следующую версию
+   * Calculate next version
    */
   private calculateNextVersion(
     current: string,
@@ -396,23 +396,23 @@ class SmartVersionManager {
   }
 
   /**
-   * Проверить статус git
+   * Check git status
    */
   private checkGitStatus(): void {
     try {
       const status = execSync('git status --porcelain', { encoding: 'utf8' })
       if (status.trim()) {
-        console.warn('⚠️  Есть незакоммиченные изменения:')
+        console.warn('⚠️  There are uncommitted changes:')
         console.log(status)
-        throw new Error('Закоммитьте или отмените изменения перед релизом')
+        throw new Error('Commit or stash changes before release')
       }
     } catch (error) {
-      throw new Error(`Ошибка проверки git статуса: ${error}`)
+      throw new Error(`Error checking git status: ${error}`)
     }
   }
 
   /**
-   * Выполнить релиз
+   * Execute release
    */
   private async executeRelease(
     type: string,
@@ -420,40 +420,40 @@ class SmartVersionManager {
   ): Promise<void> {
     console.log('\n🏗️  Executing release...')
 
-    // Запускаем тесты
+    // Run tests
     console.log('🧪 Running tests...')
     try {
       execSync('npm run test', { stdio: 'inherit' })
     } catch (error) {
-      throw new Error('Тесты не прошли')
+      throw new Error('Tests failed')
     }
 
-    // Собираем проект
+    // Build project
     console.log('🏗️  Building project...')
     try {
       execSync('npm run build', { stdio: 'inherit' })
     } catch (error) {
-      throw new Error('Ошибка сборки проекта')
+      throw new Error('Project build error')
     }
 
-    // Создаем релиз с standard-version
+    // Create release with standard-version
     console.log(`📦 Creating ${type} release...`)
     try {
       const command = `npx standard-version --release-as ${type}`
       execSync(command, { stdio: 'inherit' })
     } catch (error) {
-      throw new Error(`Ошибка создания релиза: ${error}`)
+      throw new Error(`Error creating release: ${error}`)
     }
 
-    // Создаем пакет
+    // Create package
     console.log('📦 Creating VSIX package...')
     try {
       execSync('npm run package', { stdio: 'inherit' })
     } catch (error) {
-      throw new Error('Ошибка создания пакета')
+      throw new Error('Package creation error')
     }
 
-    // Создаем релиз на GitHub
+    // Create GitHub release
     console.log('🚀 Creating GitHub release...')
     try {
       const latestTag = execSync('git describe --tags --abbrev=0', {
@@ -463,16 +463,15 @@ class SmartVersionManager {
         stdio: 'inherit',
       })
     } catch (error) {
-      throw new Error('Ошибка создания релиза на GitHub')
+      throw new Error('Error creating GitHub release')
     }
   }
 
   /**
-   * Показать следующие шаги
+   * Show next steps
    */
   private printNextSteps(version: string): void {
-    console.log('
-📋 Next steps:')
+    console.log('\n📋 Next steps:')
     console.log('1. Publish package: npm run publish')
     console.log(
       `🎉 New version ${version} is released and available on GitHub!`
@@ -480,43 +479,44 @@ class SmartVersionManager {
   }
 }
 
-// CLI интерфейс
+// CLI interface
 async function main() {
   const args = process.argv.slice(2)
   const smartVersion = new SmartVersionManager()
 
   if (args.includes('--help') || args.includes('-h')) {
     console.log(`
+
 🤖 Tokyo Night Lod Smart Version Manager
 
-Использование:
-  npm run version:smart              # Умный релиз (анализ + выпуск)
-  npm run version:analyze            # Только анализ коммитов
-  npm run version:smart --dry-run    # Предварительный просмотр
+Usage:
+  npm run version:smart              # Smart release (analysis + release)
+  npm run version:analyze            # Commit analysis only
+  npm run version:smart --dry-run    # Preview
 
-Опции:
-  --dry-run                          # Показать что будет сделано
-  --force                            # Игнорировать git проверки
-  --verbose                          # Детальный вывод анализа
-  --since <tag>                      # Анализ с определенного тега
-  --patch                            # Явно указать patch версию
-  --minor                            # Явно указать minor версию
-  --major                            # Явно указать major версию
-  --help, -h                         # Показать эту справку
+Options:
+  --dry-run                          # Show what would be done
+  --force                            # Ignore git checks
+  --verbose                          # Detailed analysis output
+  --since <tag>                      # Analysis from specific tag
+  --patch                            # Explicitly specify patch version
+  --minor                            # Explicitly specify minor version
+  --major                            # Explicitly specify major version
+  --help, -h                         # Show this help
 
-Примеры:
-  npm run version:smart              # Автоматический релиз
-  npm run version:analyze            # Только анализ
-  npm run version:smart -- --verbose # Детальный анализ + релиз
-  npm run version:smart -- --since v1.0.0  # Анализ с версии 1.0.0
-  npm run version:smart -- --patch   # Явно указать patch версию
-  npm run version:smart -- --minor   # Явно указать minor версию
-  npm run version:smart -- --major   # Явно указать major версию
+Examples:
+  npm run version:smart              # Automatic release
+  npm run version:analyze            # Analysis only
+  npm run version:smart -- --verbose # Detailed analysis + release
+  npm run version:smart -- --since v1.0.0  # Analysis from version 1.0.0
+  npm run version:smart -- --patch   # Explicitly specify patch version
+  npm run version:smart -- --minor   # Explicitly specify minor version
+  npm run version:smart -- --major   # Explicitly specify major version
 
-Логика определения версий:
-  - MAJOR: если есть breaking changes (feat!: или BREAKING CHANGE:)
-  - MINOR: если есть новые функции (feat:)
-  - PATCH: если есть только исправления (fix:, perf:)
+Version determination logic:
+  - MAJOR: if there are breaking changes (feat!: or BREAKING CHANGE:)
+  - MINOR: if there are new features (feat:)
+  - PATCH: if there are only fixes (fix:, perf:)
 `)
     return
   }
@@ -533,7 +533,7 @@ async function main() {
     major: args.includes('--major'),
   }
 
-  // Определяем режим работы
+  // Determine mode of operation
   const scriptName = process.env.npm_lifecycle_event
 
   if (scriptName === 'version:analyze' || args.includes('--analyze-only')) {

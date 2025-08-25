@@ -26,9 +26,11 @@ code --install-extension lod-inc.tokyo-night-lod
 ## ✨ Features
 
 - **Refined Colors** - Carefully balanced palette for optimal readability
+- **High Contrast Variant** - Enhanced visibility for accessibility
 - **TypeScript Build** - Modern, maintainable theme generation
 - **Smart Versioning** - Automated release management
 - **Quality Assurance** - Comprehensive validation pipeline
+- **Performance Monitoring** - Build time and resource usage tracking
 
 ## 🛠️ Development
 
@@ -50,16 +52,23 @@ npm run build
 ### Commands
 
 ```bash
-npm run build     # Build theme
-npm test          # Run tests
-npm run release   # Create release
+npm run build        # Build theme
+npm test             # Run all tests
+npm run test:watch   # Run tests in watch mode
+npm run test:visual  # Run visual regression tests
+npm run analyze      # Analyze theme bundle
+npm run debug        # Debug theme properties
+npm run setup        # Set up development environment
 ```
 
 ## 📚 Documentation
 
 - [Development Guide](./docs/DEVELOPMENT.md) - Build and modify themes
-- [Color Palette](./docs/COLOR_PALETTE.md) - Color reference
+- [Color System](./docs/COLOR_SYSTEM.md) - Comprehensive color system documentation
+- [Semantic Tokens](./docs/SEMANTIC_TOKENS.md) - Semantic token style guide
+- [Contribution Guidelines](./docs/CONTRIBUTING.md) - How to contribute to the project
 - [Architecture](./docs/ARCHITECTURE.md) - Project structure
+- [Color Playground](./docs/playground.html) - Interactive color combination testing
 
 ## 🎨 Color Highlights
 
@@ -69,5 +78,22 @@ npm run release   # Create release
 | Strings | `#9ece6a` | Text content |
 | Functions | `#7aa2f7` | Function names |
 | Comments | `#545c7e` | Code comments |
+
+## ♿ Accessibility
+
+The Tokyo Night Lod theme includes:
+
+- **High Contrast Variant** - Enhanced version for better visibility
+- **WCAG Compliance** - All color combinations meet accessibility standards
+- **Color Blindness Support** - Tested for common forms of color vision deficiency
+
+## 🧪 Testing
+
+Our comprehensive testing suite includes:
+
+- **Unit Tests** - For utility functions and color operations
+- **Visual Regression Tests** - To ensure UI consistency
+- **Theme Validation** - To verify theme properties and quality
+- **Performance Benchmarks** - To monitor build times and resource usage
 
 Based on the original [Tokyo Night theme](https://github.com/enkia/tokyo-night-vscode-theme).
