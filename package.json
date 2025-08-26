@@ -39,11 +39,6 @@
         "label": "Tokyo Night Lod",
         "uiTheme": "vs-dark",
         "path": "./themes/tokyo-night-dark-color-theme.json"
-      },
-      {
-        "label": "Tokyo Night Lod High Contrast",
-        "uiTheme": "vs-dark",
-        "path": "./themes/tokyo-night-dark-high-contrast-color-theme.json"
       }
     ]
   },

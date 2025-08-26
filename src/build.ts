@@ -33,8 +33,11 @@ import type { ThemeObject } from './variants/themeBuilder'
  */
 
 const root = path.resolve(__dirname, '..')
-const standardThemePath = path.join(root, 'themes', 'tokyo-night-dark-color-theme.json')
-const highContrastThemePath = path.join(root, 'themes', 'tokyo-night-dark-high-contrast-color-theme.json')
+const standardThemePath = path.join(
+  root,
+  'themes',
+  'tokyo-night-dark-color-theme.json'
+)
 
 export const buildColors = (): Record<string, string> => ({
   ...getBaseColors(),
@@ -164,39 +167,35 @@ const main = async (): Promise<void> => {
   validateAndSaveTheme(standardTheme, standardThemePath, 'Tokyo Night Dark')
   console.log(`📁 File: ${standardThemePath}`)
 
-  // Generate high contrast theme
-  console.log('Generating high contrast theme...')
-  const highContrastTheme = ThemeBuilder.buildHighContrast()
-  console.log('High contrast theme generated:', highContrastTheme.name)
-  console.log('Saving high contrast theme...')
-  validateAndSaveTheme(highContrastTheme, highContrastThemePath, 'Tokyo Night Dark High Contrast')
-  console.log(`📁 File: ${highContrastThemePath}`)
-  console.log('Checking if high contrast theme file exists...')
-  if (fs.existsSync(highContrastThemePath)) {
-    console.log('High contrast theme file exists')
-  } else {
-    console.log('High contrast theme file does NOT exist')
-  }
-
   // End performance monitoring
   const metrics = monitor.end()
-  
+
   console.log('\n🎉 Build completed! All themes passed validation.')
-  
+
   // Show performance comparison
   const avgMetrics = monitor.getAverageMetrics()
   if (avgMetrics) {
     console.log(`\n📈 Average metrics:`)
     console.log(`   Build time: ${avgMetrics.averageBuildTimeMs.toFixed(2)}ms`)
     console.log(`   Memory usage: ${avgMetrics.averageMemoryUsedMB}MB`)
-    
+
     if (metrics) {
       const timeDiff = metrics.buildTimeMs - avgMetrics.averageBuildTimeMs
-      const memDiff = parseFloat(metrics.memoryUsedMB) - parseFloat(avgMetrics.averageMemoryUsedMB)
-      
+      const memDiff =
+        parseFloat(metrics.memoryUsedMB) -
+        parseFloat(avgMetrics.averageMemoryUsedMB)
+
       console.log(`\n📊 Comparison with average:`)
-      console.log(`   Time: ${timeDiff >= 0 ? '+' : ''}${timeDiff.toFixed(2)}ms ${timeDiff > 0 ? '🔴' : '🟢'}`)
-      console.log(`   Memory: ${memDiff >= 0 ? '+' : ''}${memDiff.toFixed(2)}MB ${memDiff > 0 ? '🔴' : '🟢'}`)
+      console.log(
+        `   Time: ${timeDiff >= 0 ? '+' : ''}${timeDiff.toFixed(2)}ms ${
+          timeDiff > 0 ? '🔴' : '🟢'
+        }`
+      )
+      console.log(
+        `   Memory: ${memDiff >= 0 ? '+' : ''}${memDiff.toFixed(2)}MB ${
+          memDiff > 0 ? '🔴' : '🟢'
+        }`
+      )
     }
   }
 }

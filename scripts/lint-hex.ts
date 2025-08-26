@@ -11,7 +11,6 @@ const ALLOWLIST = new Set<string>([
   path.join(SRC, 'palette.core.ts'),
   path.join(SRC, 'variants', 'themeBuilder.ts'),
   path.join(SRC, 'variants', 'index.ts'),
-  path.join(SRC, 'variants', 'high-contrast.ts'),
   path.join(SRC, 'validation', 'themeValidator.ts'),
   path.join(SRC, 'utils', 'color.ts'), // examples in comments
 ])

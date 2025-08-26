@@ -5,9 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v1.3.0.html).
 
-
 ### [1.8.2](https://github.com/darqus/tokyo-night-vscode-theme-lod/compare/v1.8.1...v1.8.2) (2025-08-26)
-
 
 ### 🏗️ Build System
 
@@ -17,22 +15,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v1.3.0
 
 ## [1.8.0](https://github.com/darqus/tokyo-night-vscode-theme-lod/compare/v1.7.0...v1.8.0) (2025-08-26)
 
-
 ### 📚 Documentation
 
 * **README:** update with new features, accessibility info, and testing details ([b440922](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/b4409222f51f79f4a0c8e26a740ce93d5a45000d))
-
 
 ### ✨ Features
 
 * **release:** remove auto push from smart-version.ts ([c0ca58e](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/c0ca58ed72a47e52ba639fb964619e9cf8e9b6fa))
 * **theme:** add SCM Graph colors and improve git blame readability ([9cd9618](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/9cd96183d5de3d0805d1320b7f02031349ef6eb6))
 
-
 ### ⚡ Performance Improvements
 
 * adjust build metrics and improve theme contrast ([c52f3fe](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/c52f3fe13b38f1364ce902fb40ac75edb743613b))
-
 
 ### 🏗️ Build System
 
@@ -40,21 +34,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v1.3.0
 
 ## [1.7.0](https://github.com/darqus/tokyo-night-vscode-theme-lod/compare/v1.6.1...v1.7.0) (2025-08-24)
 
-
 ### 📚 Documentation
 
 * trigger new workflow run ([b0e9bdc](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/b0e9bdcd4cecc8df24fd672591bb01543dcf8621))
-
 
 ### 🐛 Bug Fixes
 
 * **lint:** allow hex values in palette.base.ts ([cb6d991](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/cb6d991b000f73a089f4742422d0e3f8c421c31f))
 
-
 ### ✨ Features
 
 * **release:** create github release automatically ([e7311e9](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/e7311e9a5bc8fa09c555207351daaa483a75fb6a))
-
 
 ### 👷 CI/CD
 
@@ -66,26 +56,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v1.3.0
 
 ### [1.6.1](https://github.com/darqus/tokyo-night-vscode-theme-lod/compare/v1.6.0...v1.6.1) (2025-08-24)
 
-
 ### 👷 CI/CD
 
 * **github-actions:** refactor workflow for main and develop branches ([50db4a4](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/50db4a42db5eac76a2ba68854e35594e15b7644e))
 
 ## [1.6.0](https://github.com/darqus/tokyo-night-vscode-theme-lod/compare/v1.5.0...v1.6.0) (2025-08-24)
 
-
 ### ✨ Features
 
 * **static:** update screenshot for tokyo night dark theme ([2705912](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/2705912d3a6f68d8afae1ac3669c8ac6297371f7))
 * **theme:** elevate window title bar and activity bar ([cf28a30](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/cf28a30d7c5ad1f894435d456caecd4105702fb5))
-
 
 ### ♻️ Code Refactoring
 
 * **palette:** consolidate core palette and derived colors ([959c838](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/959c8383dc0da9613bb1a574b971e11b5888994e))
 * **palette:** remove unnecessary comments and code ([1376bc9](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/1376bc9db0aaa1b7995f6edf6c7919a9fef609ff))
 * **theme:** update Nord theme colors ([6f1df6b](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/6f1df6bdc9acb8fe155a6114b0cde110a42ee1f6))
-
 
 ### 💄 Styles and Formatting
 
@@ -94,23 +80,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v1.3.0
 
 ## [1.5.0](https://github.com/darqus/tokyo-night-vscode-theme-lod/compare/v1.4.0...v1.5.0) (2025-08-23)
 
-
 ### 📚 Documentation
 
 * **architecture:** update project overview and remove legacy details ([4e00d99](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/4e00d99562eb92c7de3ef963f62eff70d64d5eb8))
 * remove documentation optimization report ([d4aadf5](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/d4aadf56ba2788605e8421c8005f80a1be4c20ad))
 
-
 ### 🏗️ Build System
 
 * update import path for Hex type ([52624ad](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/52624ad9b5cbb353915c86d6ef6431e9230ebc95))
-
 
 ### 🐛 Bug Fixes
 
 * **semanticTokenColors:** update variable and punctuation colors ([16fec17](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/16fec17900b8a7901e213caea277bf34d0760c8d))
 * **utils:** replace string alpha values with numeric values in color functions ([780566b](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/780566be4cae04637d27cf58f34212795e581a69))
-
 
 ### 💄 Styles and Formatting
 
@@ -121,7 +103,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v1.3.0
 * **palette:** adjust colors and opacities for better visibility and consistency ([25206cc](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/25206ccaca4ed0484aef7dccd01607064fad7d7a))
 * **theme:** update colors for better contrast and visibility ([d05e763](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/d05e7636ca88691206aed1dad50d103948374497))
 * **vscode-theme:** update colors and contrast for better readability ([69f2ab6](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/69f2ab6d32ecd869992cb23475700b2cf02e5268))
-
 
 ### ♻️ Code Refactoring
 
@@ -144,7 +125,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v1.3.0
 * **theme:** update color values and adjust transparency ([e0514e5](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/e0514e5cd1d62a3d773c89ae73f4b4ea3ebc3e20))
 * **theme:** update colors and styles in Katana theme ([b13724d](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/b13724d911cebcc04fd23fccb668de9e71f6d06d))
 
-
 ### ✨ Features
 
 * **palette:** adjust comment text colors and related styles ([56353e4](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/56353e4f3cfb75b3796be23b41b0fd37463c9cc1))
@@ -155,17 +135,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v1.3.0
 
 ## [1.4.0](https://github.com/darqus/tokyo-night-vscode-theme-lod/compare/v1.3.0...v1.4.0) (2025-08-22)
 
-
 ### ✨ Features
 
 * **static:** update Tokyo Night Dark screenshot ([708e488](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/708e488844cf838610e30e2baeb9bcfabed7fb6a))
-
 
 ### ♻️ Code Refactoring
 
 * remove unused themeConfig and plugin index files ([3c814d2](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/3c814d20a390b2b25226db76fcd1930b46c16a31))
 * **theme:** simplify architecture to single Tokyo Night Lod theme ([d8d9494](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/d8d94945f76d4b3332db79de7e3f3a77875ace7f))
-
 
 ### 🏗️ Build System
 
@@ -173,21 +150,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v1.3.0
 
 ## [1.3.0](https://github.com/darqus/tokyo-night-vscode-theme-lod/compare/v1.2.1...v1.3.0) (2025-08-22)
 
-
 ### 🏗️ Build System
 
 * add pre-compare build step and update theme properties ([24b4be3](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/24b4be3afdcd7e9926e00296ac45803a9c55e6e6))
-
 
 ### 🐛 Bug Fixes
 
 * enhance widget and scrollbar shadows, update placeholder color ([dab1017](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/dab1017c6e83040b5f646fa0be869ff4ad3087cd)), closes [#7aa2f733](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/7aa2f733) [#747ca1](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/747ca1)
 * **palette:** adjust base palette white and interface editorFg colors ([d5f9473](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/d5f9473cfce2adddd48a517e04844baefb95b021))
 * Remove JSON key level colors to address highlighting issue ([a32a697](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/a32a697c040edcb87c4d13c0148d6a836770b56a)), closes [#32](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/32)
-* **theme:** improve accessibility and high contrast themes ([63d25bd](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/63d25bd479c35fbd2b4cd693ec3af2fcc871b2ab))
+* **theme:** improve accessibility and contrast for main theme ([63d25bd](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/63d25bd479c35fbd2b4cd693ec3af2fcc871b2ab))
 * **theme:** improve contrast and accessibility for various components ([00fda22](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/00fda227700b9ca8ada1d52b2b38aaee4d44dd86))
 * **themes:** update focus border and match highlight colors ([6b226ef](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/6b226efd74ef81f2f45e575e2ec7559a703468e0)), closes [#7bb2fa66](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/7bb2fa66) [#95abd966](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/95abd966) [#7bb2fa66](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/7bb2fa66) [#7bb2fa99](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/7bb2fa99) [#95abd966](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/95abd966) [#95abd999](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/95abd999) [#7bb2](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/7bb2) [#95abd9](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/95abd9) [#7bb2](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/7bb2) [#95abd9](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/95abd9)
-
 
 ### ✨ Features
 
@@ -200,7 +174,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v1.3.0
 * **theme:** implement comprehensive theme validation and improvement ([b1cfc83](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/b1cfc83b924f7a47a1fac6ba1202475bfe82b589))
 * **theme:** update focus border validation logic ([e7be124](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/e7be124311b7101717f07ad4d8bff211cdf933e7))
 * **validation:** enhance theme validation and color usage analysis ([5e4a455](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/5e4a4551110f3277f1fc3d243e2e8d5330ef987e))
-
 
 ### ♻️ Code Refactoring
 
@@ -215,7 +188,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v1.3.0
 * **theme:** simplify theme generation and remove config/plugins ([f124233](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/f1242338437b0ffa5626abe80a6aaf134e52d13d))
 * **theme:** update background colors for consistency ([eed2c6b](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/eed2c6b9e5244de096eca932e5e861a02d9615ec)), closes [#2a2a2](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/2a2a2) [#18181](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/18181) [#18181d26](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/18181d26) [#18181](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/18181) [#18181](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/18181) [#18181](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/18181) [#18181d26](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/18181d26) [#18181d26](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/18181d26) [#18181d26](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/18181d26) [#18181](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/18181) [#18181](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/18181) [#18181](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/18181) [#18181](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/18181) [#18181](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/18181) [#18181](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/18181) [#18181](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/18181) [#18181](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/18181) [#18181](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/18181) [#18181](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/18181) [#18181](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/18181)
 * update color scheme and improve contrast ([70e02ae](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/70e02ae11f398f11cb9b0ed96403a1796daba120))
-
 
 ### 💄 Styles and Formatting
 
@@ -234,18 +206,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v1.3.0
 
 ### [1.2.1](https://github.com/darqus/tokyo-night-vscode-theme-lod/compare/v1.2.0...v1.2.1) (2025-08-21)
 
-
 ### 🏗️ Build System
 
 * bump version to 1.2.0 ([bf5fd65](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/bf5fd6573b216583975a9648c51edcf06602fc56))
 
 ## [1.2.0](https://github.com/darqus/tokyo-night-vscode-theme-lod/compare/v1.0.0...v1.2.0) (2025-08-21)
 
-
 ### ✨ Features
 
 * add new Tokyo Night themes ([e8ba64b](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/e8ba64b4287ae9d570a7cfc6168983b6ddb81217))
-
 
 ### 👷 CI/CD
 
@@ -253,13 +222,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v1.3.0
 
 ## [1.1.0](https://github.com/darqus/tokyo-night-vscode-theme-lod/compare/v1.0.0...v1.1.0) (2025-08-21)
 
-
 ### ✨ Features
 
 * add new Tokyo Night themes ([e8ba64b](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/e8ba64b4287ae9d570a7cfc6168983b6ddb81217))
 
 ## [1.0.0](https://github.com/darqus/tokyo-night-vscode-theme-lod/compare/v0.4.3...v1.0.0) (2025-08-21)
-
 
 ### ⚠ BREAKING CHANGES
 
@@ -269,14 +236,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v1.3.0
 
 * apply prettier formatting to multiple files ([18b1fe1](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/18b1fe1ed1e594b9d0d21b08acaeb432fb926ca7))
 
-
 ### ✨ Features
 
 * **doc:** add smart versioning documentation ([65ca541](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/65ca54120a5ebfc993655dde52fb748be844d010))
 * **i18n:** update smart versioning system to use English language ([d4b0034](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/d4b0034bcf787f4c761abfd81f31442056027f33))
 * **release:** implement automated release process ([bf1bc90](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/bf1bc90b99baa17c86a63b9269f2f08f95442ebb))
 * **release:** smart system for automatic version detection ([537a358](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/537a3586962beab3cde852facdd5581fa73c7f45))
-
 
 ### 📚 Documentation
 
@@ -287,11 +252,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v1.3.0
 * **README:** add local installation instructions for the extension ([fd4d242](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/fd4d24206273b600b478328bf1808c86a60384e1))
 * **README:** update installation instructions and fix translation errors ([22c0f1d](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/22c0f1d16e8a74dc5d215ff9421efd8a3b6739d9))
 
-
 ### 🏗️ Build System
 
 * refactor theme building process and improve file handling ([c9e6a4e](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/c9e6a4e5b7f3fd4719130cb0fd8f05d887ca3ef6))
-
 
 ### ♻️ Code Refactoring
 
@@ -299,7 +262,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v1.3.0
 * **scripts:** include dynamic colors in smoke test comparison ([f81ffef](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/f81ffef6c4d1d5b3cd6f8618b354bea72ac9ec0a))
 * **scripts:** update smoke-compare script for current theming model ([58edc6c](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/58edc6c37de37e84b94f3634abd11df446c08d5a))
 * **theme:** optimize color generation and styling ([8e63687](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/8e63687adef87c91a8dd694ac5eeb8f8c52ad762))
-
 
 ### 🐛 Bug Fixes
 
@@ -311,7 +273,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v1.3.0
 * **test:** fix smoke tests for new architecture ([ab72702](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/ab7270244cb6e94e9587ef63bb90a695035e20b9))
 * types/v3-directive not published ([fe1258b](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/fe1258b8826cf1bbbc0683e06f4ac9d9629aae80))
 * update empty code diff to empty commit message ([504fa21](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/504fa2148f79480d91bcafa8a0797a4b88a0e063))
-
 
 ### ⏪ Reverts
 

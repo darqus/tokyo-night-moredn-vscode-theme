@@ -26,7 +26,7 @@ code --install-extension lod-inc.tokyo-night-lod
 ## ✨ Features
 
 - **Refined Colors** - Carefully balanced palette for optimal readability
-- **High Contrast Variant** - Enhanced visibility for accessibility
+- **Enhanced Accessibility** - Improved visibility for better accessibility
 - **TypeScript Build** - Modern, maintainable theme generation
 - **Smart Versioning** - Automated release management
 - **Quality Assurance** - Comprehensive validation pipeline
@@ -83,7 +83,7 @@ npm run setup        # Set up development environment
 
 The Tokyo Night Lod theme includes:
 
-- **High Contrast Variant** - Enhanced version for better visibility
+- **Enhanced Visibility** - Improved contrast for better readability
 - **WCAG Compliance** - All color combinations meet accessibility standards
 - **Color Blindness Support** - Tested for common forms of color vision deficiency
 

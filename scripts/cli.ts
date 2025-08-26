@@ -77,7 +77,6 @@ function buildCommand() {
 
     buildAndWrite('dark', ThemeBuilder.buildStandard())
     // Note: Other theme variants are not yet implemented in ThemeBuilder
-    // buildAndWrite('dark-high-contrast', ThemeBuilder.buildHighContrast())
     // buildAndWrite('dark-minimal', ThemeBuilder.buildMinimal())
     // buildAndWrite('light', ThemeBuilder.buildLight())
     // buildAndWrite('accessibility', ThemeBuilder.buildAccessibility())
@@ -139,11 +138,11 @@ function infoCommand() {
     '🏗️  Architecture: Flat (no configs or plugins), generation via ThemeBuilder'
   )
   console.log('🎯 Features:')
-  console.log(
-    '  - Built-in variants: dark, high-contrast, minimal, light, accessibility'
-  )
+  console.log('  - Built-in variants: dark, minimal, light, accessibility')
   console.log('  - Automatic theme validation')
-  console.log('  - Colors strictly from palette + color correction (no hardcoding)')
+  console.log(
+    '  - Colors strictly from palette + color correction (no hardcoding)'
+  )
   console.log('  - WCAG 2.1 compatibility (contrast)')
 }
 

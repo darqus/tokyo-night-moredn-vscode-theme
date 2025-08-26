@@ -5,6 +5,7 @@ The Tokyo Night Lod theme uses a comprehensive color system designed for optimal
 ## Color Palette Structure
 
 ### Base Palette
+
 The base palette contains fundamental colors that form the foundation of the theme:
 
 - `black` - Darkest background
@@ -20,6 +21,7 @@ The base palette contains fundamental colors that form the foundation of the the
 - `orange` - Additional accent color
 
 ### Core Palette
+
 The core palette derives colors from the base palette with specific purposes:
 
 - Background colors (`bg`)
@@ -29,6 +31,7 @@ The core palette derives colors from the base palette with specific purposes:
 - UI colors (`ui`)
 
 ### Full Palette
+
 The full palette extends the core with semantic and contextual colors:
 
 - Background colors (`bg`)
@@ -54,25 +57,33 @@ Colors in the palette are carefully chosen to maintain:
 ## Color Generation Functions
 
 ### withAlpha(hex, alpha)
+
 Adds transparency to a color:
+
 ```typescript
 withAlpha('#ff0000', 0.5) // '#ff000080'
 ```
 
 ### mix(colorA, colorB, weight)
+
 Mixes two colors with a weight (0-1):
+
 ```typescript
 mix('#ff0000', '#0000ff', 0.5) // '#800080'
 ```
 
 ### lightenToward(color, toward, amount)
+
 Lightens a color toward another color:
+
 ```typescript
 lightenToward('#808080', '#ffffff', 0.5) // '#bfbfbf'
 ```
 
 ### darkenToward(color, toward, amount)
+
 Darkens a color toward another color:
+
 ```typescript
 darkenToward('#808080', '#000000', 0.5) // '#404040'
 ```
@@ -84,7 +95,7 @@ All color combinations are checked for:
 1. **Contrast ratios** - Ensuring readability
 2. **Color blindness** - Simulating deuteranopia, protanopia, and tritanopia
 3. **Focus states** - Clear focus indicators
-4. **High contrast mode** - Compatibility with system high contrast settings
+4. **System contrast settings** - Compatibility with various system contrast settings
 
 ## Customization
 
