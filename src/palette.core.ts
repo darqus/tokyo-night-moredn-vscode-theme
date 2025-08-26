@@ -32,7 +32,7 @@ export const bgInput = mix(interfaceColors.editorBg, basePalette.black, 0.15)
 export const bgHover = lightenToward(
   interfaceColors.editorBg,
   basePalette.blue,
-  0.03
+  0.025
 )
 export const bgActive = lightenToward(
   interfaceColors.editorBg,
