@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v1.3.0.html).
 
 
+### [1.9.1](https://github.com/darqus/tokyo-night-vscode-theme-lod/compare/v1.9.0...v1.9.1) (2025-08-26)
+
+
+### 💄 Styles and Formatting
+
+* **palette:** update colors for git ignored resources ([c8a871e](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/c8a871eaecb65968372b6ee8024fdcc61c9a91e2))
+
 ## [1.9.0](https://github.com/darqus/tokyo-night-vscode-theme-lod/compare/v1.8.2...v1.9.0) (2025-08-26)
 
 
