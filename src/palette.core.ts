@@ -32,7 +32,7 @@ export const bgInput = mix(interfaceColors.editorBg, basePalette.black, 0.15)
 export const bgHover = lightenToward(
   interfaceColors.editorBg,
   basePalette.blue,
-  0.08
+  0.03
 )
 export const bgActive = lightenToward(
   interfaceColors.editorBg,
@@ -48,11 +48,7 @@ export const bgSelectionInactive = withAlpha(basePalette.blue, 0.12)
 export const bgSelectionFocus = withAlpha(basePalette.blue, 0.15)
 export const bgSelectionMenu = withAlpha(basePalette.blue, 0.15)
 
-export const bgStateLabel = mix(
-  interfaceColors.editorBg,
-  generatedGray,
-  0.15
-)
+export const bgStateLabel = mix(interfaceColors.editorBg, generatedGray, 0.15)
 export const border = mix(basePalette.black, generatedGray, 0.2)
 export const textPrimary = mix(basePalette.white, generatedGray, 0.15)
 

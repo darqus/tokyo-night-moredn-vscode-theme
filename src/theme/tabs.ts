@@ -1,13 +1,10 @@
 import { palette } from '../palette'
-import {
-  tabLastPinnedBorder,
-  tabSelectedForeground,
-} from '../palette.core'
+import { tabLastPinnedBorder, tabSelectedForeground } from '../palette.core'
 
 export const getTabColors = () => ({
   // Вкладки
   'tab.activeBackground': palette.bg.base, // Фон активной вкладки - теперь светлее
-  'tab.inactiveBackground': palette.bg.base, // Фон неактивной вкладки - теперь темнее
+  'tab.inactiveBackground': palette.bg.hover, // Фон неактивной вкладки - теперь темнее
   'tab.activeForeground': palette.fg.primary, // Текст активной вкладки - более яркий
   'tab.hoverForeground': palette.fg.activeTitle, // Текст при наведении - максимальная контрастность
   'tab.activeBorder': palette.ui.badge.base, // Граница активной вкладки - синхронизация с бейджами

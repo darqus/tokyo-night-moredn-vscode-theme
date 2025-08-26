@@ -11,7 +11,7 @@ import {
 export const getStatusBarColors = () => ({
   // Строка состояния
   'statusBar.foreground': palette.fg.muted,
-  'statusBar.background': palette.bg.overlay, // Основной фон
+  'statusBar.background': palette.bg.hover, // Основной фон
   'statusBar.border': palette.line.border,
   // Состояния без папки/отладки/фокус
   'statusBar.noFolderBackground': palette.bg.overlay,
