@@ -2,58 +2,25 @@ import type { Palette } from './types/palette'
 import { core } from './palette.core'
 import { mix, lightenToward, darkenToward } from './utils/color'
 
-// --- Start of inlined palette.derived.ts content ---
 const tealSoft = lightenToward(core.accent.teal, core.accent.cyan, 0.25)
 const skyLight = lightenToward(core.accent.cyan, core.accent.blue, 0.35)
 const indigo = mix(core.accent.blue, core.accent.purple, 0.5)
 const rose = lightenToward(core.accent.red, core.accent.magenta, 0.3)
-const azureLight = lightenToward(
-  core.accent.cyan,
-  core.accent.blue,
-  0.18
-)
+const azureLight = lightenToward(core.accent.cyan, core.accent.blue, 0.18)
 const tealDeep = darkenToward(core.accent.teal, core.accent.blue, 0.25)
-const bluePunctuation = darkenToward(
-  core.accent.blue,
-  core.accent.purple,
-  0.18
-)
-const bracketRound = lightenToward(
-  core.accent.cyan,
-  core.accent.blue,
-  0.15
-)
-const bracketSquare = lightenToward(
-  core.accent.teal,
-  core.accent.cyan,
-  0.25
-)
+const bluePunctuation = darkenToward(core.accent.blue, core.accent.purple, 0.18)
+const bracketRound = lightenToward(core.accent.cyan, core.accent.blue, 0.15)
+const bracketSquare = lightenToward(core.accent.teal, core.accent.cyan, 0.25)
 const bracketCurly = lightenToward(
   core.accent.magenta,
   core.accent.purple,
   0.25
 )
-const bracketAngle = lightenToward(
-  core.accent.blue,
-  core.accent.cyan,
-  0.35
-)
-const punctuationComma = lightenToward(
-  core.accent.cyan,
-  core.accent.blue,
-  0.45
-)
-const punctuationDot = lightenToward(
-  core.accent.blue,
-  core.accent.cyan,
-  0.25
-)
+const bracketAngle = lightenToward(core.accent.blue, core.accent.cyan, 0.35)
+const punctuationComma = lightenToward(core.accent.cyan, core.accent.blue, 0.45)
+const punctuationDot = lightenToward(core.accent.blue, core.accent.cyan, 0.25)
 const punctuationColon = mix(core.accent.teal, core.accent.cyan, 0.3)
-const punctuationSemicolon = mix(
-  core.accent.purple,
-  core.accent.magenta,
-  0.25
-)
+const punctuationSemicolon = mix(core.accent.purple, core.accent.magenta, 0.25)
 const punctuationOperator = mix(core.accent.teal, core.accent.cyan, 0.4)
 const blue400 = lightenToward(core.accent.blue, core.accent.cyan, 0.18)
 const mint = lightenToward(core.accent.green, core.accent.cyan, 0.18)
@@ -64,11 +31,7 @@ const maroon = darkenToward(core.accent.red, core.accent.purple, 0.18)
 const blueMuted = mix(core.accent.blue, core.text.muted, 0.4)
 const sky = lightenToward(core.accent.cyan, core.accent.blue, 0.22)
 const grayBlue400 = mix(core.accent.blue, core.text.subtle, 0.5)
-const blueBright = lightenToward(
-  core.accent.blue,
-  core.accent.cyan,
-  0.25
-)
+const blueBright = lightenToward(core.accent.blue, core.accent.cyan, 0.25)
 const blueSoft = lightenToward(core.accent.blue, core.text.subtle, 0.18)
 const violet = lightenToward(core.accent.purple, core.accent.blue, 0.18)
 const cyan500 = darkenToward(core.accent.cyan, core.accent.blue, 0.18)
@@ -79,12 +42,7 @@ const steelMuted = mix(core.accent.blue, core.text.muted, 0.8)
 const brick = darkenToward(core.accent.red, core.accent.orange, 0.18)
 const redMuted = mix(core.accent.red, core.text.muted, 0.5)
 const badgeBase = lightenToward(core.accent.blue, core.accent.cyan, 0.35)
-const windowBorder = darkenToward(
-  core.accent.blue,
-  core.text.muted,
-  0.22
-)
-// --- End of inlined palette.derived.ts content ---
+const windowBorder = darkenToward(core.accent.blue, core.text.muted, 0.22)
 
 export const palette: Palette = {
   bg: {
@@ -111,6 +69,7 @@ export const palette: Palette = {
   },
   fg: {
     primary: core.text.primary,
+    dark: core.bg.base,
     muted: core.text.muted,
     subtle: core.text.subtle,
     inactive: core.text.inactive,

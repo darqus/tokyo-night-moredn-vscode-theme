@@ -739,6 +739,20 @@ export const ALLOWED_THEME_PROPERTIES = new Set([
   'gitDecoration.conflictingResourceForeground',
   'gitDecoration.submoduleResourceForeground',
 
+  // SCM Graph colors
+  'scmGraph.historyItemHoverDefaultLabelForeground',
+  'scmGraph.historyItemHoverLabelForeground',
+  'scmGraph.foreground1',
+  'scmGraph.foreground2',
+  'scmGraph.foreground3',
+  'scmGraph.foreground4',
+  'scmGraph.foreground5',
+  'scmGraph.historyItemHoverAdditionsForeground',
+  'scmGraph.historyItemHoverDeletionsForeground',
+  'scmGraph.historyItemRefColor',
+  'scmGraph.historyItemRemoteRefColor',
+  'scmGraph.historyItemBaseRefColor',
+
   // Settings Editor colors
   'settings.headerForeground',
   'settings.modifiedItemIndicator',

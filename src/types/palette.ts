@@ -30,6 +30,7 @@ export interface Palette {
   }
   fg: {
     primary: Hex
+    dark: Hex
     muted: Hex
     subtle: Hex
     inactive: Hex
