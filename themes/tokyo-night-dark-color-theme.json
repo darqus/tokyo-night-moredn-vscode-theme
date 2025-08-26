@@ -729,7 +729,7 @@
     "terminal.ansiBrightCyan": "#7dcfff",
     "terminal.ansiBrightWhite": "#b6c0cd",
     "gitDecoration.modifiedResourceForeground": "#7aa2f7",
-    "gitDecoration.ignoredResourceForeground": "#30353d",
+    "gitDecoration.ignoredResourceForeground": "#656c75",
     "gitDecoration.deletedResourceForeground": "#de6f89",
     "gitDecoration.renamedResourceForeground": "#76d7d7",
     "gitDecoration.addedResourceForeground": "#76d7d7",

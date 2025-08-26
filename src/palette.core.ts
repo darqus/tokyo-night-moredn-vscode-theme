@@ -98,7 +98,7 @@ export const uiTabUnfocusedActive = mix(
   0.2
 )
 
-export const uiGitIgnored = mix(textComment, basePalette.black, 0.35)
+export const uiGitIgnored = mix(basePalette.white, generatedGray, 0.95)
 
 export const uiGitDeleted = mix(basePalette.red, basePalette.magenta, 0.15)
 
