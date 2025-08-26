@@ -1,147 +1,176 @@
-# Theme Validation System
+# 🧪 Validation Guide
 
-Automatic validation system ensuring VS Code theme compliance and quality.
+> Comprehensive guide to theme validation and quality assurance for Tokyo Night Lod.
 
-## 🔍 Features
+## 🎯 Validation Overview
 
-### Property Validation
+Validation is a critical part of the Tokyo Night Lod theme development process. It ensures:
 
-- **Valid Properties** - Checks against official VS Code property list
-- **Deprecated Detection** - Finds unsupported properties
-- **Renamed Properties** - Identifies properties renamed in newer versions
-- **Smart Suggestions** - Suggests similar valid properties
-- **Color Format Validation** - Validates hex colors and formats
+- **Theme correctness** - Proper structure and format
+- **Color consistency** - Consistent color usage across components
+- **Accessibility** - Proper contrast ratios and readability
+- **Performance** - Optimized theme performance
+- **Compatibility** - VS Code compatibility and standards compliance
 
-### Quality Validation
+### Validation Types
 
-- **WCAG Contrast** - Checks accessibility standards
-- **Color Consistency** - Analyzes color scheme coherence
-- **Accessibility** - Verifies focus borders and visibility
-- **Color Duplication** - Finds redundant color usage
+1. **Structural Validation** - Theme file structure and format
+2. **Color Validation** - Color definitions and usage
+3. **Accessibility Validation** - Contrast ratios and readability
+4. **Performance Validation** - Theme performance optimization
+5. **Compatibility Validation** - VS Code standards compliance
 
-### Auto-fixing
+## 🔍 Structural Validation
 
-- **Remove Deprecated** - Automatically removes unsupported properties
-- **Rename Properties** - Updates old names to new ones
-- **Save Clean Versions** - Creates "clean" theme versions
-- **Detailed Reports** - Shows all changes made
+### Theme Structure Validation
 
-## 🚀 Usage
-
-### Build Integration
-
-Validation runs automatically during theme build:
-
-```bash
-npm run build
-```
-
-Output shows issues and automatic fixes:
-
-```
-⚠️  Found property issues in Tokyo Night Dark:
-🔴 button.focusBorder: Property "button.focusBorder" is deprecated
-  💡 Remove this property
-🔧 Auto-fixed 7 issues:
-  • button.focusBorder: removed
-  • input.focusBorder: removed
-```
-
-### CLI Commands
-
-```bash
-npm run validate:all      # Validate all themes
-npm run validate:summary  # Summary only
-npm run validate:fix      # Auto-fix issues
-```
-
-## 🔧 Options
-
-| Option | Description |
-|--------|-------------|
-| `--all` | Validate all themes in themes/ folder |
-| `--summary` | Show summary without details |
-| `--verbose` | Detailed output with extra information |
-| `--fix` | Automatically fix invalid properties |
-| `--output <file>` | Save fixed theme to specified file |
-
-## 🎯 Issue Types
-
-### 🔴 Errors
-
-- Invalid VS Code properties
-- Deprecated properties
-- Invalid color formats
-- Missing required fields
-
-### 🟡 Warnings
-
-- Low contrast (WCAG AA)
-- Missing focus borders
-- Color inconsistencies
-- Missing recommended fields
-
-### 🔵 Info
-
-- Redundant color duplication
-- Short hex colors
-- Improvement suggestions
-
-## 📊 Structure
-
-### PropertyValidator
-
-- `allowedProperties.ts` - VS Code properties database
-- `propertyValidator.ts` - Property validation logic
-- Auto-fixing for invalid properties
-
-### ThemeValidator
-
-- `themeValidator.ts` - Theme quality validation
-- WCAG contrast checking
-- Consistency and accessibility analysis
-
-### CLI Tool
-
-- `validate-theme.ts` - Console interface
-- Colored output and progress
-- Multiple validation options
-
-## ⚙️ Configuration
-
-### Adding Custom Rules
+The theme must follow VS Code's theme structure:
 
 ```typescript
-// In themeValidator.ts
-validator.addRule({
-  name: 'custom-rule',
-  description: 'Custom validation rule',
-  validate: (theme: ThemeData) => {
-    // Validation logic
-    return { passed: true, issues: [] }
+interface VSCodeTheme {
+  name: string;
+  type: 'dark' | 'light' | 'hc';
+  colors: Record<string, string>;
+  tokenColors: TokenColor[];
+  semanticTokenColors?: SemanticTokenColors;
+}
+```
+
+### Validation Rules
+
+#### Required Properties
+
+```typescript
+// Required theme properties
+const requiredProperties = [
+  'name',
+  'type',
+  'colors',
+  'tokenColors'
+];
+
+// Required color properties
+const requiredColors = [
+  'activityBar.background',
+  'activityBar.foreground',
+  'editor.background',
+  'editor.foreground',
+  'editor.lineHighlightBackground',
+  'editor.selectionBackground',
+  'sideBar.background',
+  'sideBar.foreground',
+  'statusBar.background',
+  'statusBar.foreground'
+];
+```
+
+#### Token Color Validation
+
+```typescript
+interface TokenColor {
+  name?: string;
+  scope: string | string[];
+  settings: {
+    foreground?: string;
+    background?: string;
+    fontStyle?: string;
+  };
+}
+
+// Validation rules
+const tokenColorRules = {
+  required: ['scope', 'settings'],
+  optional: ['name'],
+  settingsRequired: ['foreground', 'background', 'fontStyle']
+};
+```
+
+#### Semantic Token Validation
+
+```typescript
+interface SemanticTokenColors {
+  enabled: boolean;
+  rules: Record<string, SemanticTokenRule>;
+}
+
+interface SemanticTokenRule {
+  foreground?: string;
+  background?: string;
+  fontStyle?: string;
+  bold?: boolean;
+  italic?: boolean;
+  underline?: boolean;
+  strikethrough?: boolean;
+}
+```
+
+### Validation Implementation
+
+```typescript
+// src/validation/themeValidator.ts
+import { VSCodeTheme } from '../types/theme';
+import { allowedProperties } from './allowedProperties';
+
+export function validateTheme(theme: VSCodeTheme): ValidationResult {
+  const errors: ValidationError[] = [];
+
+  // Validate required properties
+  validateRequiredProperties(theme, errors);
+
+  // Validate color properties
+  validateColorProperties(theme, errors);
+
+  // Validate token colors
+  validateTokenColors(theme, errors);
+
+  // Validate semantic tokens
+  validateSemanticTokens(theme, errors);
+
+  // Validate property values
+  validatePropertyValues(theme, errors);
+
+  return {
+    isValid: errors.length === 0,
+    errors
+  };
+}
+
+function validateRequiredProperties(theme: VSCodeTheme, errors: ValidationError[]) {
+  const required = ['name', 'type', 'colors', 'tokenColors'];
+
+  for (const prop of required) {
+    if (!(prop in theme)) {
+      errors.push({
+        type: 'missing_property',
+        property: prop,
+        message: `Missing required property: ${prop}`
+      });
+    }
   }
-})
+}
 ```
 
-### Updating Properties
+## 🎨 Color Validation
 
-Update `allowedProperties.ts` when new VS Code versions are released:
+### Color Format Validation
+
+All colors must be valid hex color codes:
 
 ```typescript
-// Add new properties
-ALLOWED_THEME_PROPERTIES.add('newProperty')
+function validateHexColor(color: string): boolean {
+  const hexRegex = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
+  return hexRegex.test(color);
+}
 
-// Mark as deprecated
-DEPRECATED_PROPERTIES.add('oldProperty')
+// Examples of valid colors
+const validColors = [
+  '#1a1b26',  // 6-digit hex
+  '#abc',     // 3-digit hex
+  '#FFFFFF',  // uppercase
+  '#000000'   // lowercase
+];
 
-// Add renames
-RENAMED_PROPERTIES.set('oldName', 'newName')
-```
-
-## ✅ Benefits
-
-1. **Automation** - No manual property checking needed
-2. **Up-to-date** - Always matches latest VS Code version
-3. **Quality** - Ensures high accessibility standards
-4. **Speed** - Fast issue detection and fixing
-5. **Consistency** - Uniform standards across theme variants
+// Examples of invalid colors
+const invalidColors = [
+  '1a1b26',   // missing #
+  '#1a1b2',   // wrong length

@@ -1,99 +1,220 @@
 # Tokyo Night Lod
 
-[![Version](https://img.shields.io/visual-studio-marketplace/v/lod-inc.tokyo-night-lod.svg)](https://marketplace.visualstudio.com/items?itemName=lod-inc.tokyo-night-lod)
-[![Rating](https://img.shields.io/visual-studio-marketplace/r/lod-inc.tokyo-night-lod.svg)](https://marketplace.visualstudio.com/items?itemName=lod-inc.tokyo-night-lod&ssr=false#review-details)
-[![Issues](https://img.shields.io/github/issues/darqus/tokyo-night-vscode-theme-lod)](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+> Enhanced version of Tokyo Night theme with improved contrast and modern TypeScript architecture.
 
-A refined dark theme for VS Code with improved contrast and modern TypeScript architecture.
-
-![Tokyo Night Lod Theme](https://github.com/darqus/tokyo-night-vscode-theme-lod/blob/main/static/ss_tokyo_night_dark.png?raw=true)
-
-## 🚀 Installation
-
-**Via VS Code Marketplace:**
-
-1. Open VS Code Extensions (`Ctrl+Shift+X`)
-2. Search for "Tokyo Night Lod"
-3. Click Install
-
-**Via Command Line:**
-
-```bash
-code --install-extension lod-inc.tokyo-night-lod
-```
+![Tokyo Night Lod](static/ss_tokyo_night_dark.png)
 
 ## ✨ Features
 
-- **Refined Colors** - Carefully balanced palette for optimal readability
-- **Enhanced Accessibility** - Improved visibility for better accessibility
-- **TypeScript Build** - Modern, maintainable theme generation
-- **Smart Versioning** - Automated release management
-- **Quality Assurance** - Comprehensive validation pipeline
-- **Performance Monitoring** - Build time and resource usage tracking
+- 🎨 **Optimized color palette** - Enhanced contrast and readability
+- 🏗️ **Modern TypeScript architecture** - Type safety and modularity
+- 🤖 **Automated build process** - Theme generation from source code
+- 🧪 **Comprehensive testing** - Validation and visual testing
+- 📚 **Complete documentation** - Detailed guides in English
+- 🔧 **Smart versioning** - Automated releases based on conventional commits
+
+## 🚀 Quick Start
+
+### Installation
+
+1. Open VS Code
+2. Go to Extensions (Ctrl+Shift+X)
+3. Search for "Tokyo Night Lod"
+4. Click Install
+
+### Activation
+
+1. Open Command Palette (Ctrl+Shift+P)
+2. Type "Preferences: Color Theme"
+3. Select "Tokyo Night Lod"
+
+## 📁 Project Structure
+
+```
+tokyo-night-vscode-theme-lod/
+├── src/                    # Source code
+│   ├── palette.ts          # Central color palette
+│   ├── build.ts            # Theme generator
+│   ├── tokenColors.ts      # Syntax colors
+│   ├── semanticTokenColors.ts # Semantic colors
+│   ├── theme/              # Theme components
+│   ├── utils/              # Utilities
+│   ├── types/              # TypeScript types
+│   └── validation/         # Validation
+├── themes/                 # Generated themes
+├── docs/                   # Documentation
+├── scripts/                # Automation scripts
+├── tests/                  # Tests
+└── analysis/               # Analysis and optimization
+```
 
 ## 🛠️ Development
 
-### Quick Start
+### Prerequisites
+
+- Node.js 18+
+- VS Code 1.74+
+- TypeScript 5.9+
+
+### Environment Setup
 
 ```bash
+# Clone repository
 git clone https://github.com/darqus/tokyo-night-vscode-theme-lod.git
 cd tokyo-night-vscode-theme-lod
+
+# Install dependencies
 npm install
-npm run build
+
+# Setup environment
+npm run setup
 ```
 
-### Key Files
-
-- `src/palette.ts` - Central color definitions
-- `src/build.ts` - Theme generator
-- `src/tokenColors.ts` - Syntax highlighting rules
-
-### Commands
+### Main Commands
 
 ```bash
-npm run build        # Build theme
-npm test             # Run all tests
-npm run test:watch   # Run tests in watch mode
-npm run test:visual  # Run visual regression tests
-npm run analyze      # Analyze theme bundle
-npm run debug        # Debug theme properties
-npm run setup        # Set up development environment
+# Build theme
+npm run build
+
+# Validation
+npm run validate
+
+# Testing
+npm run test
+
+# Linting
+npm run lint
+
+# Publishing
+npm run release
 ```
 
 ## 📚 Documentation
 
-- [Development Guide](./docs/DEVELOPMENT.md) - Build and modify themes
-- [Color System](./docs/COLOR_SYSTEM.md) - Comprehensive color system documentation
-- [Semantic Tokens](./docs/SEMANTIC_TOKENS.md) - Semantic token style guide
-- [Contribution Guidelines](./docs/CONTRIBUTING.md) - How to contribute to the project
-- [Architecture](./docs/ARCHITECTURE.md) - Project structure
-- [Color Playground](./docs/playground.html) - Interactive color combination testing
+### Main Guides
 
-## 🎨 Color Highlights
+- [🚀 Quick Start](docs/QUICK_START.md) - Getting started quickly
+- [🏗️ Architecture](docs/ARCHITECTURE.md) - Structure and design principles
+- [🎨 Color System](docs/COLOR_SYSTEM.md) - Color palette and system
+- [🌈 Color Palette](docs/COLOR_PALETTE.md) - Complete color palette
 
-| Element | Color | Usage |
-|---------|-------|-------|
-| Keywords | `#bb9af7` | `const`, `function`, `class` |
-| Strings | `#9ece6a` | Text content |
-| Functions | `#7aa2f7` | Function names |
-| Comments | `#545c7e` | Code comments |
+### For Developers
 
-## ♿ Accessibility
+- [💻 Development](docs/DEVELOPMENT.md) - Developer guide
+- [🤝 Contributing](docs/CONTRIBUTING.md) - How to contribute
+- [🧪 Validation](docs/VALIDATION.md) - Validation process
+- [🎯 Semantic Tokens](docs/SEMANTIC_TOKENS.md) - Semantic highlighting
 
-The Tokyo Night Lod theme includes:
+### Automation
 
-- **Enhanced Visibility** - Improved contrast for better readability
-- **WCAG Compliance** - All color combinations meet accessibility standards
-- **Color Blindness Support** - Tested for common forms of color vision deficiency
+- [🤖 Smart Versioning](docs/SMART_VERSIONING.md) - Versioning system
+- [📝 Documentation Changes](docs/DOCUMENTATION_CHANGES.md) - Change history
+
+## 🎨 Color System
+
+### Core Principles
+
+- **Single source of truth** - All colors defined in `src/palette.ts`
+- **Type safety** - TypeScript for all color structures
+- **Modularity** - Clear separation of color categories
+- **Optimization** - Scientifically-based color selection
+
+### Color Categories
+
+- **Background** - Editor and interface backgrounds
+- **Foreground** - Text colors with varying opacity
+- **Accent** - Brand colors and highlights
+- **Syntax** - Code syntax colors
+- **Semantic** - Semantic tokens
+- **UI** - VS Code interface elements
 
 ## 🧪 Testing
 
-Our comprehensive testing suite includes:
+### Test Types
 
-- **Unit Tests** - For utility functions and color operations
-- **Visual Regression Tests** - To ensure UI consistency
-- **Theme Validation** - To verify theme properties and quality
-- **Performance Benchmarks** - To monitor build times and resource usage
+- **Unit tests** - Testing utilities and functions
+- **Validation** - Theme structure verification
+- **Visual testing** - Comparison with reference
+- **Smoke testing** - Basic functionality
 
-Based on the original [Tokyo Night theme](https://github.com/enkia/tokyo-night-vscode-theme).
+### Running Tests
+
+```bash
+# All tests
+npm run test
+
+# Unit tests only
+npm run test:unit
+
+# Visual testing
+npm run test:visual
+
+# With coverage
+npm run test:coverage
+```
+
+## 🔄 Versioning
+
+### Conventional Commits
+
+The project uses conventional commits for automatic versioning:
+
+```bash
+# New feature
+feat: add new color variant
+
+# Bug fix
+fix: correct contrast ratio
+
+# Documentation
+docs: update README
+
+# Code style
+style: format code
+```
+
+### Versioning Commands
+
+```bash
+# Automatic release
+npm run release
+
+# Dry run
+npm run release:dry
+
+# Force version update
+npm run release:force
+```
+
+## 🤝 Contributing
+
+We welcome contributions to the project! Please read the [contributing guide](docs/CONTRIBUTING.md).
+
+### How to Contribute
+
+1. Fork the repository
+2. Create a feature branch
+3. Make changes following conventional commits
+4. Test your changes
+5. Submit a pull request
+
+## 📄 License
+
+The project is licensed under MIT. See [LICENSE](LICENSE) for details.
+
+## 🙏 Acknowledgments
+
+- [Tokyo Night VSCode Theme](https://github.com/enkia/tokyo-night-vscode-theme) - Original theme
+- [VS Code Theme Documentation](https://code.visualstudio.com/api/references/theme-color) - VS Code documentation
+- [Contrast Ratio Checker](https://webaim.org/resources/contrastchecker/) - Contrast checking tool
+
+## 📞 Contact
+
+- **Author**: lod
+- **Publisher**: lod-inc
+- **GitHub**: [darqus/tokyo-night-vscode-theme-lod](https://github.com/darqus/tokyo-night-vscode-theme-lod)
+- **Issues**: [Report an issue](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues)
+
+---
+
+**Tokyo Night Lod** - A theme crafted with love for code and attention to detail. ❤️

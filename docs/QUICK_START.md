@@ -1,102 +1,215 @@
-# Quick Start Guide
+# 🚀 Quick Start Guide
 
-Get up and running with Tokyo Night Lod theme in minutes.
+> Fast and simple installation and setup guide for Tokyo Night Lod theme.
 
-## 🚀 For Users
+## 📥 Installation
 
-### Install Theme
+### From VS Code Marketplace (Recommended)
 
-1. Open VS Code
-2. Go to Extensions (`Ctrl+Shift+X`)
-3. Search "Tokyo Night Lod"
-4. Click Install
-5. Select theme: `Ctrl+Shift+P` → "Color Theme" → "Tokyo Night Lod"
+1. **Open VS Code**
+2. **Go to Extensions** (Ctrl+Shift+X)
+3. **Search for** "Tokyo Night Lod"
+4. **Click Install**
+5. **Wait for installation** to complete
 
-### Customize Colors
+### From VSIX File
 
-Add to your VS Code settings:
+1. **Download the latest VSIX** from [Releases](https://github.com/darqus/tokyo-night-vscode-theme-lod/releases)
+2. **Open VS Code**
+3. **Go to Extensions** (Ctrl+Shift+X)
+4. **Click "..."** (More Actions)
+5. **Select "Install from VSIX..."**
+6. **Choose the downloaded VSIX file**
+
+### Manual Installation
+
+1. **Download the theme file** from the repository
+2. **Place it in your VS Code themes directory**:
+   - **Windows**: `%USERPROFILE%\.vscode\extensions`
+   - **macOS**: `~/.vscode/extensions`
+   - **Linux**: `~/.vscode/extensions`
+3. **Restart VS Code**
+
+## 🎨 Theme Activation
+
+### Method 1: Command Palette
+
+1. **Open Command Palette** (Ctrl+Shift+P)
+2. **Type** "Preferences: Color Theme"
+3. **Select** "Tokyo Night Lod"
+4. **Theme will be applied immediately**
+
+### Method 2: Settings
+
+1. **Open Settings** (Ctrl+,)
+2. **Search for** "color theme"
+3. **In "Workbench" > "Color Theme"**
+4. **Select** "Tokyo Night Lod"
+5. **Settings are saved automatically**
+
+### Method 3: settings.json
+
+1. **Open settings.json** (Ctrl+Shift+P > "Preferences: Open Settings (JSON)")
+2. **Add or update** the theme setting:
 
 ```json
 {
-  "workbench.colorCustomizations": {
-    "[Tokyo Night Lod]": {
-      "editor.background": "#1a1b26"
-    }
-  }
+  "workbench.colorTheme": "Tokyo Night Lod"
 }
 ```
 
-## 🛠️ For Developers
+## ✅ Verification
 
-### Setup Project
+### Check Theme is Applied
 
-```bash
-git clone https://github.com/darqus/tokyo-night-vscode-theme-lod.git
-cd tokyo-night-vscode-theme-lod
-npm install
-```
+1. **Look at the editor** - Colors should change immediately
+2. **Check the status bar** - Should have dark theme colors
+3. **Verify syntax highlighting** - Code should be properly colored
 
-### Make Changes
+### Test Different File Types
 
-1. **Edit colors**: Modify `src/palette.ts`
-2. **Build theme**: Run `npm run build`
-3. **Test**: Install `.vsix` file in VS Code
-
-### Common Tasks
+Open files with different extensions to test syntax highlighting:
 
 ```bash
-npm run build         # Build theme
-npm test              # Run tests
-npm run package       # Create .vsix file
-npm run release:dry   # Preview release
+# JavaScript/TypeScript
+index.js
+app.ts
+
+# HTML/CSS
+index.html
+styles.css
+
+# Configuration
+package.json
+tsconfig.json
+
+# Markdown
+README.md
 ```
 
-## 🎨 Quick Customizations
+## ⚙️ Basic Customization
 
-### Change Background
+### Font Settings
 
-```typescript
-// src/palette.ts
-export const palette = {
-  background: {
-    primary: '#1a1b26',    // Your color here
-    secondary: '#16161e',
-  }
-}
-```
+For the best experience with Tokyo Night Lod, recommended font settings:
 
-### Add New Syntax Color
-
-```typescript
-// src/tokenColors.ts
+```json
 {
-  scope: ['your.scope'],
-  settings: {
-    foreground: '#your-color'
-  }
+  "editor.fontFamily": "Fira Code, 'Courier New', monospace",
+  "editor.fontSize": 14,
+  "editor.fontLigatures": true,
+  "editor.lineHeight": 1.6
+}
+```
+
+### Editor Settings
+
+Recommended editor settings for optimal appearance:
+
+```json
+{
+  "editor.minimap.enabled": true,
+  "editor.renderLineHighlight": "all",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "workbench.activityBar.visible": true,
+  "workbench.sideBar.location": "left"
+}
+```
+
+### Terminal Settings
+
+For consistent terminal appearance:
+
+```json
+{
+  "terminal.integrated.fontFamily": "Fira Code, monospace",
+  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.lineHeight": 1.4
 }
 ```
 
 ## 🔧 Troubleshooting
 
-**Theme not applying?**
+### Theme Not Applied
 
-- Rebuild: `npm run build`
-- Restart VS Code
-- Check theme is selected
+**Problem**: Theme is installed but not visible.
 
-**Build errors?**
+**Solutions**:
 
-- Check TypeScript: `npx tsc --noEmit`
-- Verify color format (hex values)
+1. **Restart VS Code** - Sometimes a restart is required
+2. **Check theme selection** - Verify "Tokyo Night Lod" is selected
+3. **Check for conflicts** - Disable other theme extensions
+4. **Reinstall theme** - Uninstall and install again
 
-**Need help?**
+### Syntax Highlighting Issues
 
-- Check [Issues](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues)
-- Read [Development Guide](./DEVELOPMENT.md)
+**Problem**: Code is not properly colored.
 
-## 📚 Next Steps
+**Solutions**:
 
-- [Development Guide](./DEVELOPMENT.md) - Detailed development info
-- [Color Palette](./COLOR_PALETTE.md) - Complete color reference
-- [Architecture](./ARCHITECTURE.md) - Project structure
+1. **Check file association** - Ensure file type is recognized
+2. **Reload VS Code window** (Ctrl+Shift+P > "Developer: Reload Window")
+3. **Check for syntax extensions** - Install language-specific extensions
+4. **Verify theme compatibility** - Ensure theme supports the language
+
+### Performance Issues
+
+**Problem**: VS Code is slow after theme installation.
+
+**Solutions**:
+
+1. **Disable unnecessary extensions**
+2. **Reduce editor settings complexity**
+3. **Clear VS Code cache**
+4. **Check system resources**
+
+## 🎯 Next Steps
+
+### Explore Theme Features
+
+- **Color Palette**: See all available colors in [Color Palette](COLOR_PALETTE.md)
+- **Customization**: Learn about advanced customization in [Color System](COLOR_SYSTEM.md)
+- **Semantic Tokens**: Understand semantic highlighting in [Semantic Tokens](SEMANTIC_TOKENS.md)
+
+### For Developers
+
+- **Development Setup**: See [Development Guide](DEVELOPMENT.md)
+- **Contributing**: Learn how to contribute in [Contributing](CONTRIBUTING.md)
+- **Architecture**: Understand project structure in [Architecture](ARCHITECTURE.md)
+
+### Stay Updated
+
+- **Watch Repository**: Get notified about updates
+- **Check Releases**: See new features and bug fixes
+- **Report Issues**: Help improve the theme
+
+## 📞 Support
+
+### Getting Help
+
+- **Documentation**: Browse all documentation in [docs/](./)
+- **Issues**: Report bugs or request features
+- **Discussions**: Ask questions and share ideas
+
+### Common Questions
+
+**Q: Is this theme free?**
+A: Yes, Tokyo Night Lod is completely free and open source.
+
+**Q: Does it work with other extensions?**
+A: Yes, it's compatible with most VS Code extensions.
+
+**Q: Can I customize the colors?**
+A: Yes, you can override colors in your VS Code settings.
+
+**Q: How often is it updated?**
+A: Regularly updated with bug fixes and improvements.
+
+---
+
+## 🎉 You're Ready
+
+Congratulations! You've successfully installed and set up Tokyo Night Lod theme. Enjoy coding with beautiful colors and excellent readability!
+
+**Happy coding with Tokyo Night Lod!** 🎨✨
