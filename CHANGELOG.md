@@ -6,6 +6,29 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v1.3.0.html).
 
 
+## [1.8.0](https://github.com/darqus/tokyo-night-vscode-theme-lod/compare/v1.7.0...v1.8.0) (2025-08-26)
+
+
+### 📚 Documentation
+
+* **README:** update with new features, accessibility info, and testing details ([b440922](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/b4409222f51f79f4a0c8e26a740ce93d5a45000d))
+
+
+### ✨ Features
+
+* **release:** remove auto push from smart-version.ts ([c0ca58e](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/c0ca58ed72a47e52ba639fb964619e9cf8e9b6fa))
+* **theme:** add SCM Graph colors and improve git blame readability ([9cd9618](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/9cd96183d5de3d0805d1320b7f02031349ef6eb6))
+
+
+### ⚡ Performance Improvements
+
+* adjust build metrics and improve theme contrast ([c52f3fe](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/c52f3fe13b38f1364ce902fb40ac75edb743613b))
+
+
+### 🏗️ Build System
+
+* update build metrics and adjust UI elements ([e543ef5](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/e543ef56cbbb9aebbe2bd40b20696eab08b7e4e5))
+
 ## [1.7.0](https://github.com/darqus/tokyo-night-vscode-theme-lod/compare/v1.6.1...v1.7.0) (2025-08-24)
 
 
