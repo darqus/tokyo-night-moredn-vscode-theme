@@ -35,8 +35,8 @@ const formulas = {
   // Backgrounds
   bgElevated: () => darkenBg(intensity.bg.elevated),
   bgOverlay: () => darkenBg(intensity.bg.overlay),
-  bgInput: () => blend(uiBase.editorBg, coreBlack, intensity.bg.input),
-  bgHover: () => blend(uiBase.editorBg, coreBlack, intensity.bg.hover),
+  bgInput: () => darkenBg(intensity.bg.overlay),
+  bgHover: () => toward(uiBase.editorBg, coreWhite, intensity.bg.dark),
   bgActive: () => blend(uiBase.editorBg, coreBlack, intensity.bg.active),
   bgDrop: () => alpha(basePalette.blue, intensity.alpha.drop),
   bgLineHighlight: () => alpha(basePalette.blue, intensity.alpha.lineHighlight),

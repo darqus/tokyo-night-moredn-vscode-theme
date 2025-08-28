@@ -3,6 +3,7 @@
 
 export const intensity = {
   bg: {
+    dark: 0.03,
     elevated: 0.08,
     overlay: 0.12,
     input: 0.12,
