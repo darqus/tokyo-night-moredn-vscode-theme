@@ -64,6 +64,17 @@ export interface ThemeData {
   semanticTokenColors: Record<string, SemanticTokenStyle>
 }
 
+/**
+ * Полный объект темы (включая метаданные), используемый в сборщике варианта темы
+ */
+export interface ThemeObject extends ThemeData {
+  displayName: string
+  author: string
+  maintainers: string[]
+  semanticClass?: string
+  semanticHighlighting: boolean
+}
+
 export interface ThemeConfig {
   // Define theme configuration properties as needed
   // For now, this can be a flexible type until specific config needs are identified

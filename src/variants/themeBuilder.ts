@@ -1,32 +1,9 @@
-import { buildColors } from '../theme/colors'
+import { buildColors } from '../theme'
 import { getTokenColors } from '../tokenColors'
 import { semanticTokenColors } from '../semanticTokenColors'
+import type { ThemeObject } from '../types/theme'
 
-/**
- * Theme configuration interface
- */
-export interface ThemeConfig {
-  name: string
-  displayName: string
-  type: 'dark'
-  description?: string
-}
-
-/**
- * Complete theme object type
- */
-export interface ThemeObject {
-  name: string
-  displayName: string
-  author: string
-  maintainers: string[]
-  type: 'dark'
-  semanticClass: string
-  semanticHighlighting: boolean
-  semanticTokenColors: typeof semanticTokenColors
-  colors: ReturnType<typeof buildColors>
-  tokenColors: ReturnType<typeof getTokenColors>
-}
+/* Types centralized in ../types/theme */
 
 /**
  * Tokyo Night Lod theme builder (single dark theme)

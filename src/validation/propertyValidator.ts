@@ -63,7 +63,7 @@ export class PropertyValidator {
   /**
    * Валидация объекта темы на допустимые свойства
    */
-  validateThemeProperties(theme: VSCodeThemeObject): PropertyValidationResult {
+  validateThemeProperties(theme: ThemeData | VSCodeThemeObject): PropertyValidationResult {
     const issues: PropertyValidationIssue[] = []
 
     // Проверяем базовую структуру
@@ -125,37 +125,39 @@ export class PropertyValidator {
    * Проверка базовой структуры темы
    */
   private validateBasicStructure(
-    theme: VSCodeThemeObject,
+    theme: ThemeData | VSCodeThemeObject,
     issues: PropertyValidationIssue[]
   ): void {
     // Проверяем обязательные поля
-    const requiredFields = ['name', 'type']
+    const requiredFields: Array<keyof ThemeData> = ['name', 'type']
+    const t: any = theme as any
     for (const field of requiredFields) {
-      if (!theme[field]) {
+      if (!t[field]) {
         issues.push({
-          property: field,
+          property: String(field),
           severity: 'error',
-          message: `Отсутствует обязательное поле "${field}"`,
+          message: `Отсутствует обязательное поле "${String(field)}"`,
         })
       }
     }
 
     // Проверяем тип темы
+    const themeType = t.type as string | undefined
     if (
-      theme.type &&
-      !['dark', 'light', 'hc-dark', 'hc-light'].includes(theme.type)
+      themeType &&
+      !['dark', 'light', 'hc-dark', 'hc-light'].includes(themeType)
     ) {
       issues.push({
         property: 'type',
         severity: 'error',
-        message: `Недопустимый тип темы: "${theme.type}". Допустимые: dark, light, hc-dark, hc-light`,
+        message: `Недопу��тимый тип темы: "${themeType}". Допустимые: dark, light, hc-dark, hc-light`,
       })
     }
 
     // Рекомендуемые поля
-    const recommendedFields = ['displayName', 'author']
+    const recommendedFields = ['displayName', 'author'] as const
     for (const field of recommendedFields) {
-      if (!theme[field]) {
+      if (!t[field]) {
         issues.push({
           property: field,
           severity: 'warning',
@@ -515,7 +517,7 @@ export class PropertyValidator {
   /**
    * Исправление недопустимых свойств
    */
-  fixInvalidProperties(theme: VSCodeThemeObject): {
+  fixInvalidProperties(theme: ThemeData | VSCodeThemeObject): {
     fixedTheme: VSCodeThemeObject
     fixes: Array<{
       property: string

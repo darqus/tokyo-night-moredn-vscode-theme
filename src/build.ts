@@ -2,10 +2,9 @@
 import * as fs from 'node:fs'
 import * as path from 'node:path'
 
-import { ThemeValidator } from './validation/themeValidator'
-import { PropertyValidator } from './validation/propertyValidator'
+import { ThemeValidator, PropertyValidator } from './validation'
 import { ThemeBuilder } from './variants/themeBuilder'
-import type { ThemeObject } from './variants/themeBuilder'
+import type { ThemeObject } from './types/theme'
 
 // Paths
 const root = path.resolve(__dirname, '..')
@@ -28,7 +27,7 @@ const validateAndSaveTheme = (
   // Validate theme properties
   const propertyValidator = new PropertyValidator()
   const propertyValidation = propertyValidator.validateThemeProperties(
-    theme as any
+    theme
   )
 
   if (!propertyValidation.passed) {
@@ -48,7 +47,7 @@ const validateAndSaveTheme = (
 
     // Automatically fix invalid properties
     const { fixedTheme, fixes } = propertyValidator.fixInvalidProperties(
-      theme as any
+      theme
     )
     if (fixes.length > 0) {
       console.log(`🔧 Automatically fixed ${fixes.length} issues:`)
