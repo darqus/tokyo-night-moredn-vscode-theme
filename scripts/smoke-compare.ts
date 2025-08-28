@@ -1,7 +1,7 @@
 /// <reference types="node" />
 import * as fs from 'node:fs'
 import * as path from 'node:path'
-import { buildColors } from '../src/build'
+import { buildColors } from '../src/theme'
 import { execSync } from 'node:child_process'
 import { tokenColors } from '../src/tokenColors'
 import { semanticTokenColors } from '../src/semanticTokenColors'

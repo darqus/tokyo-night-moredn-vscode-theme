@@ -166,9 +166,16 @@ npm run test:unit
 # Visual testing
 npm run test:visual
 
+# Update visual test baselines
+npm run test:visual --update
+
 # With coverage
 npm run test:coverage
 ```
+
+### Visual Regression Testing
+
+The project includes visual regression tests to ensure UI components maintain consistent appearance across theme updates. See [Visual Testing Documentation](tests/visual/README.md) for details.
 
 ## 🔄 Versioning
 
