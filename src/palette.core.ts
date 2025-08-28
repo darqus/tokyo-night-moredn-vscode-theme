@@ -18,7 +18,8 @@ const interfaceColors = {
   info: basePalette.cyan,
 } as const
 
-const generatedGray = mix(coreWhite, coreBlack, 0.55)
+// Оптимизированный серый на основе анализа (50% смешивание)
+const generatedGray = mix(coreWhite, coreBlack, 0.5)
 
 export const aquaLight = lightenToward(basePalette.cyan, basePalette.blue, 0.15)
 
@@ -29,46 +30,44 @@ export const bgElevated = darkenToward(
 )
 export const bgOverlay = darkenToward(interfaceColors.editorBg, coreBlack, 0.12)
 
-export const bgInput = mix(interfaceColors.editorBg, coreBlack, 0.15)
+// Оптимизированный фон для полей ввода на основе анализа
+export const bgInput = mix(interfaceColors.editorBg, coreBlack, 0.12)
 
-export const bgHover = lightenToward(
-  interfaceColors.editorBg,
-  basePalette.blue,
-  0.025
-)
-export const bgActive = lightenToward(
-  interfaceColors.editorBg,
-  basePalette.blue,
-  0.12
-)
-export const bgDrop = withAlpha(basePalette.blue, 0.15)
-export const bgLineHighlight = withAlpha(basePalette.blue, 0.08)
-export const bgBracketMatch = withAlpha(basePalette.blue, 0.12)
+// Оптимизированные состояния hover и active на основе анализа
+export const bgHover = mix(interfaceColors.editorBg, coreBlack, 0.08)
+export const bgActive = mix(interfaceColors.editorBg, coreBlack, 0.15)
+// Оптимизированные прозрачные фоны на основе анализа
+export const bgDrop = withAlpha(basePalette.blue, 0.2)
+export const bgLineHighlight = withAlpha(basePalette.blue, 0.1)
+export const bgBracketMatch = withAlpha(basePalette.blue, 0.15)
 
-export const bgSelectionActive = withAlpha(basePalette.blue, 0.2)
-export const bgSelectionInactive = withAlpha(basePalette.blue, 0.12)
-export const bgSelectionFocus = withAlpha(basePalette.blue, 0.15)
-export const bgSelectionMenu = withAlpha(basePalette.blue, 0.15)
+// Оптимизированные цвета выделения на основе анализа
+export const bgSelectionActive = withAlpha(basePalette.blue, 0.25)
+export const bgSelectionInactive = withAlpha(basePalette.blue, 0.15)
+export const bgSelectionFocus = withAlpha(basePalette.blue, 0.2)
+export const bgSelectionMenu = withAlpha(basePalette.blue, 0.18)
 
-export const bgStateLabel = mix(interfaceColors.editorBg, generatedGray, 0.15)
-export const border = mix(coreBlack, generatedGray, 0.2)
-export const textPrimary = mix(coreWhite, generatedGray, 0.15)
+// Оптимизированные цвета интерфейса на основе анализа
+export const bgStateLabel = mix(interfaceColors.editorBg, generatedGray, 0.1)
+export const border = mix(coreBlack, generatedGray, 0.25)
+export const textPrimary = coreWhite
 
-export const textMuted = mix(coreWhite, generatedGray, 0.5)
+// Оптимизированные текстовые цвета на основе анализа
+export const textMuted = mix(coreWhite, generatedGray, 0.4)
 
-export const textInactive = mix(coreWhite, generatedGray, 0.65)
+export const textInactive = mix(coreWhite, generatedGray, 0.6)
 
-export const textSoft = mix(coreWhite, basePalette.cyan, 0.15)
+export const textSoft = mix(coreWhite, basePalette.cyan, 0.12)
 
-export const textSubtle2 = mix(coreWhite, generatedGray, 0.55)
+export const textSubtle2 = mix(coreWhite, generatedGray, 0.5)
 
-export const textGray600 = mix(generatedGray, coreBlack, 0.35)
+export const textGray600 = mix(generatedGray, coreBlack, 0.4)
 
-export const textComment = mix(generatedGray, coreBlack, 0.35)
+export const textComment = mix(generatedGray, coreBlack, 0.4)
 
-export const textCommentDoc = mix(generatedGray, coreBlack, 0.3)
+export const textCommentDoc = mix(generatedGray, coreBlack, 0.35)
 
-export const textCommentDocEmphasized = mix(generatedGray, coreBlack, 0.25)
+export const textCommentDocEmphasized = mix(generatedGray, coreBlack, 0.3)
 
 export const textPreformat = mix(coreWhite, basePalette.cyan, 0.18)
 
@@ -76,17 +75,19 @@ export const textPlaceholder = mix(coreWhite, generatedGray, 0.7)
 
 export const textEditorLinkActive = mix(coreWhite, basePalette.blue, 0.2)
 
-export const brandButtonPrimary = mix(coreBlack, basePalette.blue, 0.18)
+// Оптимизированные цвета кнопок на основе анализа
+export const brandButtonPrimary = mix(coreBlack, basePalette.blue, 0.2)
 
-export const brandButtonHover = mix(coreBlack, basePalette.blue, 0.22)
+export const brandButtonHover = mix(coreBlack, basePalette.blue, 0.3)
 
-export const uiShadow = withAlpha(basePalette.blue, 0.18)
+// Оптимизированные UI элементы на основе анализа
+export const uiShadow = withAlpha(basePalette.blue, 0.2)
 
-export const uiSelectionWash = withAlpha(basePalette.blue, 0.12)
+export const uiSelectionWash = withAlpha(basePalette.blue, 0.15)
 
-export const uiScrollbarBase = mix(basePalette.blue, generatedGray, 0.35)
+export const uiScrollbarBase = mix(basePalette.blue, generatedGray, 0.4)
 
-export const uiTabUnfocusedActive = mix(basePalette.blue, coreBlack, 0.2)
+export const uiTabUnfocusedActive = mix(basePalette.blue, coreBlack, 0.25)
 
 export const uiGitIgnored = mix(coreWhite, generatedGray, 0.95)
 
