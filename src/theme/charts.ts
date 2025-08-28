@@ -1,7 +1,7 @@
 import { palette } from '../palette'
 
 export const getChartColors = () => ({
-  // Диаграммы
+  // Диаграммы (нет прямых импортов из core)
   'charts.red': palette.accent.red, // Красные элементы диаграмм
   'charts.blue': palette.accent.blue, // Синие элементы диаграмм
   'charts.yellow': palette.accent.yellow, // Желтые элементы диаграмм

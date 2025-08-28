@@ -7,7 +7,7 @@ import {
   terminalHoverHighlightBackground,
   terminalDropBackground,
   terminalOverviewRulerFindMatchForeground,
-} from '../palette.core'
+} from '../palette'
 
 export const getTerminalColors = () => ({
   // Терминал

@@ -1,5 +1,5 @@
 import { palette } from '../palette'
-import { gitBlameEditorDecorationForeground } from '../palette.core'
+import { gitBlameEditorDecorationForeground } from '../palette'
 
 export const getGitColors = () => ({
   // Оформление Git

@@ -22,6 +22,7 @@ export interface ThemeObject {
   maintainers: string[]
   type: 'dark'
   semanticClass: string
+  semanticHighlighting: boolean
   semanticTokenColors: typeof semanticTokenColors
   colors: ReturnType<typeof buildColors>
   tokenColors: ReturnType<typeof getTokenColors>
@@ -42,6 +43,7 @@ export class ThemeBuilder {
       maintainers: ['lod'],
       type: 'dark',
       semanticClass: 'tokyo-night',
+      semanticHighlighting: true,
       semanticTokenColors: semanticTokenColors,
       colors: buildColors(),
       tokenColors: getTokenColors(),

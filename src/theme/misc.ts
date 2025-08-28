@@ -2,7 +2,7 @@ import { palette } from '../palette'
 import {
   toolbarHoverBackground,
   toolbarActiveBackground,
-} from '../palette.core'
+} from '../palette'
 
 export const getMiscColors = () => ({
   // Панели

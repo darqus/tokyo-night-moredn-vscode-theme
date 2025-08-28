@@ -7,7 +7,7 @@ import {
   scrollbarSliderActiveBackground,
   keybindingLabelBackground,
   keybindingLabelBottomBorder,
-} from '../palette.core'
+} from '../palette'
 
 export const getBaseColors = () => ({
   // Верхний уровень и основа

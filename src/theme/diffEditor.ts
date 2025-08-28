@@ -7,7 +7,7 @@ import {
   diffEditorInsertedLineBackground,
   diffEditorRemovedLineBackground,
   diffEditorDiagonalFill,
-} from '../palette.core'
+} from '../palette'
 
 export const getDiffEditorColors = () => ({
   // Редактор сравнения (Diff)

@@ -3,7 +3,7 @@ import {
   peekViewEditorMatchHighlightBackground,
   peekViewResultSelectionBackground,
   peekViewResultMatchHighlightBackground,
-} from '../palette.core'
+} from '../palette'
 
 export const getPeekViewColors = () => ({
   // Окно быстрого просмотра (Peek view)

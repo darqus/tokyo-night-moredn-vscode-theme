@@ -1,5 +1,5 @@
 import { palette } from '../palette'
-import { menuBorder } from '../palette.core'
+import { menuBorder } from '../palette'
 
 export const getMenuColors = () => ({
   // Меню

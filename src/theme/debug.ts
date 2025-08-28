@@ -3,7 +3,7 @@ import {
   editorStackFrameHighlightBackground,
   editorFocusedStackFrameHighlightBackground,
   debugViewValueChangedHighlight,
-} from '../palette.core'
+} from '../palette'
 
 export const getDebugColors = () => ({
   // Отладка

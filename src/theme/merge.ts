@@ -4,7 +4,7 @@ import {
   mergeCurrentContentBackground,
   mergeIncomingHeaderBackground,
   mergeIncomingContentBackground,
-} from '../palette.core'
+} from '../palette'
 
 export const getMergeColors = () => ({
   // Слияние (Merge)
