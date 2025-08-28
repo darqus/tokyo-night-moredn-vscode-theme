@@ -4,8 +4,12 @@ import { withAlpha, mix, lightenToward, darkenToward } from './utils/color'
 import { intensity } from './palette.config'
 
 // Base roles
-export const coreBlack = '#0d1117' as Hex
-export const coreWhite = '#c5d0dd' as Hex
+export const coreBlack = mix(basePalette.black, basePalette.blue, 0.095) as Hex
+export const coreWhite = mix(
+  basePalette.white,
+  mix(basePalette.white, basePalette.black, 0.47),
+  0.22
+) as Hex
 
 const uiBase = {
   editorBg: coreBlack,
