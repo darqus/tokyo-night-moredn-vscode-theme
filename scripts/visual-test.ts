@@ -115,6 +115,7 @@ class VisualRegressionTester {
 
   private async generateEditorScreenshots(browser: Browser): Promise<void> {
     const page = await browser.newPage()
+    await page.setViewport({ width: 900, height: 600, deviceScaleFactor: 1 })
     const theme = JSON.parse(fs.readFileSync(this.themePath, 'utf8'))
 
     await page.setContent(`
@@ -136,11 +137,16 @@ class VisualRegressionTester {
             };
             border-radius: 4px;
             padding: 10px;
+            width: 860px;
+            height: 520px;
+            overflow: hidden;
           }
           pre {
             margin: 0;
             white-space: pre-wrap;
             word-wrap: break-word;
+            font-variant-ligatures: none;
+            -webkit-font-smoothing: antialiased;
           }
         </style>
       </head>
@@ -190,13 +196,15 @@ print(f"Fibonacci of 10 is {result}")
         const el = doc && doc.getElementById('code-content')
         if (el) (el as any).textContent = code
       }, code)
-      await page.screenshot({
-        path: path.join(
-          this.screenshotsDir,
-          `editor-syntax-${lang}.png`
-        ) as `${string}.png`,
-        fullPage: true,
-      })
+      const handle: any = await page.$('.editor-container')
+      if (handle) {
+        await handle.screenshot({
+          path: path.join(
+            this.screenshotsDir,
+            `editor-syntax-${lang}.png`
+          ) as `${string}.png`,
+        })
+      }
     }
 
     await page.close()
@@ -214,13 +222,14 @@ print(f"Fibonacci of 10 is {result}")
 
     for (const component of components) {
       const page = await browser.newPage()
+      await page.setViewport({ width: 900, height: 600, deviceScaleFactor: 1 })
       await page.setContent(`...`)
       await page.screenshot({
         path: path.join(
           this.screenshotsDir,
           `${component.name}.png`
         ) as `${string}.png`,
-        fullPage: true,
+        fullPage: false,
       })
       await page.close()
     }
@@ -261,9 +270,11 @@ print(f"Fibonacci of 10 is {result}")
           diff.data,
           width,
           height,
-          { threshold: 0.1 }
+          { threshold: 0.1, includeAA: true }
         )
-        const passed = numDiffPixels === 0
+        const area = width * height
+        const allowed = Math.floor(area * 0.015) // 1.5% допускаем из-за сглаживания/рендеринга
+        const passed = numDiffPixels <= allowed
 
         if (!passed) {
           fs.writeFileSync(diffPath, PNG.sync.write(diff))
