@@ -7,12 +7,19 @@ const SRC = path.join(ROOT, 'src')
 
 // Files allowed to contain raw hex values (centralized or variant-only logic)
 const ALLOWLIST = new Set<string>([
-  path.join(SRC, 'palette.base.ts'),
-  path.join(SRC, 'palette.core.ts'),
+  // Central palette definitions
+  path.join(SRC, 'palette', 'base.ts'),
+  path.join(SRC, 'palette', 'core.ts'),
+
+  // Variant builders
   path.join(SRC, 'variants', 'themeBuilder.ts'),
   path.join(SRC, 'variants', 'index.ts'),
+
+  // Validation rules may contain example hexes
   path.join(SRC, 'validation', 'themeValidator.ts'),
-  path.join(SRC, 'utils', 'color.ts'), // examples in comments
+
+  // Color utilities (examples / docs)
+  path.join(SRC, 'utils', 'color.ts'),
 ])
 
 const HEX_RE = /#[0-9a-fA-F]{6}\b/g
