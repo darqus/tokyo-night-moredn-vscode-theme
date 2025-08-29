@@ -1,6 +1,5 @@
-import { palette } from '../../src/palette'
-import { core } from '../../src/palette.core'
-import { basePalette } from '../../src/palette.base'
+import { palette, core } from '../../src/palette'
+import { basePalette } from '../../src/palette/base'
 
 describe('Palette System', () => {
   describe('Base Palette', () => {
@@ -19,7 +18,7 @@ describe('Palette System', () => {
     })
 
     it('should have valid hex colors', () => {
-      Object.values(basePalette).forEach(color => {
+      Object.values(basePalette).forEach((color) => {
         expect(color).toMatch(/^#[0-9a-f]{6}$/i)
       })
     })
@@ -51,7 +50,7 @@ describe('Palette System', () => {
     })
 
     it('should have valid hex colors in token category', () => {
-      Object.values(palette.token).forEach(color => {
+      Object.values(palette.token).forEach((color) => {
         expect(color).toMatch(/^#[0-9a-f]{6}$/i)
       })
     })

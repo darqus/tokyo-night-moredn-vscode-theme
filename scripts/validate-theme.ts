@@ -2,8 +2,9 @@
 
 import * as fs from 'fs'
 import * as path from 'path'
-import { PropertyValidator } from '../validation/propertyValidator'
-import { ThemeValidator } from '../validation/themeValidator'
+import { PropertyValidator } from '../src/validation/propertyValidator'
+import { ThemeValidator } from '../src/validation/themeValidator'
+import type { ValidationIssue } from '../src/types/theme'
 
 /**
  * CLI utility for validating VS Code themes
@@ -109,7 +110,7 @@ async function validateThemeFile(
     // Quality reports
     if (qualityResult.issues.length > 0) {
       console.log(colorize('\n🎨 THEME QUALITY:', 'cyan'))
-      qualityResult.issues.forEach((issue) => {
+      qualityResult.issues.forEach((issue: ValidationIssue) => {
         const severity =
           issue.severity === 'error'
             ? colorize('🔴 ERROR', 'red')
@@ -122,9 +123,7 @@ async function validateThemeFile(
         }
       })
     } else {
-      console.log(
-        colorize('✅ Theme quality meets standards', 'green')
-      )
+      console.log(colorize('✅ Theme quality meets standards', 'green'))
     }
 
     // Auto-fix
@@ -134,14 +133,18 @@ async function validateThemeFile(
 
       if (fixes.length > 0) {
         console.log(
-          colorize(
-            `\n🔧 Automatically fixed ${fixes.length} issues:`,
-            'cyan'
-          )
+          colorize(`\n🔧 Automatically fixed ${fixes.length} issues:`, 'cyan')
         )
-        fixes.forEach((fix) => {
-          console.log(`  • ${fix.property}: ${fix.action}`)
-        })
+        fixes.forEach(
+          (fix: {
+            property: string
+            action: string
+            oldValue?: string
+            newValue?: string
+          }) => {
+            console.log(`  • ${fix.property}: ${fix.action}`)
+          }
+        )
 
         const outputPath =
           options.output || filePath.replace('.json', '.fixed.json')
@@ -150,9 +153,7 @@ async function validateThemeFile(
           JSON.stringify(fixedTheme, null, 2) + '\n',
           'utf8'
         )
-        console.log(
-          colorize(`💾 Fixed theme saved: ${outputPath}`, 'green')
-        )
+        console.log(colorize(`💾 Fixed theme saved: ${outputPath}`, 'green'))
       }
     }
 
@@ -203,7 +204,9 @@ async function validateAllThemes(options: ValidateOptions): Promise<boolean> {
   // Overall summary
   console.log(colorize('\n📊 OVERALL SUMMARY:', 'bold'))
   if (allPassed) {
-    console.log(colorize('🎉 All themes passed validation successfully!', 'green'))
+    console.log(
+      colorize('🎉 All themes passed validation successfully!', 'green')
+    )
   } else {
     console.log(colorize('⚠️  Some themes have issues', 'yellow'))
   }
