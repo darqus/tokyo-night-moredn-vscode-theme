@@ -9,199 +9,236 @@ export type SemanticTokenStyle = {
   strikethrough?: boolean
 }
 
-export const semanticTokenColors: Record<string, SemanticTokenStyle> = {
-  // Существующие базовые правила
-  'parameter.declaration': { foreground: palette.accent.yellow },
-  parameter: { foreground: palette.fg.muted },
-  'property.declaration': { foreground: palette.accent.teal },
-  'property.defaultLibrary': { foreground: palette.accent.cyan },
-  '*.defaultLibrary': { foreground: palette.accent.cyan },
-  'variable.defaultLibrary': { foreground: palette.accent.cyan },
-  'variable.declaration': { foreground: palette.accent.magenta },
-  variable: { foreground: palette.accent.cyan },
-
-  // РАСШИРЕННЫЕ СЕМАНТИЧЕСКИЕ ПРАВИЛА - Phase 1.3
-  // Переменные с модификаторами
-  'variable.readonly': { foreground: palette.accent.cyan },
-  'variable.mutable': { foreground: palette.accent.cyan },
-  'variable.static': { foreground: palette.accent.magenta, bold: true },
-  'variable.local': { foreground: palette.accent.cyan },
-  'variable.global': { foreground: palette.accent.red },
-
-  // Функции и методы
-  'function.declaration': { foreground: palette.accent.blue },
-  'function.async': { foreground: palette.accent.magenta },
-  'method.declaration': { foreground: palette.accent.blue },
-  'method.static': { foreground: palette.accent.blue, bold: true },
-
-  // Типы и классы
-  'class.declaration': { foreground: palette.accent.orange },
-  'class.defaultLibrary': { foreground: palette.accent.cyan },
-  'interface.declaration': { foreground: palette.accent.teal },
-  'enum.declaration': { foreground: palette.accent.yellow },
-  'type.declaration': { foreground: palette.accent.orange },
-  typeParameter: { foreground: palette.accent.teal },
-  struct: { foreground: palette.accent.orange },
-
-  // Модули и пространства имен
-  namespace: { foreground: palette.accent.blue },
-  'namespace.declaration': { foreground: palette.accent.blue, bold: true },
-  module: { foreground: palette.accent.blue },
-
-  // Макросы и препроцессор
-  macro: { foreground: palette.accent.red },
-  'macro.declaration': { foreground: palette.accent.red, bold: true },
-
-  // Language-specific правила
-  // Rust
-  'lifetime:rust': { foreground: palette.accent.yellow },
-  'generic:rust': { foreground: palette.accent.teal },
-  'attribute:rust': { foreground: palette.accent.magenta },
-  'selfKeyword:rust': { foreground: palette.accent.red, bold: true },
-  'trait:rust': { foreground: palette.accent.teal },
-  'union:rust': { foreground: palette.accent.orange },
-
-  // Python
-  'decorator:python': { foreground: palette.accent.blue },
-  'selfParameter:python': { foreground: palette.accent.red },
-  'clsParameter:python': { foreground: palette.accent.red },
-  'magicFunction:python': { foreground: palette.accent.magenta },
-
-  // TypeScript/JavaScript
-  'interface:typescript': { foreground: palette.accent.teal },
-  'type:typescript': { foreground: palette.accent.orange },
-  'enum:typescript': { foreground: palette.accent.yellow },
-  'enumMember:typescript': { foreground: palette.accent.yellow },
-  'decorator:typescript': { foreground: palette.accent.blue },
-
-  // Go
-  'type:go': { foreground: palette.accent.orange },
-  'interface:go': { foreground: palette.accent.teal },
-  'struct:go': { foreground: palette.accent.orange },
-  'package:go': { foreground: palette.accent.blue },
-
-  // C/C++
-  'macro:c': { foreground: palette.accent.red },
-  'macro:cpp': { foreground: palette.accent.red },
-  'class:cpp': { foreground: palette.accent.orange },
-  'namespace:cpp': { foreground: palette.accent.blue },
-  'template:cpp': { foreground: palette.accent.teal },
-
-  // Java
-  'annotation:java': { foreground: palette.accent.blue },
-  'class:java': { foreground: palette.accent.orange },
-  'interface:java': { foreground: palette.accent.teal },
-  'package:java': { foreground: palette.accent.blue },
-
-  // C#
-  'class:csharp': { foreground: palette.accent.orange },
-  'interface:csharp': { foreground: palette.accent.teal },
-  'namespace:csharp': { foreground: palette.accent.blue },
-  'attribute:csharp': { foreground: palette.accent.blue },
-
-  // HTML/XML
-  'attribute:html': { foreground: palette.accent.magenta },
-  'tag:html': { foreground: palette.accent.red },
-  'element:xml': { foreground: palette.accent.red },
-
-  // CSS/SCSS
-  'property:css': { foreground: palette.accent.blue },
-  'class:css': { foreground: palette.accent.blue },
-  'id:css': { foreground: palette.accent.magenta },
-  'pseudoClass:css': { foreground: palette.accent.magenta },
-  'pseudoElement:css': { foreground: palette.accent.magenta },
-  'variable:scss': { foreground: palette.accent.teal },
-  'mixin:scss': { foreground: palette.accent.magenta },
-
-  // Markdown
-  'heading:markdown': { foreground: palette.accent.blue, bold: true },
-  'emphasis:markdown': { foreground: palette.accent.cyan, italic: true },
-  'strong:markdown': { foreground: palette.accent.blue, bold: true },
-  'code:markdown': { foreground: palette.accent.magenta },
-  'codeBlock:markdown': { foreground: palette.accent.cyan },
-  'link:markdown': { foreground: palette.accent.teal },
-
-  // JSON
-  'property:json': { foreground: palette.accent.blue },
-  'string:json': { foreground: palette.token.string },
-  'number:json': { foreground: palette.accent.yellow },
-
-  // YAML
-  'property:yaml': { foreground: palette.accent.blue },
-  'anchor:yaml': { foreground: palette.accent.cyan },
-  'alias:yaml': { foreground: palette.accent.cyan },
-
-  // ДОПОЛНИТЕЛЬНЫЕ СЕМАНТИЧЕСКИЕ ПРАВИЛА - Phase 1.4
-  // Константы и литералы
-  constant: { foreground: palette.accent.yellow },
-  'constant.readonly': { foreground: palette.accent.yellow, bold: true },
-  number: { foreground: palette.accent.yellow },
-  string: { foreground: palette.token.string },
-  boolean: { foreground: palette.accent.magenta },
-  null: { foreground: palette.accent.magenta },
-  undefined: { foreground: palette.accent.magenta },
-
-  // Операторы и ключевые слова
-  operator: { foreground: palette.accent.magenta },
-  keyword: { foreground: palette.accent.magenta },
-  'keyword.control': { foreground: palette.accent.magenta, bold: true },
-  'keyword.operator': { foreground: palette.accent.magenta },
-  'keyword.type': { foreground: palette.accent.blue },
-  'keyword.modifier': { foreground: palette.accent.cyan },
-
-  // Комментарии и документация
-  comment: { foreground: palette.token.comment },
-  'comment.documentation': { foreground: palette.token.comment, italic: true },
-  'comment.keyword': { foreground: palette.accent.blue, italic: true },
-
-  // Ошибки и предупреждения
-  error: { foreground: palette.token.error, underline: true },
-  warning: { foreground: palette.token.warning, underline: true },
-  deprecated: { foreground: palette.fg.inactive, strikethrough: true },
-
-  // Регулярные выражения
-  regexp: { foreground: palette.accent.red },
-  'regexp.characterClass': { foreground: palette.accent.yellow },
-  'regexp.escape': { foreground: palette.accent.cyan },
-
-  // Декораторы и аннотации
-  decorator: { foreground: palette.accent.blue },
-  annotation: { foreground: palette.accent.blue },
-
-  // Параметры и аргументы
-  'parameter.type': { foreground: palette.accent.cyan },
-  'parameter.name': { foreground: palette.accent.yellow },
-  argument: { foreground: palette.accent.cyan },
-
-  // Метки и ссылки
-  label: { foreground: palette.accent.blue },
-  reference: { foreground: palette.accent.teal },
-
-  // Специальные токены
-  escapeSequence: { foreground: palette.accent.cyan },
-  formatSpecifier: { foreground: palette.accent.yellow },
-
-  // Улучшенные правила для скобок и пунктуации
-  punctuation: { foreground: palette.token.operator },
-  'punctuation.delimiter': { foreground: palette.fg.muted },
-
-  // Различные типы скобок
-  'punctuation.bracket': { foreground: palette.brackets.curly },
-  'punctuation.bracket.round': { foreground: palette.brackets.round },
-  'punctuation.bracket.square': { foreground: palette.brackets.square },
-  'punctuation.bracket.curly': { foreground: palette.brackets.curly },
-  'punctuation.bracket.angle': { foreground: palette.brackets.angle },
-
-  // Различные типы пунктуации
-  'punctuation.separator': { foreground: palette.punctuation.comma },
-  'punctuation.separator.comma': { foreground: palette.punctuation.comma },
-  'punctuation.separator.dot': { foreground: palette.punctuation.dot },
-  'punctuation.separator.colon': { foreground: palette.punctuation.colon },
-  'punctuation.separator.semicolon': {
-    foreground: palette.punctuation.semicolon,
+// Группировка селекторов по стилям для устранения дублирования
+const tokenMappings: { style: SemanticTokenStyle; selectors: string[] }[] = [
+  // Акцентные цвета
+  {
+    style: { foreground: palette.accent.yellow },
+    selectors: [
+      'parameter.declaration',
+      'enum.declaration',
+      'enumMember:typescript',
+      'lifetime:rust',
+      'regexp.characterClass',
+      'formatSpecifier',
+      'number',
+      'number:json',
+      'constant',
+    ],
   },
+  {
+    style: { foreground: palette.accent.yellow, bold: true },
+    selectors: ['constant.readonly'],
+  },
+  {
+    style: { foreground: palette.accent.teal },
+    selectors: [
+      'property.declaration',
+      'interface.declaration',
+      'typeParameter',
+      'generic:rust',
+      'trait:rust',
+      'interface:typescript',
+      'interface:go',
+      'template:cpp',
+      'interface:java',
+      'interface:csharp',
+      'variable:scss',
+      'link:markdown',
+      'reference',
+    ],
+  },
+  {
+    style: { foreground: palette.accent.cyan },
+    selectors: [
+      'property.defaultLibrary',
+      '*.defaultLibrary',
+      'variable.defaultLibrary',
+      'variable',
+      'variable.readonly',
+      'variable.mutable',
+      'variable.local',
+      'namespace.declaration',
+      'module',
+      'package:go',
+      'namespace:cpp',
+      'package:java',
+      'namespace:csharp',
+      'anchor:yaml',
+      'alias:yaml',
+      'keyword.modifier',
+      'regexp.escape',
+      'escapeSequence',
+      'parameter.type',
+      'argument',
+      'codeBlock:markdown',
+    ],
+  },
+  {
+    style: { foreground: palette.accent.magenta },
+    selectors: [
+      'variable.declaration',
+      'function.async',
+      'attribute:rust',
+      'magicFunction:python',
+      'id:css',
+      'pseudoClass:css',
+      'pseudoElement:css',
+      'mixin:scss',
+      'code:markdown',
+      'boolean',
+      'null',
+      'undefined',
+      'operator',
+      'keyword',
+      'keyword.operator',
+      'punctuation.special',
+      'attribute:html',
+    ],
+  },
+  {
+    style: { foreground: palette.accent.magenta, bold: true },
+    selectors: ['variable.static', 'keyword.control'],
+  },
+  {
+    style: { foreground: palette.accent.blue },
+    selectors: [
+      'function.declaration',
+      'method.declaration',
+      'namespace',
+      'decorator:python',
+      'decorator:typescript',
+      'annotation:java',
+      'attribute:csharp',
+      'property:json',
+      'property:css',
+      'property:yaml',
+      'keyword.type',
+      'decorator',
+      'annotation',
+      'label',
+      'class:css',
+    ],
+  },
+  {
+    style: { foreground: palette.accent.blue, bold: true },
+    selectors: ['method.static', 'heading:markdown', 'strong:markdown'],
+  },
+  {
+    style: { foreground: palette.accent.orange },
+    selectors: [
+      'class.declaration',
+      'type.declaration',
+      'struct',
+      'union:rust',
+      'type:typescript',
+      'type:go',
+      'struct:go',
+      'class:cpp',
+      'class:java',
+      'class:csharp',
+    ],
+  },
+  {
+    style: { foreground: palette.accent.red },
+    selectors: [
+      'variable.global',
+      'macro',
+      'selfParameter:python',
+      'clsParameter:python',
+      'tag:html',
+      'element:xml',
+      'regexp',
+    ],
+  },
+  {
+    style: { foreground: palette.accent.red, bold: true },
+    selectors: ['macro.declaration', 'selfKeyword:rust'],
+  },
+  // Основные токены
+  {
+    style: { foreground: palette.fg.muted },
+    selectors: ['parameter', 'punctuation.delimiter'],
+  },
+  {
+    style: { foreground: palette.token.comment },
+    selectors: ['comment'],
+  },
+  {
+    style: { foreground: palette.token.comment, italic: true },
+    selectors: ['comment.documentation'],
+  },
+  {
+    style: { foreground: palette.accent.blue, italic: true },
+    selectors: ['comment.keyword'],
+  },
+  {
+    style: { foreground: palette.token.error, underline: true },
+    selectors: ['error'],
+  },
+  {
+    style: { foreground: palette.token.warning, underline: true },
+    selectors: ['warning'],
+  },
+  {
+    style: { foreground: palette.fg.inactive, strikethrough: true },
+    selectors: ['deprecated'],
+  },
+  {
+    style: { foreground: palette.token.string },
+    selectors: ['string', 'string:json'],
+  },
+  {
+    style: { foreground: palette.token.operator },
+    selectors: ['punctuation'],
+  },
+  {
+    style: { foreground: palette.accent.cyan, italic: true },
+    selectors: ['emphasis:markdown'],
+  },
+  // Скобки и пунктуация
+  {
+    style: { foreground: palette.brackets.curly },
+    selectors: ['punctuation.bracket', 'punctuation.bracket.curly'],
+  },
+  {
+    style: { foreground: palette.brackets.round },
+    selectors: ['punctuation.bracket.round'],
+  },
+  {
+    style: { foreground: palette.brackets.square },
+    selectors: ['punctuation.bracket.square'],
+  },
+  {
+    style: { foreground: palette.brackets.angle },
+    selectors: ['punctuation.bracket.angle'],
+  },
+  {
+    style: { foreground: palette.punctuation.comma },
+    selectors: ['punctuation.separator', 'punctuation.separator.comma'],
+  },
+  {
+    style: { foreground: palette.punctuation.dot },
+    selectors: ['punctuation.separator.dot'],
+  },
+  {
+    style: { foreground: palette.punctuation.colon },
+    selectors: ['punctuation.separator.colon'],
+  },
+  {
+    style: { foreground: palette.punctuation.semicolon },
+    selectors: ['punctuation.separator.semicolon'],
+  },
+  {
+    style: { foreground: palette.punctuation.operator },
+    selectors: ['punctuation.operator'],
+  },
+]
 
-  // Операторы
-  'punctuation.operator': { foreground: palette.punctuation.operator },
-  'punctuation.special': { foreground: palette.accent.magenta },
+// Генерация финального объекта semanticTokenColors
+export const semanticTokenColors: Record<string, SemanticTokenStyle> = {}
+for (const { style, selectors } of tokenMappings) {
+  for (const selector of selectors) {
+    semanticTokenColors[selector] = style
+  }
 }

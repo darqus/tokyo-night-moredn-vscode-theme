@@ -1,20 +1,29 @@
 import type { Hex } from './types/palette'
 import { palette } from './palette/index'
 
+type TokenSettings = {
+  fontStyle?: string
+  foreground?: Hex
+  background?: Hex
+}
+
 export type TokenColor = {
   name: string
   scope: string | string[]
-  settings: {
-    fontStyle?: string
-    foreground?: Hex
-    background?: Hex
-  }
+  settings: TokenSettings
 }
 
-export const getTokenColors = (): TokenColor[] => [
+// Группировка областей по общим настройкам для устранения дублирования
+const tokenMappings: {
+  name: string
+  settings: TokenSettings
+  scopes: string[]
+}[] = [
+  // --- Стили шрифта ---
   {
-    name: 'Italics - Comments, Storage, Keyword Flow, Vue attributes, Decorators',
-    scope: [
+    name: 'Italics',
+    settings: { fontStyle: 'italic' },
+    scopes: [
       'comment',
       'meta.var.expr storage.type',
       'keyword.control.flow',
@@ -24,33 +33,54 @@ export const getTokenColors = (): TokenColor[] => [
       'tag.decorator.js entity.name.tag.js',
       'tag.decorator.js punctuation.definition.tag.js',
       'storage.modifier',
+      'markup.quote',
     ],
-    settings: {
-      fontStyle: 'italic',
-    },
   },
   {
-    name: 'Fix YAML block scalar',
-    scope: 'keyword.control.flow.block-scalar.literal',
-    settings: {
-      fontStyle: '',
-    },
+    name: 'Bold',
+    settings: { fontStyle: 'bold' },
+    scopes: ['keyword.operator.spread', 'keyword.operator.rest'],
   },
   {
-    name: 'Comment',
-    scope: [
+    name: 'Bold Italic',
+    settings: { fontStyle: 'bold italic' },
+    scopes: [
+      'markup.bold markup.italic',
+      'markup.bold markup.italic punctuation',
+    ],
+  },
+  {
+    name: 'Underline',
+    settings: { fontStyle: 'underline' },
+    scopes: ['markup.underline', 'markup.underline punctuation'],
+  },
+  {
+    name: 'No Font Style',
+    settings: { fontStyle: '' },
+    scopes: [
+      'keyword.control.flow.block-scalar.literal',
+      'string',
+      'invalid.deprecated',
+      'entity.other.inherited-class',
+    ],
+  },
+
+  // --- Цвета токенов ---
+  {
+    name: 'Comments',
+    settings: { foreground: palette.token.ignored },
+    scopes: [
       'comment',
       'comment.block.documentation',
       'punctuation.definition.comment',
       'comment.block.documentation punctuation',
+      'meta.separator',
     ],
-    settings: {
-      foreground: palette.token.ignored,
-    },
   },
   {
-    name: 'Comment Doc',
-    scope: [
+    name: 'Comments: Doc',
+    settings: { foreground: palette.token.commentDoc },
+    scopes: [
       'comment.block.documentation variable',
       'comment.block.documentation storage',
       'comment.block.documentation keyword',
@@ -64,289 +94,64 @@ export const getTokenColors = (): TokenColor[] => [
       'keyword.other.phpdoc.php',
       'log.date',
     ],
-    settings: {
-      foreground: palette.token.commentDoc,
-    },
   },
   {
-    name: 'Comment Doc Emphasized',
-    scope: [
+    name: 'Comments: Doc Emphasized',
+    settings: { foreground: palette.token.commentDocEmphasized },
+    scopes: [
       'meta.other.type.phpdoc.php support.class',
       'comment.block.documentation storage.type',
       'comment.block.documentation punctuation.definition.block.tag',
       'comment.block.documentation entity.name.type.instance',
     ],
-    settings: {
-      foreground: palette.token.commentDocEmphasized,
-    },
   },
   {
-    name: 'Number, Boolean, Undefined, Null',
-    scope: [
+    name: 'Literals: Number, Boolean, Null',
+    settings: { foreground: palette.token.number },
+    scopes: [
       'variable.other.constant',
       'punctuation.definition.constant',
       'constant.language',
       'constant.numeric',
       'support.constant',
     ],
-    settings: {
-      foreground: palette.token.number,
-    },
   },
   {
-    name: 'String, Symbols',
-    scope: [
+    name: 'Literals: String, Symbols',
+    settings: { foreground: palette.token.string },
+    scopes: [
       'string',
       'constant.other.symbol',
       'constant.other.key',
       'meta.attribute-selector',
+      'support.constant.font-name',
+      'meta.definition.variable',
     ],
-    settings: {
-      fontStyle: '',
-      foreground: palette.token.string,
-    },
   },
   {
-    name: 'Colors',
-    scope: [
+    name: 'Literals: Colors, Constants',
+    settings: { foreground: palette.token.constant },
+    scopes: [
       'constant.other.color',
       'constant.other.color.rgb-value.hex punctuation.definition.constant',
+      'text.html',
+      'text.log',
     ],
-    settings: {
-      foreground: palette.token.constant,
-    },
   },
   {
     name: 'Invalid',
-    scope: ['invalid', 'invalid.illegal'],
-    settings: {
-      foreground: palette.token.invalid,
-    },
+    settings: { foreground: palette.token.invalid },
+    scopes: ['invalid', 'invalid.illegal'],
   },
   {
-    name: 'Invalid deprecated',
-    scope: 'invalid.deprecated',
-    settings: {
-      foreground: palette.accent.magenta,
-    },
-  },
-  {
-    name: 'Storage Type',
-    scope: 'storage.type',
-    settings: {
-      foreground: palette.accent.magenta,
-    },
-  },
-  {
-    name: 'Storage - modifier, var, const, let',
-    scope: ['meta.var.expr storage.type', 'storage.modifier'],
-    settings: {
-      foreground: palette.accent.purple,
-    },
-  },
-  {
-    name: 'Interpolation, PHP tags, Smarty tags',
-    scope: [
-      'punctuation.definition.template-expression',
-      'punctuation.section.embedded',
-      'meta.embedded.line.tag.smarty',
-      'support.constant.handlebars',
-      'punctuation.section.tag.twig',
-    ],
-    settings: {
-      foreground: palette.accent.cyan,
-    },
-  },
-  {
-    name: 'Blade, Twig, Smarty Handlebars keywords',
-    scope: [
-      'keyword.control.smarty',
-      'keyword.control.twig',
-      'support.constant.handlebars keyword.control',
-      'keyword.operator.comparison.twig',
-      'keyword.blade',
-      'entity.name.function.blade',
-    ],
-    settings: {
-      foreground: palette.token.templateKeyword,
-    },
-  },
-  {
-    name: 'Spread',
-    scope: ['keyword.operator.spread', 'keyword.operator.rest'],
-    settings: {
-      foreground: palette.token.spread,
-      fontStyle: 'bold',
-    },
-  },
-  {
-    name: 'Round Brackets ()',
-    scope: [
-      'punctuation.section.parens.begin',
-      'punctuation.section.parens.end',
-      'punctuation.section.group.begin',
-      'punctuation.section.group.end',
-    ],
-    settings: {
-      foreground: palette.brackets.round,
-    },
-  },
-  {
-    name: 'Square Brackets []',
-    scope: [
-      'punctuation.section.brackets.begin',
-      'punctuation.section.brackets.end',
-      'punctuation.section.array.begin',
-      'punctuation.section.array.end',
-    ],
-    settings: {
-      foreground: palette.brackets.square,
-    },
-  },
-  {
-    name: 'Curly Brackets {}',
-    scope: [
-      'punctuation.section.braces.begin',
-      'punctuation.section.braces.end',
-      'punctuation.section.object.begin',
-      'punctuation.section.object.end',
-      'punctuation.definition.block',
-      'punctuation.definition.switch-expression.begin.bracket',
-      'punctuation.definition.switch-expression.end.bracket',
-      'punctuation.definition.section.switch-block.begin.bracket',
-      'punctuation.definition.section.switch-block.end.bracket',
-    ],
-    settings: {
-      foreground: palette.brackets.curly,
-    },
-  },
-  {
-    name: 'Angle Brackets <>',
-    scope: [
-      'punctuation.definition.generic.begin',
-      'punctuation.definition.generic.end',
-      'punctuation.definition.type.begin',
-      'punctuation.definition.type.end',
-      'punctuation.definition.tag',
-      'punctuation.definition.arguments',
-      'punctuation.definition.parameters',
-      'punctuation.definition.dictionary',
-      'punctuation.definition.array',
-    ],
-    settings: {
-      foreground: palette.brackets.angle,
-    },
-  },
-  {
-    name: 'Commas',
-    scope: [
-      'punctuation.separator.comma',
-      'punctuation.separator.list',
-      'punctuation.separator.sequence',
-    ],
-    settings: {
-      foreground: palette.punctuation.comma,
-    },
-  },
-  {
-    name: 'Dots',
-    scope: [
-      'punctuation.separator.dot',
-      'punctuation.accessor.dot',
-      'punctuation.separator.period',
-    ],
-    settings: {
-      foreground: palette.punctuation.dot,
-    },
-  },
-  {
-    name: 'Colons',
-    scope: [
-      'punctuation.separator.colon',
-      'punctuation.separator.key-value',
-      'punctuation.separator.type',
-    ],
-    settings: {
-      foreground: palette.punctuation.colon,
-    },
-  },
-  {
-    name: 'Semicolons',
-    scope: [
-      'punctuation.terminator.statement',
-      'punctuation.separator.statement',
-      'punctuation.terminator.rule',
-    ],
-    settings: {
-      foreground: palette.punctuation.semicolon,
-    },
-  },
-  {
-    name: 'Operators',
-    scope: [
-      'keyword.operator',
-      'keyword.control.as',
-      'keyword.other',
-      'keyword.operator.bitwise.shift',
-      'keyword.other.template',
-      'keyword.other.substitution',
-      'entity.name.operator',
-    ],
-    settings: {
-      foreground: palette.punctuation.operator,
-    },
-  },
-  {
-    name: 'Other Punctuation',
-    scope: [
-      'text.html.twig meta.tag.inline.any.html',
-      'meta.tag.template.value.twig meta.function.arguments.twig',
-      'meta.directive.vue punctuation.separator.key-value.html',
-      'punctuation.definition.constant.markdown',
-      'punctuation.definition.string',
-      'punctuation.support.type.property-name',
-      'text.html.vue-html meta.tag',
-      'punctuation.definition.keyword',
-      'punctuation.definition.entity',
-      'punctuation.separator.inheritance.php',
-      'meta.property-list punctuation.separator.key-value',
-      'meta.at-rule.mixin punctuation.separator.key-value',
-      'meta.at-rule.function variable.parameter.url',
-    ],
-    settings: {
-      foreground: palette.token.operator,
-    },
-  },
-  {
-    name: 'Import, Export, From, Default',
-    scope: [
-      'keyword.control.import',
-      'keyword.control.export',
-      'keyword.control.from',
-      'keyword.control.default',
-      'meta.import keyword.other',
-    ],
-    settings: {
-      foreground: palette.accent.cyan,
-    },
-  },
-  {
-    name: 'Keyword',
-    scope: ['keyword', 'keyword.control', 'keyword.other.important'],
-    settings: {
-      foreground: palette.accent.magenta,
-    },
-  },
-  {
-    name: 'Keyword SQL',
-    scope: 'keyword.other.DML',
-    settings: {
-      foreground: palette.accent.cyan,
-    },
-  },
-  {
-    name: 'Keyword Operator Logical, Arrow, Ternary, Comparison',
-    scope: [
+    name: 'Keywords: Magenta',
+    settings: { foreground: palette.accent.magenta },
+    scopes: [
+      'invalid.deprecated',
+      'storage.type',
+      'keyword',
+      'keyword.control',
+      'keyword.other.important',
       'keyword.operator.logical',
       'storage.type.function',
       'keyword.operator.bitwise',
@@ -354,201 +159,92 @@ export const getTokenColors = (): TokenColor[] => [
       'keyword.operator.comparison',
       'keyword.operator.relational',
       'keyword.operator.or.regexp',
-    ],
-    settings: {
-      foreground: palette.accent.magenta,
-    },
-  },
-  {
-    name: 'Tag',
-    scope: 'entity.name.tag',
-    settings: {
-      foreground: palette.accent.blue,
-    },
-  },
-  {
-    name: 'Tag Component',
-    scope: ['entity.name.tag support.class.component', 'meta.tag'],
-    settings: {
-      foreground: palette.token.tagComponent,
-    },
-  },
-  {
-    name: 'Tag Punctuation',
-    scope: 'punctuation.definition.tag',
-    settings: {
-      foreground: palette.token.tagPunctuation,
-    },
-  },
-  {
-    name: 'Globals, PHP Constants, etc',
-    scope: [
-      'constant.other.php',
-      'variable.other.global.safer',
-      'variable.other.global.safer punctuation.definition.variable',
-      'variable.other.global',
-      'variable.other.global punctuation.definition.variable',
-      'constant.other',
-    ],
-    settings: {
-      foreground: palette.token.spread,
-    },
-  },
-  {
-    name: 'Variables',
-    scope: [
-      'variable',
-      'support.variable',
-      'string constant.other.placeholder',
-      'variable.parameter.handlebars',
-    ],
-    settings: {
-      foreground: palette.accent.cyan,
-    },
-  },
-  {
-    name: 'Object Variable',
-    scope: 'variable.other.object',
-    settings: {
-      foreground: palette.accent.cyan,
-    },
-  },
-  {
-    name: 'Variable Array Key',
-    scope: 'meta.array.literal variable',
-    settings: {
-      foreground: palette.accent.cyan,
-    },
-  },
-  {
-    name: 'Object Key',
-    scope: [
-      'meta.object-literal.key',
-      'string.alias.graphql',
-      'string.unquoted.graphql',
-      'string.unquoted.alias.graphql',
-      'meta.group.braces.curly constant.other.object.key.js string.unquoted.label.js',
-      'meta.field.declaration.ts variable.object.property',
-    ],
-    settings: {
-      foreground: palette.token.objectKey,
-    },
-  },
-  {
-    name: 'Object Property',
-    scope: [
-      'variable.other.property',
-      'support.variable.property',
-      'support.variable.property.dom',
-      'meta.function-call variable.other.object.property',
-    ],
-    settings: {
-      foreground: palette.accent.cyan,
-    },
-  },
-  {
-    name: 'Object Property',
-    scope: 'variable.other.object.property',
-    settings: {
-      foreground: palette.accent.cyan,
-    },
-  }, // More specific override for object properties
-  {
-    name: 'Object Literal Member lvl 3 (Vue Prop Validation)',
-    scope:
-      'meta.objectliteral meta.object.member meta.objectliteral meta.object.member meta.objectliteral meta.object.member meta.object-literal.key',
-    settings: {
-      foreground: palette.token.objectKeyLevel3,
-    },
-  },
-  {
-    name: 'C-related Block Level Variables',
-    scope: 'source.cpp meta.block variable.other',
-    settings: {
-      foreground: palette.accent.cyan,
-    },
-  },
-  {
-    name: 'Other Variable',
-    scope: 'support.other.variable',
-    settings: {
-      foreground: palette.accent.red,
-    },
-  },
-  {
-    name: 'Methods',
-    scope: [
-      'meta.class-method.js entity.name.function.js',
-      'entity.name.method.js',
-      'variable.function.constructor',
-      'keyword.other.special-method',
-      'storage.type.cs',
-    ],
-    settings: {
-      foreground: palette.accent.blue,
-    },
-  },
-  {
-    name: 'Function Definition',
-    scope: [
-      'entity.name.function',
-      'meta.function-call',
-      'meta.function-call entity.name.function',
-      'variable.function',
-      'meta.definition.method entity.name.function',
-      'meta.object-literal entity.name.function',
-    ],
-    settings: {
-      foreground: palette.accent.blue,
-    },
-  },
-  {
-    name: 'Function Argument',
-    scope: [
-      'variable.parameter.function.language.special',
-      'variable.parameter',
-      'meta.function.parameters punctuation.definition.variable',
-      'meta.function.parameter variable',
-    ],
-    settings: {
-      foreground: palette.token.spread,
-    },
-  },
-  {
-    name: 'Constant, Tag Attribute',
-    scope: [
       'keyword.other.type.php',
       'storage.type.php',
       'constant.character',
       'constant.escape',
       'keyword.other.unit',
-    ],
-    settings: {
-      foreground: palette.accent.magenta,
-    },
-  },
-  {
-    name: 'Variable Definition',
-    scope: [
       'meta.definition.variable variable.other.constant',
       'meta.definition.variable variable.other.readwrite',
       'variable.other.declaration',
+      'entity.other.inherited-class',
+      'entity.other.attribute-name',
+      'text.html.basic entity.other.attribute-name.html',
+      'text.html.basic entity.other.attribute-name',
+      'entity.other.attribute-name.id.html',
+      'meta.directive.vue entity.other.attribute-name.html',
+      'entity.other.attribute-name.id',
+      'entity.other.attribute-name.pseudo-class',
+      'entity.other.attribute-name.pseudo-element',
+      'entity.other.attribute-name.placeholder',
+      'meta.property-list meta.property-value',
+      'text.html.markdown markup.inline.raw.markdown',
+      'constant.other.character-class.regexp',
+      'meta.at-rule.mixin keyword.control.at-rule.mixin',
+      'meta.at-rule.include entity.name.function.scss',
+      'meta.at-rule.include keyword.control.at-rule.include',
     ],
-    settings: {
-      foreground: palette.accent.magenta,
-    },
   },
   {
-    name: 'Inherited Class',
-    scope: 'entity.other.inherited-class',
-    settings: {
-      fontStyle: '',
-      foreground: palette.accent.magenta,
-    },
+    name: 'Keywords: Purple',
+    settings: { foreground: palette.accent.purple },
+    scopes: [
+      'meta.var.expr storage.type',
+      'storage.modifier',
+      'keyword.control.at-rule.include punctuation.definition.keyword',
+      'keyword.control.at-rule.mixin punctuation.definition.keyword',
+      'meta.at-rule.include keyword.control.at-rule.include',
+      'keyword.control.at-rule.extend punctuation.definition.keyword',
+      'meta.at-rule.extend keyword.control.at-rule.extend',
+      'entity.other.attribute-name.placeholder.css punctuation.definition.entity.css',
+      'meta.at-rule.media keyword.control.at-rule.media',
+      'meta.at-rule.mixin keyword.control.at-rule.mixin',
+      'meta.at-rule.function keyword.control.at-rule.function',
+      'keyword.control punctuation.definition.keyword',
+    ],
   },
   {
-    name: 'Class, Support, DOM, etc',
-    scope: [
+    name: 'Keywords & Variables: Cyan',
+    settings: { foreground: palette.accent.cyan },
+    scopes: [
+      'punctuation.definition.template-expression',
+      'punctuation.section.embedded',
+      'meta.embedded.line.tag.smarty',
+      'support.constant.handlebars',
+      'punctuation.section.tag.twig',
+      'keyword.control.import',
+      'keyword.control.export',
+      'keyword.control.from',
+      'keyword.control.default',
+      'meta.import keyword.other',
+      'keyword.other.DML',
+      'variable',
+      'support.variable',
+      'string constant.other.placeholder',
+      'variable.parameter.handlebars',
+      'variable.other.object',
+      'meta.array.literal variable',
+      'variable.other.property',
+      'support.variable.property',
+      'support.variable.property.dom',
+      'meta.function-call variable.other.object.property',
+      'variable.other.object.property',
+      'source.cpp meta.block variable.other',
+      'meta.property-list meta.at-rule.include',
+      'variable.other punctuation.definition.variable',
+      'constant.character.escape.backslash',
+    ],
+  },
+  {
+    name: 'Template Keywords & Types',
+    settings: { foreground: palette.token.templateKeyword },
+    scopes: [
+      'keyword.control.smarty',
+      'keyword.control.twig',
+      'support.constant.handlebars keyword.control',
+      'keyword.operator.comparison.twig',
+      'keyword.blade',
+      'entity.name.function.blade',
       'support.class',
       'support.type',
       'variable.other.readwrite.alias',
@@ -562,28 +258,174 @@ export const getTokenColors = (): TokenColor[] => [
       'support.constant.json',
       'entity.name.namespace',
       'meta.import.qualifier',
+      'support.function',
+      'entity.name.tag.css',
+      'entity.other.attribute-name.pseudo-class punctuation.definition.entity',
+      'entity.other.attribute-name.pseudo-element punctuation.definition.entity',
+      'entity.other.attribute-name.class punctuation.definition.entity',
+      'entity.name.tag.reference',
+      'text.html constant.character.entity',
+      'token.info-token',
     ],
-    settings: {
-      foreground: palette.token.templateKeyword,
-    },
   },
   {
-    name: 'Class Name',
-    scope: 'entity.name',
-    settings: {
-      foreground: palette.accent.blue,
-    },
+    name: 'Special Variables & Spread',
+    settings: { foreground: palette.token.spread },
+    scopes: [
+      'keyword.operator.spread',
+      'keyword.operator.rest',
+      'constant.other.php',
+      'variable.other.global.safer',
+      'variable.other.global.safer punctuation.definition.variable',
+      'variable.other.global',
+      'variable.other.global punctuation.definition.variable',
+      'constant.other',
+      'variable.parameter.function.language.special',
+      'variable.parameter',
+      'meta.function.parameters punctuation.definition.variable',
+      'meta.function.parameter variable',
+    ],
   },
   {
-    name: 'Support Function',
-    scope: 'support.function',
-    settings: {
-      foreground: palette.token.templateKeyword,
-    },
+    name: 'Brackets & Punctuation',
+    settings: { foreground: palette.brackets.round },
+    scopes: [
+      'punctuation.section.parens.begin',
+      'punctuation.section.parens.end',
+      'punctuation.section.group.begin',
+      'punctuation.section.group.end',
+    ],
   },
   {
-    name: 'CSS Class and Support',
-    scope: [
+    name: 'Brackets: Square',
+    settings: { foreground: palette.brackets.square },
+    scopes: [
+      'punctuation.section.brackets.begin',
+      'punctuation.section.brackets.end',
+      'punctuation.section.array.begin',
+      'punctuation.section.array.end',
+    ],
+  },
+  {
+    name: 'Brackets: Curly',
+    settings: { foreground: palette.brackets.curly },
+    scopes: [
+      'punctuation.section.braces.begin',
+      'punctuation.section.braces.end',
+      'punctuation.section.object.begin',
+      'punctuation.section.object.end',
+      'punctuation.definition.block',
+      'punctuation.definition.switch-expression.begin.bracket',
+      'punctuation.definition.switch-expression.end.bracket',
+      'punctuation.definition.section.switch-block.begin.bracket',
+      'punctuation.definition.section.switch-block.end.bracket',
+    ],
+  },
+  {
+    name: 'Brackets: Angle & Tags',
+    settings: { foreground: palette.brackets.angle },
+    scopes: [
+      'punctuation.definition.generic.begin',
+      'punctuation.definition.generic.end',
+      'punctuation.definition.type.begin',
+      'punctuation.definition.type.end',
+      'punctuation.definition.tag',
+      'punctuation.definition.arguments',
+      'punctuation.definition.parameters',
+      'punctuation.definition.dictionary',
+      'punctuation.definition.array',
+    ],
+  },
+  {
+    name: 'Punctuation: Comma',
+    settings: { foreground: palette.punctuation.comma },
+    scopes: [
+      'punctuation.separator.comma',
+      'punctuation.separator.list',
+      'punctuation.separator.sequence',
+    ],
+  },
+  {
+    name: 'Punctuation: Dot',
+    settings: { foreground: palette.punctuation.dot },
+    scopes: [
+      'punctuation.separator.dot',
+      'punctuation.accessor.dot',
+      'punctuation.separator.period',
+    ],
+  },
+  {
+    name: 'Punctuation: Colon',
+    settings: { foreground: palette.punctuation.colon },
+    scopes: [
+      'punctuation.separator.colon',
+      'punctuation.separator.key-value',
+      'punctuation.separator.type',
+    ],
+  },
+  {
+    name: 'Punctuation: Semicolon',
+    settings: { foreground: palette.punctuation.semicolon },
+    scopes: [
+      'punctuation.terminator.statement',
+      'punctuation.separator.statement',
+      'punctuation.terminator.rule',
+    ],
+  },
+  {
+    name: 'Punctuation: Operators',
+    settings: { foreground: palette.punctuation.operator },
+    scopes: [
+      'keyword.operator',
+      'keyword.control.as',
+      'keyword.other',
+      'keyword.operator.bitwise.shift',
+      'keyword.other.template',
+      'keyword.other.substitution',
+      'entity.name.operator',
+    ],
+  },
+  {
+    name: 'Punctuation: Other',
+    settings: { foreground: palette.token.operator },
+    scopes: [
+      'text.html.twig meta.tag.inline.any.html',
+      'meta.tag.template.value.twig meta.function.arguments.twig',
+      'meta.directive.vue punctuation.separator.key-value.html',
+      'punctuation.definition.constant.markdown',
+      'punctuation.definition.string',
+      'punctuation.support.type.property-name',
+      'text.html.vue-html meta.tag',
+      'punctuation.definition.keyword',
+      'punctuation.definition.entity',
+      'punctuation.separator.inheritance.php',
+      'meta.property-list punctuation.separator.key-value',
+      'meta.at-rule.mixin punctuation.separator.key-value',
+      'meta.at-rule.function variable.parameter.url',
+      'keyword.operator.quantifier.regexp',
+      'constant.character.escape',
+      'markup.fenced_code.block.markdown',
+      'markup.inline.raw.string.markdown',
+      'variable.language.fenced.markdown',
+    ],
+  },
+  {
+    name: 'Tags & Functions: Blue',
+    settings: { foreground: palette.accent.blue },
+    scopes: [
+      'entity.name.tag',
+      'meta.class-method.js entity.name.function.js',
+      'entity.name.method.js',
+      'variable.function.constructor',
+      'keyword.other.special-method',
+      'storage.type.cs',
+      'entity.name.function',
+      'meta.function-call',
+      'meta.function-call entity.name.function',
+      'variable.function',
+      'meta.definition.method entity.name.function',
+      'meta.object-literal entity.name.function',
+      'entity.name',
       'source.css support.type.property-name',
       'source.sass support.type.property-name',
       'source.scss support.type.property-name',
@@ -593,342 +435,73 @@ export const getTokenColors = (): TokenColor[] => [
       'support.type.property-name.css',
       'support.type.vendored.property-name',
       'support.type.map.key',
-    ],
-    settings: {
-      foreground: palette.accent.blue,
-    },
-  },
-  {
-    name: 'CSS Font',
-    scope: ['support.constant.font-name', 'meta.definition.variable'],
-    settings: {
-      foreground: palette.token.string,
-    },
-  },
-  {
-    name: 'CSS Class',
-    scope: [
       'entity.other.attribute-name.class',
       'meta.at-rule.mixin.scss entity.name.function.scss',
-    ],
-    settings: {
-      foreground: palette.accent.blue,
-    },
-  },
-  {
-    name: 'CSS ID',
-    scope: 'entity.other.attribute-name.id',
-    settings: {
-      foreground: palette.accent.magenta,
-    },
-  },
-  {
-    name: 'CSS Tag',
-    scope: 'entity.name.tag.css',
-    settings: {
-      foreground: palette.token.templateKeyword,
-    },
-  },
-  {
-    name: 'CSS Tag Reference, Pseudo & Class Punctuation',
-    scope: [
-      'entity.other.attribute-name.pseudo-class punctuation.definition.entity',
-      'entity.other.attribute-name.pseudo-element punctuation.definition.entity',
-      'entity.other.attribute-name.class punctuation.definition.entity',
-      'entity.name.tag.reference',
-    ],
-    settings: {
-      foreground: palette.token.templateKeyword,
-    },
-  },
-  {
-    name: 'CSS Punctuation',
-    scope: 'meta.property-list',
-    settings: {
-      foreground: palette.token.cssPunctuation,
-    },
-  },
-  {
-    name: 'CSS at-rule fix',
-    scope: [
-      'meta.property-list meta.at-rule.if',
-      'meta.at-rule.return variable.parameter.url',
-      'meta.property-list meta.at-rule.else',
-    ],
-    settings: {
-      foreground: palette.accent.orange,
-    },
-  },
-  {
-    name: 'CSS Parent Selector Entity',
-    scope: [
-      'entity.other.attribute-name.parent-selector-suffix punctuation.definition.entity.css',
-    ],
-    settings: {
-      foreground: palette.token.objectKey,
-    },
-  },
-  {
-    name: 'CSS Punctuation comma fix',
-    scope: 'meta.property-list meta.property-list',
-    settings: {
-      foreground: palette.token.cssPunctuation,
-    },
-  },
-  {
-    name: 'SCSS @',
-    scope: [
-      'meta.at-rule.mixin keyword.control.at-rule.mixin',
-      'meta.at-rule.include entity.name.function.scss',
-      'meta.at-rule.include keyword.control.at-rule.include',
-    ],
-    settings: {
-      foreground: palette.accent.magenta,
-    },
-  },
-  {
-    name: 'SCSS Mixins, Extends, Include Keyword',
-    scope: [
-      'keyword.control.at-rule.include punctuation.definition.keyword',
-      'keyword.control.at-rule.mixin punctuation.definition.keyword',
-      'meta.at-rule.include keyword.control.at-rule.include',
-      'keyword.control.at-rule.extend punctuation.definition.keyword',
-      'meta.at-rule.extend keyword.control.at-rule.extend',
-      'entity.other.attribute-name.placeholder.css punctuation.definition.entity.css',
-      'meta.at-rule.media keyword.control.at-rule.media',
-      'meta.at-rule.mixin keyword.control.at-rule.mixin',
-      'meta.at-rule.function keyword.control.at-rule.function',
-      'keyword.control punctuation.definition.keyword',
-    ],
-    settings: {
-      foreground: palette.accent.purple,
-    },
-  },
-  {
-    name: 'SCSS Include Mixin Argument',
-    scope: 'meta.property-list meta.at-rule.include',
-    settings: {
-      foreground: palette.accent.cyan,
-    },
-  },
-  {
-    name: 'CSS value',
-    scope: 'support.constant.property-value',
-    settings: {
-      foreground: palette.token.cssValue,
-    },
-  },
-  {
-    name: 'Sub-methods',
-    scope: [
+      'source.sass keyword.control',
+      'tag.decorator.js entity.name.tag.js',
+      'tag.decorator.js punctuation.definition.tag.js',
       'entity.name.module.js',
       'variable.import.parameter.js',
       'variable.other.class.js',
+      'source.env',
     ],
-    settings: {
-      foreground: palette.accent.blue,
-    },
   },
   {
-    name: 'Language methods',
-    scope: 'variable.language',
-    settings: {
-      foreground: palette.accent.red,
-    },
+    name: 'Tags: Component',
+    settings: { foreground: palette.token.tagComponent },
+    scopes: ['entity.name.tag support.class.component', 'meta.tag'],
   },
   {
-    name: 'Variable punctuation',
-    scope: 'variable.other punctuation.definition.variable',
-    settings: {
-      foreground: palette.accent.cyan,
-    },
+    name: 'Tags: Punctuation',
+    settings: { foreground: palette.token.tagPunctuation },
+    scopes: ['punctuation.definition.tag'],
   },
   {
-    name: 'Keyword this with Punctuation, ES7 Bind Operator',
-    scope: [
+    name: 'Object Keys',
+    settings: { foreground: palette.token.objectKey },
+    scopes: [
+      'meta.object-literal.key',
+      'string.alias.graphql',
+      'string.unquoted.graphql',
+      'string.unquoted.alias.graphql',
+      'meta.group.braces.curly constant.other.object.key.js string.unquoted.label.js',
+      'meta.field.declaration.ts variable.object.property',
+      'entity.other.attribute-name.parent-selector-suffix punctuation.definition.entity.css',
+      'string.other.link',
+      'markup.underline.link',
+      'constant.other.reference.link.markdown',
+      'string.other.link.description.title.markdown',
+      'meta.preprocessor',
+    ],
+  },
+  {
+    name: 'Object Keys: Level 3',
+    settings: { foreground: palette.token.objectKeyLevel3 },
+    scopes: [
+      'meta.objectliteral meta.object.member meta.objectliteral meta.object.member meta.objectliteral meta.object.member meta.object-literal.key',
+    ],
+  },
+  {
+    name: 'Variables: Red',
+    settings: { foreground: palette.accent.red },
+    scopes: [
+      'support.other.variable',
+      'variable.language',
       'source.js constant.other.object.key.js string.unquoted.label.js',
       'variable.language.this punctuation.definition.variable',
       'keyword.other.this',
+      'keyword.other.unit',
+      'punctuation.definition.group',
+      'entity.tag.apacheconf',
     ],
-    settings: {
-      foreground: palette.accent.red,
-    },
   },
   {
-    name: 'HTML Attributes',
-    scope: [
-      'entity.other.attribute-name',
-      'text.html.basic entity.other.attribute-name.html',
-      'text.html.basic entity.other.attribute-name',
-    ],
-    settings: {
-      foreground: palette.accent.magenta,
-    },
-  },
-  {
-    name: 'HTML Character Entity',
-    scope: 'text.html constant.character.entity',
-    settings: {
-      foreground: palette.token.templateKeyword,
-    },
-  },
-  {
-    name: 'Vue Template attributes',
-    scope: [
-      'entity.other.attribute-name.id.html',
-      'meta.directive.vue entity.other.attribute-name.html',
-    ],
-    settings: {
-      foreground: palette.accent.magenta,
-    },
-  },
-  {
-    name: "CSS ID's",
-    scope: 'source.sass keyword.control',
-    settings: {
-      foreground: palette.accent.blue,
-    },
-  },
-  {
-    name: 'CSS psuedo selectors',
-    scope: [
-      'entity.other.attribute-name.pseudo-class',
-      'entity.other.attribute-name.pseudo-element',
-      'entity.other.attribute-name.placeholder',
-      'meta.property-list meta.property-value',
-    ],
-    settings: {
-      foreground: palette.accent.magenta,
-    },
-  },
-  {
-    name: 'Inserted',
-    scope: 'markup.inserted',
-    settings: {
-      foreground: palette.token.markup,
-    },
-  },
-  {
-    name: 'Deleted',
-    scope: 'markup.deleted',
-    settings: {
-      foreground: palette.token.error,
-    },
-  },
-  {
-    name: 'Changed',
-    scope: 'markup.changed',
-    settings: {
-      foreground: palette.token.regexQuantifier,
-    },
-  },
-  {
-    name: 'Regular Expressions',
-    scope: 'string.regexp',
-    settings: {
-      foreground: palette.token.escapeChar,
-    },
-  },
-  {
-    name: 'Regular Expressions - Punctuation',
-    scope: 'punctuation.definition.group',
-    settings: {
-      foreground: palette.accent.red,
-    },
-  },
-  {
-    name: 'Regular Expressions - Character Class',
-    scope: ['constant.other.character-class.regexp'],
-    settings: {
-      foreground: palette.accent.magenta,
-    },
-  },
-  {
-    name: 'Regular Expressions - Character Class Set',
-    scope: [
-      'constant.other.character-class.set.regexp',
-      'punctuation.definition.character-class.regexp',
-    ],
-    settings: {
-      foreground: palette.accent.yellow,
-    },
-  },
-  {
-    name: 'Regular Expressions - Quantifier',
-    scope: 'keyword.operator.quantifier.regexp',
-    settings: {
-      foreground: palette.token.operator,
-    },
-  },
-  {
-    name: 'Regular Expressions - Backslash',
-    scope: 'constant.character.escape.backslash',
-    settings: {
-      foreground: palette.accent.cyan,
-    },
-  },
-  {
-    name: 'Escape Characters',
-    scope: 'constant.character.escape',
-    settings: {
-      foreground: palette.token.operator,
-    },
-  },
-  {
-    name: 'Decorators',
-    scope: [
-      'tag.decorator.js entity.name.tag.js',
-      'tag.decorator.js punctuation.definition.tag.js',
-    ],
-    settings: {
-      foreground: palette.accent.blue,
-    },
-  },
-  {
-    name: 'CSS Units',
-    scope: 'keyword.other.unit',
-    settings: {
-      foreground: palette.accent.red,
-    },
-  },
-  // JSON Key Scopes (Optimized)
-  ...Array.from({ length: 4 }).map((_, i) => {
-    const baseScope = 'source.json meta.structure.dictionary.json'
-    const levelScope = Array.from({ length: i })
-      .map(
-        () =>
-          'meta.structure.dictionary.value.json meta.structure.dictionary.json'
-      )
-      .join(' ')
-    const fullScope = `${baseScope}${
-      levelScope ? ' ' + levelScope : ''
-    } support.type.property-name.json`
-
-    const colors = [
-      palette.accent.blue,
-      palette.token.templateKeyword,
-      palette.accent.cyan,
-      palette.accent.magenta,
-    ]
-
-    return {
-      name: `JSON Key - Level ${i}`,
-      scope: [fullScope],
-      settings: {
-        foreground: colors[i],
-      },
-    }
-  }),
-  {
-    name: 'Plain Punctuation',
-    scope: 'punctuation.definition.list_item.markdown',
-    settings: {
-      foreground: palette.token.cssPunctuation,
-    },
-  },
-  {
-    name: 'Block Punctuation',
-    scope: [
+    name: 'CSS: Punctuation',
+    settings: { foreground: palette.token.cssPunctuation },
+    scopes: [
+      'meta.property-list',
+      'meta.property-list meta.property-list',
+      'punctuation.definition.list_item.markdown',
       'meta.block',
       'meta.brace',
       'punctuation.definition.block',
@@ -947,241 +520,214 @@ export const getTokenColors = (): TokenColor[] => [
       'punctuation.definition.array',
       'punctuation.section',
     ],
-    settings: {
-      foreground: palette.token.cssPunctuation,
-    },
   },
   {
-    name: 'Markdown - Plain',
-    scope: ['meta.jsx.children', 'meta.embedded.block'],
-    settings: {
-      foreground: palette.token.markdownContent,
-    },
+    name: 'CSS: At-rule fix',
+    settings: { foreground: palette.accent.orange },
+    scopes: [
+      'meta.property-list meta.at-rule.if',
+      'meta.at-rule.return variable.parameter.url',
+      'meta.property-list meta.at-rule.else',
+    ],
   },
   {
-    name: 'HTML text',
-    scope: ['text.html', 'text.log'],
-    settings: {
-      foreground: palette.token.constant,
-    },
+    name: 'CSS: Value',
+    settings: { foreground: palette.token.cssValue },
+    scopes: ['support.constant.property-value'],
   },
   {
-    name: 'Markdown - Markup Raw Inline',
-    scope: 'text.html.markdown markup.inline.raw.markdown',
-    settings: {
-      foreground: palette.accent.magenta,
-    },
+    name: 'Markup: Inserted',
+    settings: { foreground: palette.token.markup },
+    scopes: ['markup.inserted'],
   },
   {
-    name: 'Markdown - Markup Raw Inline Punctuation',
-    scope:
+    name: 'Markup: Deleted',
+    settings: { foreground: palette.token.error },
+    scopes: ['markup.deleted'],
+  },
+  {
+    name: 'Markup: Changed',
+    settings: { foreground: palette.token.regexQuantifier },
+    scopes: ['markup.changed'],
+  },
+  {
+    name: 'Markup: Regex',
+    settings: { foreground: palette.token.escapeChar },
+    scopes: ['string.regexp'],
+  },
+  {
+    name: 'Markup: Regex Quantifier',
+    settings: { foreground: palette.accent.yellow },
+    scopes: [
+      'constant.other.character-class.set.regexp',
+      'punctuation.definition.character-class.regexp',
+    ],
+  },
+  {
+    name: 'JSON Keys',
+    settings: {}, // Settings are dynamic
+    scopes: [], // Scopes are generated
+  },
+  {
+    name: 'Markdown: Plain',
+    settings: { foreground: palette.token.markdownContent },
+    scopes: ['meta.jsx.children', 'meta.embedded.block'],
+  },
+  {
+    name: 'Markdown: Raw Punctuation',
+    settings: { foreground: palette.token.comment },
+    scopes: [
       'text.html.markdown markup.inline.raw.markdown punctuation.definition.raw.markdown',
-    settings: {
-      foreground: palette.token.comment,
-    },
+      'markup.quote punctuation.definition.blockquote.markdown',
+    ],
   },
   {
-    name: 'Markdown - Heading 1',
-    scope: [
+    name: 'Markdown: Headings',
+    settings: { fontStyle: 'bold', foreground: palette.token.operator },
+    scopes: [
       'heading.1.markdown entity.name',
       'heading.1.markdown punctuation.definition.heading.markdown',
     ],
-    settings: {
-      fontStyle: 'bold',
-      foreground: palette.token.operator,
-    },
   },
   {
-    name: 'Markdown - Heading 2',
-    scope: [
+    name: 'Markdown: Heading 2',
+    settings: { fontStyle: 'bold', foreground: palette.token.codeBlock },
+    scopes: [
       'heading.2.markdown entity.name',
       'heading.2.markdown punctuation.definition.heading.markdown',
     ],
-    settings: {
-      fontStyle: 'bold',
-      foreground: palette.token.codeBlock,
-    },
   },
   {
-    name: 'Markdown - Heading 3',
-    scope: [
+    name: 'Markdown: Heading 3',
+    settings: { fontStyle: 'bold', foreground: palette.accent.blue },
+    scopes: [
       'heading.3.markdown entity.name',
       'heading.3.markdown punctuation.definition.heading.markdown',
     ],
-    settings: {
-      fontStyle: 'bold',
-      foreground: palette.accent.blue,
-    },
   },
   {
-    name: 'Markdown - Heading 4',
-    scope: [
+    name: 'Markdown: Heading 4',
+    settings: { fontStyle: 'bold', foreground: palette.token.linkText },
+    scopes: [
       'heading.4.markdown entity.name',
       'heading.4.markdown punctuation.definition.heading.markdown',
     ],
-    settings: {
-      fontStyle: 'bold',
-      foreground: palette.token.linkText,
-    },
   },
   {
-    name: 'Markdown - Heading 5',
-    scope: [
+    name: 'Markdown: Heading 5',
+    settings: { fontStyle: 'bold', foreground: palette.token.constant },
+    scopes: [
       'heading.5.markdown entity.name',
       'heading.5.markdown punctuation.definition.heading.markdown',
     ],
-    settings: {
-      fontStyle: 'bold',
-      foreground: palette.token.constant,
-    },
   },
   {
-    name: 'Markdown - Heading 6',
-    scope: [
+    name: 'Markdown: Heading 6',
+    settings: { fontStyle: 'bold', foreground: palette.token.quoteMark },
+    scopes: [
       'heading.6.markdown entity.name',
       'heading.6.markdown punctuation.definition.heading.markdown',
     ],
-    settings: {
-      fontStyle: 'bold',
-      foreground: palette.token.quoteMark,
-    },
   },
   {
-    name: 'Markup - Italic',
-    scope: ['markup.italic', 'markup.italic punctuation'],
-    settings: {
-      fontStyle: 'italic',
-      foreground: palette.token.markupItalic,
-    },
+    name: 'Markup: Italic',
+    settings: { fontStyle: 'italic', foreground: palette.token.markupItalic },
+    scopes: ['markup.italic', 'markup.italic punctuation'],
   },
   {
-    name: 'Markup - Bold',
-    scope: ['markup.bold', 'markup.bold punctuation'],
-    settings: {
-      fontStyle: 'bold',
-      foreground: palette.token.markupBold,
-    },
+    name: 'Markup: Bold',
+    settings: { fontStyle: 'bold', foreground: palette.token.markupBold },
+    scopes: ['markup.bold', 'markup.bold punctuation'],
   },
   {
-    name: 'Markup - Bold-Italic',
-    scope: [
-      'markup.bold markup.italic',
-      'markup.bold markup.italic punctuation',
-    ],
-    settings: {
-      fontStyle: 'bold italic',
-      foreground: palette.accent.blue,
-    },
+    name: 'Markup: Table',
+    settings: { foreground: palette.token.linkUrl },
+    scopes: ['markup.table'],
   },
   {
-    name: 'Markup - Underline',
-    scope: ['markup.underline', 'markup.underline punctuation'],
-    settings: {
-      fontStyle: 'underline',
-    },
+    name: 'Token: Warn',
+    settings: { foreground: palette.token.warning },
+    scopes: ['token.warn-token'],
   },
   {
-    name: 'Markdown - Blockquote',
-    scope: 'markup.quote punctuation.definition.blockquote.markdown',
-    settings: {
-      foreground: palette.token.comment,
-    },
+    name: 'Token: Error',
+    settings: { foreground: palette.token.deleted },
+    scopes: ['token.error-token'],
   },
   {
-    name: 'Markup - Quote',
-    scope: 'markup.quote',
-    settings: {
-      fontStyle: 'italic',
-    },
-  },
-  {
-    name: 'Markdown - Link',
-    scope: [
-      'string.other.link',
-      'markup.underline.link',
-      'constant.other.reference.link.markdown',
-      'string.other.link.description.title.markdown',
-    ],
-    settings: {
-      foreground: palette.token.objectKey,
-    },
-  },
-  {
-    name: 'Markdown - Fenced Code Block',
-    scope: [
-      'markup.fenced_code.block.markdown',
-      'markup.inline.raw.string.markdown',
-      'variable.language.fenced.markdown',
-    ],
-    settings: {
-      foreground: palette.token.operator,
-    },
-  },
-  {
-    name: 'Markdown - Separator',
-    scope: 'meta.separator',
-    settings: {
-      fontStyle: 'bold',
-      foreground: palette.token.ignored,
-    },
-  },
-  {
-    name: 'Markup - Table',
-    scope: 'markup.table',
-    settings: {
-      foreground: palette.token.linkUrl,
-    },
-  },
-  {
-    name: 'Token - Info',
-    scope: 'token.info-token',
-    settings: {
-      foreground: palette.token.templateKeyword,
-    },
-  },
-  {
-    name: 'Token - Warn',
-    scope: 'token.warn-token',
-    settings: {
-      foreground: palette.token.warning,
-    },
-  },
-  {
-    name: 'Token - Error',
-    scope: 'token.error-token',
-    settings: {
-      foreground: palette.token.deleted,
-    },
-  },
-  {
-    name: 'Token - Debug',
-    scope: 'token.debug-token',
-    settings: {
-      foreground: palette.token.inserted,
-    },
-  },
-  {
-    name: 'Apache Tag',
-    scope: 'entity.tag.apacheconf',
-    settings: {
-      foreground: palette.accent.red,
-    },
-  },
-  {
-    name: 'Preprocessor',
-    scope: ['meta.preprocessor'],
-    settings: {
-      foreground: palette.token.objectKey,
-    },
-  },
-  {
-    name: 'ENV value',
-    scope: 'source.env',
-    settings: {
-      foreground: palette.accent.blue,
-    },
+    name: 'Token: Debug',
+    settings: { foreground: palette.token.inserted },
+    scopes: ['token.debug-token'],
   },
 ]
+
+// Генерация динамических правил для JSON
+const jsonColors = [
+  palette.accent.blue,
+  palette.token.templateKeyword,
+  palette.accent.cyan,
+  palette.accent.magenta,
+]
+for (let i = 0; i < 4; i++) {
+  const baseScope = 'source.json meta.structure.dictionary.json'
+  const levelScope = Array.from({ length: i })
+    .map(
+      () =>
+        'meta.structure.dictionary.value.json meta.structure.dictionary.json'
+    )
+    .join(' ')
+  const fullScope = `${baseScope}${
+    levelScope ? ' ' + levelScope : ''
+  } support.type.property-name.json`
+
+  tokenMappings.push({
+    name: `JSON Key - Level ${i}`,
+    settings: { foreground: jsonColors[i] },
+    scopes: [fullScope],
+  })
+}
+
+// Преобразование сгруппированных правил в формат TokenColor
+export const getTokenColors = (): TokenColor[] => {
+  const finalTokens: TokenColor[] = []
+  const scopeMap: Record<string, { name: string; settings: TokenSettings }> = {}
+
+  for (const { name, settings, scopes } of tokenMappings) {
+    for (const scope of scopes) {
+      if (scopeMap[scope]) {
+        // Если область уже существует, объединяем настройки
+        Object.assign(scopeMap[scope].settings, settings)
+      } else {
+        scopeMap[scope] = { name, settings: { ...settings } }
+      }
+    }
+  }
+
+  // Группируем области с одинаковыми настройками
+  const settingsMap = new Map<string, { name: string; scopes: string[] }>()
+
+  for (const scope in scopeMap) {
+    const { name, settings } = scopeMap[scope]
+    const settingsKey = JSON.stringify(settings)
+
+    if (settingsMap.has(settingsKey)) {
+      settingsMap.get(settingsKey)!.scopes.push(scope)
+    } else {
+      settingsMap.set(settingsKey, { name, scopes: [scope] })
+    }
+  }
+
+  // Создаем финальный массив токенов
+  for (const [settingsKey, { name, scopes }] of settingsMap.entries()) {
+    finalTokens.push({
+      name,
+      scope: scopes,
+      settings: JSON.parse(settingsKey),
+    })
+  }
+
+  return finalTokens
+}
 
 // Экспорт для обратной совместимости
 export const tokenColors = getTokenColors()
