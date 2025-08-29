@@ -1,12 +1,12 @@
-import type { Hex } from './types/palette'
-import { basePalette } from './palette.base'
-import { mix } from './utils/color'
-import { intensity } from './palette.config'
+import type { Hex } from '../types/palette'
+import { basePalette } from './base'
+import { mix } from '../utils/color'
+import { intensity } from './config'
 import {
   generatePalette,
   coreBlack as genCoreBlack,
   coreWhite as genCoreWhite,
-} from './palette.generator'
+} from './generator'
 
 // Core base colors (kept as named exports)
 export const coreBlack = genCoreBlack

@@ -1,6 +1,6 @@
-import type { Palette } from './types/palette'
-import { core } from './palette.core'
-import { mix, lightenToward, darkenToward } from './utils/color'
+import type { Palette } from '../types/palette'
+import { core } from './core'
+import { mix, lightenToward, darkenToward } from '../utils/color'
 
 const tealSoft = lightenToward(core.accent.teal, core.accent.cyan, 0.25)
 const skyLight = lightenToward(core.accent.cyan, core.accent.blue, 0.35)
@@ -424,4 +424,9 @@ export {
   debugViewValueChangedHighlight,
   toolbarHoverBackground,
   toolbarActiveBackground,
-} from './palette.core'
+  buttonBorder,
+  buttonSeparator,
+  inputValidationInfoBackground,
+  inputValidationWarningBackground,
+  inputValidationErrorBackground,
+} from './core'

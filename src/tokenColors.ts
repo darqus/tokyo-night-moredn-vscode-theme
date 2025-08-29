@@ -1,5 +1,5 @@
 import type { Hex } from './types/palette'
-import { palette } from './palette'
+import { palette } from './palette/index'
 
 export type TokenColor = {
   name: string

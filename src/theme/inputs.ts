@@ -1,9 +1,9 @@
-import { palette } from '../palette'
 import {
+  palette,
   inputValidationInfoBackground,
   inputValidationWarningBackground,
   inputValidationErrorBackground,
-} from '../palette.core'
+} from '../palette'
 
 export const getInputColors = () => ({
   // Поля ввода - улучшенная доступность

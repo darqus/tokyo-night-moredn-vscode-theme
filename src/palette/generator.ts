@@ -1,7 +1,7 @@
-import type { Hex } from './types/palette'
-import { basePalette } from './palette.base'
-import { withAlpha, mix, lightenToward, darkenToward } from './utils/color'
-import { intensity } from './palette.config'
+import type { Hex } from '../types/palette'
+import { basePalette } from './base'
+import { withAlpha, mix, lightenToward, darkenToward } from '../utils/color'
+import { intensity } from './config'
 
 // Base roles
 export const coreBlack = mix(basePalette.black, basePalette.blue, 0.095) as Hex

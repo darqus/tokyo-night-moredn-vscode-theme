@@ -1,4 +1,4 @@
-import type { Hex } from './types/palette'
+import { Hex } from '../types'
 
 /**
  * Основная (базовая) палитра — только фундаментальные цвета,
