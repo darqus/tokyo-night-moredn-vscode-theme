@@ -112,7 +112,7 @@ const formulas = {
   uiGitStageModified: () => basePalette.blue,
 
   // Terminal
-  terminalSelectionBackground: () => alpha(formulas.textSubtle2(), 0.19),
+  terminalSelectionBackground: () => alpha(formulas.textSubtle2(), 0.18),
   terminalFindMatchBackground: () => alpha(basePalette.blue, 0.4),
   terminalFindMatchHighlightBackground: () => alpha(basePalette.blue, 0.4),
   terminalFindMatchHighlightBorder: () => alpha(basePalette.blue, 0.6),
@@ -256,7 +256,7 @@ const formulas = {
   editorWordHighlightBorder: () =>
     alpha(basePalette.blue, intensity.selection.editorHighlightBorder),
   editorWordHighlightStrongBackground: () =>
-    alpha(basePalette.blue, intensity.selection.editorHighlightBg),
+    alpha(basePalette.blue, intensity.selection.editorWordHighlightStrong),
   editorWordHighlightStrongBorder: () =>
     alpha(basePalette.blue, intensity.selection.editorHighlightBorder),
   editorSelectionHighlightBackground: () =>

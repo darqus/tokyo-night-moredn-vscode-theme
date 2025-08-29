@@ -15,10 +15,11 @@ export const intensity = {
     inactive: 0.15,
     focus: 0.2,
     menu: 0.18,
-    editor: 0.15,
+    editor: 0.2, // повышаем активное выделение для лучшей различимости
     editorInactive: 0.15,
-    editorHighlightBg: 0.15,
+    editorHighlightBg: 0.18, // легкий апгрейд для подсветки совпадений
     editorHighlightBorder: 0.45,
+    editorWordHighlightStrong: 0.2, // отдельная интенсивность для strong-выделения слов
   },
   alpha: {
     drop: 0.2,
@@ -37,7 +38,7 @@ export const intensity = {
     inputValidation: 0.13,
     statusBar: {
       hover: 0.6,
-      prominentHover: 0.4,
+      prominentHover: 0.45, // немного усиливаем hover для prominent-элементов
       errorHover: 0.8,
       warningHover: 0.8,
       compactHover: 0.5,
