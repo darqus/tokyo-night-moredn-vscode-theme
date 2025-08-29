@@ -99,7 +99,7 @@ class VisualRegressionTester {
     console.log('Generating screenshots...')
 
     const browser = await puppeteer.launch({
-      headless: 'new',
+      headless: true,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
     })
 
@@ -190,7 +190,10 @@ print(f"Fibonacci of 10 is {result}")
           code
       }, code)
       await page.screenshot({
-        path: path.join(this.screenshotsDir, `editor-syntax-${lang}.png`),
+        path: path.join(
+          this.screenshotsDir,
+          `editor-syntax-${lang}.png`
+        ) as `${string}.png`,
         fullPage: true,
       })
     }
@@ -212,7 +215,10 @@ print(f"Fibonacci of 10 is {result}")
       const page = await browser.newPage()
       await page.setContent(`...`)
       await page.screenshot({
-        path: path.join(this.screenshotsDir, `${component.name}.png`),
+        path: path.join(
+          this.screenshotsDir,
+          `${component.name}.png`
+        ) as `${string}.png`,
         fullPage: true,
       })
       await page.close()
