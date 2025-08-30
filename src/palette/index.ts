@@ -88,6 +88,30 @@ export const palette: Palette = {
     objectProperty: core.accent.cyan,
     objectPropertyAlt: core.text.primary,
     objectKeyLevel3: tokens.azureLight,
+
+    // Extended object key levels using generated tokens
+    objectKeyLevel1: tokens.objectKeyLevel1,
+    objectKeyLevel2: tokens.objectKeyLevel2,
+    objectKeyLevel4: tokens.objectKeyLevel4,
+    objectKeyLevel5: tokens.objectKeyLevel5,
+    objectKeyLevel6: tokens.objectKeyLevel6,
+    objectKeyLevel7: tokens.objectKeyLevel7,
+    objectKeyLevel8: tokens.objectKeyLevel8,
+
+    // Property chain access levels
+    propertyChain1: tokens.propertyChain1,
+    propertyChain2: tokens.propertyChain2,
+    propertyChain3: tokens.propertyChain3,
+    propertyChain4: tokens.propertyChain4,
+    propertyChain5: tokens.propertyChain5,
+    propertyChain6: tokens.propertyChain6,
+
+    // Array access levels
+    arrayAccess1: tokens.arrayAccess1,
+    arrayAccess2: tokens.arrayAccess2,
+    arrayAccess3: tokens.arrayAccess3,
+    arrayAccess4: tokens.arrayAccess4,
+
     cVariable: core.accent.blue,
     otherVariable: core.accent.cyan,
     method: core.accent.blue,

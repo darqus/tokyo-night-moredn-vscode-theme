@@ -89,6 +89,30 @@ export interface Palette {
     objectProperty: Hex
     objectPropertyAlt: Hex
     objectKeyLevel3: Hex
+
+    // Extended object key levels (1-8)
+    objectKeyLevel1: Hex
+    objectKeyLevel2: Hex
+    objectKeyLevel4: Hex
+    objectKeyLevel5: Hex
+    objectKeyLevel6: Hex
+    objectKeyLevel7: Hex
+    objectKeyLevel8: Hex
+
+    // Property chain access levels
+    propertyChain1: Hex
+    propertyChain2: Hex
+    propertyChain3: Hex
+    propertyChain4: Hex
+    propertyChain5: Hex
+    propertyChain6: Hex
+
+    // Array access levels
+    arrayAccess1: Hex
+    arrayAccess2: Hex
+    arrayAccess3: Hex
+    arrayAccess4: Hex
+
     cVariable: Hex
     otherVariable: Hex
     method: Hex

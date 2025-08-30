@@ -347,6 +347,30 @@ const formulas = {
   punctuationSemicolon: () =>
     blend(basePalette.purple, basePalette.magenta, 0.25),
   punctuationOperator: () => blend(basePalette.teal, basePalette.cyan, 0.4),
+
+  // Property access levels - объектные ключи по глубине
+  objectKeyLevel1: () => toward(basePalette.cyan, basePalette.blue, 0.2),
+  objectKeyLevel2: () => toward(basePalette.green, basePalette.teal, 0.3),
+  objectKeyLevel3: () => toward(basePalette.orange, basePalette.yellow, 0.25),
+  objectKeyLevel4: () => toward(basePalette.magenta, basePalette.purple, 0.3),
+  objectKeyLevel5: () => toward(basePalette.teal, basePalette.cyan, 0.4),
+  objectKeyLevel6: () => blend(basePalette.blue, basePalette.purple, 0.25),
+  objectKeyLevel7: () => blend(basePalette.red, basePalette.orange, 0.3),
+  objectKeyLevel8: () => blend(basePalette.green, basePalette.cyan, 0.35),
+
+  // Property chain access - цепочки доступа к свойствам
+  propertyChain1: () => toward(basePalette.cyan, basePalette.blue, 0.15),
+  propertyChain2: () => toward(basePalette.teal, basePalette.green, 0.25),
+  propertyChain3: () => toward(basePalette.yellow, basePalette.orange, 0.2),
+  propertyChain4: () => toward(basePalette.purple, basePalette.magenta, 0.3),
+  propertyChain5: () => blend(basePalette.blue, basePalette.cyan, 0.4),
+  propertyChain6: () => blend(basePalette.magenta, basePalette.red, 0.25),
+
+  // Array access - доступ к элементам массива
+  arrayAccess1: () => toward(basePalette.orange, basePalette.red, 0.2),
+  arrayAccess2: () => toward(basePalette.purple, basePalette.blue, 0.3),
+  arrayAccess3: () => blend(basePalette.teal, basePalette.green, 0.25),
+  arrayAccess4: () => blend(basePalette.yellow, basePalette.cyan, 0.3),
 } as const
 
 export type TokenKey = keyof typeof formulas

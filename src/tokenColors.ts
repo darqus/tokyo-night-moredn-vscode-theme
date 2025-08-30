@@ -482,6 +482,75 @@ const tokenMappings: {
     ],
   },
   {
+    name: 'Object Keys: Level 1',
+    settings: { foreground: palette.token.objectKeyLevel1 },
+    scopes: [
+      'meta.objectliteral meta.object.member meta.object-literal.key',
+      'variable.other.object.property',
+      'meta.property.object.js',
+    ],
+  },
+  {
+    name: 'Object Keys: Level 2',
+    settings: { foreground: palette.token.objectKeyLevel2 },
+    scopes: [
+      'meta.objectliteral meta.object.member meta.objectliteral meta.object.member meta.object-literal.key',
+    ],
+  },
+  {
+    name: 'Object Keys: Level 4',
+    settings: { foreground: palette.token.objectKeyLevel4 },
+    scopes: [
+      'meta.objectliteral meta.object.member meta.objectliteral meta.object.member meta.objectliteral meta.object.member meta.objectliteral meta.object.member meta.object-literal.key',
+    ],
+  },
+  {
+    name: 'Object Keys: Level 5',
+    settings: { foreground: palette.token.objectKeyLevel5 },
+    scopes: [
+      'meta.objectliteral meta.object.member meta.objectliteral meta.object.member meta.objectliteral meta.object.member meta.objectliteral meta.object.member meta.objectliteral meta.object.member meta.object-literal.key',
+    ],
+  },
+  {
+    name: 'Property Chain Access: Level 1',
+    settings: { foreground: palette.token.propertyChain1 },
+    scopes: [
+      'meta.property.object variable.other.property',
+      'support.variable.property',
+      'variable.other.object.property',
+    ],
+  },
+  {
+    name: 'Property Chain Access: Level 2',
+    settings: { foreground: palette.token.propertyChain2 },
+    scopes: [
+      'meta.property.object meta.property.object variable.other.property',
+    ],
+  },
+  {
+    name: 'Property Chain Access: Level 3',
+    settings: { foreground: palette.token.propertyChain3 },
+    scopes: [
+      'meta.property.object meta.property.object meta.property.object variable.other.property',
+    ],
+  },
+  {
+    name: 'Array Access: Level 1',
+    settings: { foreground: palette.token.arrayAccess1 },
+    scopes: [
+      'meta.brace.square.js',
+      'meta.array.literal variable.other.object.property',
+      'variable.other.property.ts',
+    ],
+  },
+  {
+    name: 'Array Access: Level 2',
+    settings: { foreground: palette.token.arrayAccess2 },
+    scopes: [
+      'meta.array.literal meta.array.literal variable.other.object.property',
+    ],
+  },
+  {
     name: 'Variables: Red',
     settings: { foreground: palette.accent.red },
     scopes: [
@@ -661,14 +730,18 @@ const tokenMappings: {
   },
 ]
 
-// Генерация динамических правил для JSON
+// Генерация динамических правил для JSON - расширенная система
 const jsonColors = [
-  palette.accent.blue,
-  palette.token.templateKeyword,
-  palette.accent.cyan,
-  palette.accent.magenta,
+  palette.token.objectKeyLevel1, // Уровень 0
+  palette.token.objectKeyLevel2, // Уровень 1
+  palette.token.objectKeyLevel3, // Уровень 2
+  palette.token.objectKeyLevel4, // Уровень 3
+  palette.token.objectKeyLevel5, // Уровень 4
+  palette.token.objectKeyLevel6, // Уровень 5
+  palette.token.objectKeyLevel7, // Уровень 6
+  palette.token.objectKeyLevel8, // Уровень 7
 ]
-for (let i = 0; i < 4; i++) {
+for (let i = 0; i < 8; i++) {
   const baseScope = 'source.json meta.structure.dictionary.json'
   const levelScope = Array.from({ length: i })
     .map(
