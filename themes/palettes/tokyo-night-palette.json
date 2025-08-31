@@ -1,0 +1,524 @@
+{
+  "bg": {
+    "main": {
+      "value": "#1a1b26",
+      "type": "color"
+    },
+    "secondary": {
+      "value": "#16161e",
+      "type": "color"
+    },
+    "tertiary": {
+      "value": "#0c0f17",
+      "type": "color"
+    },
+    "input": {
+      "value": "#14141b",
+      "type": "color"
+    },
+    "border": {
+      "value": "#101014",
+      "type": "color"
+    },
+    "tree": {
+      "value": "#2b2b3b",
+      "type": "color"
+    }
+  },
+  "selection": {
+    "listActive": {
+      "value": "#202330",
+      "type": "color"
+    },
+    "listInactive": {
+      "value": "#1c1d29",
+      "type": "color"
+    },
+    "listHover": {
+      "value": "#13131a",
+      "type": "color"
+    },
+    "listDrop": {
+      "value": "#1e202e",
+      "type": "color"
+    },
+    "menuSelection": {
+      "value": "#1e202e",
+      "type": "color"
+    },
+    "menuBorder": {
+      "value": "#1b1e2e",
+      "type": "color"
+    }
+  },
+  "text": {
+    "primary": {
+      "value": "#a9b1d6",
+      "type": "color"
+    },
+    "muted": {
+      "value": "#787c99",
+      "type": "color"
+    },
+    "disabled": {
+      "value": "#545c7e",
+      "type": "color"
+    },
+    "description": {
+      "value": "#515670",
+      "type": "color"
+    },
+    "error": {
+      "value": "#515670",
+      "type": "color"
+    },
+    "placeholder": {
+      "value": "#999a9d",
+      "type": "color"
+    },
+    "lineNumber": {
+      "value": "#363b54",
+      "type": "color"
+    },
+    "lineNumberActive": {
+      "value": "#787c99",
+      "type": "color"
+    },
+    "settings": {
+      "value": "#6183bb",
+      "type": "color"
+    },
+    "white": {
+      "value": "#ffffff",
+      "type": "color"
+    },
+    "light": {
+      "value": "#e5e5e5",
+      "type": "color"
+    },
+    "gray": {
+      "value": "#bababc",
+      "type": "color"
+    },
+    "grayInactive": {
+      "value": "#a4a5a7",
+      "type": "color"
+    },
+    "badge": {
+      "value": "#acb0d0",
+      "type": "color"
+    },
+    "preformat": {
+      "value": "#d2e1ea",
+      "type": "color"
+    }
+  },
+  "border": {
+    "widget": {
+      "value": "#272a31",
+      "type": "color"
+    },
+    "focus": {
+      "value": "#545c7e33",
+      "type": "color"
+    },
+    "window": {
+      "value": "#0d0f17",
+      "type": "color"
+    },
+    "sash": {
+      "value": "#29355a",
+      "type": "color"
+    },
+    "input": {
+      "value": "#272a31",
+      "type": "color"
+    },
+    "keybinding": {
+      "value": "#272a31",
+      "type": "color"
+    },
+    "keybindingBottom": {
+      "value": "#272a31ab",
+      "type": "color"
+    },
+    "checkbox": {
+      "value": "#272a31",
+      "type": "color"
+    },
+    "radio": {
+      "value": "#272a31",
+      "type": "color"
+    },
+    "dropdown": {
+      "value": "#272a31",
+      "type": "color"
+    }
+  },
+  "button": {
+    "primary": {
+      "value": "#3d59a1dd",
+      "type": "color"
+    },
+    "primaryHover": {
+      "value": "#2d3b5a",
+      "type": "color"
+    },
+    "secondary": {
+      "value": "#222c44",
+      "type": "color"
+    },
+    "secondaryHover": {
+      "value": "#2d3b5a",
+      "type": "color"
+    },
+    "border": {
+      "value": "#7aa2f780",
+      "type": "color"
+    },
+    "separator": {
+      "value": "#7aa2f766",
+      "type": "color"
+    },
+    "foreground": {
+      "value": "#ffffff",
+      "type": "color"
+    }
+  },
+  "scrollbar": {
+    "shadow": {
+      "value": "#00000033",
+      "type": "color"
+    },
+    "background": {
+      "value": "#868bc415",
+      "type": "color"
+    },
+    "hover": {
+      "value": "#868bc410",
+      "type": "color"
+    },
+    "active": {
+      "value": "#868bc422",
+      "type": "color"
+    }
+  },
+  "badge": {
+    "background": {
+      "value": "#7e83b230",
+      "type": "color"
+    },
+    "activityBar": {
+      "value": "#3d59a1",
+      "type": "color"
+    },
+    "extension": {
+      "value": "#7bb2fa",
+      "type": "color"
+    },
+    "extensionForeground": {
+      "value": "#0c0f17",
+      "type": "color"
+    }
+  },
+  "extension": {
+    "prominentBackground": {
+      "value": "#7dcfff",
+      "type": "color"
+    },
+    "prominentHover": {
+      "value": "#222c444d",
+      "type": "color"
+    },
+    "prominentForeground": {
+      "value": "#e5e5e5",
+      "type": "color"
+    }
+  },
+  "command": {
+    "foreground": {
+      "value": "#bababc",
+      "type": "color"
+    },
+    "activeForeground": {
+      "value": "#e5e5e5",
+      "type": "color"
+    },
+    "inactiveForeground": {
+      "value": "#a4a5a7",
+      "type": "color"
+    },
+    "background": {
+      "value": "#0c0f17",
+      "type": "color"
+    },
+    "activeBackground": {
+      "value": "#13151d",
+      "type": "color"
+    }
+  },
+  "banner": {
+    "background": {
+      "value": "#0c0f17",
+      "type": "color"
+    },
+    "foreground": {
+      "value": "#e5e5e5",
+      "type": "color"
+    },
+    "iconForeground": {
+      "value": "#7dcfff",
+      "type": "color"
+    }
+  },
+  "keybinding": {
+    "background": {
+      "value": "#0c0f1799",
+      "type": "color"
+    },
+    "foreground": {
+      "value": "#e5e5e5",
+      "type": "color"
+    }
+  },
+  "tabs": {
+    "activeBorder": {
+      "value": "#3d59a1",
+      "type": "color"
+    }
+  },
+  "input": {
+    "optionActive": {
+      "value": "#7aa2f733",
+      "type": "color"
+    },
+    "optionHover": {
+      "value": "#13151d",
+      "type": "color"
+    },
+    "validationInfo": {
+      "value": "#7aa2f721",
+      "type": "color"
+    },
+    "validationInfoBorder": {
+      "value": "#7dcfff",
+      "type": "color"
+    },
+    "validationWarning": {
+      "value": "#e0af6821",
+      "type": "color"
+    },
+    "validationWarningBorder": {
+      "value": "#e0af68",
+      "type": "color"
+    },
+    "validationError": {
+      "value": "#e4687621",
+      "type": "color"
+    },
+    "validationErrorBorder": {
+      "value": "#e46876",
+      "type": "color"
+    }
+  },
+  "dropdown": {
+    "foreground": {
+      "value": "#bababc",
+      "type": "color"
+    },
+    "background": {
+      "value": "#0c0f17",
+      "type": "color"
+    },
+    "listBackground": {
+      "value": "#0c0f17",
+      "type": "color"
+    }
+  },
+  "checkbox": {
+    "background": {
+      "value": "#0c0f17",
+      "type": "color"
+    },
+    "foreground": {
+      "value": "#e5e5e5",
+      "type": "color"
+    },
+    "selectBackground": {
+      "value": "#7aa2f733",
+      "type": "color"
+    }
+  },
+  "radio": {
+    "activeForeground": {
+      "value": "#e5e5e5",
+      "type": "color"
+    },
+    "activeBackground": {
+      "value": "#0c0f17",
+      "type": "color"
+    },
+    "inactiveForeground": {
+      "value": "#e5e5e5",
+      "type": "color"
+    },
+    "inactiveBackground": {
+      "value": "#0c0f17",
+      "type": "color"
+    },
+    "inactiveHover": {
+      "value": "#13151d",
+      "type": "color"
+    }
+  },
+  "activityBar": {
+    "inactive": {
+      "value": "#3b3e52",
+      "type": "color"
+    }
+  },
+  "list": {
+    "deemphasized": {
+      "value": "#787c99",
+      "type": "color"
+    },
+    "highlight": {
+      "value": "#668ac4",
+      "type": "color"
+    },
+    "invalid": {
+      "value": "#c97018",
+      "type": "color"
+    },
+    "error": {
+      "value": "#bb616b",
+      "type": "color"
+    },
+    "warning": {
+      "value": "#c49a5a",
+      "type": "color"
+    }
+  },
+  "git": {
+    "modified": {
+      "value": "#6183bb",
+      "type": "color"
+    },
+    "ignored": {
+      "value": "#515670",
+      "type": "color"
+    },
+    "deleted": {
+      "value": "#914c54",
+      "type": "color"
+    },
+    "renamed": {
+      "value": "#449dab",
+      "type": "color"
+    },
+    "added": {
+      "value": "#449dab",
+      "type": "color"
+    },
+    "untracked": {
+      "value": "#449dab",
+      "type": "color"
+    },
+    "conflicting": {
+      "value": "#e0af68cc",
+      "type": "color"
+    },
+    "stageDeleted": {
+      "value": "#914c54",
+      "type": "color"
+    },
+    "stageModified": {
+      "value": "#6183bb",
+      "type": "color"
+    }
+  },
+  "scmGraph": {
+    "hoverLabel": {
+      "value": "#1b1e2e",
+      "type": "color"
+    },
+    "foreground1": {
+      "value": "#ff9e64",
+      "type": "color"
+    },
+    "foreground2": {
+      "value": "#e0af68",
+      "type": "color"
+    },
+    "foreground3": {
+      "value": "#41a6b5",
+      "type": "color"
+    },
+    "foreground4": {
+      "value": "#7aa2f7",
+      "type": "color"
+    },
+    "foreground5": {
+      "value": "#bb9af7",
+      "type": "color"
+    },
+    "hoverAdditions": {
+      "value": "#41a6b5",
+      "type": "color"
+    },
+    "hoverDeletions": {
+      "value": "#f7768e",
+      "type": "color"
+    },
+    "refColor": {
+      "value": "#506FCA",
+      "type": "color"
+    },
+    "remoteRefColor": {
+      "value": "#41a6b5",
+      "type": "color"
+    },
+    "baseRefColor": {
+      "value": "#9d7cd8",
+      "type": "color"
+    },
+    "hoverDefault": {
+      "value": "#a9b1d6",
+      "type": "color"
+    }
+  },
+  "special": {
+    "transparent": {
+      "value": "#ffffff00",
+      "type": "color"
+    },
+    "progressBar": {
+      "value": "#7dcfff",
+      "type": "color"
+    },
+    "walkThrough": {
+      "value": "#0c0f17",
+      "type": "color"
+    },
+    "textLink": {
+      "value": "#94acdf",
+      "type": "color"
+    },
+    "textLinkActive": {
+      "value": "#7dcfff",
+      "type": "color"
+    },
+    "textBlockQuote": {
+      "value": "#0c0f17",
+      "type": "color"
+    },
+    "textCodeBlock": {
+      "value": "#0c0f17",
+      "type": "color"
+    },
+    "textSeparator": {
+      "value": "#7bb0f9",
+      "type": "color"
+    }
+  }
+}
