@@ -442,6 +442,86 @@
             "type": "color"
           }
         }
+      },
+      "tabText": {
+        "active": {
+          "dark": {
+            "value": "#a9b1d6",
+            "type": "color"
+          },
+          "light": {
+            "value": "#1f2328",
+            "type": "color"
+          },
+          "storm": {
+            "value": "#a0b1d8",
+            "type": "color"
+          },
+          "moon": {
+            "value": "#b2c3e0",
+            "type": "color"
+          },
+          "contrast": {
+            "value": "#e0e8f0",
+            "type": "color"
+          },
+          "pastel": {
+            "value": "#9ba5c0",
+            "type": "color"
+          }
+        },
+        "inactive": {
+          "dark": {
+            "value": "#787c99",
+            "type": "color"
+          },
+          "light": {
+            "value": "#656d76",
+            "type": "color"
+          },
+          "storm": {
+            "value": "#6b7394",
+            "type": "color"
+          },
+          "moon": {
+            "value": "#7a8296",
+            "type": "color"
+          },
+          "contrast": {
+            "value": "#9ca6bb",
+            "type": "color"
+          },
+          "pastel": {
+            "value": "#6f7488",
+            "type": "color"
+          }
+        },
+        "hover": {
+          "dark": {
+            "value": "#c0caf5",
+            "type": "color"
+          },
+          "light": {
+            "value": "#24292f",
+            "type": "color"
+          },
+          "storm": {
+            "value": "#b8c2f0",
+            "type": "color"
+          },
+          "moon": {
+            "value": "#c8d3f0",
+            "type": "color"
+          },
+          "contrast": {
+            "value": "#f0f4f8",
+            "type": "color"
+          },
+          "pastel": {
+            "value": "#a8b5d0",
+            "type": "color"
+          }
+        }
       }
     },
     "editor": {

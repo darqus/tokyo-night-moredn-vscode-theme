@@ -244,7 +244,7 @@
     "tab.activeBorder": "#3d59a1",
     "tab.inactiveForeground": "#787c99",
     "tab.border": "#2f3140",
-    "tab.unfocusedActiveForeground": "#c0caf5",
+    "tab.unfocusedActiveForeground": "#a9b1d6",
     "tab.unfocusedInactiveForeground": "#787c99",
     "tab.unfocusedHoverForeground": "#c0caf5",
     "tab.activeModifiedBorder": "#9783de",

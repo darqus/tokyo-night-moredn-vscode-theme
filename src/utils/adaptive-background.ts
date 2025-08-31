@@ -136,3 +136,33 @@ export function getAdaptiveActivityBarActiveBackground(
 ): Hex {
   return getAdaptiveSelectionBackground('activityBarActive', context)
 }
+
+// === АДАПТИВНЫЕ ЦВЕТА ТЕКСТА ВКЛАДОК ===
+
+export function getAdaptiveTabText(
+  type: 'active' | 'inactive' | 'hover',
+  context?: ThemeContext
+): Hex {
+  if (!context) {
+    return extendedPalette.bg.adaptive.tabText[type].dark
+  }
+
+  // Для светлых тем всегда используем статическую адаптивную палитру
+  if (context.type === 'light') {
+    return extendedPalette.bg.adaptive.tabText[type].light
+  }
+
+  return extendedPalette.bg.adaptive.tabText[type][context.type]
+}
+
+export function getAdaptiveTabActiveText(context?: ThemeContext): Hex {
+  return getAdaptiveTabText('active', context)
+}
+
+export function getAdaptiveTabInactiveText(context?: ThemeContext): Hex {
+  return getAdaptiveTabText('inactive', context)
+}
+
+export function getAdaptiveTabHoverText(context?: ThemeContext): Hex {
+  return getAdaptiveTabText('hover', context)
+}

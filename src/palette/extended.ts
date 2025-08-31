@@ -180,6 +180,39 @@ export const extendedPalette = {
           pastel: '#1c1d2a' as Hex, // Пастельный
         },
       },
+
+      // Адаптивные цвета текста для вкладок
+      tabText: {
+        // Активный текст вкладки
+        active: {
+          dark: '#a9b1d6' as Hex, // Темные темы - светлый текст
+          light: '#1f2328' as Hex, // Светлые темы - темный текст
+          storm: '#a0b1d8' as Hex, // Storm - немного другой оттенок
+          moon: '#b2c3e0' as Hex, // Moon - теплый светлый
+          contrast: '#e0e8f0' as Hex, // Контрастный - очень светлый
+          pastel: '#9ba5c0' as Hex, // Пастельный - мягкий
+        },
+
+        // Неактивный текст вкладки
+        inactive: {
+          dark: '#787c99' as Hex, // Темные темы - приглушенный
+          light: '#656d76' as Hex, // Светлые темы - темно-серый
+          storm: '#6b7394' as Hex, // Storm
+          moon: '#7a8296' as Hex, // Moon
+          contrast: '#9ca6bb' as Hex, // Контрастный
+          pastel: '#6f7488' as Hex, // Пастельный
+        },
+
+        // Текст при наведении
+        hover: {
+          dark: '#c0caf5' as Hex, // Темные темы - яркий светлый
+          light: '#24292f' as Hex, // Светлые темы - очень темный
+          storm: '#b8c2f0' as Hex, // Storm
+          moon: '#c8d3f0' as Hex, // Moon
+          contrast: '#f0f4f8' as Hex, // Контрастный - максимально светлый
+          pastel: '#a8b5d0' as Hex, // Пастельный
+        },
+      },
     },
 
     // Оригинальная система (для обратной совместимости)

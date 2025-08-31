@@ -4,6 +4,7 @@ import type { Hex } from '../types/palette'
 import {
   getAdaptiveEditorBackground,
   getAdaptiveWidgetBackground,
+  getAdaptiveTabBarBackground,
 } from '../utils/adaptive-background'
 import type { ThemeContext } from '../generators/adaptive-theme-generator'
 
@@ -13,6 +14,7 @@ export const getEditorColors = (
   // Получаем адаптивные фоны
   const editorBackground = getAdaptiveEditorBackground(context)
   const widgetBackground = getAdaptiveWidgetBackground(context)
+  const tabBarBackground = getAdaptiveTabBarBackground(context)
 
   return {
     // === ПОДСВЕТКА СКОБОК И НАПРАВЛЯЮЩИЕ ===
@@ -238,9 +240,9 @@ export const getEditorColors = (
     /** Цвет границы области вкладок */
     'editorGroupHeader.tabsBorder': palette.line.border,
     /** Цвет фона области вкладок */
-    'editorGroupHeader.tabsBackground': palette.bg.tabs,
+    'editorGroupHeader.tabsBackground': tabBarBackground, // АДАПТИВНЫЙ фон области вкладок
     /** Цвет фона заголовка группы без вкладок */
-    'editorGroupHeader.noTabsBackground': palette.bg.tabs,
+    'editorGroupHeader.noTabsBackground': tabBarBackground, // АДАПТИВНЫЙ фон без вкладок
     /** Цвет границы заголовка группы редакторов */
     'editorGroupHeader.border': palette.line.border,
     /** Цвет фона панели редактора */
