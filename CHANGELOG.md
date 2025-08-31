@@ -6,6 +6,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v1.3.0.html).
 
 
+## [1.11.0](https://github.com/darqus/tokyo-night-vscode-theme-lod/compare/v1.10.0...v1.11.0) (2025-08-31)
+
+
+### ✨ Features
+
+* improve visual tests with syntax highlighting ([ab9cbca](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/ab9cbcaa7b886ef8231521d4753f35aa11c2bfc7))
+* **theme:** add semantic token colors to One Dark Pro theme ([a913ef9](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/a913ef963ca692be75c66af1d6fda33d6c77d668))
+
+
+### 🐛 Bug Fixes
+
+* remove unnecessary whitespace ([fa1e81e](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/fa1e81e49399ed2c80acc15568bf00172c416d79))
+
 ## [1.10.0](https://github.com/darqus/tokyo-night-vscode-theme-lod/compare/v1.9.1...v1.10.0) (2025-08-31)
 
 
