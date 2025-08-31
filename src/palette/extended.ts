@@ -195,12 +195,12 @@ export const extendedPalette = {
 
         // Неактивный текст вкладки
         inactive: {
-          dark: '#787c99' as Hex, // Темные темы - приглушенный
+          dark: '#c0caf5' as Hex, // Темные темы - максимальная контрастность
           light: '#656d76' as Hex, // Светлые темы - темно-серый
-          storm: '#6b7394' as Hex, // Storm
-          moon: '#7a8296' as Hex, // Moon
-          contrast: '#9ca6bb' as Hex, // Контрастный
-          pastel: '#6f7488' as Hex, // Пастельный
+          storm: '#c0caf5' as Hex, // Storm - максимальная контрастность
+          moon: '#c0caf5' as Hex, // Moon - максимальная контрастность
+          contrast: '#ffffff' as Hex, // Контрастный - белый для максимального контраста
+          pastel: '#c0caf5' as Hex, // Пастельный - максимальная контрастность
         },
 
         // Текст при наведении
@@ -238,14 +238,14 @@ export const extendedPalette = {
 
   // === ЦВЕТА ТЕКСТА И FOREGROUND ===
   text: {
-    primary: '#a9b1d6' as Hex, // Основной текст интерфейса
-    muted: '#787c99' as Hex, // Приглушенный текст (главный UI foreground)
-    disabled: '#545c7e' as Hex, // Отключенный текст
+    primary: '#c0caf5' as Hex, // Основной текст интерфейса (максимальная контрастность)
+    muted: '#c0caf5' as Hex, // Приглушенный текст (максимальная контрастность)
+    disabled: '#787c99' as Hex, // Отключенный текст
     description: '#515670' as Hex, // Описания
     error: '#515670' as Hex, // Текст ошибок
     placeholder: '#999a9d' as Hex, // Placeholder текст
     lineNumber: '#363b54' as Hex, // Номера строк
-    lineNumberActive: '#787c99' as Hex, // Активная строка
+    lineNumberActive: '#c0caf5' as Hex, // Активная строка (максимальная контрастность)
     settings: '#6183bb' as Hex, // Заголовки настроек
     white: '#ffffff' as Hex, // Белый текст
     light: '#e5e5e5' as Hex, // Светлый текст
@@ -371,7 +371,7 @@ export const extendedPalette = {
 
   // === ЦВЕТА СПИСКОВ ===
   list: {
-    deemphasized: '#787c99' as Hex, // Приглушенный текст списка
+    deemphasized: '#c0caf5' as Hex, // Приглушенный текст списка (максимальная контрастность)
     highlight: '#668ac4' as Hex, // Подсветка в списке
     invalid: '#c97018' as Hex, // Невалидный элемент в списке
     error: '#bb616b' as Hex, // Ошибка в списке

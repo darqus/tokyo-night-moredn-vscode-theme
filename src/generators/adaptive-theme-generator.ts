@@ -1,4 +1,4 @@
-import type { ThemeData } from '../types/theme'
+import type { ThemeData, ThemeObject } from '../types/theme'
 import {
   createAdaptedPalette,
   paletteVariants,
@@ -37,35 +37,31 @@ export class AdaptiveThemeGenerator {
   /**
    * Генерирует тему с адаптированной палитрой
    */
-  static generateTheme(config: ThemeGeneratorConfig): ThemeData {
+  static generateTheme(config: ThemeGeneratorConfig): ThemeObject {
     // Создаем адаптированную палитру
     const adaptedPalette = createAdaptedPalette(
       config.variant,
       config.customModification
     )
 
-    // Определяем тип темы на основе варианта
-    let themeType: ThemeContext['type'] = config.type || 'dark'
-    if (config.variant === 'tokyo-light') themeType = 'light'
-    else if (config.variant === 'tokyo-storm') themeType = 'storm'
-    else if (config.variant === 'tokyo-moon') themeType = 'moon'
-    else if (
+    // Определяем тип темы на основе варианта (VS Code поддерживает только dark/light/hc-dark/hc-light)
+    let themeType: 'dark' | 'light' = config.type === 'light' ? 'light' : 'dark'
+    let vsCodeType: 'dark' | 'light' | 'hc-dark' | 'hc-light' = themeType
+
+    // Проверяем на высококонтрастные темы
+    if (
       config.customModification?.contrastBoost &&
-      config.customModification.contrastBoost > 1.2
-    )
-      themeType = 'contrast'
-    else if (
-      config.customModification?.saturationMultiplier &&
-      config.customModification.saturationMultiplier < 0.5
-    )
-      themeType = 'pastel'
+      config.customModification.contrastBoost > 1.5
+    ) {
+      vsCodeType = themeType === 'light' ? 'hc-light' : 'hc-dark'
+    }
 
     // Создаем контекст темы
     const themeContext: ThemeContext = {
       adaptedPalette,
       variant: config.variant,
       displayName: config.displayName,
-      type: themeType,
+      type: config.type || 'dark', // Внутренний тип для логики
     }
 
     // Временно заменяем глобальную extendedPalette
@@ -75,9 +71,14 @@ export class AdaptiveThemeGenerator {
 
     try {
       // Генерируем тему с новой палитрой
-      const theme: ThemeData = {
-        name: config.displayName,
-        type: config.type || 'dark',
+      const theme: ThemeObject = {
+        name: config.name,
+        displayName: config.displayName,
+        author: 'lod',
+        maintainers: ['lod'],
+        type: vsCodeType, // Используем валидный VS Code тип
+        semanticClass: 'tokyo-night',
+        semanticHighlighting: true,
         colors: buildColorsWithContext(themeContext),
         semanticTokenColors: semanticTokenColors,
         tokenColors: getTokenColors(),
@@ -93,7 +94,7 @@ export class AdaptiveThemeGenerator {
   /**
    * Генерирует множественные варианты темы
    */
-  static generateThemeVariants(): ThemeData[] {
+  static generateThemeVariants(): ThemeObject[] {
     const variants: ThemeGeneratorConfig[] = [
       {
         name: 'tokyo-night-dark',

@@ -65,9 +65,29 @@
         "path": "./themes/tokyo-night-dark-color-theme.json"
       },
       {
+        "label": "Tokyo Night Deuteranopia",
+        "uiTheme": "vs-dark",
+        "path": "./themes/tokyo-night-deuteranopia-color-theme.json"
+      },
+      {
         "label": "Tokyo Night Deuteranopia Friendly",
         "uiTheme": "vs-dark",
         "path": "./themes/tokyo-night-deuteranopia-friendly-color-theme.json"
+      },
+      {
+        "label": "Tokyo Night Gradient 0",
+        "uiTheme": "vs-dark",
+        "path": "./themes/tokyo-night-gradient-0-color-theme.json"
+      },
+      {
+        "label": "Tokyo Night Gradient 1",
+        "uiTheme": "vs-dark",
+        "path": "./themes/tokyo-night-gradient-1-color-theme.json"
+      },
+      {
+        "label": "Tokyo Night Gradient 2",
+        "uiTheme": "vs-dark",
+        "path": "./themes/tokyo-night-gradient-2-color-theme.json"
       },
       {
         "label": "Tokyo Night Gradient 1",
@@ -108,6 +128,11 @@
         "label": "Tokyo Night Pastel",
         "uiTheme": "vs-dark",
         "path": "./themes/tokyo-night-pastel-color-theme.json"
+      },
+      {
+        "label": "Tokyo Night Protanopia",
+        "uiTheme": "vs-dark",
+        "path": "./themes/tokyo-night-protanopia-color-theme.json"
       },
       {
         "label": "Tokyo Night Protanopia Friendly",

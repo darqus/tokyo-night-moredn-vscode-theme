@@ -472,7 +472,7 @@
         },
         "inactive": {
           "dark": {
-            "value": "#787c99",
+            "value": "#c0caf5",
             "type": "color"
           },
           "light": {
@@ -480,19 +480,19 @@
             "type": "color"
           },
           "storm": {
-            "value": "#6b7394",
+            "value": "#c0caf5",
             "type": "color"
           },
           "moon": {
-            "value": "#7a8296",
+            "value": "#c0caf5",
             "type": "color"
           },
           "contrast": {
-            "value": "#9ca6bb",
+            "value": "#ffffff",
             "type": "color"
           },
           "pastel": {
-            "value": "#6f7488",
+            "value": "#c0caf5",
             "type": "color"
           }
         },
@@ -579,15 +579,15 @@
   },
   "text": {
     "primary": {
-      "value": "#a9b1d6",
+      "value": "#c0caf5",
       "type": "color"
     },
     "muted": {
-      "value": "#787c99",
+      "value": "#c0caf5",
       "type": "color"
     },
     "disabled": {
-      "value": "#545c7e",
+      "value": "#787c99",
       "type": "color"
     },
     "description": {
@@ -607,7 +607,7 @@
       "type": "color"
     },
     "lineNumberActive": {
-      "value": "#787c99",
+      "value": "#c0caf5",
       "type": "color"
     },
     "settings": {
@@ -905,7 +905,7 @@
   },
   "list": {
     "deemphasized": {
-      "value": "#787c99",
+      "value": "#c0caf5",
       "type": "color"
     },
     "highlight": {

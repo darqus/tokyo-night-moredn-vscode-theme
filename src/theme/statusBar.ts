@@ -11,16 +11,22 @@ export const getStatusBarColors = (context?: ThemeContext) => {
   // Получаем адаптивный фон строки состояния
   const statusBarBackground = getAdaptiveStatusBarBackground(context)
 
+  // Адаптивный цвет текста в зависимости от типа темы
+  const statusBarForeground =
+    context?.type === 'light'
+      ? ('#1f2328' as Hex) // Тёмный для светлой темы (максимальная контрастность)
+      : palette.fg.primary // Светлый для тёмных тем
+
   return {
-    // Строка состояния - АДАПТИВНЫЙ фон в зависимости от типа темы
-    'statusBar.foreground': palette.fg.muted, // #787c99 как в оригинале
+    // Строка состояния - АДАПТИВНЫЙ фон и текст в зависимости от типа темы
+    'statusBar.foreground': statusBarForeground,
     'statusBar.background': statusBarBackground,
     'statusBar.border': basePalette.statusBarBorder, // #101014 как в оригинале
     // Состояния без папки/отладки/фокус
     'statusBar.noFolderBackground': statusBarBackground,
-    'statusBar.noFolderForeground': palette.fg.muted,
+    'statusBar.noFolderForeground': statusBarForeground,
     'statusBar.debuggingBackground': statusBarBackground,
-    'statusBar.debuggingForeground': palette.fg.muted, // #787c99 как в оригинале
+    'statusBar.debuggingForeground': statusBarForeground, // Адаптивный цвет
     'statusBar.debuggingBorder': palette.line.border,
     'statusBar.noFolderBorder': palette.line.border,
     'statusBar.focusBorder': palette.ui.sash.hover,

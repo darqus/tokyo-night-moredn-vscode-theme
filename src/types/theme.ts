@@ -58,7 +58,7 @@ export interface ValidationIssue {
 
 export interface ThemeData {
   name: string
-  type: 'dark' | 'light' | 'storm' | 'moon' | 'contrast' | 'pastel'
+  type: 'dark' | 'light' | 'hc-dark' | 'hc-light' // Валидные VS Code типы тем
   colors: Record<string, string>
   tokenColors: TokenColor[]
   semanticTokenColors: Record<string, SemanticTokenStyle>

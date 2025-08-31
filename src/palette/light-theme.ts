@@ -115,7 +115,7 @@ export function createLightThemePalette() {
     'activityBar.foreground': lightThemeTextColors.secondary,
     'activityBar.background': lightThemeBackgroundColors.activitybar,
 
-    'statusBar.foreground': lightThemeTextColors.muted,
+    'statusBar.foreground': lightThemeTextColors.primary, // Максимально контрастный для светлой темы
     'statusBar.background': lightThemeBackgroundColors.statusbar,
 
     // Вкладки
