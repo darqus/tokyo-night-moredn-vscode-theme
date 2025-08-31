@@ -1,4 +1,5 @@
 import type { Hex } from '../types/palette'
+import type { ThemeContext } from '../generators/adaptive-theme-generator'
 import { basePalette } from './base'
 import { withAlpha, mix, lightenToward, darkenToward } from '../utils/color'
 import { intensity } from './config'
@@ -16,9 +17,7 @@ const uiBase = {
   warning: basePalette.yellow,
   success: basePalette.green,
   info: basePalette.cyan,
-} as const
-
-// Helpers
+} as const // Helpers
 const alpha = withAlpha
 const blend = mix
 const toward = (a: Hex, b: Hex, k: number) => lightenToward(a, b, k)
@@ -26,6 +25,37 @@ const darken = (a: Hex, b: Hex, k: number) => darkenToward(a, b, k)
 const darkenBg = (k: number) => darken(uiBase.editorBg, coreBlack, k)
 const generatedGray = blend(coreWhite, coreBlack, intensity.mix.gray)
 const aquaLight = toward(basePalette.cyan, basePalette.blue, 0.15)
+
+// Функция для выбора основного цвета кнопок в зависимости от варианта темы
+const getButtonAccentColor = (context?: ThemeContext): Hex => {
+  if (!context) return basePalette.blue
+
+  // Определяем тип по названию темы или type
+  const themeType = context.type
+  const displayName = context.displayName.toLowerCase()
+
+  // Сначала проверяем type
+  switch (themeType) {
+    case 'storm':
+      return basePalette.cyan // Storm - cyan акцент
+    case 'moon':
+      return basePalette.purple // Moon - фиолетовый акцент
+    case 'pastel':
+      return basePalette.teal // Pastel - мягкий teal
+    case 'contrast':
+      return basePalette.blue // Contrast - классический синий
+  }
+
+  // Затем проверяем по названию для сезонных тем
+  if (displayName.includes('spring')) return basePalette.green // Spring - зеленый
+  if (displayName.includes('summer')) return basePalette.yellow // Summer - желтый
+  if (displayName.includes('autumn')) return basePalette.orange // Autumn - оранжевый
+  if (displayName.includes('winter')) return basePalette.cyan // Winter - холодный cyan
+  if (displayName.includes('retro')) return basePalette.magenta // Retro - magenta
+
+  // По умолчанию - классический синий
+  return basePalette.blue
+}
 
 // Declarative formulas map
 const formulas = {
@@ -68,7 +98,7 @@ const formulas = {
   textEditorLinkActive: () =>
     blend(coreWhite, basePalette.blue, intensity.mix.editorLinkActiveBlue),
 
-  // Brand buttons
+  // Brand buttons - будут адаптированы в generateTokens()
   brandButtonPrimary: () =>
     blend(coreBlack, basePalette.blue, intensity.mix.brandButton.primary),
   brandButtonHover: () =>
@@ -120,8 +150,7 @@ const formulas = {
 
   // Base theme
   focusBorder: () => alpha(basePalette.blue, intensity.alpha.focusBorder),
-  extensionButtonProminentHoverBackground: () =>
-    alpha(formulas.brandButtonPrimary(), 0.3),
+  extensionButtonProminentHoverBackground: () => formulas.brandButtonHover(),
   scrollbarSliderBackground: () =>
     alpha(formulas.uiScrollbarBase(), intensity.alpha.scrollbar.base),
   scrollbarSliderHoverBackground: () =>
@@ -213,12 +242,20 @@ const formulas = {
   statusBarItemOfflineHoverBackground: () =>
     alpha(basePalette.red, intensity.alpha.statusBar.offlineHover),
 
-  // Buttons
+  // Buttons - будут адаптированы в generateTokens()
   buttonBorder: () => alpha(basePalette.blue, intensity.alpha.button.border),
   buttonSeparator: () =>
     alpha(basePalette.blue, intensity.alpha.button.separator),
 
-  // Editor bracket pair guides
+  // Extension buttons
+  extensionButtonBackground: () => formulas.brandButtonPrimary(),
+  extensionButtonHover: () => alpha(formulas.brandButtonPrimary(), 0.8),
+
+  // Button aliases для удобства
+  buttonBackground: () => formulas.brandButtonPrimary(),
+  buttonHover: () => formulas.brandButtonHover(),
+  buttonSecondaryBackground: () => formulas.bgInput(),
+  buttonSecondaryHover: () => formulas.bgHover(), // Editor bracket pair guides
   editorBracketPairGuideActiveBackground1: () =>
     alpha(basePalette.blue, intensity.selection.editorHighlightBg),
   editorBracketPairGuideActiveBackground2: () =>
@@ -371,11 +408,43 @@ const formulas = {
 
 export type TokenKey = keyof typeof formulas
 
-export function generateTokens(): Record<TokenKey, Hex> {
+export function generateTokens(
+  themeContext?: ThemeContext
+): Record<TokenKey, Hex> {
+  // Определяем цвет акцента для кнопок в зависимости от варианта темы
+  const buttonAccentColor = getButtonAccentColor(themeContext)
+
   const cache = new Map<TokenKey, Hex>()
   const resolve = (key: TokenKey): Hex => {
     if (cache.has(key)) return cache.get(key)!
-    const value = formulas[key]()
+
+    let value: Hex
+    // Для кнопочных элементов используем адаптивный цвет
+    switch (key) {
+      case 'buttonBorder':
+        value = alpha(buttonAccentColor, intensity.alpha.button.border)
+        break
+      case 'buttonSeparator':
+        value = alpha(buttonAccentColor, intensity.alpha.button.separator)
+        break
+      case 'brandButtonPrimary':
+        value = blend(
+          coreBlack,
+          buttonAccentColor,
+          intensity.mix.brandButton.primary
+        )
+        break
+      case 'brandButtonHover':
+        value = blend(
+          coreBlack,
+          buttonAccentColor,
+          intensity.mix.brandButton.hover
+        )
+        break
+      default:
+        value = formulas[key]()
+    }
+
     cache.set(key, value)
     return value
   }
@@ -384,4 +453,11 @@ export function generateTokens(): Record<TokenKey, Hex> {
     result[k] = resolve(k)
   })
   return Object.freeze(result)
+}
+
+// Удобная перегрузка для обратной совместимости
+export function generateTokensForContext(
+  context?: ThemeContext
+): Record<TokenKey, Hex> {
+  return generateTokens(context)
 }

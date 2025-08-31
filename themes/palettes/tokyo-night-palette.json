@@ -691,31 +691,91 @@
   },
   "button": {
     "primary": {
-      "value": "#3d59a1f0",
+      "value": "#1a3a4aee",
       "type": "color"
     },
     "primaryHover": {
-      "value": "#4d69b1",
+      "value": "#2a4a5a",
       "type": "color"
     },
     "secondary": {
-      "value": "#222c44",
+      "value": "#1a4a4a88",
       "type": "color"
     },
     "secondaryHover": {
-      "value": "#2d3b5a",
+      "value": "#2a5a5a",
       "type": "color"
     },
     "border": {
-      "value": "#7aa2f7cc",
+      "value": "#00d4ffcc",
+      "type": "color"
+    },
+    "borderHover": {
+      "value": "#00d4ffee",
       "type": "color"
     },
     "separator": {
-      "value": "#7aa2f766",
+      "value": "#00d4ff66",
       "type": "color"
     },
     "foreground": {
       "value": "#ffffff",
+      "type": "color"
+    },
+    "glow": {
+      "value": "#00d4ff55",
+      "type": "color"
+    },
+    "glowHover": {
+      "value": "#00d4ff88",
+      "type": "color"
+    },
+    "success": {
+      "value": "#1a4a2a88",
+      "type": "color"
+    },
+    "successHover": {
+      "value": "#2a5a3a",
+      "type": "color"
+    },
+    "successBorder": {
+      "value": "#00ff88aa",
+      "type": "color"
+    },
+    "warning": {
+      "value": "#4a3a1a88",
+      "type": "color"
+    },
+    "warningHover": {
+      "value": "#5a4a2a",
+      "type": "color"
+    },
+    "warningBorder": {
+      "value": "#ff8800aa",
+      "type": "color"
+    },
+    "error": {
+      "value": "#4a1a2a88",
+      "type": "color"
+    },
+    "errorHover": {
+      "value": "#5a2a3a",
+      "type": "color"
+    },
+    "errorBorder": {
+      "value": "#ff0055aa",
+      "type": "color"
+    },
+    "special": {
+      "value": "#3a1a4a88",
+      "type": "color"
+    },
+    "specialHover": {
+      "value": "#4a2a5a",
+      "type": "color"
+    },
+    "specialBorder": {
+      "value": "#aa00ffaa",
       "type": "color"
     }
   },

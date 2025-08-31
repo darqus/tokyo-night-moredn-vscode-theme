@@ -1,4 +1,5 @@
 import { palette, core, extendedPalette } from '../palette'
+import { generateTokensForContext } from '../palette/generator'
 import type { VSCodeColorKey } from '../validation/allowedProperties'
 import type { Hex } from '../types/palette'
 import {
@@ -11,7 +12,13 @@ import type { ThemeContext } from '../generators/adaptive-theme-generator'
 export const getBaseColors = (
   context?: ThemeContext
 ): Partial<Record<VSCodeColorKey, Hex>> => {
-  // Адаптивные фоны и границы для базовых элементов
+  // Генерируем токены с учетом варианта темы
+  const tokens = generateTokensForContext(context)
+
+  // Определяем, нужно ли использовать неоновый стиль
+  const useNeonStyle = context?.type !== 'light' // Неоновый стиль только для темных тем
+
+  // Адаптивные фоны
   const baseBackground = getAdaptiveBaseBackground(context)
   const widgetBackground = getAdaptiveWidgetBackground(context)
   const focusBorder = getAdaptiveFocusBorder(context)
@@ -41,11 +48,13 @@ export const getBaseColors = (
     'window.inactiveBorder': extendedPalette.border.window, // #0d0f17
     'sash.hoverBorder': extendedPalette.border.sash, // #29355a
 
-    // Кнопки/значки расширений
-    'extensionButton.prominentBackground':
-      extendedPalette.extension.prominentBackground, // #7dcfff
-    'extensionButton.prominentHoverBackground':
-      extendedPalette.extension.prominentHover, // #222c444d
+    // Кнопки/значки расширений с неоновыми эффектами
+    'extensionButton.prominentBackground': useNeonStyle
+      ? tokens.extensionButtonBackground
+      : extendedPalette.extension.prominentBackground,
+    'extensionButton.prominentHoverBackground': useNeonStyle
+      ? tokens.extensionButtonHover
+      : extendedPalette.extension.prominentHover,
     'extensionButton.prominentForeground':
       extendedPalette.extension.prominentForeground, // #e5e5e5
     'extensionBadge.remoteBackground': extendedPalette.badge.extension, // #7bb2fa

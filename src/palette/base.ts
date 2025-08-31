@@ -38,9 +38,7 @@ export const basePalette = {
   // Специальные цвета из оригинальной темы
   invalidRed: '#ff5370' as Hex, // Invalid tokens
   deprecatedPurple: '#bb9af7' as Hex, // Deprecated tokens
-  storageModifier: '#9d7cd8' as Hex, // Storage modifiers
-
-  // UI элементы
+  storageModifier: '#9d7cd8' as Hex, // Storage modifiers  // UI элементы
   buttonBg: '#3d59a1' as Hex, // Фон кнопки (как в оригинале)
   buttonFg: '#ffffff' as Hex, // Текст кнопки (как в оригинале)
   inputBg: '#14141b' as Hex, // Фон input поля (как в оригинале)

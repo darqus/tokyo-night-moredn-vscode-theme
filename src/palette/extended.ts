@@ -273,13 +273,33 @@ export const extendedPalette = {
 
   // === ЦВЕТА КНОПОК И ИНТЕРАКТИВНЫХ ЭЛЕМЕНТОВ ===
   button: {
-    primary: '#3d59a1f0' as Hex, // Основная кнопка (более непрозрачная)
-    primaryHover: '#4d69b1' as Hex, // Наведение на основную кнопку (ярче)
-    secondary: '#222c44' as Hex, // Вторичная кнопка
-    secondaryHover: '#2d3b5a' as Hex, // Наведение на вторичную кнопку
-    border: '#7aa2f7cc' as Hex, // Граница кнопки (более контрастная)
-    separator: '#7aa2f766' as Hex, // Разделитель кнопок
-    foreground: '#ffffff' as Hex, // Текст кнопок
+    primary: '#1a3a4aee' as Hex, // Неоновый синий фон с прозрачностью
+    primaryHover: '#2a4a5a' as Hex, // Усиленный неоновый синий при наведении
+    secondary: '#1a4a4a88' as Hex, // Неоновый cyan фон (полупрозрачный)
+    secondaryHover: '#2a5a5a' as Hex, // Усиленный неоновый cyan при наведении
+    border: '#00d4ffcc' as Hex, // Яркая неоновая граница (80% прозрачность)
+    borderHover: '#00d4ffee' as Hex, // Более яркая граница при наведении
+    separator: '#00d4ff66' as Hex, // Приглушенный разделитель
+    foreground: '#ffffff' as Hex, // Белый текст для контраста
+    glow: '#00d4ff55' as Hex, // Мягкое неоновое свечение
+    glowHover: '#00d4ff88' as Hex, // Усиленное свечение при наведении
+
+    // Специализированные кнопки
+    success: '#1a4a2a88' as Hex, // Зеленый неоновый фон
+    successHover: '#2a5a3a' as Hex, // Усиленный зеленый
+    successBorder: '#00ff88aa' as Hex, // Зеленая неоновая граница
+
+    warning: '#4a3a1a88' as Hex, // Оранжевый неоновый фон
+    warningHover: '#5a4a2a' as Hex, // Усиленный оранжевый
+    warningBorder: '#ff8800aa' as Hex, // Оранжевая неоновая граница
+
+    error: '#4a1a2a88' as Hex, // Красный неоновый фон
+    errorHover: '#5a2a3a' as Hex, // Усиленный красный
+    errorBorder: '#ff0055aa' as Hex, // Красная неоновая граница
+
+    special: '#3a1a4a88' as Hex, // Фиолетовый неоновый фон
+    specialHover: '#4a2a5a' as Hex, // Усиленный фиолетовый
+    specialBorder: '#aa00ffaa' as Hex, // Фиолетовая неоновая граница
   },
 
   // === ЦВЕТА SCROLLBAR ===

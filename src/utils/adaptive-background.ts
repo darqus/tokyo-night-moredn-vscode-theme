@@ -71,6 +71,12 @@ export function getAdaptiveListBackground(context?: ThemeContext): Hex {
 }
 
 export function getAdaptiveButtonBackground(context?: ThemeContext): Hex {
+  // Для светлых тем используем стандартный светлый фон
+  if (context?.type === 'light') {
+    return '#f6f8fa' as Hex // Светлый фон для светлых тем
+  }
+
+  // Для темных тем используем неоновый стиль
   return getAdaptiveBackground('button', context)
 }
 

@@ -1,4 +1,5 @@
 import { basePalette, extendedPalette } from '../palette'
+import { generateTokensForContext } from '../palette/generator'
 import type { VSCodeColorKey } from '../validation/allowedProperties'
 import type { Hex } from '../types/palette'
 import {
@@ -11,6 +12,9 @@ import type { ThemeContext } from '../generators/adaptive-theme-generator'
 export const getButtonColors = (
   context?: ThemeContext
 ): Partial<Record<VSCodeColorKey, Hex>> => {
+  // Генерируем токены с учетом варианта темы
+  const tokens = generateTokensForContext(context)
+
   // Адаптивные фоны и границы для кнопочных элементов
   const buttonBackground = getAdaptiveButtonBackground(context)
   const widgetBackground = getAdaptiveWidgetBackground(context)
@@ -22,16 +26,35 @@ export const getButtonColors = (
       ? ('#24292f' as Hex) // Тёмный текст для светлых кнопок
       : extendedPalette.button.foreground
 
+  // Определяем, нужно ли использовать неоновый стиль
+  const useNeonStyle = context?.type !== 'light' // Неоновый стиль только для темных тем
+
   return {
-    // Кнопки - АДАПТИВНЫЕ фоны и границы в зависимости от типа темы
-    'button.background': buttonBackground, // АДАПТИВНЫЙ фон основной кнопки
-    'button.hoverBackground': extendedPalette.button.primaryHover, // #4d69b1
+    // Кнопки - НЕОНОВЫЙ стиль для темных тем, обычный для светлых
+    'button.background': useNeonStyle
+      ? tokens.buttonBackground
+      : buttonBackground,
+    'button.hoverBackground': useNeonStyle
+      ? tokens.buttonHover
+      : extendedPalette.button.primaryHover,
     'button.foreground': buttonForeground,
-    'button.border': buttonBorder, // АДАПТИВНАЯ граница кнопки
-    'button.separator': extendedPalette.button.separator, // #7aa2f766
-    'button.secondaryBackground': widgetBackground, // АДАПТИВНЫЙ фон вторичной кнопки
-    'button.secondaryHoverBackground': extendedPalette.button.secondaryHover, // #2d3b5a
+    'button.border': useNeonStyle ? tokens.buttonBorder : buttonBorder,
+    'button.separator': useNeonStyle
+      ? tokens.buttonSeparator
+      : extendedPalette.button.separator,
+
+    // Вторичные кнопки с неоновыми эффектами
+    'button.secondaryBackground': useNeonStyle
+      ? tokens.buttonSecondaryBackground
+      : widgetBackground,
+    'button.secondaryHoverBackground': useNeonStyle
+      ? tokens.buttonSecondaryHover
+      : extendedPalette.button.secondaryHover,
     'button.secondaryForeground': buttonForeground,
-    'progressBar.background': extendedPalette.special.progressBar, // #7dcfff
+
+    // Прогресс-бар с неоновым акцентом
+    'progressBar.background': useNeonStyle
+      ? basePalette.cyan
+      : extendedPalette.special.progressBar,
   }
 }
