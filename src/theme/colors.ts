@@ -47,7 +47,7 @@ export const buildColorsWithContext = (context?: ThemeContext): ColorMap => {
     getDiffEditorColors(),
     getMergeColors(),
     getChartColors(context),
-    getDebugColors(),
+    getDebugColors(context),
     getQuickInputColors(context),
     getMiscColors(context),
   ]

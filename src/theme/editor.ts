@@ -1,14 +1,18 @@
 import { palette, core, extendedPalette } from '../palette'
 import type { VSCodeColorKey } from '../validation/allowedProperties'
 import type { Hex } from '../types/palette'
-import { getAdaptiveEditorBackground } from '../utils/adaptive-background'
+import {
+  getAdaptiveEditorBackground,
+  getAdaptiveWidgetBackground,
+} from '../utils/adaptive-background'
 import type { ThemeContext } from '../generators/adaptive-theme-generator'
 
 export const getEditorColors = (
   context?: ThemeContext
 ): Partial<Record<VSCodeColorKey, Hex>> => {
-  // Получаем адаптивный фон редактора
+  // Получаем адаптивные фоны
   const editorBackground = getAdaptiveEditorBackground(context)
+  const widgetBackground = getAdaptiveWidgetBackground(context)
 
   return {
     // === ПОДСВЕТКА СКОБОК И НАПРАВЛЯЮЩИЕ ===
@@ -129,7 +133,7 @@ export const getEditorColors = (
 
     // === STICKY SCROLL (ЗАКРЕПЛЕННЫЕ ЗАГОЛОВКИ) ===
     /** Цвет фона для закрепленных заголовков функций/классов */
-    'editorStickyScroll.background': palette.bg.elevated,
+    'editorStickyScroll.background': widgetBackground,
     /** Цвет фона закрепленных заголовков при наведении */
     'editorStickyScrollHover.background': palette.bg.hover,
     /** Цвет границы закрепленных заголовков */
@@ -137,9 +141,9 @@ export const getEditorColors = (
 
     // === ВСПЛЫВАЮЩИЕ ПОДСКАЗКИ И ВИДЖЕТЫ ===
     /** Цвет фона виджета навигации по ошибкам/предупреждениям */
-    'editorMarkerNavigation.background': palette.bg.elevated,
-    /** Цвет фона всплывающих подсказок при наведении */
-    'editorHoverWidget.background': palette.bg.elevated,
+    'editorMarkerNavigation.background': widgetBackground, // АДАПТИВНЫЙ фон навигации маркеров
+    /** Цвет фона всплывающих подсказок при наведении - АДАПТИВНЫЙ */
+    'editorHoverWidget.background': widgetBackground,
     /** Цвет границы всплывающих подсказок */
     'editorHoverWidget.border': palette.line.border,
     /** Цвет текста во всплывающих подсказках */
@@ -240,19 +244,19 @@ export const getEditorColors = (
     /** Цвет границы заголовка группы редакторов */
     'editorGroupHeader.border': palette.line.border,
     /** Цвет фона панели редактора */
-    'editorPane.background': palette.bg.base,
+    'editorPane.background': editorBackground,
 
     // === ВИДЖЕТЫ РЕДАКТОРА (ПОИСК, АВТОДОПОЛНЕНИЕ) ===
     /** Цвет фона виджетов редактора (поиск, замена) */
-    'editorWidget.background': palette.bg.elevated,
+    'editorWidget.background': widgetBackground,
     /** Цвет границы виджетов редактора */
     'editorWidget.border': palette.line.border,
     /** Цвет текста в виджетах редактора */
     'editorWidget.foreground': palette.fg.primary,
     /** Цвет границы изменения размера виджета */
     'editorWidget.resizeBorder': core.tokens.editorWidgetResizeBorder,
-    /** Цвет фона списка автодополнения */
-    'editorSuggestWidget.background': palette.bg.elevated,
+    /** Цвет фона списка автодополнения - АДАПТИВНЫЙ */
+    'editorSuggestWidget.background': widgetBackground,
     /** Цвет границы списка автодополнения */
     // Делаем границу видимой (берётся из токена, уже усилен)
     'editorSuggestWidget.border': core.tokens.editorSuggestWidgetBorder,

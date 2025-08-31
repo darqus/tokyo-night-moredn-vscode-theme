@@ -1,5 +1,8 @@
 import { palette, basePalette, extendedPalette } from '../palette'
-import { getAdaptiveWidgetBackground } from '../utils/adaptive-background'
+import {
+  getAdaptiveWidgetBackground,
+  getAdaptiveMenuBackground,
+} from '../utils/adaptive-background'
 import type { ThemeContext } from '../generators/adaptive-theme-generator'
 import type { VSCodeColorKey } from '../validation/allowedProperties'
 import type { Hex } from '../types/palette'
@@ -8,6 +11,7 @@ export const getInputColors = (
   context?: ThemeContext
 ): Partial<Record<VSCodeColorKey, Hex>> => {
   const widgetBackground = getAdaptiveWidgetBackground(context)
+  const menuBackground = getAdaptiveMenuBackground(context)
 
   return {
     // Поля ввода - используем АДАПТИВНЫЕ фоны
@@ -31,10 +35,10 @@ export const getInputColors = (
     'inputValidation.errorBackground': extendedPalette.input.validationError, // #e4687621
     'inputValidation.errorBorder': extendedPalette.input.validationErrorBorder, // #e46876
 
-    // Выпадающие списки
+    // Выпадающие списки - АДАПТИВНЫЕ фоны
     'dropdown.foreground': extendedPalette.dropdown.foreground, // #bababc
-    'dropdown.background': extendedPalette.dropdown.background, // #0c0f17
-    'dropdown.listBackground': extendedPalette.dropdown.listBackground, // #0c0f17
+    'dropdown.background': menuBackground, // АДАПТИВНЫЙ фон dropdown
+    'dropdown.listBackground': menuBackground, // АДАПТИВНЫЙ фон списка dropdown
     'dropdown.border': extendedPalette.border.dropdown, // #272a31
 
     // Переключатели (checkbox / radio)
