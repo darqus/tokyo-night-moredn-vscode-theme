@@ -336,6 +336,112 @@
           "value": "#1a1a26",
           "type": "color"
         }
+      },
+      "selection": {
+        "listActive": {
+          "dark": {
+            "value": "#202330",
+            "type": "color"
+          },
+          "light": {
+            "value": "#e3f2fd",
+            "type": "color"
+          },
+          "storm": {
+            "value": "#1e2237",
+            "type": "color"
+          },
+          "moon": {
+            "value": "#252842",
+            "type": "color"
+          },
+          "contrast": {
+            "value": "#2a3441",
+            "type": "color"
+          },
+          "pastel": {
+            "value": "#22242f",
+            "type": "color"
+          }
+        },
+        "listInactive": {
+          "dark": {
+            "value": "#1c1d29",
+            "type": "color"
+          },
+          "light": {
+            "value": "#f5f5f5",
+            "type": "color"
+          },
+          "storm": {
+            "value": "#1a1d30",
+            "type": "color"
+          },
+          "moon": {
+            "value": "#21213a",
+            "type": "color"
+          },
+          "contrast": {
+            "value": "#1e2632",
+            "type": "color"
+          },
+          "pastel": {
+            "value": "#1e1f2b",
+            "type": "color"
+          }
+        },
+        "listHover": {
+          "dark": {
+            "value": "#13131a",
+            "type": "color"
+          },
+          "light": {
+            "value": "#f0f0f0",
+            "type": "color"
+          },
+          "storm": {
+            "value": "#151827",
+            "type": "color"
+          },
+          "moon": {
+            "value": "#1a1a2d",
+            "type": "color"
+          },
+          "contrast": {
+            "value": "#1a2330",
+            "type": "color"
+          },
+          "pastel": {
+            "value": "#191a24",
+            "type": "color"
+          }
+        },
+        "activityBarActive": {
+          "dark": {
+            "value": "#1e202e",
+            "type": "color"
+          },
+          "light": {
+            "value": "#e0e0e0",
+            "type": "color"
+          },
+          "storm": {
+            "value": "#1c1f35",
+            "type": "color"
+          },
+          "moon": {
+            "value": "#20203e",
+            "type": "color"
+          },
+          "contrast": {
+            "value": "#1c2b3a",
+            "type": "color"
+          },
+          "pastel": {
+            "value": "#1c1d2a",
+            "type": "color"
+          }
+        }
       }
     },
     "editor": {

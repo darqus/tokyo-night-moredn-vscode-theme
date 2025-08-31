@@ -58,7 +58,7 @@ export interface ValidationIssue {
 
 export interface ThemeData {
   name: string
-  type: 'dark' | 'light'
+  type: 'dark' | 'light' | 'storm' | 'moon' | 'contrast' | 'pastel'
   colors: Record<string, string>
   tokenColors: TokenColor[]
   semanticTokenColors: Record<string, SemanticTokenStyle>

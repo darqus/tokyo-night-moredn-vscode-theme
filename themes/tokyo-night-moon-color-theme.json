@@ -1,6 +1,6 @@
 {
   "name": "Tokyo Night Moon",
-  "type": "dark",
+  "type": "moon",
   "colors": {
     "foreground": "#828d9e",
     "descriptionForeground": "#596677",
@@ -95,6 +95,8 @@
     "radio.inactiveHoverBackground": "#1a1f26",
     "activityBar.background": "#232734",
     "activityBar.foreground": "#828d9e",
+    "activityBar.activeBorder": "#7dcfff",
+    "activityBar.activeBackground": "#1d1f26",
     "activityBar.inactiveForeground": "#434c5a",
     "activityBar.border": "#232734",
     "activityBarBadge.background": "#4a5570",

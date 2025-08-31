@@ -73,3 +73,61 @@ export function getAdaptiveListBackground(context?: ThemeContext): Hex {
 export function getAdaptiveButtonBackground(context?: ThemeContext): Hex {
   return getAdaptiveBackground('button', context)
 }
+
+// === АДАПТИВНЫЕ ЦВЕТА ВЫДЕЛЕНИЙ ===
+
+export function getAdaptiveSelectionBackground(
+  type: 'listActive' | 'listInactive' | 'listHover' | 'activityBarActive',
+  context?: ThemeContext
+): Hex {
+  if (!context) {
+    return extendedPalette.bg.adaptive.selection[type].dark
+  }
+
+  // Используем модифицированную палитру из контекста, если доступна
+  if (context.adaptedPalette?.selection) {
+    switch (type) {
+      case 'listActive':
+        return (
+          context.adaptedPalette.selection.listActive ||
+          extendedPalette.bg.adaptive.selection[type][context.type]
+        )
+      case 'listInactive':
+        return (
+          context.adaptedPalette.selection.listInactive ||
+          extendedPalette.bg.adaptive.selection[type][context.type]
+        )
+      case 'listHover':
+        return (
+          context.adaptedPalette.selection.listHover ||
+          extendedPalette.bg.adaptive.selection[type][context.type]
+        )
+      case 'activityBarActive':
+        // Для activityBarActive используем немного светлее фон панели активности
+        return (
+          context.adaptedPalette.bg?.secondary ||
+          extendedPalette.bg.adaptive.selection[type][context.type]
+        )
+    }
+  }
+
+  return extendedPalette.bg.adaptive.selection[type][context.type]
+}
+
+export function getAdaptiveListActiveBackground(context?: ThemeContext): Hex {
+  return getAdaptiveSelectionBackground('listActive', context)
+}
+
+export function getAdaptiveListInactiveBackground(context?: ThemeContext): Hex {
+  return getAdaptiveSelectionBackground('listInactive', context)
+}
+
+export function getAdaptiveListHoverBackground(context?: ThemeContext): Hex {
+  return getAdaptiveSelectionBackground('listHover', context)
+}
+
+export function getAdaptiveActivityBarActiveBackground(
+  context?: ThemeContext
+): Hex {
+  return getAdaptiveSelectionBackground('activityBarActive', context)
+}

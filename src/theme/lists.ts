@@ -1,5 +1,10 @@
 import { palette, extendedPalette } from '../palette'
-import { getAdaptiveWidgetBackground } from '../utils/adaptive-background'
+import {
+  getAdaptiveWidgetBackground,
+  getAdaptiveListActiveBackground,
+  getAdaptiveListInactiveBackground,
+  getAdaptiveListHoverBackground,
+} from '../utils/adaptive-background'
 import type { ThemeContext } from '../generators/adaptive-theme-generator'
 import type { VSCodeColorKey } from '../validation/allowedProperties'
 import type { Hex } from '../types/palette'
@@ -8,18 +13,21 @@ export const getListColors = (
   context?: ThemeContext
 ): Partial<Record<VSCodeColorKey, Hex>> => {
   const widgetBackground = getAdaptiveWidgetBackground(context)
+  const listActiveBackground = getAdaptiveListActiveBackground(context)
+  const listInactiveBackground = getAdaptiveListInactiveBackground(context)
+  const listHoverBackground = getAdaptiveListHoverBackground(context)
 
   return {
-    // Списки - используем централизованную палитру
+    // Списки - используем АДАПТИВНЫЕ цвета выделений
     'list.dropBackground': extendedPalette.selection.listDrop, // #1e202e
     'list.deemphasizedForeground': extendedPalette.text.muted, // #787c99
-    'list.activeSelectionBackground': extendedPalette.selection.listActive, // #202330
+    'list.activeSelectionBackground': listActiveBackground, // АДАПТИВНЫЙ активный фон
     'list.activeSelectionForeground': extendedPalette.text.primary, // #a9b1d6
-    'list.inactiveSelectionBackground': extendedPalette.selection.listInactive, // #1c1d29
+    'list.inactiveSelectionBackground': listInactiveBackground, // АДАПТИВНЫЙ неактивный фон
     'list.inactiveSelectionForeground': extendedPalette.text.primary, // #a9b1d6
-    'list.focusBackground': extendedPalette.selection.listInactive, // #1c1d29
+    'list.focusBackground': listInactiveBackground, // АДАПТИВНЫЙ фокус как неактивный
     'list.focusForeground': extendedPalette.text.primary, // #a9b1d6
-    'list.hoverBackground': extendedPalette.selection.listHover, // #13131a
+    'list.hoverBackground': listHoverBackground, // АДАПТИВНЫЙ фон при наведении
     'list.hoverForeground': extendedPalette.text.primary, // #a9b1d6
     'list.highlightForeground': extendedPalette.list.highlight, // #668ac4
     'list.invalidItemForeground': extendedPalette.list.invalid, // #c97018

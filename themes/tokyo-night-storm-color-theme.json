@@ -1,6 +1,6 @@
 {
   "name": "Tokyo Night Storm",
-  "type": "dark",
+  "type": "storm",
   "colors": {
     "foreground": "#6c698f",
     "descriptionForeground": "#464563",
@@ -95,6 +95,8 @@
     "radio.inactiveHoverBackground": "#09090e",
     "activityBar.background": "#141323",
     "activityBar.foreground": "#6c698f",
+    "activityBar.activeBorder": "#7dcfff",
+    "activityBar.activeBackground": "#0c0b0f",
     "activityBar.inactiveForeground": "#312f44",
     "activityBar.border": "#141323",
     "activityBarBadge.background": "#5a7bb8",

@@ -17,7 +17,7 @@ export interface ThemeGeneratorConfig {
   displayName: string
   variant: PaletteVariant
   customModification?: PaletteModification
-  type?: 'dark' | 'light'
+  type?: 'dark' | 'light' | 'storm' | 'moon' | 'contrast' | 'pastel'
 }
 
 /**
@@ -111,13 +111,13 @@ export class AdaptiveThemeGenerator {
         name: 'tokyo-night-storm',
         displayName: 'Tokyo Night Storm',
         variant: 'tokyo-storm',
-        type: 'dark',
+        type: 'storm',
       },
       {
         name: 'tokyo-night-moon',
         displayName: 'Tokyo Night Moon',
         variant: 'tokyo-moon',
-        type: 'dark',
+        type: 'moon',
       },
       {
         name: 'tokyo-night-high-contrast',
@@ -128,7 +128,7 @@ export class AdaptiveThemeGenerator {
           contrastBoost: 1.5,
           lightnessOffset: 8,
         },
-        type: 'dark',
+        type: 'contrast',
       },
       {
         name: 'tokyo-night-low-contrast',
@@ -150,7 +150,7 @@ export class AdaptiveThemeGenerator {
           lightnessOffset: 20,
           contrastBoost: 0.8,
         },
-        type: 'dark',
+        type: 'pastel',
       },
     ]
 
@@ -164,7 +164,7 @@ export class AdaptiveThemeGenerator {
     name: string,
     displayName: string,
     modification: PaletteModification,
-    type: 'dark' | 'light' = 'dark'
+    type: 'dark' | 'light' | 'storm' | 'moon' | 'contrast' | 'pastel' = 'dark'
   ): ThemeData {
     return this.generateTheme({
       name,
@@ -182,7 +182,7 @@ export class AdaptiveThemeGenerator {
     name: string,
     displayName: string,
     presetName: keyof typeof paletteVariants,
-    type: 'dark' | 'light' = 'dark'
+    type: 'dark' | 'light' | 'storm' | 'moon' | 'contrast' | 'pastel' = 'dark'
   ): ThemeData {
     const preset = paletteVariants[presetName]()
 

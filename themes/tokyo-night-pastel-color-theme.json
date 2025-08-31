@@ -95,6 +95,8 @@
     "radio.inactiveHoverBackground": "#464850",
     "activityBar.background": "#4e4e58",
     "activityBar.foreground": "#b9b9be",
+    "activityBar.activeBorder": "#7dcfff",
+    "activityBar.activeBackground": "#494951",
     "activityBar.inactiveForeground": "#74757f",
     "activityBar.border": "#4e4e58",
     "activityBarBadge.background": "#b19cd9",

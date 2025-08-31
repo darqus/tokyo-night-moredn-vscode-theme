@@ -137,6 +137,49 @@ export const extendedPalette = {
         contrast: '#000000' as Hex, // Черный
         pastel: '#1a1a26' as Hex, // Пастельный
       },
+
+      // Адаптивные цвета выделений для списков
+      selection: {
+        // Активный элемент в списках
+        listActive: {
+          dark: '#202330' as Hex, // Темные темы - стандартный
+          light: '#e3f2fd' as Hex, // Светлые темы - мягкий синий
+          storm: '#1e2237' as Hex, // Storm - холодный оттенок
+          moon: '#252842' as Hex, // Moon - теплый
+          contrast: '#2a3441' as Hex, // Контрастный - ярче
+          pastel: '#22242f' as Hex, // Пастельный - мягкий
+        },
+
+        // Неактивный выбранный элемент
+        listInactive: {
+          dark: '#1c1d29' as Hex, // Темные темы
+          light: '#f5f5f5' as Hex, // Светлые темы - серый
+          storm: '#1a1d30' as Hex, // Storm
+          moon: '#21213a' as Hex, // Moon
+          contrast: '#1e2632' as Hex, // Контрастный
+          pastel: '#1e1f2b' as Hex, // Пастельный
+        },
+
+        // Наведение на элемент списка
+        listHover: {
+          dark: '#13131a' as Hex, // Темные темы - тонкий
+          light: '#f0f0f0' as Hex, // Светлые темы - едва заметный
+          storm: '#151827' as Hex, // Storm - холодный
+          moon: '#1a1a2d' as Hex, // Moon - теплый
+          contrast: '#1a2330' as Hex, // Контрастный - заметнее
+          pastel: '#191a24' as Hex, // Пастельный
+        },
+
+        // Активные элементы панели активности (Activity Bar)
+        activityBarActive: {
+          dark: '#1e202e' as Hex, // Темные темы - немного светлее фона
+          light: '#e0e0e0' as Hex, // Светлые темы - серый
+          storm: '#1c1f35' as Hex, // Storm
+          moon: '#20203e' as Hex, // Moon
+          contrast: '#1c2b3a' as Hex, // Контрастный
+          pastel: '#1c1d2a' as Hex, // Пастельный
+        },
+      },
     },
 
     // Оригинальная система (для обратной совместимости)
