@@ -8,13 +8,7 @@ export const getSideBarColors = (
   context?: ThemeContext
 ): Partial<Record<VSCodeColorKey, Hex>> => {
   // Получаем адаптивный фон боковой панели
-  const sideBarBackground = context
-    ? getAdaptiveSideBarBackground(
-        context.variant,
-        context.displayName,
-        context.adaptedPalette
-      )
-    : extendedPalette.bg.secondary
+  const sideBarBackground = getAdaptiveSideBarBackground(context)
 
   return {
     // Боковая панель - АДАПТИВНЫЙ фон в зависимости от типа темы

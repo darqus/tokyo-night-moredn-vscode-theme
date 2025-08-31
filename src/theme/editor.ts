@@ -8,13 +8,7 @@ export const getEditorColors = (
   context?: ThemeContext
 ): Partial<Record<VSCodeColorKey, Hex>> => {
   // Получаем адаптивный фон редактора
-  const editorBackground = context
-    ? getAdaptiveEditorBackground(
-        context.variant,
-        context.displayName,
-        context.adaptedPalette
-      )
-    : palette.bg.base
+  const editorBackground = getAdaptiveEditorBackground(context)
 
   return {
     // === ПОДСВЕТКА СКОБОК И НАПРАВЛЯЮЩИЕ ===

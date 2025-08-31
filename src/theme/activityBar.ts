@@ -8,13 +8,7 @@ export const getActivityBarColors = (
   context?: ThemeContext
 ): Partial<Record<VSCodeColorKey, Hex>> => {
   // Получаем адаптивный фон панели активности
-  const activityBarBackground = context
-    ? getAdaptiveActivityBarBackground(
-        context.variant,
-        context.displayName,
-        context.adaptedPalette
-      )
-    : extendedPalette.bg.secondary
+  const activityBarBackground = getAdaptiveActivityBarBackground(context)
 
   return {
     // Панель действий (Activity Bar) - АДАПТИВНЫЙ фон в зависимости от типа темы

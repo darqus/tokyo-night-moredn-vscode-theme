@@ -8,13 +8,7 @@ export const getTabColors = (
   context?: ThemeContext
 ): Partial<Record<VSCodeColorKey, Hex>> => {
   // Получаем адаптивный фон панели вкладок
-  const tabBarBackground = context
-    ? getAdaptiveTabBarBackground(
-        context.variant,
-        context.displayName,
-        context.adaptedPalette
-      )
-    : basePalette.tabActiveBg
+  const tabBarBackground = getAdaptiveTabBarBackground(context)
 
   return {
     // Вкладки - АДАПТИВНЫЙ фон в зависимости от типа темы

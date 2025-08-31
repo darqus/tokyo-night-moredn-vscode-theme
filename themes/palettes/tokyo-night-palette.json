@@ -24,13 +24,255 @@
       "value": "#2b2b3b",
       "type": "color"
     },
+    "adaptive": {
+      "editor": {
+        "dark": {
+          "value": "#1a1b26",
+          "type": "color"
+        },
+        "light": {
+          "value": "#ffffff",
+          "type": "color"
+        },
+        "storm": {
+          "value": "#24283b",
+          "type": "color"
+        },
+        "moon": {
+          "value": "#222436",
+          "type": "color"
+        },
+        "contrast": {
+          "value": "#0d1017",
+          "type": "color"
+        },
+        "pastel": {
+          "value": "#1e1f2e",
+          "type": "color"
+        },
+        "neon": {
+          "value": "#101218",
+          "type": "color"
+        }
+      },
+      "terminal": {
+        "dark": {
+          "value": "#16161e",
+          "type": "color"
+        },
+        "light": {
+          "value": "#f8f8f8",
+          "type": "color"
+        },
+        "storm": {
+          "value": "#1f2335",
+          "type": "color"
+        },
+        "moon": {
+          "value": "#1e1e2e",
+          "type": "color"
+        },
+        "contrast": {
+          "value": "#000000",
+          "type": "color"
+        },
+        "pastel": {
+          "value": "#1a1a26",
+          "type": "color"
+        },
+        "neon": {
+          "value": "#0a0d15",
+          "type": "color"
+        }
+      },
+      "sideBar": {
+        "dark": {
+          "value": "#16161e",
+          "type": "color"
+        },
+        "light": {
+          "value": "#f3f3f3",
+          "type": "color"
+        },
+        "storm": {
+          "value": "#1f2335",
+          "type": "color"
+        },
+        "moon": {
+          "value": "#1e1e2e",
+          "type": "color"
+        },
+        "contrast": {
+          "value": "#0a0a0a",
+          "type": "color"
+        },
+        "pastel": {
+          "value": "#1c1c28",
+          "type": "color"
+        },
+        "neon": {
+          "value": "#0c0f18",
+          "type": "color"
+        }
+      },
+      "activityBar": {
+        "dark": {
+          "value": "#16161e",
+          "type": "color"
+        },
+        "light": {
+          "value": "#eeeeee",
+          "type": "color"
+        },
+        "storm": {
+          "value": "#1d2032",
+          "type": "color"
+        },
+        "moon": {
+          "value": "#1c1c2c",
+          "type": "color"
+        },
+        "contrast": {
+          "value": "#050505",
+          "type": "color"
+        },
+        "pastel": {
+          "value": "#1a1a26",
+          "type": "color"
+        },
+        "neon": {
+          "value": "#0a0d16",
+          "type": "color"
+        }
+      },
+      "statusBar": {
+        "dark": {
+          "value": "#16161e",
+          "type": "color"
+        },
+        "light": {
+          "value": "#e8e8e8",
+          "type": "color"
+        },
+        "storm": {
+          "value": "#1d2032",
+          "type": "color"
+        },
+        "moon": {
+          "value": "#1c1c2c",
+          "type": "color"
+        },
+        "contrast": {
+          "value": "#000000",
+          "type": "color"
+        },
+        "pastel": {
+          "value": "#1a1a26",
+          "type": "color"
+        },
+        "neon": {
+          "value": "#0a0d16",
+          "type": "color"
+        }
+      },
+      "tabBar": {
+        "dark": {
+          "value": "#1a1b26",
+          "type": "color"
+        },
+        "light": {
+          "value": "#ffffff",
+          "type": "color"
+        },
+        "storm": {
+          "value": "#24283b",
+          "type": "color"
+        },
+        "moon": {
+          "value": "#222436",
+          "type": "color"
+        },
+        "contrast": {
+          "value": "#0d1017",
+          "type": "color"
+        },
+        "pastel": {
+          "value": "#1e1f2e",
+          "type": "color"
+        },
+        "neon": {
+          "value": "#101218",
+          "type": "color"
+        }
+      },
+      "menu": {
+        "dark": {
+          "value": "#0c0f17",
+          "type": "color"
+        },
+        "light": {
+          "value": "#ffffff",
+          "type": "color"
+        },
+        "storm": {
+          "value": "#1a1e2e",
+          "type": "color"
+        },
+        "moon": {
+          "value": "#1a1a2a",
+          "type": "color"
+        },
+        "contrast": {
+          "value": "#000000",
+          "type": "color"
+        },
+        "pastel": {
+          "value": "#1c1d29",
+          "type": "color"
+        },
+        "neon": {
+          "value": "#080b13",
+          "type": "color"
+        }
+      },
+      "notification": {
+        "dark": {
+          "value": "#16161e",
+          "type": "color"
+        },
+        "light": {
+          "value": "#f0f0f0",
+          "type": "color"
+        },
+        "storm": {
+          "value": "#1f2335",
+          "type": "color"
+        },
+        "moon": {
+          "value": "#1e1e2e",
+          "type": "color"
+        },
+        "contrast": {
+          "value": "#0a0a0a",
+          "type": "color"
+        },
+        "pastel": {
+          "value": "#1c1c28",
+          "type": "color"
+        },
+        "neon": {
+          "value": "#0c0f18",
+          "type": "color"
+        }
+      }
+    },
     "editor": {
       "dark": {
         "value": "#1a1b26",
         "type": "color"
       },
       "light": {
-        "value": "#d5d6db",
+        "value": "#ffffff",
         "type": "color"
       },
       "storm": {

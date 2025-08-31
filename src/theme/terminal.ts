@@ -4,13 +4,7 @@ import type { ThemeContext } from '../generators/adaptive-theme-generator'
 
 export const getTerminalColors = (context?: ThemeContext) => {
   // Получаем адаптивный фон терминала
-  const terminalBackground = context
-    ? getAdaptiveTerminalBackground(
-        context.variant,
-        context.displayName,
-        context.adaptedPalette
-      )
-    : basePalette.terminalBg
+  const terminalBackground = getAdaptiveTerminalBackground(context)
 
   return {
     // Терминал - АДАПТИВНЫЙ фон в зависимости от типа темы

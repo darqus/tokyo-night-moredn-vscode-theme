@@ -8,13 +8,7 @@ export const getMenuColors = (
   context?: ThemeContext
 ): Partial<Record<VSCodeColorKey, Hex>> => {
   // Получаем адаптивный фон меню
-  const menuBackground = context
-    ? getAdaptiveMenuBackground(
-        context.variant,
-        context.displayName,
-        context.adaptedPalette
-      )
-    : extendedPalette.bg.secondary
+  const menuBackground = getAdaptiveMenuBackground(context)
 
   return {
     // Панель меню (menubar) - АДАПТИВНЫЙ фон в зависимости от типа темы

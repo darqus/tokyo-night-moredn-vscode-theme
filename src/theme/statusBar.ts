@@ -5,13 +5,7 @@ import type { Hex } from '../types/palette'
 
 export const getStatusBarColors = (context?: ThemeContext) => {
   // Получаем адаптивный фон строки состояния
-  const statusBarBackground = context
-    ? getAdaptiveStatusBarBackground(
-        context.variant,
-        context.displayName,
-        context.adaptedPalette
-      )
-    : basePalette.statusBarBg
+  const statusBarBackground = getAdaptiveStatusBarBackground(context)
 
   return {
     // Строка состояния - АДАПТИВНЫЙ фон в зависимости от типа темы

@@ -30,8 +30,8 @@ export const buildColors = (): ColorMap => {
 // Новая функция с поддержкой адаптивного контекста
 export const buildColorsWithContext = (context?: ThemeContext): ColorMap => {
   const parts: ColorMap[] = [
-    getBaseColors(),
-    getButtonColors(),
+    getBaseColors(context),
+    getButtonColors(context),
     getInputColors(),
     getActivityBarColors(context),
     getSideBarColors(context),

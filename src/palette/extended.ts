@@ -98,12 +98,56 @@ export const extendedPalette = {
       // Фоны уведомлений и всплывающих окон
       notification: {
         dark: '#16161e' as Hex, // Стандартный
-        light: '#f0f0f0' as Hex, // Светлый
-        storm: '#1f2335' as Hex, // Storm
-        moon: '#1e1e2e' as Hex, // Moon
+        light: '#f4f4f4' as Hex, // Светлый
+        storm: '#1d2032' as Hex, // Storm
+        moon: '#1c1c2c' as Hex, // Moon
         contrast: '#0a0a0a' as Hex, // Контрастный
-        pastel: '#1c1c28' as Hex, // Пастельный
-        neon: '#0c0f18' as Hex, // Neon
+        pastel: '#1a1a26' as Hex, // Пастельный
+        neon: '#0a0d16' as Hex, // Neon
+      },
+
+      // Фоны базовых элементов (titleBar, командный центр)
+      base: {
+        dark: '#16161e' as Hex, // Стандартный для titleBar
+        light: '#f6f6f6' as Hex, // Светлый
+        storm: '#1d2032' as Hex, // Storm
+        moon: '#1c1c2c' as Hex, // Moon
+        contrast: '#000000' as Hex, // Черный
+        pastel: '#1a1a26' as Hex, // Пастельный
+        neon: '#0a0d16' as Hex, // Neon
+      },
+
+      // Фоны виджетов и диалогов
+      widget: {
+        dark: '#1a1b26' as Hex, // Как editor для consistency
+        light: '#ffffff' as Hex, // Белый
+        storm: '#24283b' as Hex, // Storm
+        moon: '#222436' as Hex, // Moon
+        contrast: '#0d1017' as Hex, // Контрастный
+        pastel: '#1e1f2e' as Hex, // Пастельный
+        neon: '#101218' as Hex, // Neon
+      },
+
+      // Фоны списков и элементов выбора
+      list: {
+        dark: '#1a1b26' as Hex, // Как editor
+        light: '#ffffff' as Hex, // Белый
+        storm: '#24283b' as Hex, // Storm
+        moon: '#222436' as Hex, // Moon
+        contrast: '#0d1017' as Hex, // Контрастный
+        pastel: '#1e1f2e' as Hex, // Пастельный
+        neon: '#101218' as Hex, // Neon
+      },
+
+      // Фоны кнопок и интерактивных элементов
+      button: {
+        dark: '#16161e' as Hex, // Как панели
+        light: '#e8e8e8' as Hex, // Светлый
+        storm: '#1d2032' as Hex, // Storm
+        moon: '#1c1c2c' as Hex, // Moon
+        contrast: '#000000' as Hex, // Черный
+        pastel: '#1a1a26' as Hex, // Пастельный
+        neon: '#0a0d16' as Hex, // Neon
       },
     },
 
