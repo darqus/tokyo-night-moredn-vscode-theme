@@ -1,51 +1,90 @@
-# 📝 Changelog
+# Changelog
 
-All notable changes to the **Tokyo Night Theme Collection** are documented here.
+All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v1.3.0.html).
 
-## 🌟 **Major Version 2.0.0** (Planned)
 
-> 🚀 **Revolutionary Update**: Complete transformation from single theme to 17-variant collection with centralized palette system.
+## [1.10.0](https://github.com/darqus/tokyo-night-vscode-theme-lod/compare/v1.9.1...v1.10.0) (2025-08-31)
 
-### **🎯 Breaking Changes**
 
-- **Theme Structure**: Migrated from single dark theme to 17 adaptive variants
-- **Palette System**: Eliminated all 200+ hardcoded colors in favor of centralized `extendedPalette`
-- **Build Process**: New programmatic generation system replacing manual theme editing
-- **Package.json**: Auto-managed theme contributions (17 variants)
+### 🧪 Tests
 
-### **✨ New Features**
+* improve visual test reliability and screenshot capture ([b257934](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/b25793480309be409ff95d61f172447195bc8fb5))
+* **scripts:** update visual regression testing script ([53a4235](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/53a42353cf069afd900013b8dce2effe117f4e83))
 
-- **🌈 17 Theme Variants**: Complete collection including seasonal, accessibility, and creative variants
-- **🤖 CLI Tools**: `theme-cli` for creating custom themes with HSL transformations
-- **🎨 Adaptive Palette System**: HSL-based color manipulation engine
-- **♿ Accessibility Support**: WCAG-compliant variants for color-blind users
-- **📦 Auto-packaging**: Themes automatically update in package.json during build
-- **🔬 Advanced Analytics**: Comprehensive migration and optimization reports
 
-### **🏗️ Technical Improvements**
+### 📚 Documentation
 
-- **Zero Hardcoded Colors**: 80+ centralized semantic color definitions
-- **Type Safety**: Full TypeScript architecture with comprehensive type coverage
-- **Performance**: Maintained ~4.5ms build times despite 17× theme count
-- **Quality Assurance**: Enhanced validation and testing systems
-- **Documentation**: Complete rewrite with user and developer guides
+* **DEVELOPMENT:** update and clarify development workflow documentation ([8463bb4](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/8463bb47167581e591e7aa043e0b0c3cdb35eee1))
+* **README:** add instructions for updating visual test baselines and visual regression testing explanation ([2c5a5b6](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/2c5a5b6f5212a9722cc3619f4dd655319266f995))
+* **README:** update theme variant count to 17 ([91ee9a5](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/91ee9a5110f3c03ee1401db4c56407b4f31f787a))
+* remove outdated and deprecated component manager ([87e8127](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/87e8127ddae99adc26661a0b22178367f865ba61))
 
-### **🎨 Theme Collection**
 
-- **Core**: Dark, Light, Storm, Moon
-- **Seasonal**: Spring, Summer, Autumn, Winter
-- **Accessibility**: High/Low Contrast, Protanopia/Deuteranopia Friendly
-- **Creative**: Pastel, Retro
-- **Experimental**: Gradient transitions (3 variants)
+### ✨ Features
 
----
+* **adaptive-backgounds:** implement editor background adaptation ([72f587f](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/72f587fe8b89c93e6bf91006e395ed440928d281))
+* **palette:** add editor bracket highlighting colors ([cc89f2d](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/cc89f2d7336e235b0536a04b231fd1497bc54082))
+* **palette:** implement declarative token generation ([091b82c](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/091b82c2274582cab7a34b8e6db978c2d7df1601))
+* **scripts:** implement visual test script for UI components ([8e5f55b](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/8e5f55bae45eb62ddbed2ef070d4867f9cce2dd9))
+* **theme:** add adaptive background colors for various components ([d9422c4](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/d9422c410a2388700e04b5d48b5d0dfbd158c5c8))
+* **theme:** add adaptive selection colors for lists and activity bar ([ccd075f](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/ccd075f3a1ff466b1ef3aa498922084007a16e05))
+* **theme:** add JSON key coloring and enhance object property highlighting ([66a6141](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/66a6141888163b88c76436e644009bcd5190767c))
+* **theme:** add semantic highlighting to tokyo-night-dark-color-theme ([b8ca7fe](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/b8ca7fe2124f196b2581129eb1735b49cfd87d2c))
+* **theme:** expand Tokyo Night theme collection to 18 variants ([1475bd0](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/1475bd0cbdcd8c58d052e333029b106a9325ee7e))
+* **theme:** implement adaptive button backgrounds ([7375290](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/7375290644baea03d53c1cec28b096df907ff8c8))
+* **theme:** update garden theme colors and add semantic token colors ([9b88e7e](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/9b88e7e57a74d6e442f8765241d69001dc6b9c5c))
 
-## 📚 **Version 1.x History**
 
-*Legacy single-theme versions - migrated to new collection system*
+### ♻️ Code Refactoring
+
+* **build:** simplify theme generation to single dark theme ([8c1308d](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/8c1308d249d24bf95895c1506106d93ced54d7c8))
+* **palette:** create centralized extended palette for consistency ([b935074](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/b9350747eadd92b2ac5efcbae2fc22f554fe7a70))
+* **palette:** migrate to token-based color generation ([c8eb602](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/c8eb6022d762d7ba8f35585f444d3bf78c2e906c))
+* **palette:** optimize color values and remove unused variables ([1d6d077](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/1d6d07726cd736623ddcf816804f019cbf5a50a0))
+* **palette:** redefine core color values and improve code structure ([07ca272](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/07ca27236fb051f1ee7314d65da9c569244004c4))
+* **palette:** reorganize color exports and imports ([c26c55c](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/c26c55cfdc8f6d2e63f7b95cd96a2095efeac399))
+* **palette:** reorganize folder structure and improve imports ([58f4590](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/58f4590ae6342672966b23f90b42d44797cb32b3))
+* **palette:** update coreBlack and coreWhite values ([566a7f1](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/566a7f13ac7737aa2d9d831c0cfce605a8abfe72))
+* **scripts:** migrate theme debugging and visual testing to TypeScript ([86c21cc](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/86c21cc54319630cf84b02f9759c3cb2715ddc7a))
+* **scripts:** update paths and add overlap check script ([913a8f6](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/913a8f60e064d474ce575874975b21f6a17d1d94))
+* **semanticTokenColors:** optimize token color mappings ([cf0e73a](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/cf0e73a2d304cce59d25af9038ddfa8a041c6cdf))
+* **statusBar:** make remote indicator colors adaptive ([67696e7](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/67696e7817f79d29042dfaf465090659e82860a1))
+* **structure:** reorganize project structure and improve type imports ([b708fd0](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/b708fd0f2dde360a3b6e5125822ac2659f49a930))
+* **theme:** compose color maps with diagnostics util ([c02fefe](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/c02fefe49134f3ca93ba07584cf821fb02b48685))
+* **theme:** implement adaptive Git colors for various themes ([95c3591](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/95c35918d7518cd4a2101eb599999c2ce6945775))
+* **theme:** implement adaptive theming context ([e68c111](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/e68c11100cd894dfc95c539f91995ca20479daa5))
+* **theme:** improve type safety and consistency ([61b8575](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/61b85757a0c0ca092493f4341c726d1d6a57316a))
+* **theme:** make peek view and notification backgrounds adaptive ([4943329](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/49433293e247eaba8b616182d21468575f975b87))
+* **theme:** remove neon theme colors ([adbef71](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/adbef712f0ddb78ce0d79751d4081408a81ede52))
+* **themes:** remove neon theme variant ([9cac0ff](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/9cac0ffcc9f4ee56b6a9a04b40c67bbd00e6da0e))
+* **themes:** update background colors for Tokyo Night theme ([e861488](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/e86148812dd7d8ad4a17b578614e7cdaa441c76f))
+* **theme:** update colors and styles for Tokyo Night Dark theme ([5f59a5d](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/5f59a5dc92f4d47ca4d90658140c616f0979ed3e))
+* update background colors for consistency across themes ([a315af6](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/a315af65644f2c80a17fdab5dbc01a992382fe44))
+
+
+### 🏗️ Build System
+
+* **lint:** update hex allowlist and comments ([88bd39c](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/88bd39ce77d3cd184e9c560696c054c45b42afac))
+* update generated theme file ([1b709f6](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/1b709f6b163dbb79f3f6759bd487d71a00b8bacc))
+
+
+### 🐛 Bug Fixes
+
+* correct tokenColors import in smoke-compare script ([292f7e0](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/292f7e0d6be29e8b9e64cf274bf614902c4cd674))
+* **palette:** adjust background colors and intensity ([846727d](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/846727dc2cc985dc4d18b9e3dc3bad0be772b540))
+* **palette:** resolve critical contrast issues in light theme ([a5e458a](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/a5e458aae7f836513b2990c55c644d4f8489f91a))
+* prevent error when getting items from empty localStorage ([63e1872](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/63e1872c358df9006d6575d1cc7c9e3898c01374))
+* remove alpha channel from buttonBg color and update snapshots ([9479cfb](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/9479cfbc8c693c528d433d4089bfb981256166ae))
+* resolve theme validation issues and improve accessibility ([71bacfe](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/71bacfefe7ae6cd01bb4befd700cb37507fa5d81)), closes [#787c99](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/787c99) [#c0caf5](https://github.com/darqus/tokyo-night-vscode-theme-lod/issues/c0caf5)
+* **scripts:** update code evaluation for server-side rendering ([8c9d802](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/8c9d80270764e70ea77417d5c158bb0fc426d179))
+* **selection:** ensure proper selection background in light themes ([f959cfa](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/f959cfa8e49b3557e9d3afb6786c2522d2521221))
+* **theme:** correct colors for better readability and alignment with original Tokyo Night ([36dfb71](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/36dfb715b1d15620e538f87c46de8edc8785aa14))
+* **theme:** fix tab inactive and selected background colors ([4409d7f](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/4409d7f8bd3c91a0d3335af372e7c7f8a685d5e7))
+* **themes:** improve contrast and readability for Tokyo Night theme ([e6d91fa](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/e6d91faf9e100e96febe4ca6f236c836cd0afff8))
+* types/v3-directive not published ([f4dbd0f](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/f4dbd0f379baa2627a6ed683dc02861526a137fa))
 
 ### [1.9.1](https://github.com/darqus/tokyo-night-vscode-theme-lod/compare/v1.9.0...v1.9.1) (2025-08-26)
 
