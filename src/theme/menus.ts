@@ -1,15 +1,18 @@
 import { palette, core } from '../palette'
+import type { VSCodeColorKey } from '../validation/allowedProperties'
+import type { Hex } from '../types/palette'
 
-export const getMenuColors = () => ({
-  // Меню
-  'menubar.selectionForeground': palette.fg.selectionText, // Текст выбранного элемента менюбара
-  'menubar.selectionBackground': palette.brand.button.primary, // Фон выбранного элемента менюбара
-  'menubar.selectionBorder': palette.line.menu, // Граница выбранного элемента менюбара
-  'menu.foreground': palette.fg.soft, // Основной текст меню
-  'menu.background': palette.bg.overlay, // Фон меню
-  'menu.selectionForeground': palette.fg.selectionText, // Текст выбранного элемента меню
-  'menu.selectionBackground': palette.brand.button.primary, // Фон выбранного элемента меню
-  'menu.separatorBackground': palette.line.border, // Разделитель в меню
-  // Видимая граница меню
-  'menu.border': palette.line.border,
+export const getMenuColors = (): Partial<Record<VSCodeColorKey, Hex>> => ({
+  // Панель меню (menubar) - точная копия оригинальной Tokyo Night
+  'menubar.selectionForeground': '#a9b1d6' as Hex, // точно как в оригинале
+  'menubar.selectionBackground': '#1e202e' as Hex, // точно как в оригинале
+  'menubar.selectionBorder': '#1b1e2e' as Hex, // точно как в оригинале
+
+  // Выпадающие меню - точная копия оригинальной Tokyo Night
+  'menu.foreground': '#787c99' as Hex, // точно как в оригинале
+  'menu.background': '#16161e' as Hex, // точно как в оригинале
+  'menu.selectionForeground': '#a9b1d6' as Hex, // точно как в оригинале
+  'menu.selectionBackground': '#1e202e' as Hex, // точно как в оригинале
+  'menu.separatorBackground': '#101014' as Hex, // точно как в оригинале
+  'menu.border': '#101014' as Hex, // точно как в оригинале
 })

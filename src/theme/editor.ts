@@ -1,6 +1,8 @@
 import { palette, core } from '../palette'
+import type { VSCodeColorKey } from '../validation/allowedProperties'
+import type { Hex } from '../types/palette'
 
-export const getEditorColors = () => ({
+export const getEditorColors = (): Partial<Record<VSCodeColorKey, Hex>> => ({
   // === ПОДСВЕТКА СКОБОК И НАПРАВЛЯЮЩИЕ ===
   // Оптимизированная различимость цветов для вложенных скобок
   /** Цвет для первой пары скобок */
@@ -103,10 +105,10 @@ export const getEditorColors = () => ({
   /** Цвет активной направляющей отступа (текущий уровень) */
   'editorIndentGuide.activeBackground1':
     core.tokens.editorIndentGuideActiveBackground1,
-  /** Цвет номеров строк */
-  'editorLineNumber.foreground': palette.fg.subtle,
-  /** Цвет номера активной строки */
-  'editorLineNumber.activeForeground': palette.fg.primary,
+  /** Цвет номеров строк - точная копия оригинальной Tokyo Night */
+  'editorLineNumber.foreground': '#363b54' as Hex, // точно как в оригинале
+  /** Цвет номера активной строки - точная копия оригинальной Tokyo Night */
+  'editorLineNumber.activeForeground': '#787c99' as Hex, // точно как в оригинале
   /** Цвет фона подсветки текущей строки */
   'editor.lineHighlightBackground': palette.bg.lineHighlight,
   /** Цвет отображения пробелов, табов и переносов строк */

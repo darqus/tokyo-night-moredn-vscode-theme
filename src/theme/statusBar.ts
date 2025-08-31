@@ -1,15 +1,16 @@
-import { palette, core } from '../palette'
+import { palette, core, basePalette } from '../palette'
+import type { Hex } from '../types/palette'
 
 export const getStatusBarColors = () => ({
   // Строка состояния
-  'statusBar.foreground': palette.fg.muted,
-  'statusBar.background': palette.bg.hover, // Основной фон
-  'statusBar.border': palette.line.border,
+  'statusBar.foreground': palette.fg.muted, // #787c99 как в оригинале
+  'statusBar.background': basePalette.statusBarBg, // #16161e как в оригинале
+  'statusBar.border': basePalette.statusBarBorder, // #101014 как в оригинале
   // Состояния без папки/отладки/фокус
-  'statusBar.noFolderBackground': palette.bg.overlay,
+  'statusBar.noFolderBackground': basePalette.statusBarBg, // #16161e как в оригинале
   'statusBar.noFolderForeground': palette.fg.muted,
-  'statusBar.debuggingBackground': palette.bg.overlay,
-  'statusBar.debuggingForeground': palette.fg.muted,
+  'statusBar.debuggingBackground': basePalette.statusBarBg, // #16161e как в оригинале
+  'statusBar.debuggingForeground': palette.fg.muted, // #787c99 как в оригинале
   'statusBar.debuggingBorder': palette.line.border,
   'statusBar.noFolderBorder': palette.line.border,
   'statusBar.focusBorder': palette.ui.sash.hover,

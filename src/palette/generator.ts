@@ -3,13 +3,9 @@ import { basePalette } from './base'
 import { withAlpha, mix, lightenToward, darkenToward } from '../utils/color'
 import { intensity } from './config'
 
-// Base roles
-export const coreBlack = mix(basePalette.black, basePalette.blue, 0.095) as Hex
-export const coreWhite = mix(
-  basePalette.white,
-  mix(basePalette.white, basePalette.black, 0.47),
-  0.22
-) as Hex
+// Base roles - используем правильные цвета Tokyo Night
+export const coreBlack = basePalette.black // #0c0f17
+export const coreWhite = basePalette.white // #e5e5e5
 
 const uiBase = {
   editorBg: coreBlack,

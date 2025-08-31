@@ -12,7 +12,7 @@ const generatedGray = mix(coreWhite, coreBlack, intensity.mix.gray)
 // Public core object assembled from tokens and base palette
 export const core = {
   bg: {
-    base: coreBlack,
+    base: basePalette.black, // #1a1b26 - основной фон
     elevated: tokens.bgElevated,
     overlay: tokens.bgOverlay,
     input: tokens.bgInput,
@@ -21,7 +21,7 @@ export const core = {
     drop: tokens.bgDrop,
     lineHighlight: tokens.bgLineHighlight,
     bracketMatch: tokens.bgBracketMatch,
-    tabs: coreBlack,
+    tabs: basePalette.black, // #1a1b26
     selection: {
       active: tokens.editorSelectionBackground,
       inactive: tokens.editorInactiveSelectionBackground,
@@ -32,17 +32,17 @@ export const core = {
   },
   border: tokens.border,
   text: {
-    primary: tokens.textPrimary,
-    muted: tokens.textMuted,
-    subtle: generatedGray,
+    primary: basePalette.gray1, // #c0caf5 - основной текст переменных
+    muted: basePalette.gray2, // #a9b1d6 - вторичный текст
+    subtle: basePalette.gray3, // #9aa5ce - цвета констант
     inactive: tokens.textInactive,
     soft: tokens.textSoft,
-    selection: coreWhite,
-    subtle2: tokens.textSubtle2,
+    selection: basePalette.white,
+    subtle2: basePalette.gray3, // #9aa5ce
     gray600: tokens.textGray600,
-    comment: tokens.textComment,
-    commentDoc: tokens.textCommentDoc,
-    commentDocEmphasized: tokens.textCommentDocEmphasized,
+    comment: basePalette.gray5, // #51597d - комментарии
+    commentDoc: basePalette.gray6, // #5a638c - комментарии документации
+    commentDocEmphasized: basePalette.gray7, // #646e9c - подчеркнутые комментарии
     preformat: tokens.textPreformat,
     placeholder: tokens.textPlaceholder,
     editorLinkActive: tokens.textEditorLinkActive,

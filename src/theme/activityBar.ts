@@ -1,27 +1,23 @@
-import { palette } from '../palette'
+import { palette, basePalette } from '../palette'
 import type { VSCodeColorKey } from '../validation/allowedProperties'
 import type { Hex } from '../types/palette'
 
-export const getActivityBarColors = (): Partial<Record<VSCodeColorKey, Hex>> => ({
-  // Панель действий (Activity Bar)
-  'activityBar.background': palette.bg.elevated, // Фон панели действий
-  'activityBar.foreground': palette.fg.primary, // Цвет иконок в панели действий
-  'activityBar.activeBorder': palette.accent.blue, // Граница активной иконки
-  'activityBar.activeBackground': palette.bg.hover, // Фон активной иконки
-  'activityBar.inactiveForeground': palette.fg.subtle, // Цвет неактивных иконок
-  'activityBar.border': palette.line.border, // Граница панели действий
+export const getActivityBarColors = (): Partial<
+  Record<VSCodeColorKey, Hex>
+> => ({
+  // Панель действий (Activity Bar) - точная копия оригинальной Tokyo Night
+  'activityBar.background': '#16161e' as Hex, // точно как в оригинале
+  'activityBar.foreground': '#787c99' as Hex, // точно как в оригинале
+  // activeBorder и activeBackground закомментированы в оригинале
+  'activityBar.inactiveForeground': '#3b3e52' as Hex, // точно как в оригинале
+  'activityBar.border': '#16161e' as Hex, // точно как в оригинале
 
-  // Значки уведомлений на иконках
-  'activityBarBadge.background': palette.ui.badge.base, // Фон значка уведомления
-  'activityBarBadge.foreground': palette.ui.badge.fg, // Текст значка уведомления
+  // Значки уведомлений на иконках - точно как в оригинале
+  'activityBarBadge.background': '#3d59a1' as Hex, // точно как в оригинале
+  'activityBarBadge.foreground': '#fff' as Hex, // точно как в оригинале
 
-  // Специальные значки для предупреждений и ошибок
-  'activityWarningBadge.foreground': palette.bg.base, // Текст значка предупреждения
-  'activityWarningBadge.background': palette.token.warning, // Фон значка предупреждения
-  'activityErrorBadge.foreground': palette.bg.base, // Текст значка ошибки
-  'activityErrorBadge.background': palette.token.error, // Фон значка ошибки
-
-  // Панель действий в верхней позиции (Activity Bar: Top)
-  'activityBarTop.background': palette.bg.base, // Фон верхней панели действий
-  'activityBarTop.foreground': palette.fg.muted, // Цвет иконок в верхней панели
+  // Панель действий в верхней позиции (Activity Bar: Top) - точно как в оригинале
+  'activityBarTop.background': '#16161e' as Hex, // точно как в оригинале
+  'activityBarTop.foreground': '#787c99' as Hex, // точно как в оригинале
+  'activityBarTop.inactiveForeground': '#3b3e52' as Hex, // точно как в оригинале
 })

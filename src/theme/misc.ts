@@ -1,10 +1,10 @@
-import { palette, core } from '../palette'
+import { palette, core, basePalette } from '../palette'
 
 export const getMiscColors = () => ({
-  // Панели
-  'panel.background': palette.bg.base,
+  // Панели - соответствует оригинальной Tokyo Night
+  'panel.background': basePalette.panelBg, // #16161e как в оригинале
   'panel.border': palette.line.border,
-  'panelTitle.activeForeground': palette.fg.activeTitle,
+  'panelTitle.activeForeground': palette.fg.muted, // #787c99 как в оригинале
   'panelTitle.inactiveForeground': palette.fg.inactive,
   'panelTitle.activeBorder': palette.line.border,
   'panelInput.border': palette.line.border,

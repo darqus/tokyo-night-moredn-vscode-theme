@@ -10,11 +10,11 @@ export type SemanticTokenStyle = {
 }
 
 // Группировка селекторов по стилям для устранения дублирования
+// Соответствует оригинальной Tokyo Night теме
 const tokenMappings: { style: SemanticTokenStyle; selectors: string[] }[] = [
-  // Акцентные цвета
+  // Числа, константы, параметры - розоватый (#d081b7 в оригинале)
   {
-    // Приводим числа/константы к единому стилю с TM (palette.token.number)
-    style: { foreground: palette.token.number },
+    style: { foreground: '#d081b7' as Hex },
     selectors: [
       'parameter.declaration',
       'enum.declaration',
@@ -28,11 +28,13 @@ const tokenMappings: { style: SemanticTokenStyle; selectors: string[] }[] = [
     ],
   },
   {
-    style: { foreground: palette.token.number, bold: true },
+    style: { foreground: '#d081b7' as Hex, bold: true },
     selectors: ['constant.readonly'],
   },
+
+  // Свойства, интерфейсы - светло-бирюзовый (#76d7d7 в оригинале)
   {
-    style: { foreground: palette.accent.teal },
+    style: { foreground: '#76d7d7' as Hex },
     selectors: [
       'property.declaration',
       'interface.declaration',
@@ -49,8 +51,10 @@ const tokenMappings: { style: SemanticTokenStyle; selectors: string[] }[] = [
       'reference',
     ],
   },
+
+  // Переменные, импорты - голубой (#7dcfff в оригинале)
   {
-    style: { foreground: palette.accent.cyan },
+    style: { foreground: '#7dcfff' as Hex },
     selectors: [
       'property.defaultLibrary',
       '*.defaultLibrary',
@@ -75,8 +79,10 @@ const tokenMappings: { style: SemanticTokenStyle; selectors: string[] }[] = [
       'codeBlock:markdown',
     ],
   },
+
+  // Ключевые слова, операторы - фиолетовый (#bb9af7 в оригинале)
   {
-    style: { foreground: palette.accent.magenta },
+    style: { foreground: '#bb9af7' as Hex },
     selectors: [
       'variable.declaration',
       'function.async',
@@ -98,11 +104,13 @@ const tokenMappings: { style: SemanticTokenStyle; selectors: string[] }[] = [
     ],
   },
   {
-    style: { foreground: palette.accent.magenta, bold: true },
+    style: { foreground: '#bb9af7' as Hex, bold: true },
     selectors: ['variable.static', 'keyword.control'],
   },
+
+  // Функции, методы - синий (#7aa2f7 в оригинале)
   {
-    style: { foreground: palette.accent.blue },
+    style: { foreground: '#7aa2f7' as Hex },
     selectors: [
       'function.declaration',
       'method.declaration',
@@ -122,11 +130,13 @@ const tokenMappings: { style: SemanticTokenStyle; selectors: string[] }[] = [
     ],
   },
   {
-    style: { foreground: palette.accent.blue, bold: true },
+    style: { foreground: '#7aa2f7' as Hex, bold: true },
     selectors: ['method.static', 'heading:markdown', 'strong:markdown'],
   },
+
+  // Классы, типы - светло-фиолетовый (#8c8fe8 в оригинале)
   {
-    style: { foreground: palette.accent.orange },
+    style: { foreground: '#8c8fe8' as Hex },
     selectors: [
       'class.declaration',
       'type.declaration',
@@ -140,8 +150,10 @@ const tokenMappings: { style: SemanticTokenStyle; selectors: string[] }[] = [
       'class:csharp',
     ],
   },
+
+  // Макросы, HTML теги - красный (#e46876 в оригинале)
   {
-    style: { foreground: palette.accent.red },
+    style: { foreground: '#e46876' as Hex },
     selectors: [
       'variable.global',
       'macro',
@@ -153,85 +165,99 @@ const tokenMappings: { style: SemanticTokenStyle; selectors: string[] }[] = [
     ],
   },
   {
-    style: { foreground: palette.accent.red, bold: true },
+    style: { foreground: '#e46876' as Hex, bold: true },
     selectors: ['macro.declaration', 'selfKeyword:rust'],
   },
-  // Основные токены
+
+  // Основные токены - серый (#bababc в оригинале)
   {
-    style: { foreground: palette.fg.muted },
+    style: { foreground: '#bababc' as Hex },
     selectors: ['parameter', 'punctuation.delimiter'],
   },
+
+  // Комментарии - темно-серый (#4d4f55 в оригинале)
   {
-    style: { foreground: palette.token.comment },
+    style: { foreground: '#4d4f55' as Hex },
     selectors: ['comment'],
   },
   {
-    style: { foreground: palette.token.comment, italic: true },
+    style: { foreground: '#4d4f55' as Hex, italic: true },
     selectors: ['comment.documentation'],
   },
   {
-    style: { foreground: palette.accent.blue, italic: true },
+    style: { foreground: '#7aa2f7' as Hex, italic: true },
     selectors: ['comment.keyword'],
   },
+
+  // Ошибки и предупреждения
   {
-    style: { foreground: palette.token.error, underline: true },
+    style: { foreground: '#d76c88' as Hex, underline: true },
     selectors: ['error'],
   },
   {
-    style: { foreground: palette.token.warning, underline: true },
+    style: { foreground: '#7cc7fe' as Hex, underline: true },
     selectors: ['warning'],
   },
   {
-    style: { foreground: palette.fg.inactive, strikethrough: true },
+    style: { foreground: '#a4a5a7' as Hex, strikethrough: true },
     selectors: ['deprecated'],
   },
+
+  // Строки - зеленый (#9ece6a в оригинале)
   {
-    style: { foreground: palette.token.string },
+    style: { foreground: '#9ece6a' as Hex },
     selectors: ['string', 'string:json'],
   },
+
+  // Пунктуация - серый
   {
-    style: { foreground: palette.token.operator },
+    style: { foreground: '#bababc' as Hex },
     selectors: ['punctuation'],
   },
+
+  // Выделения в markdown - курсив голубой
   {
-    style: { foreground: palette.accent.cyan, italic: true },
+    style: { foreground: '#7dcfff' as Hex, italic: true },
     selectors: ['emphasis:markdown'],
   },
-  // Скобки и пунктуация
+
+  // Скобки разных типов (как в оригинале)
   {
-    style: { foreground: palette.brackets.curly },
+    style: { foreground: '#b493ef' as Hex },
     selectors: ['punctuation.bracket', 'punctuation.bracket.curly'],
   },
   {
-    style: { foreground: palette.brackets.round },
+    style: { foreground: '#7dc8fe' as Hex },
     selectors: ['punctuation.bracket.round'],
   },
   {
-    style: { foreground: palette.brackets.square },
+    style: { foreground: '#76d7d7' as Hex },
     selectors: ['punctuation.bracket.square'],
   },
   {
-    style: { foreground: palette.brackets.angle },
+    style: { foreground: '#7bb2fa' as Hex },
     selectors: ['punctuation.bracket.angle'],
   },
+
+  // Пунктуация разных типов (как в оригинале)
   {
-    style: { foreground: palette.punctuation.comma },
+    style: { foreground: '#7cbbfb' as Hex },
     selectors: ['punctuation.separator', 'punctuation.separator.comma'],
   },
   {
-    style: { foreground: palette.punctuation.dot },
+    style: { foreground: '#7badf9' as Hex },
     selectors: ['punctuation.separator.dot'],
   },
   {
-    style: { foreground: palette.punctuation.colon },
+    style: { foreground: '#76d7da' as Hex },
     selectors: ['punctuation.separator.colon'],
   },
   {
-    style: { foreground: palette.punctuation.semicolon },
+    style: { foreground: '#a584e0' as Hex },
     selectors: ['punctuation.separator.semicolon'],
   },
   {
-    style: { foreground: palette.punctuation.operator },
+    style: { foreground: '#77d6df' as Hex },
     selectors: ['punctuation.operator'],
   },
 ]

@@ -3,74 +3,72 @@ import type { VSCodeColorKey } from '../validation/allowedProperties'
 import type { Hex } from '../types/palette'
 
 export const getBaseColors = (): Partial<Record<VSCodeColorKey, Hex>> => ({
-  // Верхний уровень и основа
-  foreground: palette.fg.primary,
-  descriptionForeground: palette.fg.muted,
-  disabledForeground: palette.fg.inactive,
-  focusBorder: core.tokens.focusBorder, // Используем цвет бейджа для фокуса
-  errorForeground: palette.accent.red,
-  'widget.border': palette.line.border, // Граница для виджетов поиска/замены
-  'widget.shadow': palette.ui.shadow.widget,
-  'scrollbar.shadow': palette.ui.shadow.scrollbar,
+  // Верхний уровень и основа - соответствует оригинальной Tokyo Night
+  foreground: palette.fg.muted, // #787c99 - основной foreground интерфейса (через palette)
+  descriptionForeground: '#515670' as Hex, // как в оригинале
+  disabledForeground: '#545c7e' as Hex, // как в оригинале
+  focusBorder: '#545c7e33' as Hex, // как в оригинале
+  errorForeground: '#515670' as Hex, // как в оригинале
+  'widget.border': '#272a31' as Hex,
+  'widget.shadow': '#ffffff00' as Hex, // как в оригинале (прозрачный)
+  'scrollbar.shadow': '#00000033' as Hex, // как в оригинале
 
-  // Значки, иконки, настройки - улучшенная видимость
-  'badge.background': palette.ui.badge.base,
-  'badge.foreground': palette.ui.badge.fg,
-  'icon.foreground': palette.fg.muted,
-  'settings.headerForeground': palette.fg.primary,
+  // Значки, иконки, настройки
+  'badge.background': '#7e83b230' as Hex, // как в оригинале
+  'badge.foreground': '#acb0d0' as Hex, // как в оригинале
+  'icon.foreground': palette.fg.muted, // #787c99 - как в оригинале
+  'settings.headerForeground': '#6183bb' as Hex, // как в оригинале
 
   // Окно и разделитель
-  'window.activeBorder': palette.ui.window.border,
-  'window.inactiveBorder': palette.ui.window.border,
-  'sash.hoverBorder': palette.ui.sash.hover,
+  'window.activeBorder': '#0d0f17' as Hex, // как в оригинале
+  'window.inactiveBorder': '#0d0f17' as Hex, // как в оригинале
+  'sash.hoverBorder': '#29355a' as Hex, // как в оригинале
 
-  // Кнопки/значки расширений - стандартизация с VS Code
-  'extensionButton.prominentBackground': palette.brand.primary,
-  'extensionButton.prominentHoverBackground':
-    core.tokens.extensionButtonProminentHoverBackground,
-  'extensionButton.prominentForeground': palette.fg.selectionText,
-  'extensionBadge.remoteBackground': palette.ui.badge.base,
-  'extensionBadge.remoteForeground': palette.ui.badge.fg,
+  // Кнопки/значки расширений
+  'extensionButton.prominentBackground': '#7dcfff' as Hex,
+  'extensionButton.prominentHoverBackground': '#222c444d' as Hex,
+  'extensionButton.prominentForeground': '#e5e5e5' as Hex,
+  'extensionBadge.remoteBackground': '#7bb2fa' as Hex,
+  'extensionBadge.remoteForeground': '#0c0f17' as Hex,
 
-  // Ползунок полосы прокрутки - улучшенная видимость
-  'scrollbarSlider.background': core.tokens.scrollbarSliderBackground,
-  'scrollbarSlider.hoverBackground': core.tokens.scrollbarSliderHoverBackground,
-  'scrollbarSlider.activeBackground':
-    core.tokens.scrollbarSliderActiveBackground,
+  // Ползунок полосы прокрутки - точная копия оригинальной Tokyo Night
+  'scrollbarSlider.background': '#868bc415' as Hex, // точно как в оригинале
+  'scrollbarSlider.hoverBackground': '#868bc410' as Hex, // точно как в оригинале
+  'scrollbarSlider.activeBackground': '#868bc422' as Hex, // точно как в оригинале
 
   // Текст
-  'walkThrough.embeddedEditorBackground': palette.bg.base,
-  'textLink.foreground': palette.ui.settingsHeader,
-  'textLink.activeForeground': palette.accent.cyan,
-  'textPreformat.foreground': palette.ui.text.preformat,
-  'textBlockQuote.background': palette.bg.base,
-  'textCodeBlock.background': palette.bg.base,
-  'textSeparator.foreground': palette.ui.text.separator,
+  'walkThrough.embeddedEditorBackground': '#0c0f17' as Hex,
+  'textLink.foreground': '#94acdf' as Hex,
+  'textLink.activeForeground': '#7dcfff' as Hex,
+  'textPreformat.foreground': '#d2e1ea' as Hex,
+  'textBlockQuote.background': '#0c0f17' as Hex,
+  'textCodeBlock.background': '#0c0f17' as Hex,
+  'textSeparator.foreground': '#7bb0f9' as Hex,
 
-  // Заголовок окна
-  'titleBar.activeForeground': palette.fg.muted,
-  'titleBar.inactiveForeground': palette.fg.inactive,
-  'titleBar.activeBackground': palette.bg.elevated,
-  'titleBar.inactiveBackground': palette.bg.elevated,
-  'titleBar.border': palette.line.border,
+  // Заголовок окна - точная копия оригинальной Tokyo Night
+  'titleBar.activeForeground': '#787c99' as Hex, // точно как в оригинале
+  'titleBar.inactiveForeground': '#787c99' as Hex, // точно как в оригинале
+  'titleBar.activeBackground': '#16161e' as Hex, // точно как в оригинале
+  'titleBar.inactiveBackground': '#16161e' as Hex, // точно как в оригинале
+  'titleBar.border': '#101014' as Hex, // точно как в оригинале
 
-  // Command Center (новое меню в заголовке окна)
-  'commandCenter.foreground': palette.fg.muted,
-  'commandCenter.activeForeground': palette.fg.primary,
-  'commandCenter.inactiveForeground': palette.fg.inactive,
-  'commandCenter.background': palette.bg.base,
-  'commandCenter.activeBackground': palette.bg.hover,
-  'commandCenter.border': palette.line.border,
-  'commandCenter.inactiveBorder': palette.line.border,
+  // Command Center
+  'commandCenter.foreground': '#bababc' as Hex,
+  'commandCenter.activeForeground': '#e5e5e5' as Hex,
+  'commandCenter.inactiveForeground': '#a4a5a7' as Hex,
+  'commandCenter.background': '#0c0f17' as Hex,
+  'commandCenter.activeBackground': '#13151d' as Hex,
+  'commandCenter.border': '#272a31' as Hex,
+  'commandCenter.inactiveBorder': '#272a31' as Hex,
 
   // Баннер
-  'banner.background': palette.bg.elevated, // Фон баннера
-  'banner.foreground': palette.fg.primary, // Текст баннера
-  'banner.iconForeground': palette.brand.primary, // Иконка баннера
+  'banner.background': '#0c0f17' as Hex,
+  'banner.foreground': '#e5e5e5' as Hex,
+  'banner.iconForeground': '#7dcfff' as Hex,
 
   // Подписи клавиш
-  'keybindingLabel.background': core.tokens.keybindingLabelBackground, // Фон подписи клавиш
-  'keybindingLabel.foreground': palette.fg.primary, // Текст подписи клавиш
-  'keybindingLabel.border': palette.line.border, // Граница подписи клавиш
-  'keybindingLabel.bottomBorder': core.tokens.keybindingLabelBottomBorder, // Нижняя граница подписи клавиш
+  'keybindingLabel.background': '#0c0f1799' as Hex,
+  'keybindingLabel.foreground': '#e5e5e5' as Hex,
+  'keybindingLabel.border': '#272a31' as Hex,
+  'keybindingLabel.bottomBorder': '#272a31ab' as Hex,
 })

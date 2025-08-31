@@ -1,9 +1,9 @@
-import { palette, core } from '../palette'
+import { palette, core, basePalette } from '../palette'
 
 export const getTerminalColors = () => ({
-  // Терминал
-  'terminal.background': palette.bg.base, // Фон терминала
-  'terminal.foreground': palette.fg.primary, // Основной текст терминала
+  // Терминал - соответствует оригинальной Tokyo Night
+  'terminal.background': basePalette.terminalBg, // #16161e как в оригинале
+  'terminal.foreground': palette.fg.muted, // #787c99 как в оригинале
   'terminal.selectionBackground': core.tokens.terminalSelectionBackground, // Фон выделения текста
   'terminal.inactiveSelectionBackground':
     core.tokens.terminalSelectionBackground, // Фон неактивного выделения

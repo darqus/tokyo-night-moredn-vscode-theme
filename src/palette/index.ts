@@ -1,5 +1,6 @@
 import type { Palette } from '../types/palette'
 import { core } from './core'
+import { basePalette } from './base'
 
 const { tokens } = core
 
@@ -29,7 +30,7 @@ export const palette: Palette = {
   fg: {
     primary: core.text.primary,
     dark: core.bg.base,
-    muted: core.text.muted,
+    muted: basePalette.gray4, // #787c99 - основной foreground интерфейса
     subtle: core.text.subtle,
     inactive: core.text.inactive,
     panelText: core.text.primary,
@@ -52,7 +53,6 @@ export const palette: Palette = {
     cyan: core.accent.cyan,
     teal: tokens.tealSoft,
     magenta: core.accent.magenta,
-    // Жёлтый возвращаем к ядру для корректной семантики warning
     yellow: core.accent.yellow,
     orange: tokens.indigo,
     red: core.accent.red,
@@ -327,4 +327,4 @@ export const palette: Palette = {
 }
 
 // Re-export for convenience in theme modules
-export { core }
+export { core, basePalette }

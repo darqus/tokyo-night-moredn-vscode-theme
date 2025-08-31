@@ -1,25 +1,27 @@
 import { palette } from '../palette'
+import type { VSCodeColorKey } from '../validation/allowedProperties'
+import type { Hex } from '../types/palette'
 
-export const getListColors = () => ({
-  // Списки
-  'list.dropBackground': palette.bg.drop,
-  // Менее контрастный текст для деэмфазы
-  'list.deemphasizedForeground': palette.fg.muted,
-  'list.activeSelectionBackground': palette.bg.selection.active,
-  'list.activeSelectionForeground': palette.fg.selectionText, // Белый текст для максимальной контрастности
-  'list.activeSelectionIconForeground': palette.fg.selectionText, // Белые иконки для выбранных элементов
-  'list.inactiveSelectionBackground': palette.bg.selection.inactive,
-  'list.inactiveSelectionForeground': palette.fg.primary, // Более контрастный текст для неактивного выделения
-  'list.focusBackground': palette.bg.selection.focus,
-  'list.focusForeground': palette.fg.selectionText, // Белый текст для максимальной контрастности
-  // Когда контейнер списка не в фокусе, но элемент в фокусе
-  'list.inactiveFocusBackground': palette.bg.selection.inactive,
-  'list.hoverBackground': palette.ui.list.hoverBg, // используем обновленный hover цвет для списков
-  'list.hoverForeground': palette.fg.primary,
-  'list.highlightForeground': palette.fg.primary, // Нейтральная подсветка текста
-  'list.invalidItemForeground': palette.accent.yellow,
-  'list.errorForeground': palette.accent.red,
-  'list.warningForeground': palette.accent.yellow,
+export const getListColors = (): Partial<Record<VSCodeColorKey, Hex>> => ({
+  // Списки - точная копия оригинальной Tokyo Night
+  'list.dropBackground': '#1e202e' as Hex, // точно как в оригинале
+  'list.deemphasizedForeground': '#787c99' as Hex, // точно как в оригинале
+  'list.activeSelectionBackground': '#202330' as Hex, // точно как в оригинале
+  'list.activeSelectionForeground': '#a9b1d6' as Hex, // точно как в оригинале
+  'list.inactiveSelectionBackground': '#1c1d29' as Hex, // точно как в оригинале
+  'list.inactiveSelectionForeground': '#a9b1d6' as Hex, // точно как в оригинале
+  'list.focusBackground': '#1c1d29' as Hex, // точно как в оригинале
+  'list.focusForeground': '#a9b1d6' as Hex, // точно как в оригинале
+  'list.hoverBackground': '#13131a' as Hex, // точно как в оригинале - темнее
+  'list.hoverForeground': '#a9b1d6' as Hex, // точно как в оригинале
+  'list.highlightForeground': '#668ac4' as Hex, // точно как в оригинале
+  'list.invalidItemForeground': '#c97018' as Hex, // точно как в оригинале
+  'list.errorForeground': '#bb616b' as Hex, // точно как в оригинале
+  'list.warningForeground': '#c49a5a' as Hex, // точно как в оригинале
+
+  // Дополнительные свойства, которых нет в оригинале, оставляем совместимыми
+  'list.activeSelectionIconForeground': '#a9b1d6' as Hex, // совместимо с activeSelectionForeground
+  'list.inactiveFocusBackground': '#1c1d29' as Hex, // как inactiveSelectionBackground
 
   'listFilterWidget.background': palette.line.border,
   'listFilterWidget.outline': palette.brand.primary,

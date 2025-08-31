@@ -1,36 +1,30 @@
 import { palette, core } from '../palette'
+import type { VSCodeColorKey } from '../validation/allowedProperties'
+import type { Hex } from '../types/palette'
 
-export const getGitColors = () => ({
-  // Оформление Git
-  'gitDecoration.modifiedResourceForeground': palette.accent.blue, // Измененные файлы
-  'gitDecoration.ignoredResourceForeground': palette.ui.git.ignored, // Игнорируемые файлы
-  'gitDecoration.deletedResourceForeground': palette.ui.git.deleted, // Удаленные файлы
-  'gitDecoration.renamedResourceForeground': palette.accent.purple, // Переименованные файлы — фиолетовый
-  'gitDecoration.addedResourceForeground': core.accent.green, // Добавленные файлы — зелёный
-  'gitDecoration.untrackedResourceForeground': core.accent.green, // Неотслеживаемые — зелёный
-  'gitDecoration.conflictingResourceForeground': palette.ui.git.conflicting, // Конфликтующие файлы
-  'gitDecoration.stageDeletedResourceForeground': palette.ui.git.stageDeleted, // Удаленные в стейдже
-  'gitDecoration.stageModifiedResourceForeground': palette.ui.git.stageModified, // Измененные в стейдже
-  'git.blame.editorDecorationForeground':
-    core.tokens.gitBlameEditorDecorationForeground, // Git blame аннотации
+export const getGitColors = (): Partial<Record<VSCodeColorKey, Hex>> => ({
+  // Git декорации - точная копия оригинальной Tokyo Night
+  'gitDecoration.modifiedResourceForeground': '#6183bb' as Hex, // точно как в оригинале
+  'gitDecoration.ignoredResourceForeground': '#515670' as Hex, // точно как в оригинале
+  'gitDecoration.deletedResourceForeground': '#914c54' as Hex, // точно как в оригинале
+  'gitDecoration.renamedResourceForeground': '#449dab' as Hex, // точно как в оригинале
+  'gitDecoration.addedResourceForeground': '#449dab' as Hex, // точно как в оригинале
+  'gitDecoration.untrackedResourceForeground': '#449dab' as Hex, // точно как в оригинале
+  'gitDecoration.conflictingResourceForeground': '#e0af68cc' as Hex, // точно как в оригинале
+  'gitDecoration.stageDeletedResourceForeground': '#914c54' as Hex, // точно как в оригинале
+  'gitDecoration.stageModifiedResourceForeground': '#6183bb' as Hex, // точно как в оригинале
 
-  // SCM Graph - исправление проблемы с читаемостью тегов во всплывающих подсказках
-  'scmGraph.historyItemHoverDefaultLabelForeground': palette.fg.dark, // Темный текст для лучшей читаемости на светлом фоне
-
-  // SCM Graph - основные цвета для элементов временной шкалы Git
-  'scmGraph.historyItemHoverLabelForeground': palette.fg.dark, // Темный текст для всплывающих подсказок
-  'scmGraph.foreground1': palette.accent.orange, // Оранжевый для первого типа элементов
-  'scmGraph.foreground2': palette.accent.yellow, // Желтый для второго типа элементов
-  'scmGraph.foreground3': palette.accent.teal, // Голубой для третьего типа элементов
-  'scmGraph.foreground4': palette.accent.blue, // Синий для четвертого типа элементов
-  'scmGraph.foreground5': palette.accent.purple, // Фиолетовый для пятого типа элементов
-
-  // SCM Graph - цвета для добавлений и удалений во всплывающих подсказках
-  'scmGraph.historyItemHoverAdditionsForeground': palette.accent.teal, // Голубой для добавлений
-  'scmGraph.historyItemHoverDeletionsForeground': palette.accent.red, // Красный для удалений
-
-  // SCM Graph - цвета для ссылок Git (ветки, теги и т.д.)
-  'scmGraph.historyItemRefColor': palette.accent.blue, // Синий для локальных ссылок
-  'scmGraph.historyItemRemoteRefColor': palette.accent.teal, // Голубой для удаленных ссылок
-  'scmGraph.historyItemBaseRefColor': palette.accent.purple, // Фиолетовый для базовых ссылок
+  // SCM Graph - точная копия оригинальной Tokyo Night
+  'scmGraph.historyItemHoverLabelForeground': '#1b1e2e' as Hex, // точно как в оригинале
+  'scmGraph.foreground1': '#ff9e64' as Hex, // точно как в оригинале
+  'scmGraph.foreground2': '#e0af68' as Hex, // точно как в оригинале
+  'scmGraph.foreground3': '#41a6b5' as Hex, // точно как в оригинале
+  'scmGraph.foreground4': '#7aa2f7' as Hex, // точно как в оригинале
+  'scmGraph.foreground5': '#bb9af7' as Hex, // точно как в оригинале
+  'scmGraph.historyItemHoverAdditionsForeground': '#41a6b5' as Hex, // точно как в оригинале
+  'scmGraph.historyItemHoverDeletionsForeground': '#f7768e' as Hex, // точно как в оригинале
+  'scmGraph.historyItemRefColor': '#506FCA' as Hex, // точно как в оригинале
+  'scmGraph.historyItemRemoteRefColor': '#41a6b5' as Hex, // точно как в оригинале
+  'scmGraph.historyItemBaseRefColor': '#9d7cd8' as Hex, // точно как в оригинале
+  'scmGraph.historyItemHoverDefaultLabelForeground': '#a9b1d6' as Hex, // точно как в оригинале
 })
