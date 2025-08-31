@@ -1,5 +1,9 @@
 import { palette, core, basePalette } from '../palette'
-import { getAdaptiveStatusBarBackground } from '../utils/adaptive-background'
+import {
+  getAdaptiveStatusBarBackground,
+  getAdaptiveButtonBackground,
+  getAdaptiveWidgetBackground,
+} from '../utils/adaptive-background'
 import type { ThemeContext } from '../generators/adaptive-theme-generator'
 import type { Hex } from '../types/palette'
 
@@ -28,10 +32,10 @@ export const getStatusBarColors = (context?: ThemeContext) => {
     'statusBarItem.prominentHoverBackground':
       core.tokens.statusBarItemProminentHoverBackground,
     'statusBarItem.prominentHoverForeground': palette.fg.onSelection,
-    // Remote индикатор
-    'statusBarItem.remoteBackground': palette.brand.button.primary,
+    // Remote индикатор - АДАПТИВНЫЕ фоны в зависимости от типа темы
+    'statusBarItem.remoteBackground': getAdaptiveButtonBackground(context),
     'statusBarItem.remoteForeground': palette.fg.selectionText, // Белый текст для максимальной контрастности
-    'statusBarItem.remoteHoverBackground': palette.brand.button.hover, // Более светлый при наведении
+    'statusBarItem.remoteHoverBackground': getAdaptiveWidgetBackground(context), // Более светлый при наведении
     'statusBarItem.remoteHoverForeground': palette.fg.selectionText, // Белый текст для максимальной контрастности
     // Ошибки/предупреждения
     'statusBarItem.errorBackground': palette.accent.red,
