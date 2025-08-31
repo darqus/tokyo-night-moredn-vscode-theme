@@ -118,6 +118,9 @@ class VisualRegressionTester {
     await page.setViewport({ width: 900, height: 600, deviceScaleFactor: 1 })
     const theme = JSON.parse(fs.readFileSync(this.themePath, 'utf8'))
 
+    // Создаём CSS для подсветки синтаксиса на основе tokenColors
+    const syntaxCSS = this.generateSyntaxCSS(theme)
+
     await page.setContent(`
       <!DOCTYPE html>
       <html>
@@ -140,6 +143,8 @@ class VisualRegressionTester {
             width: 860px;
             height: 520px;
             overflow: hidden;
+            line-height: 1.4;
+            font-size: 14px;
           }
           pre {
             margin: 0;
@@ -148,6 +153,7 @@ class VisualRegressionTester {
             font-variant-ligatures: none;
             -webkit-font-smoothing: antialiased;
           }
+          ${syntaxCSS}
         </style>
       </head>
       <body>
@@ -159,42 +165,36 @@ class VisualRegressionTester {
     `)
 
     const examples = {
-      js: `
-function fibonacci(n) {
-  if (n <= 1) return n;
-  return fibonacci(n - 1) + fibonacci(n - 2);
-}
-const result = fibonacci(10);
-console.log(\`Fibonacci of 10 is \${result}\`);
-      `.trim(),
-      ts: `
-interface User {
-  id: number;
-  name: string;
-}
-type UserRole = 'admin' | 'user';
-class UserService {
-  private users: User[] = [];
-  addUser(user: User): void {
-    this.users.push(user);
-  }
-}
-      `.trim(),
-      python: `
-def fibonacci(n):
-    if n <= 1:
-        return n
-    return fibonacci(n - 1) + fibonacci(n - 2)
-result = fibonacci(10)
-print(f"Fibonacci of 10 is {result}")
-      `.trim(),
+      js: `<span class="keyword">function</span> <span class="function">fibonacci</span><span class="punctuation">(</span><span class="parameter">n</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+  <span class="keyword">if</span> <span class="punctuation">(</span><span class="parameter">n</span> <span class="operator">&lt;=</span> <span class="number">1</span><span class="punctuation">)</span> <span class="keyword">return</span> <span class="parameter">n</span><span class="punctuation">;</span>
+  <span class="keyword">return</span> <span class="function">fibonacci</span><span class="punctuation">(</span><span class="parameter">n</span> <span class="operator">-</span> <span class="number">1</span><span class="punctuation">)</span> <span class="operator">+</span> <span class="function">fibonacci</span><span class="punctuation">(</span><span class="parameter">n</span> <span class="operator">-</span> <span class="number">2</span><span class="punctuation">)</span><span class="punctuation">;</span>
+<span class="punctuation">}</span>
+<span class="storage">const</span> <span class="variable">result</span> <span class="operator">=</span> <span class="function">fibonacci</span><span class="punctuation">(</span><span class="number">10</span><span class="punctuation">)</span><span class="punctuation">;</span>
+<span class="support">console</span><span class="punctuation">.</span><span class="function">log</span><span class="punctuation">(</span><span class="string">\`Fibonacci of 10 is \${</span><span class="variable">result</span><span class="string">}\`</span><span class="punctuation">)</span><span class="punctuation">;</span>`,
+      ts: `<span class="keyword">interface</span> <span class="entity">User</span> <span class="punctuation">{</span>
+  <span class="property">id</span><span class="punctuation">:</span> <span class="type">number</span><span class="punctuation">;</span>
+  <span class="property">name</span><span class="punctuation">:</span> <span class="type">string</span><span class="punctuation">;</span>
+<span class="punctuation">}</span>
+<span class="keyword">type</span> <span class="entity">UserRole</span> <span class="operator">=</span> <span class="string">'admin'</span> <span class="operator">|</span> <span class="string">'user'</span><span class="punctuation">;</span>
+<span class="keyword">class</span> <span class="entity">UserService</span> <span class="punctuation">{</span>
+  <span class="storage">private</span> <span class="property">users</span><span class="punctuation">:</span> <span class="type">User</span><span class="punctuation">[]</span> <span class="operator">=</span> <span class="punctuation">[]</span><span class="punctuation">;</span>
+  <span class="function">addUser</span><span class="punctuation">(</span><span class="parameter">user</span><span class="punctuation">:</span> <span class="type">User</span><span class="punctuation">)</span><span class="punctuation">:</span> <span class="type">void</span> <span class="punctuation">{</span>
+    <span class="keyword">this</span><span class="punctuation">.</span><span class="property">users</span><span class="punctuation">.</span><span class="function">push</span><span class="punctuation">(</span><span class="parameter">user</span><span class="punctuation">)</span><span class="punctuation">;</span>
+  <span class="punctuation">}</span>
+<span class="punctuation">}</span>`,
+      python: `<span class="keyword">def</span> <span class="function">fibonacci</span><span class="punctuation">(</span><span class="parameter">n</span><span class="punctuation">)</span><span class="punctuation">:</span>
+    <span class="keyword">if</span> <span class="parameter">n</span> <span class="operator">&lt;=</span> <span class="number">1</span><span class="punctuation">:</span>
+        <span class="keyword">return</span> <span class="parameter">n</span>
+    <span class="keyword">return</span> <span class="function">fibonacci</span><span class="punctuation">(</span><span class="parameter">n</span> <span class="operator">-</span> <span class="number">1</span><span class="punctuation">)</span> <span class="operator">+</span> <span class="function">fibonacci</span><span class="punctuation">(</span><span class="parameter">n</span> <span class="operator">-</span> <span class="number">2</span><span class="punctuation">)</span>
+<span class="variable">result</span> <span class="operator">=</span> <span class="function">fibonacci</span><span class="punctuation">(</span><span class="number">10</span><span class="punctuation">)</span>
+<span class="function">print</span><span class="punctuation">(</span><span class="string">f"Fibonacci of 10 is {</span><span class="variable">result</span><span class="string">}"</span><span class="punctuation">)</span>`
     }
 
     for (const [lang, code] of Object.entries(examples)) {
       await page.evaluate((code) => {
         const doc = (globalThis as any).document
         const el = doc && doc.getElementById('code-content')
-        if (el) (el as any).textContent = code
+        if (el) (el as any).innerHTML = code
       }, code)
       const handle: any = await page.$('.editor-container')
       if (handle) {
@@ -208,6 +208,74 @@ print(f"Fibonacci of 10 is {result}")
     }
 
     await page.close()
+  }
+
+  private generateSyntaxCSS(theme: any): string {
+    // Извлекаем цвета из tokenColors темы
+    const tokenColors = theme.tokenColors || []
+    
+    // Создаём маппинг scope -> цвет из темы
+    const scopeColors: Record<string, string> = {}
+    
+    tokenColors.forEach((token: any) => {
+      const scopes = Array.isArray(token.scope) ? token.scope : [token.scope]
+      const color = token.settings?.foreground
+      
+      if (color) {
+        scopes.forEach((scope: string) => {
+          if (scope.includes('keyword')) scopeColors.keyword = color
+          if (scope.includes('storage')) scopeColors.storage = color
+          if (scope.includes('function') || scope.includes('entity.name.function')) scopeColors.function = color
+          if (scope.includes('entity.name') && !scope.includes('function')) scopeColors.entity = color
+          if (scope.includes('support.type') || scope.includes('entity.name.type')) scopeColors.type = color
+          if (scope.includes('string')) scopeColors.string = color
+          if (scope.includes('constant.numeric')) scopeColors.number = color
+          if (scope.includes('variable')) scopeColors.variable = color
+          if (scope.includes('variable.parameter')) scopeColors.parameter = color
+          if (scope.includes('support.type.property-name')) scopeColors.property = color
+          if (scope.includes('punctuation')) scopeColors.punctuation = color
+          if (scope.includes('keyword.operator')) scopeColors.operator = color
+          if (scope.includes('support.function') || scope.includes('support.class')) scopeColors.support = color
+          if (scope.includes('comment')) scopeColors.comment = color
+        })
+      }
+    })
+    
+    // Дефолтные цвета если не найдены в теме
+    const defaults = {
+      keyword: '#bb9af7',
+      storage: '#9d7cd8', 
+      function: '#7aa2f7',
+      entity: '#7aa2f7',
+      type: '#0db9d7',
+      string: '#9ece6a',
+      number: '#ff9e64',
+      variable: '#c0caf5',
+      parameter: '#e0af68',
+      property: '#73daca',
+      punctuation: '#89ddff',
+      operator: '#bb9af7',
+      support: '#0db9d7',
+      comment: '#51597d'
+    }
+    
+    return `
+      /* Syntax highlighting based on theme tokenColors */
+      .keyword { color: ${scopeColors.keyword || defaults.keyword}; font-style: italic; }
+      .storage { color: ${scopeColors.storage || defaults.storage}; font-style: italic; }
+      .function { color: ${scopeColors.function || defaults.function}; }
+      .entity { color: ${scopeColors.entity || defaults.entity}; }
+      .type { color: ${scopeColors.type || defaults.type}; }
+      .string { color: ${scopeColors.string || defaults.string}; }
+      .number { color: ${scopeColors.number || defaults.number}; }
+      .variable { color: ${scopeColors.variable || defaults.variable}; }
+      .parameter { color: ${scopeColors.parameter || defaults.parameter}; }
+      .property { color: ${scopeColors.property || defaults.property}; }
+      .punctuation { color: ${scopeColors.punctuation || defaults.punctuation}; }
+      .operator { color: ${scopeColors.operator || defaults.operator}; }
+      .support { color: ${scopeColors.support || defaults.support}; }
+      .comment { color: ${scopeColors.comment || defaults.comment}; font-style: italic; }
+    `
   }
 
   private async generateUIComponentScreenshots(
