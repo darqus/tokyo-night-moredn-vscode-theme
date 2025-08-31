@@ -3,7 +3,7 @@ import * as fs from 'node:fs'
 import * as path from 'node:path'
 import { buildColors } from '../src/theme'
 import { execSync } from 'node:child_process'
-import { tokenColors } from '../src/tokenColors'
+import { getTokenColors } from '../src/tokenColors'
 import { semanticTokenColors } from '../src/semanticTokenColors'
 import type { ThemeData } from '../src/types/theme'
 import type { TokenColor } from '../src/tokenColors'
@@ -67,7 +67,7 @@ const main = () => {
 
   // tokenColors
   const tokenIssues: string[] = []
-  const genTokenColors = tokenColors
+  const genTokenColors = getTokenColors()
   if (JSON.stringify(genTokenColors) !== JSON.stringify(theme.tokenColors)) {
     tokenIssues.push('tokenColors array mismatch')
   }
