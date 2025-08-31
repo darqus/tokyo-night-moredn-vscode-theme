@@ -83,7 +83,7 @@
           "type": "color"
         },
         "light": {
-          "value": "#f3f3f3",
+          "value": "#f1f2f3",
           "type": "color"
         },
         "storm": {
@@ -109,7 +109,7 @@
           "type": "color"
         },
         "light": {
-          "value": "#eeeeee",
+          "value": "#ececef",
           "type": "color"
         },
         "storm": {
@@ -135,7 +135,7 @@
           "type": "color"
         },
         "light": {
-          "value": "#e8e8e8",
+          "value": "#e6e7ea",
           "type": "color"
         },
         "storm": {
@@ -317,7 +317,7 @@
           "type": "color"
         },
         "light": {
-          "value": "#e8e8e8",
+          "value": "#e6e7ea",
           "type": "color"
         },
         "storm": {
@@ -396,7 +396,7 @@
             "type": "color"
           },
           "light": {
-            "value": "#f0f0f0",
+            "value": "#eeeff1",
             "type": "color"
           },
           "storm": {
@@ -422,7 +422,7 @@
             "type": "color"
           },
           "light": {
-            "value": "#e0e0e0",
+            "value": "#dedfe3",
             "type": "color"
           },
           "storm": {
@@ -476,7 +476,7 @@
             "type": "color"
           },
           "light": {
-            "value": "#656d76",
+            "value": "#60657b",
             "type": "color"
           },
           "storm": {
@@ -627,7 +627,7 @@
       "type": "color"
     },
     "light": {
-      "value": "#e5e5e5",
+      "value": "#e3e4e8",
       "type": "color"
     },
     "gray": {
@@ -765,7 +765,7 @@
       "type": "color"
     },
     "prominentForeground": {
-      "value": "#e5e5e5",
+      "value": "#e3e4e8",
       "type": "color"
     }
   },
@@ -775,7 +775,7 @@
       "type": "color"
     },
     "activeForeground": {
-      "value": "#e5e5e5",
+      "value": "#e3e4e8",
       "type": "color"
     },
     "inactiveForeground": {
@@ -797,7 +797,7 @@
       "type": "color"
     },
     "foreground": {
-      "value": "#e5e5e5",
+      "value": "#e3e4e8",
       "type": "color"
     },
     "iconForeground": {
@@ -811,7 +811,7 @@
       "type": "color"
     },
     "foreground": {
-      "value": "#e5e5e5",
+      "value": "#e3e4e8",
       "type": "color"
     }
   },
@@ -875,7 +875,7 @@
       "type": "color"
     },
     "foreground": {
-      "value": "#e5e5e5",
+      "value": "#e3e4e8",
       "type": "color"
     },
     "selectBackground": {
@@ -885,7 +885,7 @@
   },
   "radio": {
     "activeForeground": {
-      "value": "#e5e5e5",
+      "value": "#e3e4e8",
       "type": "color"
     },
     "activeBackground": {
@@ -893,7 +893,7 @@
       "type": "color"
     },
     "inactiveForeground": {
-      "value": "#e5e5e5",
+      "value": "#e3e4e8",
       "type": "color"
     },
     "inactiveBackground": {

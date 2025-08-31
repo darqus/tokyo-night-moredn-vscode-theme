@@ -41,7 +41,7 @@ export const extendedPalette = {
       // Фоны боковых панелей (Explorer, Extensions, etc.)
       sideBar: {
         dark: '#16161e' as Hex, // Классический темный
-        light: '#f3f3f3' as Hex, // Светлый серый
+        light: '#f1f2f3' as Hex, // Светлый серый (холодный)
         storm: '#1f2335' as Hex, // Storm стиль
         moon: '#1e1e2e' as Hex, // Moon стиль
         contrast: '#0a0a0a' as Hex, // Высокий контраст
@@ -51,7 +51,7 @@ export const extendedPalette = {
       // Фоны панели активности (Activity Bar)
       activityBar: {
         dark: '#16161e' as Hex, // Стандартный
-        light: '#eeeeee' as Hex, // Светлый
+        light: '#ececef' as Hex, // Светлый (холодный)
         storm: '#1d2032' as Hex, // Storm
         moon: '#1c1c2c' as Hex, // Moon
         contrast: '#050505' as Hex, // Контрастный
@@ -61,7 +61,7 @@ export const extendedPalette = {
       // Фоны строки состояния (Status Bar)
       statusBar: {
         dark: '#16161e' as Hex, // Стандартный
-        light: '#e8e8e8' as Hex, // Светлый
+        light: '#e6e7ea' as Hex, // Светлый (холодный)
         storm: '#1d2032' as Hex, // Storm
         moon: '#1c1c2c' as Hex, // Moon
         contrast: '#000000' as Hex, // Черный для контраста
@@ -131,7 +131,7 @@ export const extendedPalette = {
       // Фоны кнопок и интерактивных элементов
       button: {
         dark: '#16161e' as Hex, // Как панели
-        light: '#e8e8e8' as Hex, // Светлый
+        light: '#e6e7ea' as Hex, // Светлый (холодный)
         storm: '#1d2032' as Hex, // Storm
         moon: '#1c1c2c' as Hex, // Moon
         contrast: '#000000' as Hex, // Черный
@@ -163,7 +163,7 @@ export const extendedPalette = {
         // Наведение на элемент списка
         listHover: {
           dark: '#13131a' as Hex, // Темные темы - тонкий
-          light: '#f0f0f0' as Hex, // Светлые темы - едва заметный
+          light: '#eeeff1' as Hex, // Светлые темы - едва заметный (холодный)
           storm: '#151827' as Hex, // Storm - холодный
           moon: '#1a1a2d' as Hex, // Moon - теплый
           contrast: '#1a2330' as Hex, // Контрастный - заметнее
@@ -173,7 +173,7 @@ export const extendedPalette = {
         // Активные элементы панели активности (Activity Bar)
         activityBarActive: {
           dark: '#1e202e' as Hex, // Темные темы - немного светлее фона
-          light: '#e0e0e0' as Hex, // Светлые темы - серый
+          light: '#dedfe3' as Hex, // Светлые темы - холодный серый (H=230° S=8% L=88%)
           storm: '#1c1f35' as Hex, // Storm
           moon: '#20203e' as Hex, // Moon
           contrast: '#1c2b3a' as Hex, // Контрастный
@@ -196,7 +196,7 @@ export const extendedPalette = {
         // Неактивный текст вкладки
         inactive: {
           dark: '#c0caf5' as Hex, // Темные темы - максимальная контрастность
-          light: '#656d76' as Hex, // Светлые темы - темно-серый
+          light: '#60657b' as Hex, // Светлые темы - холодный темно-серый (H=230° S=12% L=43%)
           storm: '#c0caf5' as Hex, // Storm - максимальная контрастность
           moon: '#c0caf5' as Hex, // Moon - максимальная контрастность
           contrast: '#ffffff' as Hex, // Контрастный - белый для максимального контраста
@@ -250,7 +250,7 @@ export const extendedPalette = {
     lineNumberActive: '#c0caf5' as Hex, // Активная строка (максимальная контрастность)
     settings: '#6183bb' as Hex, // Заголовки настроек
     white: '#ffffff' as Hex, // Белый текст
-    light: '#e5e5e5' as Hex, // Светлый текст
+    light: '#e3e4e8' as Hex, // Светлый текст (холодный H=230° S=8% L=90%)
     gray: '#bababc' as Hex, // Серый текст
     grayInactive: '#a4a5a7' as Hex, // Неактивный серый
     badge: '#acb0d0' as Hex, // Текст бейджей
@@ -302,13 +302,13 @@ export const extendedPalette = {
   extension: {
     prominentBackground: '#7dcfff' as Hex, // Видимая кнопка расширения
     prominentHover: '#222c444d' as Hex, // Наведение на видимую кнопку
-    prominentForeground: '#e5e5e5' as Hex, // Текст видимой кнопки
+    prominentForeground: '#e3e4e8' as Hex, // Текст видимой кнопки (холодный)
   },
 
   // === ЦВЕТА КОМАНДНОГО ЦЕНТРА ===
   command: {
     foreground: '#bababc' as Hex, // Текст команд
-    activeForeground: '#e5e5e5' as Hex, // Активный текст команд
+    activeForeground: '#e3e4e8' as Hex, // Активный текст команд (холодный)
     inactiveForeground: '#a4a5a7' as Hex, // Неактивный текст команд
     background: '#0c0f17' as Hex, // Фон командного центра
     activeBackground: '#13151d' as Hex, // Активный фон командного центра
@@ -317,14 +317,14 @@ export const extendedPalette = {
   // === ЦВЕТА БАННЕРОВ ===
   banner: {
     background: '#0c0f17' as Hex, // Фон баннера
-    foreground: '#e5e5e5' as Hex, // Текст баннера
+    foreground: '#e3e4e8' as Hex, // Текст баннера (холодный)
     iconForeground: '#7dcfff' as Hex, // Иконки баннера
   },
 
   // === ЦВЕТА KEYBINDING LABELS ===
   keybinding: {
     background: '#0c0f1799' as Hex, // Фон клавиш (с прозрачностью)
-    foreground: '#e5e5e5' as Hex, // Текст клавиш
+    foreground: '#e3e4e8' as Hex, // Текст клавиш (холодный)
   },
 
   // === ЦВЕТА ВКЛАДОК ===
@@ -354,14 +354,14 @@ export const extendedPalette = {
   // === ЦВЕТА CHECKBOX И RADIO ===
   checkbox: {
     background: '#0c0f17' as Hex, // Фон чекбокса
-    foreground: '#e5e5e5' as Hex, // Текст чекбокса
+    foreground: '#e3e4e8' as Hex, // Текст чекбокса (холодный)
     selectBackground: '#7aa2f733' as Hex, // Фон выбранного чекбокса
   },
 
   radio: {
-    activeForeground: '#e5e5e5' as Hex, // Активный текст радиокнопки
+    activeForeground: '#e3e4e8' as Hex, // Активный текст радиокнопки (холодный)
     activeBackground: '#0c0f17' as Hex, // Активный фон радиокнопки
-    inactiveForeground: '#e5e5e5' as Hex, // Неактивный текст радиокнопки
+    inactiveForeground: '#e3e4e8' as Hex, // Неактивный текст радиокнопки (холодный)
     inactiveBackground: '#0c0f17' as Hex, // Неактивный фон радиокнопки
     inactiveHover: '#13151d' as Hex, // Наведение на неактивную радиокнопку
   },

@@ -5,7 +5,7 @@ import { intensity } from './config'
 
 // Base roles - используем правильные цвета Tokyo Night
 export const coreBlack = basePalette.black // #0c0f17
-export const coreWhite = basePalette.white // #e5e5e5
+export const coreWhite = basePalette.white // #c0caf5 (холодный основной текст)
 
 const uiBase = {
   editorBg: coreBlack,
