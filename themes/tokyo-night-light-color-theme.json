@@ -51,7 +51,7 @@
     "keybindingLabel.foreground": "#ffffff",
     "keybindingLabel.border": "#7a8190",
     "keybindingLabel.bottomBorder": "#7a8190ab",
-    "button.background": "#3d59a1dd",
+    "button.background": "#ffffff",
     "button.hoverBackground": "#8393b7",
     "button.foreground": "#ffffff",
     "button.border": "#ffffff80",
