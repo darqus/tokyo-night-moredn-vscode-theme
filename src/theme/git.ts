@@ -1,5 +1,10 @@
 import { palette, extendedPalette } from '../palette'
 import { getAdaptiveWidgetBackground } from '../utils/adaptive-background'
+import {
+  getAdaptiveBadgeColors,
+  getAdaptiveGitDecorationColors,
+  getAdaptiveScmGraphColors,
+} from '../utils/adaptive-git'
 import type { ThemeContext } from '../generators/adaptive-theme-generator'
 import type { VSCodeColorKey } from '../validation/allowedProperties'
 import type { Hex } from '../types/palette'
@@ -9,38 +14,58 @@ export const getGitColors = (
 ): Partial<Record<VSCodeColorKey, Hex>> => {
   const widgetBackground = getAdaptiveWidgetBackground(context)
 
-  return {
-    // Git декорации - используем централизованную палитру
-    'gitDecoration.modifiedResourceForeground': extendedPalette.git.modified, // #6183bb
-    'gitDecoration.ignoredResourceForeground': extendedPalette.git.ignored, // #515670
-    'gitDecoration.deletedResourceForeground': extendedPalette.git.deleted, // #914c54
-    'gitDecoration.renamedResourceForeground': extendedPalette.git.renamed, // #449dab
-    'gitDecoration.addedResourceForeground': extendedPalette.git.added, // #449dab
-    'gitDecoration.untrackedResourceForeground': extendedPalette.git.untracked, // #449dab
-    'gitDecoration.conflictingResourceForeground':
-      extendedPalette.git.conflicting, // #e0af68cc
-    'gitDecoration.stageDeletedResourceForeground':
-      extendedPalette.git.stageDeleted, // #914c54
-    'gitDecoration.stageModifiedResourceForeground':
-      extendedPalette.git.stageModified, // #6183bb
+  // Получаем адаптивные цвета
+  const badgeColors = getAdaptiveBadgeColors(context)
+  const gitColors = getAdaptiveGitDecorationColors(context)
+  const scmGraphColors = getAdaptiveScmGraphColors(context)
 
-    // SCM Graph - используем централизованную палитру
-    'scmGraph.historyItemHoverLabelForeground':
-      extendedPalette.scmGraph.hoverLabel, // #1b1e2e
-    'scmGraph.foreground1': extendedPalette.scmGraph.foreground1, // #ff9e64
-    'scmGraph.foreground2': extendedPalette.scmGraph.foreground2, // #e0af68
-    'scmGraph.foreground3': extendedPalette.scmGraph.foreground3, // #41a6b5
-    'scmGraph.foreground4': extendedPalette.scmGraph.foreground4, // #7aa2f7
-    'scmGraph.foreground5': extendedPalette.scmGraph.foreground5, // #bb9af7
+  return {
+    // === БЕЙДЖИ ===
+    'badge.background': badgeColors.background,
+    'badge.foreground': badgeColors.foreground,
+    'activityBarBadge.background': badgeColors.activityBar,
+    'activityBarBadge.foreground': badgeColors.foreground,
+    'extensionBadge.remoteBackground': badgeColors.extension,
+    'extensionBadge.remoteForeground': badgeColors.extensionForeground,
+
+    // === GIT DECORATIONS ===
+    'gitDecoration.modifiedResourceForeground': gitColors.modified,
+    'gitDecoration.ignoredResourceForeground': gitColors.ignored,
+    'gitDecoration.deletedResourceForeground': gitColors.deleted,
+    'gitDecoration.renamedResourceForeground': gitColors.renamed,
+    'gitDecoration.addedResourceForeground': gitColors.added,
+    'gitDecoration.untrackedResourceForeground': gitColors.untracked,
+    'gitDecoration.conflictingResourceForeground': gitColors.conflicting,
+    'gitDecoration.stageDeletedResourceForeground': gitColors.stageDeleted,
+    'gitDecoration.stageModifiedResourceForeground': gitColors.stageModified,
+
+    // === SCM GRAPH ===
+    'scmGraph.historyItemHoverLabelForeground': scmGraphColors.hoverLabel,
+    'scmGraph.foreground1': scmGraphColors.foreground1,
+    'scmGraph.foreground2': scmGraphColors.foreground2,
+    'scmGraph.foreground3': scmGraphColors.foreground3,
+    'scmGraph.foreground4': scmGraphColors.foreground4,
+    'scmGraph.foreground5': scmGraphColors.foreground5,
     'scmGraph.historyItemHoverAdditionsForeground':
-      extendedPalette.scmGraph.hoverAdditions, // #41a6b5
+      scmGraphColors.hoverAdditions,
     'scmGraph.historyItemHoverDeletionsForeground':
-      extendedPalette.scmGraph.hoverDeletions, // #f7768e
-    'scmGraph.historyItemRefColor': extendedPalette.scmGraph.refColor, // #506FCA
-    'scmGraph.historyItemRemoteRefColor':
-      extendedPalette.scmGraph.remoteRefColor, // #41a6b5
-    'scmGraph.historyItemBaseRefColor': extendedPalette.scmGraph.baseRefColor, // #9d7cd8
+      scmGraphColors.hoverDeletions,
+    'scmGraph.historyItemRefColor': scmGraphColors.refColor,
+
+    // Дополнительные SCM Graph цвета - теперь также адаптивные
+    'scmGraph.historyItemRemoteRefColor': scmGraphColors.remoteRefColor,
+    'scmGraph.historyItemBaseRefColor': scmGraphColors.baseRefColor,
     'scmGraph.historyItemHoverDefaultLabelForeground':
-      extendedPalette.scmGraph.hoverDefault, // #a9b1d6
+      scmGraphColors.hoverDefault,
+
+    // === ДОПОЛНИТЕЛЬНЫЕ GIT ЭЛЕМЕНТЫ ===
+    'merge.currentHeaderBackground': (gitColors.modified + '40') as Hex, // С прозрачностью
+    'merge.currentContentBackground': (gitColors.modified + '20') as Hex,
+    'merge.incomingHeaderBackground': (gitColors.added + '40') as Hex,
+    'merge.incomingContentBackground': (gitColors.added + '20') as Hex,
+    'merge.border': gitColors.conflicting,
+    'editorOverviewRuler.modifiedForeground': gitColors.modified,
+    'editorOverviewRuler.addedForeground': gitColors.added,
+    'editorOverviewRuler.deletedForeground': gitColors.deleted,
   }
 }
