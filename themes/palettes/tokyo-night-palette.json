@@ -241,15 +241,15 @@
           "type": "color"
         },
         "light": {
-          "value": "#f0f0f0",
+          "value": "#f4f4f4",
           "type": "color"
         },
         "storm": {
-          "value": "#1f2335",
+          "value": "#1d2032",
           "type": "color"
         },
         "moon": {
-          "value": "#1e1e2e",
+          "value": "#1c1c2c",
           "type": "color"
         },
         "contrast": {
@@ -257,11 +257,131 @@
           "type": "color"
         },
         "pastel": {
-          "value": "#1c1c28",
+          "value": "#1a1a26",
           "type": "color"
         },
         "neon": {
-          "value": "#0c0f18",
+          "value": "#0a0d16",
+          "type": "color"
+        }
+      },
+      "base": {
+        "dark": {
+          "value": "#16161e",
+          "type": "color"
+        },
+        "light": {
+          "value": "#f6f6f6",
+          "type": "color"
+        },
+        "storm": {
+          "value": "#1d2032",
+          "type": "color"
+        },
+        "moon": {
+          "value": "#1c1c2c",
+          "type": "color"
+        },
+        "contrast": {
+          "value": "#000000",
+          "type": "color"
+        },
+        "pastel": {
+          "value": "#1a1a26",
+          "type": "color"
+        },
+        "neon": {
+          "value": "#0a0d16",
+          "type": "color"
+        }
+      },
+      "widget": {
+        "dark": {
+          "value": "#1a1b26",
+          "type": "color"
+        },
+        "light": {
+          "value": "#ffffff",
+          "type": "color"
+        },
+        "storm": {
+          "value": "#24283b",
+          "type": "color"
+        },
+        "moon": {
+          "value": "#222436",
+          "type": "color"
+        },
+        "contrast": {
+          "value": "#0d1017",
+          "type": "color"
+        },
+        "pastel": {
+          "value": "#1e1f2e",
+          "type": "color"
+        },
+        "neon": {
+          "value": "#101218",
+          "type": "color"
+        }
+      },
+      "list": {
+        "dark": {
+          "value": "#1a1b26",
+          "type": "color"
+        },
+        "light": {
+          "value": "#ffffff",
+          "type": "color"
+        },
+        "storm": {
+          "value": "#24283b",
+          "type": "color"
+        },
+        "moon": {
+          "value": "#222436",
+          "type": "color"
+        },
+        "contrast": {
+          "value": "#0d1017",
+          "type": "color"
+        },
+        "pastel": {
+          "value": "#1e1f2e",
+          "type": "color"
+        },
+        "neon": {
+          "value": "#101218",
+          "type": "color"
+        }
+      },
+      "button": {
+        "dark": {
+          "value": "#16161e",
+          "type": "color"
+        },
+        "light": {
+          "value": "#e8e8e8",
+          "type": "color"
+        },
+        "storm": {
+          "value": "#1d2032",
+          "type": "color"
+        },
+        "moon": {
+          "value": "#1c1c2c",
+          "type": "color"
+        },
+        "contrast": {
+          "value": "#000000",
+          "type": "color"
+        },
+        "pastel": {
+          "value": "#1a1a26",
+          "type": "color"
+        },
+        "neon": {
+          "value": "#0a0d16",
           "type": "color"
         }
       }

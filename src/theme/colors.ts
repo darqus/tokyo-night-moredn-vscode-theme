@@ -49,7 +49,7 @@ export const buildColorsWithContext = (context?: ThemeContext): ColorMap => {
     getChartColors(),
     getDebugColors(),
     getQuickInputColors(),
-    getMiscColors(),
+    getMiscColors(context),
   ]
 
   // We can enable overlap diagnostics during development if needed:
