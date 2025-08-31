@@ -1,7 +1,7 @@
 {
   "name": "tokyo-night-lod",
-  "displayName": "Tokyo Night Theme Collection",
-  "description": "A comprehensive collection of Tokyo Night theme variants with adaptive palette system, featuring seasonal themes, accessibility options, and gradient variants.",
+  "displayName": "Tokyo Night Theme",
+  "description": "A dark theme for Visual Studio Code",
   "version": "1.11.0",
   "author": "lod",
   "publisher": "lod-inc",
@@ -54,84 +54,9 @@
   "contributes": {
     "themes": [
       {
-        "label": "Tokyo Night Autumn",
-        "uiTheme": "vs-dark",
-        "path": "./themes/tokyo-night-autumn-color-theme.json"
-      },
-      {
         "label": "Tokyo Night Dark",
         "uiTheme": "vs-dark",
         "path": "./themes/tokyo-night-dark-color-theme.json"
-      },
-      {
-        "label": "Tokyo Night Deuteranopia Friendly",
-        "uiTheme": "vs-dark",
-        "path": "./themes/tokyo-night-deuteranopia-friendly-color-theme.json"
-      },
-      {
-        "label": "Tokyo Night Gradient 0",
-        "uiTheme": "vs-dark",
-        "path": "./themes/tokyo-night-gradient-0-color-theme.json"
-      },
-      {
-        "label": "Tokyo Night Gradient 1",
-        "uiTheme": "vs-dark",
-        "path": "./themes/tokyo-night-gradient-1-color-theme.json"
-      },
-      {
-        "label": "Tokyo Night Gradient 2",
-        "uiTheme": "vs-dark",
-        "path": "./themes/tokyo-night-gradient-2-color-theme.json"
-      },
-      {
-        "label": "Tokyo Night High Contrast",
-        "uiTheme": "vs-dark",
-        "path": "./themes/tokyo-night-high-contrast-color-theme.json"
-      },
-      {
-        "label": "Tokyo Night Low Contrast",
-        "uiTheme": "vs-dark",
-        "path": "./themes/tokyo-night-low-contrast-color-theme.json"
-      },
-      {
-        "label": "Tokyo Night Moon",
-        "uiTheme": "vs-dark",
-        "path": "./themes/tokyo-night-moon-color-theme.json"
-      },
-      {
-        "label": "Tokyo Night Pastel",
-        "uiTheme": "vs-dark",
-        "path": "./themes/tokyo-night-pastel-color-theme.json"
-      },
-      {
-        "label": "Tokyo Night Protanopia Friendly",
-        "uiTheme": "vs-dark",
-        "path": "./themes/tokyo-night-protanopia-friendly-color-theme.json"
-      },
-      {
-        "label": "Tokyo Night Retro",
-        "uiTheme": "vs-dark",
-        "path": "./themes/tokyo-night-retro-color-theme.json"
-      },
-      {
-        "label": "Tokyo Night Spring",
-        "uiTheme": "vs-dark",
-        "path": "./themes/tokyo-night-spring-color-theme.json"
-      },
-      {
-        "label": "Tokyo Night Storm",
-        "uiTheme": "vs-dark",
-        "path": "./themes/tokyo-night-storm-color-theme.json"
-      },
-      {
-        "label": "Tokyo Night Summer",
-        "uiTheme": "vs-dark",
-        "path": "./themes/tokyo-night-summer-color-theme.json"
-      },
-      {
-        "label": "Tokyo Night Winter",
-        "uiTheme": "vs-dark",
-        "path": "./themes/tokyo-night-winter-color-theme.json"
       }
     ]
   },
