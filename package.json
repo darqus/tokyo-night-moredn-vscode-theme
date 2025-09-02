@@ -31,25 +31,7 @@
     "theme",
     "tokyo",
     "night",
-    "dark",
-    "storm",
-    "moon",
-    "seasonal",
-    "spring",
-    "summer",
-    "autumn",
-    "winter",
-    "accessibility",
-    "high-contrast",
-    "low-contrast",
-    "protanopia",
-    "deuteranopia",
-    "gradient",
-    "pastel",
-    "retro",
-    "adaptive",
-    "palette",
-    "collection"
+    "dark"
   ],
   "contributes": {
     "themes": [
