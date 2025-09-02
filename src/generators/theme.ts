@@ -2,6 +2,7 @@
  * Генератор финальной темы VS Code
  */
 import { interfacePalette } from '../core/interface'
+import { withAlpha } from '../core/utils'
 import { generateTokenColors, generateSemanticTokens } from './tokens'
 import type { VSCodeTheme } from '../types/theme'
 
@@ -252,10 +253,10 @@ const generateInterfaceColors = () => ({
   'gitDecoration.submoduleResourceForeground': interfacePalette.text.muted,
   
   // Diff Editor
-  'diffEditor.insertedTextBackground': interfacePalette.state.success,
-  'diffEditor.removedTextBackground': interfacePalette.state.error,
-  'diffEditor.insertedLineBackground': interfacePalette.state.success,
-  'diffEditor.removedLineBackground': interfacePalette.state.error,
+  'diffEditor.insertedTextBackground': withAlpha(interfacePalette.state.success, 0.15),
+  'diffEditor.removedTextBackground': withAlpha(interfacePalette.state.error, 0.15),
+  'diffEditor.insertedLineBackground': withAlpha(interfacePalette.state.success, 0.1),
+  'diffEditor.removedLineBackground': withAlpha(interfacePalette.state.error, 0.1),
   'diffEditor.diagonalFill': interfacePalette.bg.overlay,
   
   // Settings
