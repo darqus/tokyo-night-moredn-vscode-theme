@@ -35,16 +35,15 @@ const getButtonAccentColor = (context?: ThemeContext): Hex => {
   const displayName = context.displayName.toLowerCase()
 
   // Сначала проверяем type
-  switch (themeType) {
-    case 'storm':
-      return basePalette.cyan // Storm - cyan акцент
-    case 'moon':
-      return basePalette.purple // Moon - фиолетовый акцент
-    case 'pastel':
-      return basePalette.teal // Pastel - мягкий teal
-    case 'contrast':
-      return basePalette.blue // Contrast - классический синий
+  if (themeType === 'light') {
+    return basePalette.blue // Light - классический синий
   }
+  
+  // Для dark темы проверяем по названию
+  if (displayName.includes('storm')) return basePalette.cyan // Storm - cyan акцент
+  if (displayName.includes('moon')) return basePalette.purple // Moon - фиолетовый акцент
+  if (displayName.includes('pastel')) return basePalette.teal // Pastel - мягкий teal
+  if (displayName.includes('contrast')) return basePalette.blue // Contrast - классический синий
 
   // Затем проверяем по названию для сезонных тем
   if (displayName.includes('spring')) return basePalette.green // Spring - зеленый
