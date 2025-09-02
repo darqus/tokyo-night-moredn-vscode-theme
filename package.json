@@ -63,6 +63,7 @@
   "scripts": {
     "build": "ts-node src/build.ts",
     "validate": "ts-node scripts/validate-theme.ts",
+    "validate:all": "npm run validate && npm run test",
     "test": "npm run test:unit",
     "test:unit": "jest tests/unit",
     "test:watch": "jest tests/unit --watch",
