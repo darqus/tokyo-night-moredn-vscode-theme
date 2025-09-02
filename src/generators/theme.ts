@@ -283,7 +283,7 @@ const generateInterfaceColors = () => ({
   
   // Widgets
   'widget.border': interfacePalette.border.default,
-  'widget.foreground': interfacePalette.text.primary,
+  // 'widget.foreground': удалено (запрещенное свойство),
   
   // Peek View Widget
   'peekView.border': interfacePalette.border.focus,
@@ -446,10 +446,7 @@ const generateInterfaceColors = () => ({
   'testing.iconSkipped': interfacePalette.text.inactive,
   'testing.peekBorder': interfacePalette.border.focus,
   'testing.peekHeaderBackground': interfacePalette.bg.overlay,
-  'testing.message.error.decorationForeground': interfacePalette.state.error,
-  'testing.message.error.lineBackground': interfacePalette.state.error,
-  'testing.message.info.decorationForeground': interfacePalette.state.info,
-  'testing.message.info.lineBackground': interfacePalette.state.info,
+  // Удалены запрещенные testing.message.* свойства
 })
 
 /**

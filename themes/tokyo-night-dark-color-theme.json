@@ -217,7 +217,6 @@
     "breadcrumb.activeSelectionForeground": "#c0caf5",
     "breadcrumbPicker.background": "#2c2d37",
     "widget.border": "#32364e",
-    "widget.foreground": "#c0caf5",
     "peekView.border": "#7aa2f799",
     "peekViewEditor.background": "#2c2d37",
     "peekViewEditor.matchHighlightBackground": "#7aa2f733",
@@ -339,11 +338,7 @@
     "testing.iconUnset": "#969fca",
     "testing.iconSkipped": "#6b749f",
     "testing.peekBorder": "#7aa2f799",
-    "testing.peekHeaderBackground": "#353640",
-    "testing.message.error.decorationForeground": "#f7768e",
-    "testing.message.error.lineBackground": "#f7768e",
-    "testing.message.info.decorationForeground": "#7dcfff",
-    "testing.message.info.lineBackground": "#7dcfff"
+    "testing.peekHeaderBackground": "#353640"
   },
   "tokenColors": [
     {
