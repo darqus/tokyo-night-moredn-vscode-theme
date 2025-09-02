@@ -72,7 +72,7 @@
     "package": "npm run generate:all && vsce package",
     "publish": "vsce publish",
     "release": "ts-node scripts/release.ts",
-    "release:bash": "./scripts/release.sh",
+    "release:bash": "bash scripts/release.sh",
     "release:dry": "ts-node scripts/release.ts --dry-run",
     "release:patch": "ts-node scripts/release.ts --patch",
     "release:minor": "ts-node scripts/release.ts --minor",

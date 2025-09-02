@@ -27,9 +27,9 @@ check_dependencies() {
     command -v node >/dev/null 2>&1 || error "Node.js не установлен"
     
     # Проверка VSCE
-    if ! npm list -g @vscode/vsce >/dev/null 2>&1; then
+    if ! command -v vsce >/dev/null 2>&1; then
         warning "VSCE не установлен глобально. Устанавливаю..."
-        npm install -g @vscode/vsce
+        npm install -g @vscode/vsce --force
     fi
     
     success "Все зависимости установлены"
