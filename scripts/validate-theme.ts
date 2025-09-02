@@ -1,306 +1,181 @@
-#!/usr/bin/env node
+#!/usr/bin/env ts-node
 
 import * as fs from 'fs'
 import * as path from 'path'
-import { PropertyValidator } from '../src/validation/propertyValidator'
-import { ThemeValidator } from '../src/validation/themeValidator'
-import type { ValidationIssue } from '../src/types/theme'
 
-/**
- * CLI utility for validating VS Code themes
- */
+// Устаревшие свойства VS Code
+const DEPRECATED_PROPERTIES = [
+  'editorIndentGuide.background',
+  'editorIndentGuide.activeBackground',
+  'editorCodeLens.foreground',
+  'editorOverviewRuler.currentContentForeground',
+  'editorOverviewRuler.incomingContentForeground',
+  'editorOverviewRuler.commonContentForeground',
+  'merge.currentHeaderBackground',
+  'merge.currentContentBackground',
+  'merge.incomingHeaderBackground',
+  'merge.incomingContentBackground',
+  'merge.commonHeaderBackground',
+  'merge.commonContentBackground',
+]
 
-// Colors for console output
-const colors = {
-  reset: '\x1b[0m',
-  red: '\x1b[31m',
-  yellow: '\x1b[33m',
-  green: '\x1b[32m',
-  blue: '\x1b[34m',
-  cyan: '\x1b[36m',
-  bold: '\x1b[1m',
+// Современные замены для устаревших свойств
+const PROPERTY_REPLACEMENTS: Record<string, string> = {
+  'editorIndentGuide.background': 'editorIndentGuide.background1',
+  'editorIndentGuide.activeBackground': 'editorIndentGuide.activeBackground1',
 }
 
-function colorize(text: string, color: keyof typeof colors): string {
-  return `${colors[color]}${text}${colors.reset}`
+// Недопустимые значения
+const INVALID_VALUES = ['transparent', 'inherit', 'initial', 'unset']
+
+// Валидные цветовые форматы
+const COLOR_REGEX = /^(#[0-9a-fA-F]{6}([0-9a-fA-F]{2})?|rgba?\([^)]+\))$/
+
+interface ValidationResult {
+  deprecated: Array<{ property: string; replacement?: string }>
+  invalidValues: Array<{ property: string; value: string }>
+  invalidColors: Array<{ property: string; value: string }>
+  unknownProperties: Array<string>
 }
 
-function printHelp(): void {
-  console.log(`
-${colorize('VS Code Tokyo Night Theme Validator', 'bold')}
-
-${colorize('USAGE:', 'cyan')}
-  npm run validate [theme-file.json]
-  node dist/scripts/validate-theme.js [theme-file.json]
-
-${colorize('OPTIONS:', 'cyan')}
-  -h, --help              Show this help
-  -v, --verbose           Verbose output
-  -f, --fix               Automatically fix invalid properties
-  -o, --output <file>     Save fixed theme to file
-  -a, --all               Validate all themes in themes/ folder
-  -s, --summary           Show summary only without details
-
-${colorize('EXAMPLES:', 'cyan')}
-  npm run validate themes/tokyo-night-dark-color-theme.json
-  npm run validate --all
-  npm run validate --fix --output fixed-theme.json theme.json
-
-${colorize('EXIT CODES:', 'cyan')}
-  0  - Validation passed successfully
-  1  - Errors found
-  2  - Invalid arguments or file error
-`)
-}
-
-interface ValidateOptions {
-  verbose: boolean
-  fix: boolean
-  output?: string
-  all: boolean
-  summary: boolean
-}
-
-async function validateThemeFile(
-  filePath: string,
-  options: ValidateOptions
-): Promise<boolean> {
-  if (!fs.existsSync(filePath)) {
-    console.error(colorize(`❌ File not found: ${filePath}`, 'red'))
-    return false
+function validateTheme(themePath: string): ValidationResult {
+  const themeContent = fs.readFileSync(themePath, 'utf8')
+  const theme = JSON.parse(themeContent)
+  
+  const result: ValidationResult = {
+    deprecated: [],
+    invalidValues: [],
+    invalidColors: [],
+    unknownProperties: []
   }
 
-  try {
-    const content = fs.readFileSync(filePath, 'utf8')
-    const theme = JSON.parse(content)
+  if (!theme.colors) {
+    console.error('❌ Тема не содержит секцию colors')
+    return result
+  }
 
-    console.log(colorize(`\n🔍 Validating: ${path.basename(filePath)}`, 'bold'))
+  // Проверка каждого свойства
+  for (const [property, value] of Object.entries(theme.colors)) {
+    const stringValue = String(value)
 
-    // Property validation
-    const propertyValidator = new PropertyValidator()
-    const propertyResult = propertyValidator.validateThemeProperties(theme)
-
-    // Quality validation
-    const qualityValidator = new ThemeValidator()
-    const qualityResult = qualityValidator.validateTheme(theme)
-
-    const allPassed = propertyResult.passed && qualityResult.passed
-    const totalIssues =
-      propertyResult.issues.length + qualityResult.issues.length
-
-    // Summary
-    if (options.summary) {
-      const status = allPassed
-        ? colorize('✅ PASSED', 'green')
-        : colorize('❌ FAILED', 'red')
-      const issues =
-        totalIssues > 0 ? colorize(`(${totalIssues} issues)`, 'yellow') : ''
-      console.log(`  ${status} ${issues}`)
-      return allPassed
-    }
-
-    // Property reports
-    if (propertyResult.issues.length > 0) {
-      console.log(colorize('\n📋 THEME PROPERTIES:', 'cyan'))
-      console.log(propertyValidator.generateReport(propertyResult))
-    } else {
-      console.log(colorize('✅ All theme properties are valid', 'green'))
-    }
-
-    // Quality reports
-    if (qualityResult.issues.length > 0) {
-      console.log(colorize('\n🎨 THEME QUALITY:', 'cyan'))
-      qualityResult.issues.forEach((issue: ValidationIssue) => {
-        const severity =
-          issue.severity === 'error'
-            ? colorize('🔴 ERROR', 'red')
-            : issue.severity === 'warning'
-            ? colorize('🟡 WARNING', 'yellow')
-            : colorize('🔵 INFO', 'blue')
-        console.log(`  ${severity}: ${issue.message}`)
-        if (issue.suggestion && options.verbose) {
-          console.log(`    💡 ${issue.suggestion}`)
-        }
+    // Проверка на устаревшие свойства
+    if (DEPRECATED_PROPERTIES.includes(property)) {
+      result.deprecated.push({
+        property,
+        replacement: PROPERTY_REPLACEMENTS[property]
       })
-    } else {
-      console.log(colorize('✅ Theme quality meets standards', 'green'))
     }
 
-    // Auto-fix
-    if (options.fix && !propertyResult.passed) {
-      const { fixedTheme, fixes } =
-        propertyValidator.fixInvalidProperties(theme)
-
-      if (fixes.length > 0) {
-        console.log(
-          colorize(`\n🔧 Automatically fixed ${fixes.length} issues:`, 'cyan')
-        )
-        fixes.forEach(
-          (fix: {
-            property: string
-            action: string
-            oldValue?: string
-            newValue?: string
-          }) => {
-            console.log(`  • ${fix.property}: ${fix.action}`)
-          }
-        )
-
-        const outputPath =
-          options.output || filePath.replace('.json', '.fixed.json')
-        fs.writeFileSync(
-          outputPath,
-          JSON.stringify(fixedTheme, null, 2) + '\n',
-          'utf8'
-        )
-        console.log(colorize(`💾 Fixed theme saved: ${outputPath}`, 'green'))
-      }
+    // Проверка на недопустимые значения
+    if (INVALID_VALUES.includes(stringValue)) {
+      result.invalidValues.push({ property, value: stringValue })
     }
 
-    return allPassed
-  } catch (error) {
-    console.error(
-      colorize(
-        `❌ Error processing file: ${
-          error instanceof Error ? error.message : 'Unknown error'
-        }`,
-        'red'
-      )
-    )
-    return false
+    // Проверка корректности цветовых значений
+    if (!COLOR_REGEX.test(stringValue) && !INVALID_VALUES.includes(stringValue)) {
+      result.invalidColors.push({ property, value: stringValue })
+    }
+  }
+
+  return result
+}
+
+function fixTheme(themePath: string, result: ValidationResult): void {
+  const themeContent = fs.readFileSync(themePath, 'utf8')
+  const theme = JSON.parse(themeContent)
+
+  let hasChanges = false
+
+  // Исправление устаревших свойств
+  for (const { property, replacement } of result.deprecated) {
+    if (replacement && theme.colors[property]) {
+      theme.colors[replacement] = theme.colors[property]
+      delete theme.colors[property]
+      hasChanges = true
+      console.log(`🔄 Заменено: ${property} → ${replacement}`)
+    }
+  }
+
+  // Удаление недопустимых значений (заменяем на null или удаляем)
+  for (const { property } of result.invalidValues) {
+    if (theme.colors[property]) {
+      delete theme.colors[property]
+      hasChanges = true
+      console.log(`🗑️  Удалено недопустимое значение: ${property}`)
+    }
+  }
+
+  if (hasChanges) {
+    fs.writeFileSync(themePath, JSON.stringify(theme, null, 2))
+    console.log('✅ Тема исправлена и сохранена')
   }
 }
 
-async function validateAllThemes(options: ValidateOptions): Promise<boolean> {
-  const themesDir = path.join(process.cwd(), 'themes')
+function printReport(result: ValidationResult): void {
+  console.log('\n📊 Отчет валидации темы\n')
 
-  if (!fs.existsSync(themesDir)) {
-    console.error(colorize('❌ themes/ folder not found', 'red'))
-    return false
+  if (result.deprecated.length > 0) {
+    console.log('⚠️  Устаревшие свойства:')
+    result.deprecated.forEach(({ property, replacement }) => {
+      console.log(`   • ${property}${replacement ? ` → ${replacement}` : ' (нет замены)'}`)
+    })
+    console.log()
   }
 
-  const themeFiles = fs
-    .readdirSync(themesDir)
-    .filter((file) => file.endsWith('.json'))
-
-  if (themeFiles.length === 0) {
-    console.error(colorize('❌ No JSON files found in themes/ folder', 'red'))
-    return false
+  if (result.invalidValues.length > 0) {
+    console.log('❌ Недопустимые значения:')
+    result.invalidValues.forEach(({ property, value }) => {
+      console.log(`   • ${property}: "${value}"`)
+    })
+    console.log()
   }
 
-  console.log(
-    colorize(`🔍 Found ${themeFiles.length} themes for validation:`, 'bold')
-  )
-
-  let allPassed = true
-  let totalIssues = 0
-
-  for (const file of themeFiles) {
-    const filePath = path.join(themesDir, file)
-    const result = await validateThemeFile(filePath, options)
-    if (!result) allPassed = false
+  if (result.invalidColors.length > 0) {
+    console.log('🎨 Некорректные цветовые значения:')
+    result.invalidColors.forEach(({ property, value }) => {
+      console.log(`   • ${property}: "${value}"`)
+    })
+    console.log()
   }
 
-  // Overall summary
-  console.log(colorize('\n📊 OVERALL SUMMARY:', 'bold'))
-  if (allPassed) {
-    console.log(
-      colorize('🎉 All themes passed validation successfully!', 'green')
-    )
+  const totalIssues = result.deprecated.length + result.invalidValues.length + result.invalidColors.length
+  
+  if (totalIssues === 0) {
+    console.log('✅ Проблем не найдено! Тема соответствует стандартам VS Code.')
   } else {
-    console.log(colorize('⚠️  Some themes have issues', 'yellow'))
+    console.log(`📈 Найдено проблем: ${totalIssues}`)
+    console.log('   - Устаревших свойств:', result.deprecated.length)
+    console.log('   - Недопустимых значений:', result.invalidValues.length)
+    console.log('   - Некорректных цветов:', result.invalidColors.length)
   }
-
-  return allPassed
 }
 
-async function main(): Promise<void> {
-  const args = process.argv.slice(2)
-
-  const options: ValidateOptions = {
-    verbose: false,
-    fix: false,
-    all: false,
-    summary: false,
+// Основная функция
+function main() {
+  const themePath = path.join(__dirname, '../themes/tokyo-night-dark-color-theme.json')
+  
+  if (!fs.existsSync(themePath)) {
+    console.error('❌ Файл темы не найден:', themePath)
+    process.exit(1)
   }
 
-  let filePath: string | undefined
+  console.log('🔍 Валидация темы Tokyo Night...\n')
+  
+  const result = validateTheme(themePath)
+  printReport(result)
 
-  // Parse arguments
-  for (let i = 0; i < args.length; i++) {
-    const arg = args[i]
-
-    switch (arg) {
-      case '-h':
-      case '--help':
-        printHelp()
-        process.exit(0)
-
-      case '-v':
-      case '--verbose':
-        options.verbose = true
-        break
-
-      case '-f':
-      case '--fix':
-        options.fix = true
-        break
-
-      case '-o':
-      case '--output':
-        options.output = args[++i]
-        break
-
-      case '-a':
-      case '--all':
-        options.all = true
-        break
-
-      case '-s':
-      case '--summary':
-        options.summary = true
-        break
-
-      default:
-        if (!arg.startsWith('-')) {
-          filePath = arg
-        } else {
-          console.error(colorize(`❌ Unknown option: ${arg}`, 'red'))
-          console.error('Use --help for help')
-          process.exit(2)
-        }
+  // Предложение исправления
+  const totalIssues = result.deprecated.length + result.invalidValues.length
+  if (totalIssues > 0) {
+    console.log('\n🔧 Запустите с флагом --fix для автоматического исправления')
+    
+    if (process.argv.includes('--fix')) {
+      console.log('\n🔄 Исправление проблем...')
+      fixTheme(themePath, result)
     }
   }
-
-  // Validation
-  let success = false
-
-  if (options.all) {
-    success = await validateAllThemes(options)
-  } else if (filePath) {
-    success = await validateThemeFile(filePath, options)
-  } else {
-    console.error(colorize('❌ No theme file specified for validation', 'red'))
-    console.error('Use --help for help')
-    process.exit(2)
-  }
-
-  process.exit(success ? 0 : 1)
 }
 
-// Run only if file is executed directly
 if (require.main === module) {
-  main().catch((error) => {
-    console.error(
-      colorize(
-        `❌ Critical error: ${
-          error instanceof Error ? error.message : 'Unknown error'
-        }`,
-        'red'
-      )
-    )
-    process.exit(2)
-  })
+  main()
 }
-
-export { validateThemeFile, validateAllThemes }
