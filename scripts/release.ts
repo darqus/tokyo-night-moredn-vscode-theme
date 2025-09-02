@@ -19,10 +19,11 @@ class ReleaseManager {
   private exec(command: string, options: { silent?: boolean } = {}): string {
     console.log(`🔧 ${command}`)
     try {
-      return execSync(command, { 
+      const result = execSync(command, { 
         encoding: 'utf8',
         stdio: options.silent ? 'pipe' : 'inherit'
-      }).toString().trim()
+      })
+      return result ? result.toString().trim() : ''
     } catch (error) {
       console.error(`❌ Command failed: ${command}`)
       throw error
