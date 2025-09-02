@@ -1,26 +1,56 @@
-# Правила контрибуции
+# 🤝 Contributing
 
-## Изменение цветов
-- Меняйте только в src/palette.*.ts, производные цвета через utils/color.
-- Ручные правки themes/*.json запрещены — файл перегенерируется.
-- Новые UI‑цвета добавляйте в соответствующий модуль src/theme/<segment>.ts.
+## Getting Started
 
-## Токены
-- TextMate: добавляйте правила группами в src/tokenColors.ts через фабрики/группы.
-- Semantic: расширяйте src/semanticTokenColors.ts, при конфликте — приоритет за semantic.
+1. Fork the repository
+2. Clone your fork: `git clone https://github.com/YOUR_USERNAME/tokyo-night-vscode-theme-lod.git`
+3. Install dependencies: `npm install`
+4. Create a branch: `git checkout -b feat/your-feature`
 
-## Проверки
-- npm run build — сборка тем.
-- npm run validate:all — валидация тем.
-- npm test — unit‑тесты.
-- npm run analyze — анализ размеров и структуры тем.
-- npm run lint:hex — поиск жёстко прошитых HEX вне палитры.
+## Development
 
-## Стиль
-- TypeScript strict.
-- ESLint + Prettier.
-- PR должен проходить CI: build, validate, test.
+### Build and Test
+```bash
+npm run build     # Build theme
+npm run test      # Run tests
+```
 
-## Релизы
-- Семантическое версионирование через standard‑version (scripts/smart-version.ts).
-- .vsix не коммитим, публикуем через CI.
+### Adding Colors
+```typescript
+// src/palette/extended.ts
+export const extendedPalette = {
+  // Add new semantic color
+  myNewColor: hsl(240, 50, 60)
+}
+```
+
+### Creating Theme Variants
+```typescript
+// Use adaptive system
+const myVariant = createAdaptedPalette('my-variant', {
+  hueShift: 30,
+  saturationMultiplier: 1.1
+})
+```
+
+## Guidelines
+
+- Use HSL format for colors
+- Follow semantic naming conventions
+- Add tests for new functionality
+- Update documentation
+- Use conventional commits: `feat:`, `fix:`, `docs:`
+
+## Pull Request Process
+
+1. Ensure tests pass: `npm test`
+2. Update documentation if needed
+3. Create descriptive PR title and description
+4. Link related issues
+
+## Code Style
+
+- TypeScript for all code
+- Semantic color names
+- No hardcoded hex values
+- Comprehensive type definitions

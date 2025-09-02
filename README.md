@@ -162,7 +162,7 @@ npm run theme-cli -- export --format=figma
 - **Color Harmony**: Scientifically-based palette relationships
 - **Accessibility**: Color-blind friendly adaptations
 
-## 📚 **Documentation Hub**
+## 📚 **Documentation**
 
 ### **🚀 Getting Started**
 

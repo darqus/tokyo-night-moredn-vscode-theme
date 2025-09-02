@@ -1,88 +1,68 @@
-# 🏗️ Архитектура Tokyo Night Theme Collection
+# 🏗️ Architecture
 
-## 📁 Структура проекта
+## Project Structure
 
 ```
-tokyo-night-vscode-theme-lod/
-├── src/
-│   ├── palette/           # 🎨 Система палитр
-│   │   ├── core.ts        #    Базовые цвета
-│   │   ├── extended.ts    #    Расширенная палитра
-│   │   └── adapters.ts    #    HSL адаптеры
-│   ├── generators/        # 🤖 Генераторы тем
-│   │   ├── theme.ts       #    Основной генератор
-│   │   ├── tokens.ts      #    Токены подсветки
-│   │   └── theme-generator.ts  # Пакетная генерация
-│   ├── core/              # 🧩 Основные компоненты
-│   │   ├── interface.ts   #    UI цвета
-│   │   ├── syntax.ts      #    Синтаксис
-│   │   └── palette.ts     #    Палитра интерфейса
-│   ├── types/             # 📋 TypeScript типы
-│   ├── utils/             # 🔧 Утилиты
-│   ├── cli/               # 💻 CLI инструменты
-│   └── build.ts           # ⚙️ Сборка
-├── themes/                # 🎯 Готовые темы
-├── docs/                  # 📚 Документация
-└── tests/                 # ✅ Тесты
+src/
+├── palette/          # Color system
+│   ├── core.ts       # Base colors  
+│   ├── extended.ts   # Semantic colors
+│   └── adapters.ts   # HSL transformations
+├── generators/       # Theme generators
+├── core/            # UI components
+├── types/           # TypeScript definitions
+├── utils/           # Utilities
+└── cli/             # CLI tools
 ```
 
-## 🎨 Система палитр
+## Color System
 
-### Централизованная архитектура
-- **Нулевые хардкод цвета**: Все цвета генерируются программно
-- **80+ семантических цветов**: Полное покрытие VS Code API
-- **HSL трансформации**: Научный подход к цветовым вариациям
+### Zero Hardcoded Colors
+- All colors generated programmatically
+- 80+ semantic colors covering VS Code API
+- HSL transformations for variants
 
-### Иерархия палитр
-1. **Core Palette** - базовые цвета Tokyo Night
-2. **Extended Palette** - семантические цвета интерфейса
-3. **Adaptive Variants** - сезонные и accessibility варианты
+### Palette Hierarchy
+1. **Core** - Base Tokyo Night colors
+2. **Extended** - Semantic interface colors  
+3. **Adaptive** - Seasonal and accessibility variants
 
-## 🤖 Генерация тем
+## Theme Generation
 
-### Программная генерация
+### Programmatic Generation
 ```typescript
-// Создание адаптивного варианта
 const springPalette = createAdaptedPalette('spring', {
   hueShift: 15,
   saturationMultiplier: 1.2
 })
 
-// Генерация темы
 const theme = generateTheme(springPalette)
 ```
 
-### Поддерживаемые варианты
-- **Сезонные**: Spring, Summer, Autumn, Winter
-- **Accessibility**: High/Low Contrast, Color-blind friendly
-- **Креативные**: Pastel, Retro, Gradient
+### Supported Variants
+- **Seasonal**: Spring, Summer, Autumn, Winter
+- **Accessibility**: High/Low Contrast, Color-blind friendly  
+- **Creative**: Pastel, Retro, Gradient
 
-## 🔧 Инструменты разработки
+## Development Tools
 
-### CLI команды
+### CLI Commands
 ```bash
-npm run build              # Сборка основной темы
-npm run generate:all       # Генерация всех вариантов
-npm run theme-cli          # CLI для кастомных тем
-npm run test              # Запуск тестов
+npm run build         # Build main theme
+npm run generate:all  # Generate all variants  
+npm run theme-cli     # CLI for custom themes
+npm run test         # Run tests
 ```
 
-### Валидация и тестирование
-- **Структурная валидация**: Проверка схемы VS Code
-- **Цветовая валидация**: WCAG контраст
-- **Unit тесты**: Покрытие основной функциональности
+### Quality Assurance
+- **Structure validation**: VS Code schema compliance
+- **Color validation**: WCAG contrast ratios
+- **Unit tests**: Core functionality coverage
 
-## 📊 Метрики качества
+## Performance
 
-| Метрик | Значение | Статус |
-|--------|----------|--------|
-| Время сборки | ~4.5ms | ✅ |
-| Хардкод цветов | 0 | ✅ |
-| Семантических цветов | 80+ | ✅ |
-| Покрытие тестами | Высокое | ✅ |
-
-## 🚀 Производительность
-
-- **Быстрая сборка**: Оптимизированные алгоритмы
-- **Минимальный размер**: Эффективная структура JSON
-- **Кэширование**: Переиспользование вычислений
+| Metric | Value | Status |
+|--------|-------|--------|
+| Build time | ~4.5ms | ✅ |
+| Hardcoded colors | 0 | ✅ |
+| Semantic colors | 80+ | ✅ |

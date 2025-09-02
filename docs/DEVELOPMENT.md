@@ -1,51 +1,49 @@
-# 👨‍💻 Руководство разработчика
+# 👨💻 Development Guide
 
-## 🚀 Быстрый старт
+## Setup
 
-### Установка
 ```bash
 git clone https://github.com/darqus/tokyo-night-vscode-theme-lod.git
 cd tokyo-night-vscode-theme-lod
 npm install
 ```
 
-### Основные команды
+## Commands
+
 ```bash
-npm run build              # Сборка основной темы
-npm run generate:all       # Генерация всех 17 вариантов
-npm run test              # Запуск тестов
-npm run theme-cli         # CLI для кастомных тем
+npm run build         # Build main theme
+npm run generate:all  # Generate all 17 variants
+npm run test         # Run tests
+npm run theme-cli    # CLI for custom themes
 ```
 
-## 🎨 Работа с палитрами
+## Working with Palettes
 
-### Создание нового цвета
+### Adding Colors
 ```typescript
 // src/palette/extended.ts
 export const extendedPalette = {
-  // ... существующие цвета
-  myNewColor: hsl(240, 50, 60), // HSL формат
+  myNewColor: hsl(240, 50, 60) // HSL format
 }
 ```
 
-### Адаптивные варианты
+### Creating Variants
 ```typescript
-// Создание сезонного варианта
 const autumnPalette = createAdaptedPalette('autumn', {
-  hueShift: -30,           // Сдвиг оттенка
-  saturationMultiplier: 0.8, // Насыщенность
-  lightnessOffset: -5      // Яркость
+  hueShift: -30,
+  saturationMultiplier: 0.8,
+  lightnessOffset: -5
 })
 ```
 
-## 🤖 Генерация тем
+## Theme Generation
 
-### Создание кастомной темы
+### Custom Themes
 ```bash
 npm run theme-cli -- custom --name=my-theme --hue=60 --saturation=1.3
 ```
 
-### Программная генерация
+### Programmatic Generation
 ```typescript
 import { generateTheme } from './src/generators/theme'
 import { createAdaptedPalette } from './src/palette/adapters'
@@ -58,65 +56,41 @@ const customPalette = createAdaptedPalette('custom', {
 const theme = generateTheme(customPalette)
 ```
 
-## 🧪 Тестирование
+## Testing
 
-### Unit тесты
 ```bash
-npm run test:unit         # Основные тесты
-npm run test:watch        # Режим наблюдения
-npm run test:coverage     # Покрытие кода
+npm run test         # Run tests
+npm run test:watch   # Watch mode
+npm run test:coverage # Coverage report
+npm run validate     # Validate theme structure
 ```
 
-### Валидация тем
+## Build & Publish
+
 ```bash
-npm run validate          # Проверка структуры темы
+npm run build    # Build theme
+npm run package  # Create .vsix package
+npm run publish  # Publish to Marketplace
 ```
 
-## 📦 Сборка и публикация
+## Code Structure
 
-### Локальная сборка
-```bash
-npm run build             # Сборка темы
-npm run package           # Создание .vsix пакета
-```
+### Main Modules
+- `src/palette/` - Color palette system
+- `src/generators/` - Theme generators
+- `src/core/` - Core components
+- `src/types/` - TypeScript definitions
 
-### Публикация
-```bash
-npm run publish           # Публикация в Marketplace
-```
+### Guidelines
+- Use HSL format for colors
+- Follow semantic naming
+- Add tests for new functionality
+- Update documentation for changes
 
-## 🔧 Структура кода
+## Contributing
 
-### Основные модули
-- `src/palette/` - Система цветовых палитр
-- `src/generators/` - Генераторы тем
-- `src/core/` - Основные компоненты
-- `src/types/` - TypeScript определения
-
-### Соглашения
-- Используйте HSL формат для цветов
-- Следуйте семантическому именованию
-- Добавляйте тесты для новой функциональности
-- Обновляйте документацию при изменениях
-
-## 🐛 Отладка
-
-### Проверка цветов
-```typescript
-import { validateColors } from './src/utils/color'
-
-const isValid = validateColors(theme.colors)
-```
-
-### Анализ контраста
-```bash
-npm run theme-cli -- analyze  # Анализ текущей палитры
-```
-
-## 🤝 Вклад в проект
-
-1. Форкните репозиторий
-2. Создайте ветку для функции (`git checkout -b feat/amazing-feature`)
-3. Зафиксируйте изменения (`git commit -m 'feat: add amazing feature'`)
-4. Отправьте в ветку (`git push origin feat/amazing-feature`)
-5. Откройте Pull Request
+1. Fork the repository
+2. Create feature branch (`git checkout -b feat/amazing-feature`)
+3. Commit changes (`git commit -m 'feat: add amazing feature'`)
+4. Push to branch (`git push origin feat/amazing-feature`)
+5. Open Pull Request
