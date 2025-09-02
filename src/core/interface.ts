@@ -10,9 +10,9 @@ export const interfacePalette: InterfacePalette = {
   // Фоновые цвета (автогенерация)
   bg: {
     base: basePalette.black,
-    elevated: lighten(basePalette.black, 0.08),
-    overlay: lighten(basePalette.black, 0.12),
-    input: mix(basePalette.black, basePalette.gray, 0.15),
+    elevated: mix(basePalette.black, basePalette.blue, 0.06),
+    overlay: mix(basePalette.black, basePalette.blue, 0.1),
+    input: mix(basePalette.black, basePalette.blue, 0.04),
     hover: withAlpha(basePalette.blue, 0.08),
     active: withAlpha(basePalette.blue, 0.12),
     selection: withAlpha(basePalette.blue, 0.2),
