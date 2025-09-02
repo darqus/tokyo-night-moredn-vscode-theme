@@ -131,6 +131,9 @@ class ReleaseManager {
   private bumpVersion(type: string, prerelease: boolean): string {
     console.log(`📈 Bumping ${type} version...`)
     
+    const currentVersion = this.getCurrentVersion()
+    console.log(`Current version: ${currentVersion}`)
+    
     const prereleaseFlag = prerelease ? '--prerelease' : ''
     this.exec(`npm version ${type} ${prereleaseFlag} --no-git-tag-version`)
     
