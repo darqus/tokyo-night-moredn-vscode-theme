@@ -500,3 +500,4 @@ export const generateTheme = (): VSCodeTheme => ({
   tokenColors: generateTokenColors(),
   semanticTokenColors: generateSemanticTokens(),
 })
+// Test comment
