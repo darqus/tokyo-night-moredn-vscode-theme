@@ -187,9 +187,9 @@ const generateInterfaceColors = () => ({
   'button.background': interfacePalette.state.info,
   'button.foreground': interfacePalette.bg.base,
   'button.hoverBackground': interfacePalette.state.info,
-  // 'button.border': удалено (transparent недопустим),
+  'button.border': interfacePalette.border.default,
   'button.separator': interfacePalette.border.default,
-  'button.secondaryBackground': interfacePalette.bg.elevated,
+  'button.secondaryBackground': interfacePalette.bg.overlay,
   'button.secondaryForeground': interfacePalette.text.primary,
   'button.secondaryHoverBackground': interfacePalette.bg.hover,
 
