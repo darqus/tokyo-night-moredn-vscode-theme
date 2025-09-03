@@ -19,9 +19,9 @@ class ReleaseManager {
   private exec(command: string, options: { silent?: boolean } = {}): string {
     console.log(`🔧 ${command}`)
     try {
-      const result = execSync(command, { 
+      const result = execSync(command, {
         encoding: 'utf8',
-        stdio: options.silent ? 'pipe' : 'inherit'
+        stdio: options.silent ? 'pipe' : 'inherit',
       })
       return result ? result.toString().trim() : ''
     } catch (error) {
@@ -38,9 +38,13 @@ class ReleaseManager {
   private detectReleaseType(): 'patch' | 'minor' | 'major' {
     try {
       // Получаем коммиты с последнего тега
-      const lastTag = this.exec('git describe --tags --abbrev=0', { silent: true })
-      const commits = this.exec(`git log ${lastTag}..HEAD --oneline`, { silent: true })
-      
+      const lastTag = this.exec('git describe --tags --abbrev=0', {
+        silent: true,
+      })
+      const commits = this.exec(`git log ${lastTag}..HEAD --oneline`, {
+        silent: true,
+      })
+
       if (!commits) {
         console.log('📝 No new commits since last release')
         return 'patch'
@@ -50,19 +54,21 @@ class ReleaseManager {
       console.log(commits)
 
       // Анализируем коммиты для определения типа релиза
-      const commitLines = commits.split('\n').filter(line => line.trim())
-      
-      const hasBreaking = commitLines.some(line => 
-        line.includes('BREAKING CHANGE') || 
-        line.includes('!:') ||
-        line.match(/^[a-f0-9]+\s+\w+!:/)
+      const commitLines = commits.split('\n').filter((line) => line.trim())
+
+      const hasBreaking = commitLines.some(
+        (line) =>
+          line.includes('BREAKING CHANGE') ||
+          line.includes('!:') ||
+          line.match(/^[a-f0-9]+\s+\w+!:/)
       )
-      
-      const hasFeature = commitLines.some(line => 
-        line.includes('feat:') || 
-        line.includes('feature:') ||
-        line.includes('add:') ||
-        line.includes('new:')
+
+      const hasFeature = commitLines.some(
+        (line) =>
+          line.includes('feat:') ||
+          line.includes('feature:') ||
+          line.includes('add:') ||
+          line.includes('new:')
       )
 
       if (hasBreaking) {
@@ -118,7 +124,6 @@ class ReleaseManager {
   private buildProject(): void {
     console.log('🏗️  Building project...')
     this.exec('npm run build')
-    this.exec('npm run generate:all')
     console.log('✅ Build completed')
   }
 
@@ -130,13 +135,13 @@ class ReleaseManager {
 
   private bumpVersion(type: string, prerelease: boolean): string {
     console.log(`📈 Bumping ${type} version...`)
-    
+
     const currentVersion = this.getCurrentVersion()
     console.log(`Current version: ${currentVersion}`)
-    
+
     const prereleaseFlag = prerelease ? '--prerelease' : ''
     this.exec(`npm version ${type} ${prereleaseFlag} --no-git-tag-version`)
-    
+
     const newVersion = this.getCurrentVersion()
     console.log(`✅ Version bumped to ${newVersion}`)
     return newVersion
@@ -155,30 +160,32 @@ class ReleaseManager {
 
   private commitAndTag(version: string): void {
     console.log('📦 Committing changes and creating tag...')
-    
+
     this.exec('git add .')
     this.exec(`git commit -m "chore(release): ${version}"`)
     this.exec(`git tag -a v${version} -m "Release v${version}"`)
-    
+
     console.log(`✅ Created commit and tag v${version}`)
   }
 
   private pushToRemote(): void {
     console.log('🚀 Pushing to remote repository...')
-    
+
     this.exec('git push origin HEAD')
     this.exec('git push origin --tags')
-    
+
     console.log('✅ Pushed to remote repository')
   }
 
   private publishToMarketplace(): void {
     console.log('📦 Skipping VS Code Marketplace publishing (no key)...')
-    
+
     try {
       this.exec('npm run package')
       // this.exec('npm run publish')
-      console.log('⚠️  Marketplace publishing skipped. To publish, configure VSCE token.')
+      console.log(
+        '⚠️  Marketplace publishing skipped. To publish, configure VSCE token.'
+      )
     } catch (error) {
       console.error('❌ Failed to create package')
       console.error('Please check your setup and try manually:')
@@ -190,14 +197,16 @@ class ReleaseManager {
 
   private createGitHubRelease(version: string): void {
     console.log('🎉 Creating GitHub release...')
-    
+
     try {
       // Извлекаем changelog для этой версии
       let releaseNotes = `Release v${version}`
-      
+
       try {
         const changelog = readFileSync(this.changelogPath, 'utf8')
-        const versionSection = changelog.match(new RegExp(`## \\[${version}\\][\\s\\S]*?(?=## \\[|$)`))
+        const versionSection = changelog.match(
+          new RegExp(`## \\[${version}\\][\\s\\S]*?(?=## \\[|$)`)
+        )
         if (versionSection) {
           releaseNotes = versionSection[0].replace(`## [${version}]`, '').trim()
         }
@@ -207,11 +216,17 @@ class ReleaseManager {
 
       // Создаем релиз через GitHub CLI если доступен
       try {
-        this.exec(`gh release create v${version} --title "Release v${version}" --notes "${releaseNotes}"`)
+        this.exec(
+          `gh release create v${version} --title "Release v${version}" --notes "${releaseNotes}"`
+        )
         console.log('✅ GitHub release created')
       } catch (error) {
-        console.warn('⚠️  Could not create GitHub release (gh CLI not available)')
-        console.log(`📝 Manual release creation: https://github.com/darqus/tokyo-night-vscode-theme-lod/releases/new?tag=v${version}`)
+        console.warn(
+          '⚠️  Could not create GitHub release (gh CLI not available)'
+        )
+        console.log(
+          `📝 Manual release creation: https://github.com/darqus/tokyo-night-vscode-theme-lod/releases/new?tag=v${version}`
+        )
       }
     } catch (error) {
       console.warn('⚠️  Could not create GitHub release')
@@ -221,7 +236,7 @@ class ReleaseManager {
   public async release(options: ReleaseOptions = {}): Promise<void> {
     const startTime = Date.now()
     console.log('🚀 Starting release process...')
-    
+
     try {
       // Предварительные проверки
       if (!options.dryRun) {
@@ -252,7 +267,10 @@ class ReleaseManager {
       }
 
       // Поднятие версии
-      const newVersion = this.bumpVersion(releaseType, options.prerelease || false)
+      const newVersion = this.bumpVersion(
+        releaseType,
+        options.prerelease || false
+      )
 
       // Генерация .vsix пакета с новой версией
       this.generatePackage()
@@ -273,10 +291,14 @@ class ReleaseManager {
       this.createGitHubRelease(newVersion)
 
       const duration = ((Date.now() - startTime) / 1000).toFixed(1)
-      console.log(`🎉 Release v${newVersion} completed successfully in ${duration}s!`)
-      
+      console.log(
+        `🎉 Release v${newVersion} completed successfully in ${duration}s!`
+      )
     } catch (error) {
-      console.error('❌ Release failed:', error instanceof Error ? error.message : String(error))
+      console.error(
+        '❌ Release failed:',
+        error instanceof Error ? error.message : String(error)
+      )
       process.exit(1)
     }
   }
@@ -285,15 +307,19 @@ class ReleaseManager {
 // CLI интерфейс
 async function main() {
   const args = process.argv.slice(2)
-  
+
   const options: ReleaseOptions = {
-    type: args.includes('--major') ? 'major' : 
-          args.includes('--minor') ? 'minor' : 
-          args.includes('--patch') ? 'patch' : undefined,
+    type: args.includes('--major')
+      ? 'major'
+      : args.includes('--minor')
+      ? 'minor'
+      : args.includes('--patch')
+      ? 'patch'
+      : undefined,
     prerelease: args.includes('--prerelease'),
     dryRun: args.includes('--dry-run'),
     skipTests: args.includes('--skip-tests'),
-    skipBuild: args.includes('--skip-build')
+    skipBuild: args.includes('--skip-build'),
   }
 
   if (args.includes('--help') || args.includes('-h')) {
@@ -304,7 +330,7 @@ Usage: npm run release [options]
 
 Options:
   --patch         Force patch release (x.x.X)
-  --minor         Force minor release (x.X.x)  
+  --minor         Force minor release (x.X.x)
   --major         Force major release (X.x.x)
   --prerelease    Create prerelease version
   --dry-run       Show what would be done without making changes

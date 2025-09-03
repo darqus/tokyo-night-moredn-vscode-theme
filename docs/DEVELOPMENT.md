@@ -12,7 +12,6 @@ npm install
 
 ```bash
 npm run build         # Build main theme
-npm run generate:all  # Generate all 17 variants
 npm run test         # Run tests
 npm run theme-cli    # CLI for custom themes
 ```
@@ -20,6 +19,7 @@ npm run theme-cli    # CLI for custom themes
 ## Working with Palettes
 
 ### Adding Colors
+
 ```typescript
 // src/palette/extended.ts
 export const extendedPalette = {
@@ -28,6 +28,7 @@ export const extendedPalette = {
 ```
 
 ### Creating Variants
+
 ```typescript
 const autumnPalette = createAdaptedPalette('autumn', {
   hueShift: -30,
@@ -39,11 +40,13 @@ const autumnPalette = createAdaptedPalette('autumn', {
 ## Theme Generation
 
 ### Custom Themes
+
 ```bash
 npm run theme-cli -- custom --name=my-theme --hue=60 --saturation=1.3
 ```
 
 ### Programmatic Generation
+
 ```typescript
 import { generateTheme } from './src/generators/theme'
 import { createAdaptedPalette } from './src/palette/adapters'
@@ -76,12 +79,14 @@ npm run publish  # Publish to Marketplace
 ## Code Structure
 
 ### Main Modules
+
 - `src/palette/` - Color palette system
 - `src/generators/` - Theme generators
 - `src/core/` - Core components
 - `src/types/` - TypeScript definitions
 
 ### Guidelines
+
 - Use HSL format for colors
 - Follow semantic naming
 - Add tests for new functionality
