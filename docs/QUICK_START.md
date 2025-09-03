@@ -2,32 +2,29 @@
 
 ## Installation
 
-### From VS Code Marketplace
-1. Open VS Code
-2. Go to Extensions (`Ctrl+Shift+X`)
-3. Search "Tokyo Night Theme Collection"
-4. Click Install
+1. Open VS Code Extensions (`Ctrl+Shift+X`)
+2. Search "Tokyo Night Theme Collection"
+3. Click Install
 
-### From Command Line
-```bash
-code --install-extension lod-inc.tokyo-night-lod
-```
+## Activation
 
-## Theme Selection
+1. Command Palette (`Ctrl+Shift+P`)
+2. "Preferences: Color Theme"
+3. Select **Tokyo Night Dark**
 
-1. Open Command Palette (`Ctrl+Shift+P`)
-2. Type "Preferences: Color Theme"
-3. Select any Tokyo Night variant
+## Available Theme
 
-## Available Themes
-
-- **Tokyo Night Dark** - Original theme
-- **Tokyo Night Storm** - Cooler variant
-- **Tokyo Night Moon** - Muted variant
-- **Seasonal themes** - Spring, Summer, Autumn, Winter
-- **Accessibility** - High/Low contrast, Color-blind friendly
-- **Creative** - Pastel, Retro, Gradient variants
+- **Tokyo Night Dark** - Single optimized dark theme
 
 ## Online Preview
 
 [Try in vscode.dev](https://vscode.dev/theme/lod-inc.tokyo-night-lod)
+
+## Development
+
+```bash
+git clone https://github.com/darqus/tokyo-night-vscode-theme-lod.git
+cd tokyo-night-vscode-theme-lod
+npm install
+npm run build
+```
