@@ -20,6 +20,9 @@ export const interfacePalette: InterfacePalette = {
     hoverSubtle: withAlpha(mix(basePalette.white, basePalette.gray, 0.4), 0.08),
     hoverMuted: withAlpha(mix(basePalette.white, basePalette.gray, 0.4), 0.12),
     hoverActive: withAlpha(mix(basePalette.white, basePalette.gray, 0.4), 0.15),
+    // Специализированные цвета для поиска и выделения
+    findMatch: withAlpha(basePalette.blue, 0.05),
+    findMatchBorder: withAlpha(basePalette.red, 0.5),
   },
 
   // Текстовые цвета (автогенерация)

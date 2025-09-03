@@ -42,6 +42,8 @@ export interface InterfacePalette {
     hoverSubtle: Hex
     hoverMuted: Hex
     hoverActive: Hex
+    findMatch: Hex
+    findMatchBorder: Hex
   }
   text: {
     primary: Hex
