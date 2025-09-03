@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.14.13](https://github.com/darqus/tokyo-night-vscode-theme-lod/compare/v1.14.12...v1.14.13) (2025-09-03)
+
+
+### Bug Fixes
+
+* **version:** correct version number in CHANGELOG and package-lock ([fd8b7ad](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/fd8b7addf12a4f75c367353a703483731b6f1c66))
+
 ### [1.14.12](https://github.com/darqus/tokyo-night-vscode-theme-lod/compare/v1.14.10...v1.14.12) (2025-09-03)
 
 ### [1.14.6](https://github.com/darqus/tokyo-night-vscode-theme-lod/compare/v1.14.3...v1.14.6) (2025-09-02)
