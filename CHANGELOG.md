@@ -2,21 +2,6 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [1.15.0](https://github.com/darqus/tokyo-night-vscode-theme-lod/compare/v1.14.6...v1.15.0) (2025-09-03)
-
-
-### Features
-
-* **interface:** add find match colors to interface palette ([0aa76dd](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/0aa76dda7799369c74b015d6b0f175a8aa208252))
-* **interface:** add hover state colors for status bar and text items ([c382ba9](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/c382ba97238a132fae4dec6c7967f406e3048fce))
-* **theme:** enhance status bar item styles in Tokyo Night theme ([f1db894](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/f1db894f78f15325287c3da2f8df8204096a7155))
-* **theme:** update status bar item hover colors ([12cfb74](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/12cfb7478638db4618dc22fe2bc6b9fcd5aca4e6))
-
-
-### Bug Fixes
-
-* **theme:** update button colors in interface and tokyo-night-dark theme ([0993b0b](https://github.com/darqus/tokyo-night-vscode-theme-lod/commit/0993b0b13ad934930f362b88c31e1e1586a71878))
-
 ### [1.14.6](https://github.com/darqus/tokyo-night-vscode-theme-lod/compare/v1.14.3...v1.14.6) (2025-09-02)
 
 ### [1.14.4](https://github.com/darqus/tokyo-night-vscode-theme-lod/compare/v1.14.1...v1.14.4) (2025-09-02)
