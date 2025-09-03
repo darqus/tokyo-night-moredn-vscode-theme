@@ -92,12 +92,16 @@ const theme = generateTheme(basePalette)
 ```text
 tokyo-night-vscode-theme-lod/
 ├── src/
-│   ├── core/                # 🎨 Core palette system
-│   │   └── palette.ts       #    Base color definitions
+│   ├── core/                # 🎨 Core system
+│   │   ├── palette.ts       #    Base color definitions
+│   │   ├── interface.ts     #    Interface colors
+│   │   ├── syntax.ts        #    Syntax highlighting
+│   │   └── utils.ts         #    Color utilities
 │   ├── generators/          # 🤖 Theme generation
-│   │   └── theme.ts         #    Main theme generator
+│   │   ├── theme.ts         #    Main theme generator
+│   │   └── tokens.ts        #    Token generation
 │   ├── types/               # 📋 TypeScript definitions
-│   └── utils/               # 🔧 Color utilities
+│   └── build.ts             # 🏗️ Build script
 ├── themes/                  # 🎯 Generated theme files
 ├── tests/                   # 🧪 Unit tests
 ├── scripts/                 # ⚙️ Build & release automation
@@ -163,9 +167,10 @@ cd tokyo-night-vscode-theme-lod
 npm install
 
 # Theme development
-npm run build                 # Build theme
+npm run build                 # Build theme (~0.6s)
 npm run validate              # Validate theme
-npm run test                  # Run tests
+npm run test                  # Run unit tests
+npm run validate:all          # Full validation + tests
 
 # Release management
 npm run release               # Smart automatic release
@@ -193,10 +198,11 @@ npm run package               # Create .vsix package
 
 | Metric | Value | Status |
 |--------|-------|--------|
-| **Build Time** | ~4.5ms | ✅ |
+| **Build Time** | ~0.6s | ✅ |
 | **Theme Files** | 1 | ✅ |
 | **Hardcoded Colors** | 0 | ✅ |
-| **Base Colors** | 12 | ✅ |
+| **Colors Generated** | 366 | ✅ |
+| **Syntax Tokens** | 13 | ✅ |
 
 ## 🤝 **Contributing & Community**
 
