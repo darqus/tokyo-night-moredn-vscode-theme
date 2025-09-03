@@ -57,8 +57,7 @@
     "release:patch": "ts-node scripts/release.ts --patch",
     "release:minor": "ts-node scripts/release.ts --minor",
     "release:major": "ts-node scripts/release.ts --major",
-    "docs:colors": "ts-node scripts/generate-color-docs.ts",
-    "validate:colors": "npm run build && echo 'Color validation passed'"
+    "docs:colors": "ts-node scripts/generate-color-docs.ts"
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
