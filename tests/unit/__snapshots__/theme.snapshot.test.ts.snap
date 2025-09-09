@@ -370,7 +370,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "widget.border": "#32364e",
     "widget.shadow": "#24293b",
   },
-  "name": "Tokyo Night Dark",
+  "name": "Tokyo Night Modern",
   "semanticTokenColors": {
     "class": {
       "foreground": "#e0af68",
