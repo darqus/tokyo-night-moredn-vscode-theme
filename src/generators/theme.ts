@@ -6,6 +6,50 @@ import { basePalette } from '../core/palette'
 import { generateTokenColors, generateSemanticTokens } from './tokens'
 import type { VSCodeTheme } from '../types/theme'
 
+// Тип для переменных окружения темы
+interface ThemeEnvVars {
+  THEME_NAME: string
+  THEME_DISPLAY_NAME: string
+  THEME_DESCRIPTION: string
+  THEME_VERSION: string
+  THEME_AUTHOR: string
+  THEME_PUBLISHER: string
+  THEME_LICENSE: string
+  THEME_REPOSITORY_URL: string
+  THEME_BUGS_URL: string
+  THEME_CATEGORIES: string
+  THEME_KEYWORDS: string
+  THEME_FILENAME: string
+  THEME_TYPE: 'dark' | 'light'
+}
+
+// Загрузка переменных окружения
+export const loadEnvVars = (): ThemeEnvVars => {
+  const env = process.env
+  const themeType = env.THEME_TYPE || 'dark'
+
+  return {
+    THEME_NAME: env.THEME_NAME || 'tokyo-night-lod',
+    THEME_DISPLAY_NAME: env.THEME_DISPLAY_NAME || 'Tokyo Night Theme Lod',
+    THEME_DESCRIPTION:
+      env.THEME_DESCRIPTION || 'A dark theme for Visual Studio Code',
+    THEME_VERSION: env.THEME_VERSION || '1.14.14',
+    THEME_AUTHOR: env.THEME_AUTHOR || 'lod',
+    THEME_PUBLISHER: env.THEME_PUBLISHER || 'lod-inc',
+    THEME_LICENSE: env.THEME_LICENSE || 'MIT',
+    THEME_REPOSITORY_URL:
+      env.THEME_REPOSITORY_URL ||
+      'https://github.com/darqus/tokyo-night-vscode-theme-lod',
+    THEME_BUGS_URL:
+      env.THEME_BUGS_URL ||
+      'https://github.com/darqus/tokyo-night-vscode-theme-lod/issues',
+    THEME_CATEGORIES: env.THEME_CATEGORIES || 'Themes',
+    THEME_KEYWORDS: env.THEME_KEYWORDS || 'theme,tokyo,night,dark',
+    THEME_FILENAME: env.THEME_FILENAME || 'tokyo-night-dark-color-theme',
+    THEME_TYPE: themeType === 'light' ? 'light' : 'dark',
+  }
+}
+
 /**
  * Генерация всех цветов интерфейса VS Code
  */
@@ -493,12 +537,15 @@ const generateInterfaceColors = () => ({
 /**
  * Генерация финальной темы
  */
-export const generateTheme = (): VSCodeTheme => ({
-  name: 'Tokyo Night Dark',
-  type: 'dark',
-  colors: generateInterfaceColors(),
-  tokenColors: generateTokenColors(),
-  semanticTokenColors: generateSemanticTokens(),
-})
+export const generateTheme = (): VSCodeTheme => {
+  const env = loadEnvVars()
+
+  return {
+    name: env.THEME_DISPLAY_NAME,
+    type: env.THEME_TYPE,
+    colors: generateInterfaceColors(),
+    tokenColors: generateTokenColors(),
+    semanticTokenColors: generateSemanticTokens(),
+  }
+}
 // Test comment
-// Test release sync

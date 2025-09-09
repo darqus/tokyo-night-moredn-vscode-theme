@@ -36,9 +36,9 @@
   "contributes": {
     "themes": [
       {
-        "label": "Tokyo Night Dark",
-        "uiTheme": "vs-dark",
-        "path": "./themes/tokyo-night-dark-color-theme.json"
+        "label": "${THEME_DISPLAY_NAME:-Tokyo Night Theme Lod}",
+        "uiTheme": "${THEME_TYPE:-dark}",
+        "path": "./themes/${THEME_FILENAME:-tokyo-night-dark-color-theme}.json"
       }
     ]
   },
@@ -51,6 +51,7 @@
     "test:watch": "jest tests/unit --watch",
     "test:coverage": "jest tests/unit --coverage",
     "package": "npm run build && vsce package",
+    "package:env": "npm run build:env && vsce package",
     "release": "ts-node scripts/release.ts",
     "release:bash": "bash scripts/release.sh",
     "release:dry": "ts-node scripts/release.ts --dry-run",
