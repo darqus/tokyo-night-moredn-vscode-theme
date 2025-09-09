@@ -38,7 +38,7 @@
       {
         "label": "${THEME_DISPLAY_NAME:-Tokyo Night Modern}",
         "uiTheme": "${THEME_TYPE:-dark}",
-        "path": "./themes/${THEME_FILENAME:-tokyo-night-dark-color-theme}.json"
+        "path": "./themes/${THEME_FILENAME:-tokyo-night-modern-color-theme}.json"
       }
     ]
   },

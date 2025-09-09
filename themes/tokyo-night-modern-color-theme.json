@@ -372,7 +372,10 @@
   "tokenColors": [
     {
       "name": "Comment",
-      "scope": ["comment", "punctuation.definition.comment"],
+      "scope": [
+        "comment",
+        "punctuation.definition.comment"
+      ],
       "settings": {
         "foreground": "#565f89",
         "fontStyle": "italic"
@@ -380,21 +383,31 @@
     },
     {
       "name": "Keyword",
-      "scope": ["keyword", "storage.type", "storage.modifier"],
+      "scope": [
+        "keyword",
+        "storage.type",
+        "storage.modifier"
+      ],
       "settings": {
         "foreground": "#bb9af7"
       }
     },
     {
       "name": "String",
-      "scope": ["string", "constant.other.symbol"],
+      "scope": [
+        "string",
+        "constant.other.symbol"
+      ],
       "settings": {
         "foreground": "#9ece6a"
       }
     },
     {
       "name": "Number",
-      "scope": ["constant.numeric", "constant.language"],
+      "scope": [
+        "constant.numeric",
+        "constant.language"
+      ],
       "settings": {
         "foreground": "#ff9e64"
       }
@@ -412,56 +425,77 @@
     },
     {
       "name": "Variable",
-      "scope": ["variable", "support.variable"],
+      "scope": [
+        "variable",
+        "support.variable"
+      ],
       "settings": {
         "foreground": "#7dcfff"
       }
     },
     {
       "name": "Class",
-      "scope": ["entity.name.class", "entity.name.type", "support.class"],
+      "scope": [
+        "entity.name.class",
+        "entity.name.type",
+        "support.class"
+      ],
       "settings": {
         "foreground": "#e0af68"
       }
     },
     {
       "name": "Property",
-      "scope": ["variable.other.property", "meta.object-literal.key"],
+      "scope": [
+        "variable.other.property",
+        "meta.object-literal.key"
+      ],
       "settings": {
         "foreground": "#7dcfff"
       }
     },
     {
       "name": "Tag",
-      "scope": ["entity.name.tag"],
+      "scope": [
+        "entity.name.tag"
+      ],
       "settings": {
         "foreground": "#f7768e"
       }
     },
     {
       "name": "Attribute",
-      "scope": ["entity.other.attribute-name"],
+      "scope": [
+        "entity.other.attribute-name"
+      ],
       "settings": {
         "foreground": "#bb9af7"
       }
     },
     {
       "name": "Operator",
-      "scope": ["keyword.operator"],
+      "scope": [
+        "keyword.operator"
+      ],
       "settings": {
         "foreground": "#9d7cd8"
       }
     },
     {
       "name": "Punctuation",
-      "scope": ["punctuation"],
+      "scope": [
+        "punctuation"
+      ],
       "settings": {
         "foreground": "#c0caf5"
       }
     },
     {
       "name": "Invalid",
-      "scope": ["invalid", "invalid.illegal"],
+      "scope": [
+        "invalid",
+        "invalid.illegal"
+      ],
       "settings": {
         "foreground": "#f7768e"
       }
