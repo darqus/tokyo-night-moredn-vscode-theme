@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.14.16](https://github.com/darqus/tokyo-night-moredn-vscode-theme/compare/v1.14.15...v1.14.16) (2025-09-09)
+
+
+### Bug Fixes
+
+* **package.json:** update theme configuration for consistent theming ([023da5f](https://github.com/darqus/tokyo-night-moredn-vscode-theme/commit/023da5f94ae2911cd845da546d5abefe3d9f68a9))
+
 ### [1.14.15](https://github.com/darqus/tokyo-night-moredn-vscode-theme/compare/v1.14.14...v1.14.15) (2025-09-09)
 
 
