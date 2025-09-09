@@ -1,8 +1,8 @@
-# 🌃 Tokyo Night Theme
+# 🌃 Tokyo Night Modern
 
-> **Beautiful dark theme** for VS Code with carefully crafted colors and modern design.
+> **Beautiful modern dark theme** for VS Code with carefully crafted colors and contemporary design.
 
-![Tokyo Night Theme](static/ss_tokyo_night_dark.png)
+![Tokyo Night Modern](static/ss_tokyo_night_dark.png)
 
 ## 🎨 Overview
 
@@ -16,10 +16,10 @@ A **Tokyo Night dark theme** featuring:
 ## 🚀 Quick Start
 
 1. Open VS Code Extensions (`Ctrl+Shift+X`)
-2. Search "Tokyo Night Theme Collection"
-3. Install and select **Tokyo Night Dark**
+2. Search "Tokyo Night Modern"
+3. Install and select **Tokyo Night Modern**
 
-[Try online](https://vscode.dev/theme/lod-inc.tokyo-night-lod)
+[Try online](https://vscode.dev/theme/lod-inc.tokyo-night-modern)
 
 ## 🏗️ Architecture
 
@@ -80,9 +80,9 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 <div align="center">
 
-**🌃 Tokyo Night Theme**  
+**🌃 Tokyo Night Modern**
 *Crafted with ❤️ for developers*
 
-[⭐ GitHub](https://github.com/darqus/tokyo-night-vscode-theme-lod) | [📦 Marketplace](https://marketplace.visualstudio.com/items?itemName=lod-inc.tokyo-night-lod)
+[⭐ GitHub](https://github.com/darqus/tokyo-night-vscode-theme-lod) | [📦 Marketplace](https://marketplace.visualstudio.com/items?itemName=lod-inc.tokyo-night-modern)
 
 </div>

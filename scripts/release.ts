@@ -324,7 +324,7 @@ async function main() {
 
   if (args.includes('--help') || args.includes('-h')) {
     console.log(`
-🚀 Tokyo Night Theme Release Manager
+🚀 Tokyo Night Modern Release Manager
 
 Usage: npm run release [options]
 

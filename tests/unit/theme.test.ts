@@ -6,7 +6,7 @@ describe('Theme Components', () => {
     it('should generate a valid theme', () => {
       const theme = generateTheme()
       expect(theme).toBeDefined()
-      expect(theme.name).toBe('Tokyo Night Dark')
+      expect(theme.name).toBe('Tokyo Night Modern')
       expect(theme.type).toBe('dark')
       expect(theme.colors).toBeDefined()
       expect(theme.tokenColors).toBeDefined()
@@ -14,7 +14,7 @@ describe('Theme Components', () => {
 
     it('should have valid hex colors', () => {
       const theme = generateTheme()
-      Object.values(theme.colors).forEach(color => {
+      Object.values(theme.colors).forEach((color) => {
         if (typeof color === 'string') {
           expect(color).toMatch(/^#([0-9a-f]{6}|[0-9a-f]{8})$/i)
         }
@@ -33,7 +33,7 @@ describe('Theme Components', () => {
 
     it('should have valid color property names', () => {
       const theme = generateTheme()
-      Object.keys(theme.colors).forEach(key => {
+      Object.keys(theme.colors).forEach((key) => {
         expect(key).toMatch(/^[a-zA-Z0-9.]+$/)
       })
     })

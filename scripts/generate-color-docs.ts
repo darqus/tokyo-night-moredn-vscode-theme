@@ -8,12 +8,12 @@ import { basePalette } from '../src/core/palette'
 
 const generateColorDocs = () => {
   console.log('📚 Генерация документации по цветам...')
-  
+
   const colors = Object.entries(basePalette)
-  
+
   // Генерация таблицы цветов
   const colorTable = [
-    '# 🎨 Цветовая палитра Tokyo Night',
+    '# 🎨 Цветовая палитра Tokyo Night Modern',
     '',
     '## Базовые цвета',
     '',
@@ -21,7 +21,9 @@ const generateColorDocs = () => {
     '|----------|-----|--------------|---------------|',
     ...colors.map(([name, hex]) => {
       const usage = getColorUsage(name)
-      const preview = `![${hex}](https://via.placeholder.com/20/${hex.slice(1)}/${hex.slice(1)})`
+      const preview = `![${hex}](https://via.placeholder.com/20/${hex.slice(
+        1
+      )}/${hex.slice(1)})`
       return `| **${name}** | \`${hex}\` | ${preview} | ${usage} |`
     }),
     '',
@@ -29,7 +31,7 @@ const generateColorDocs = () => {
     '',
     '### Нейтральные',
     '- **black** - Основной фон редактора',
-    '- **gray** - Комментарии и неактивные элементы', 
+    '- **gray** - Комментарии и неактивные элементы',
     '- **white** - Основной текст',
     '',
     '### Холодные акценты',
@@ -45,12 +47,12 @@ const generateColorDocs = () => {
     '- **red** - Ошибки и предупреждения',
     '- **magenta** - Атрибуты и теги',
     '',
-    `*Документация сгенерирована автоматически ${new Date().toISOString()}*`
+    `*Документация сгенерирована автоматически ${new Date().toISOString()}*`,
   ].join('\n')
-  
+
   const docsPath = path.join(__dirname, '..', 'docs', 'COLORS.md')
   fs.writeFileSync(docsPath, colorTable, 'utf8')
-  
+
   console.log(`✅ Документация создана: ${docsPath}`)
 }
 
@@ -67,9 +69,9 @@ const getColorUsage = (colorName: string): string => {
     yellow: 'Классы, константы',
     orange: 'Числа, значения',
     red: 'Ошибки, теги, предупреждения',
-    magenta: 'Атрибуты, HTML теги'
+    magenta: 'Атрибуты, HTML теги',
   }
-  
+
   return usageMap[colorName] || 'Специальное использование'
 }
 

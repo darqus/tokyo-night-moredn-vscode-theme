@@ -41,12 +41,12 @@ interface ValidationResult {
 function validateTheme(themePath: string): ValidationResult {
   const themeContent = fs.readFileSync(themePath, 'utf8')
   const theme = JSON.parse(themeContent)
-  
+
   const result: ValidationResult = {
     deprecated: [],
     invalidValues: [],
     invalidColors: [],
-    unknownProperties: []
+    unknownProperties: [],
   }
 
   if (!theme.colors) {
@@ -62,7 +62,7 @@ function validateTheme(themePath: string): ValidationResult {
     if (DEPRECATED_PROPERTIES.includes(property)) {
       result.deprecated.push({
         property,
-        replacement: PROPERTY_REPLACEMENTS[property]
+        replacement: PROPERTY_REPLACEMENTS[property],
       })
     }
 
@@ -72,7 +72,10 @@ function validateTheme(themePath: string): ValidationResult {
     }
 
     // Проверка корректности цветовых значений
-    if (!COLOR_REGEX.test(stringValue) && !INVALID_VALUES.includes(stringValue)) {
+    if (
+      !COLOR_REGEX.test(stringValue) &&
+      !INVALID_VALUES.includes(stringValue)
+    ) {
       result.invalidColors.push({ property, value: stringValue })
     }
   }
@@ -117,7 +120,9 @@ function printReport(result: ValidationResult): void {
   if (result.deprecated.length > 0) {
     console.log('⚠️  Устаревшие свойства:')
     result.deprecated.forEach(({ property, replacement }) => {
-      console.log(`   • ${property}${replacement ? ` → ${replacement}` : ' (нет замены)'}`)
+      console.log(
+        `   • ${property}${replacement ? ` → ${replacement}` : ' (нет замены)'}`
+      )
     })
     console.log()
   }
@@ -138,8 +143,11 @@ function printReport(result: ValidationResult): void {
     console.log()
   }
 
-  const totalIssues = result.deprecated.length + result.invalidValues.length + result.invalidColors.length
-  
+  const totalIssues =
+    result.deprecated.length +
+    result.invalidValues.length +
+    result.invalidColors.length
+
   if (totalIssues === 0) {
     console.log('✅ Проблем не найдено! Тема соответствует стандартам VS Code.')
   } else {
@@ -152,15 +160,18 @@ function printReport(result: ValidationResult): void {
 
 // Основная функция
 function main() {
-  const themePath = path.join(__dirname, '../themes/tokyo-night-dark-color-theme.json')
-  
+  const themePath = path.join(
+    __dirname,
+    '../themes/tokyo-night-dark-color-theme.json'
+  )
+
   if (!fs.existsSync(themePath)) {
     console.error('❌ Файл темы не найден:', themePath)
     process.exit(1)
   }
 
-  console.log('🔍 Валидация темы Tokyo Night...\n')
-  
+  console.log('🔍 Валидация темы Tokyo Night Modern...\n')
+
   const result = validateTheme(themePath)
   printReport(result)
 
@@ -168,7 +179,7 @@ function main() {
   const totalIssues = result.deprecated.length + result.invalidValues.length
   if (totalIssues > 0) {
     console.log('\n🔧 Запустите с флагом --fix для автоматического исправления')
-    
+
     if (process.argv.includes('--fix')) {
       console.log('\n🔄 Исправление проблем...')
       fixTheme(themePath, result)

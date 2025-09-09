@@ -10,7 +10,7 @@ describe('Theme snapshot', () => {
     const theme = generateTheme()
 
     // Базовые инварианты
-    expect(theme.name).toBe('Tokyo Night Dark')
+    expect(theme.name).toBe('Tokyo Night Modern')
     expect(theme.type).toBe('dark')
     expect(theme.colors).toBeDefined()
     expect(theme.tokenColors).toBeDefined()

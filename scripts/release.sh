@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# 🚀 Tokyo Night Theme Release Script
+# 🚀 Tokyo Night Modern Release Script
 # Автоматическое умное поднятие версии и публикация релиза
 
 set -e  # Выход при ошибке
@@ -214,7 +214,7 @@ create_github_release() {
 # Показать справку
 show_help() {
     cat << EOF
-🚀 Tokyo Night Theme Release Script
+🚀 Tokyo Night Modern Release Script
 
 Использование: ./scripts/release.sh [опции]
 

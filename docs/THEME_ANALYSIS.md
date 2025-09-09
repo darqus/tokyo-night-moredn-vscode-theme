@@ -1,4 +1,4 @@
-# 🎨 Tokyo Night Theme - Анализ и Архитектура
+# 🎨 Tokyo Night Modern - Анализ и Архитектура
 
 ## 📊 Обзор темы
 
@@ -18,7 +18,7 @@
 ```typescript
 // Нейтральные (основа)
 black: '#1a1b26'    // Фон
-gray:  '#565f89'    // Комментарии  
+gray:  '#565f89'    // Комментарии
 white: '#c0caf5'    // Текст
 
 // Холодные акценты (приоритет)
@@ -52,6 +52,7 @@ magenta:'#bb9af7'   // Атрибуты, теги
 ## 🏗️ Архитектура генерации
 
 ### 1. Базовая палитра (`core/palette.ts`)
+
 ```typescript
 export const basePalette = {
   // 12 тщательно подобранных цветов
@@ -62,6 +63,7 @@ export const basePalette = {
 ```
 
 ### 2. Интерфейсная палитра (`core/interface.ts`)
+
 ```typescript
 export const interfacePalette = {
   bg: {
@@ -74,6 +76,7 @@ export const interfacePalette = {
 ```
 
 ### 3. Синтаксическая палитра (`core/syntax.ts`)
+
 ```typescript
 export const syntaxPalette = {
   keyword: basePalette.magenta,
@@ -84,6 +87,7 @@ export const syntaxPalette = {
 ```
 
 ### 4. Генерация темы (`generators/theme.ts`)
+
 ```typescript
 export const generateTheme = (): VSCodeTheme => ({
   name: 'Tokyo Night Dark',
@@ -96,6 +100,7 @@ export const generateTheme = (): VSCodeTheme => ({
 ## 🎨 Цветовые техники
 
 ### Смешивание цветов
+
 ```typescript
 // Создание промежуточных оттенков
 elevated: mix(basePalette.black, basePalette.blue, 0.06)
@@ -103,6 +108,7 @@ elevated: mix(basePalette.black, basePalette.blue, 0.06)
 ```
 
 ### Прозрачность
+
 ```typescript
 // Создание hover-эффектов
 hover: withAlpha(basePalette.blue, 0.08)
@@ -110,10 +116,11 @@ hover: withAlpha(basePalette.blue, 0.08)
 ```
 
 ### Градации яркости
+
 ```typescript
 text: {
   primary: basePalette.white,           // 100% яркость
-  muted: mix(white, gray, 0.4),         // 60% яркость  
+  muted: mix(white, gray, 0.4),         // 60% яркость
   subtle: mix(white, gray, 0.6),        // 40% яркость
   inactive: mix(white, gray, 0.8)       // 20% яркость
 }
@@ -146,9 +153,9 @@ text: {
   "variable.readonly": { "foreground": "#ff9e64" },
   "function": { "foreground": "#7aa2f7" },
   "class": { "foreground": "#e0af68" },
-  "deprecated": { 
-    "foreground": "#767fa9", 
-    "strikethrough": true 
+  "deprecated": {
+    "foreground": "#767fa9",
+    "strikethrough": true
   }
 }
 ```
@@ -156,16 +163,19 @@ text: {
 ## 🔬 Научный подход
 
 ### HSL цветовое пространство
+
 - **Hue (Оттенок)**: Основной цвет на цветовом круге
 - **Saturation (Насыщенность)**: Интенсивность цвета
 - **Lightness (Яркость)**: Светлота цвета
 
 ### Контрастность (WCAG)
+
 - **AA уровень**: Минимум 4.5:1 для обычного текста
 - **AAA уровень**: Минимум 7:1 для важного текста
 - **Крупный текст**: Минимум 3:1
 
 ### Цветовая гармония
+
 - **Аналогичные цвета**: blue → cyan → teal
 - **Комплементарные**: blue ↔ orange
 - **Триадные**: red → green → blue
@@ -173,6 +183,7 @@ text: {
 ## 🎯 Рекомендации по улучшению
 
 ### 1. Исправить проблемы безопасности
+
 ```typescript
 // Добавить валидацию hex цветов
 const validateHex = (hex: string): boolean => {
@@ -186,6 +197,7 @@ const clamp = (value: number, min: number, max: number): number => {
 ```
 
 ### 2. Улучшить типизацию
+
 ```typescript
 // Более строгий тип для hex цветов
 type HexColor = `#${string}` & { __brand: 'hex' }
@@ -198,6 +210,7 @@ const createHex = (hex: string): HexColor => {
 ```
 
 ### 3. Добавить обработку ошибок
+
 ```typescript
 export const buildTheme = () => {
   try {
@@ -214,6 +227,7 @@ export const buildTheme = () => {
 ```
 
 ### 4. Разделить цвета для лучшей читаемости
+
 ```typescript
 // Различные цвета для number и constant
 export const syntaxPalette = {
@@ -236,6 +250,7 @@ export const syntaxPalette = {
 ## 🎨 Визуальные примеры
 
 ### Код JavaScript
+
 ```javascript
 // Комментарий - серый (#565f89)
 const userName = 'Tokyo'        // const: magenta, string: green
@@ -247,12 +262,13 @@ class User {                    // class: yellow
   constructor(name) {           // constructor: blue
     this.name = name            // property: cyan
   }
-  
+
   static count = 0              // static: magenta, number: orange
 }
 ```
 
 ### Интерфейс VS Code
+
 - **Фон редактора**: `#1a1b26` (черный)
 - **Активная вкладка**: `#202333` (темно-синий)
 - **Hover эффект**: `#7aa2f714` (синий с прозрачностью)
@@ -261,7 +277,7 @@ class User {                    // class: yellow
 
 ## 🚀 Заключение
 
-Tokyo Night Theme демонстрирует современный подход к созданию цветовых схем:
+Tokyo Night Modern демонстрирует современный подход к созданию цветовых схем:
 
 1. **Научность**: Математическое смешивание цветов
 2. **Минимализм**: 12 цветов → 366 цветов

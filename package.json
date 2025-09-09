@@ -1,6 +1,6 @@
 {
-  "name": "tokyo-night-lod",
-  "displayName": "Tokyo Night Theme Lod",
+  "name": "tokyo-night-modern",
+  "displayName": "Tokyo Night Modern",
   "description": "A dark theme for Visual Studio Code",
   "version": "1.14.14",
   "author": "lod",
@@ -36,7 +36,7 @@
   "contributes": {
     "themes": [
       {
-        "label": "${THEME_DISPLAY_NAME:-Tokyo Night Theme Lod}",
+        "label": "${THEME_DISPLAY_NAME:-Tokyo Night Modern}",
         "uiTheme": "${THEME_TYPE:-dark}",
         "path": "./themes/${THEME_FILENAME:-tokyo-night-dark-color-theme}.json"
       }
