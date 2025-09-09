@@ -51,6 +51,8 @@ export interface InterfacePalette {
     muted: Hex
     subtle: Hex
     inactive: Hex
+    lineNumber: Hex
+    lineNumberActive: Hex
   }
   border: {
     default: Hex

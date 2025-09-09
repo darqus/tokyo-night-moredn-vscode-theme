@@ -116,8 +116,8 @@ const generateInterfaceColors = () => ({
   'editorWhitespace.foreground': interfacePalette.text.subtle,
   'editorIndentGuide.background1': interfacePalette.border.default,
   'editorIndentGuide.activeBackground1': interfacePalette.border.focus,
-  'editorLineNumber.foreground': interfacePalette.text.subtle,
-  'editorLineNumber.activeForeground': interfacePalette.text.muted,
+  'editorLineNumber.foreground': interfacePalette.text.lineNumber,
+  'editorLineNumber.activeForeground': interfacePalette.text.lineNumberActive,
   'editorRuler.foreground': interfacePalette.border.default,
 
   // Editor Groups
