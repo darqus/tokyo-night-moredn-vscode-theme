@@ -19,8 +19,6 @@ describe('Button color tokens', () => {
 
     expect(c['button.secondaryBackground']).toBe(interfacePalette.bg.overlay)
     expect(c['button.secondaryForeground']).toBe(interfacePalette.text.primary)
-    expect(c['button.secondaryHoverBackground']).toBe(
-      interfacePalette.bg.hover
-    )
+    expect(c['button.secondaryHoverBackground']).toBe(interfacePalette.bg.hover)
   })
 })
