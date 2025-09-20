@@ -109,6 +109,7 @@ const generateInterfaceColors = () => ({
   'editor.findMatchBorder': withAlpha(basePalette.yellow, 0.7),
   'editor.findMatchHighlightBackground': withAlpha(basePalette.yellow, 0.14),
   'editor.findMatchForeground': interfacePalette.text.primary,
+  // Foreground should remain opaque for readability
   'editor.findMatchHighlightForeground': interfacePalette.text.primary,
   'editor.wordHighlightBackground': interfacePalette.bg.hover,
   'editor.wordHighlightStrongBackground': interfacePalette.bg.selection,
