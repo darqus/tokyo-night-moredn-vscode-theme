@@ -86,6 +86,36 @@ export interface InterfacePalette {
   minimap: {
     findMatchHighlight: Hex
   }
+  // Derived colors (computed via utils; single source of truth for theme)
+  derived: {
+    link: {
+      foreground: Hex
+    }
+    terminal: {
+      hoverHighlightBackground: Hex
+      ansiBlue: Hex
+      ansiCyan: Hex
+      ansiBrightBlack: Hex
+      ansiBrightRed: Hex
+      ansiBrightGreen: Hex
+      ansiBrightYellow: Hex
+      ansiBrightBlue: Hex
+      ansiBrightMagenta: Hex
+      ansiBrightCyan: Hex
+      ansiBrightWhite: Hex
+    }
+    overlays: {
+      dropBackground: Hex
+    }
+    findMatch: {
+      background: Hex
+      border: Hex
+      highlightBackground: Hex
+    }
+    inlineChat: {
+      foreground: Hex
+    }
+  }
 }
 
 export interface SyntaxPalette {

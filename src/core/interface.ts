@@ -3,7 +3,7 @@
  * Автогенерация всех цветов интерфейса из базовой палитры
  */
 import { basePalette } from './palette'
-import { mix, withAlpha } from './utils'
+import { mix, withAlpha, lighten } from './utils'
 import type { InterfacePalette } from '../types/theme'
 
 export const interfacePalette: InterfacePalette = {
@@ -74,5 +74,37 @@ export const interfacePalette: InterfacePalette = {
   },
   minimap: {
     findMatchHighlight: withAlpha(basePalette.yellow, 0.5),
+  },
+  derived: {
+    link: {
+      foreground: lighten(basePalette.cyan, 0.22),
+    },
+    terminal: {
+      hoverHighlightBackground: withAlpha(basePalette.cyan, 0.22),
+      ansiBlue: lighten(basePalette.cyan, 0.22),
+      ansiCyan: lighten(basePalette.cyan, 0.22),
+      ansiBrightBlack: lighten(basePalette.black, 0.4),
+      ansiBrightRed: lighten(basePalette.red, 0.15),
+      ansiBrightGreen: lighten(basePalette.green, 0.15),
+      ansiBrightYellow: lighten(basePalette.yellow, 0.15),
+      ansiBrightBlue: lighten(basePalette.cyan, 0.22),
+      ansiBrightMagenta: lighten(basePalette.magenta, 0.15),
+      ansiBrightCyan: lighten(basePalette.cyan, 0.22),
+      ansiBrightWhite: lighten(basePalette.white, 0.1),
+    },
+    overlays: {
+      dropBackground: withAlpha(
+        mix(basePalette.black, basePalette.blue, 0.1),
+        0.2
+      ),
+    },
+    findMatch: {
+      background: withAlpha(basePalette.yellow, 0.22),
+      border: withAlpha(basePalette.yellow, 0.7),
+      highlightBackground: withAlpha(basePalette.yellow, 0.14),
+    },
+    inlineChat: {
+      foreground: lighten(basePalette.white, 0.12),
+    },
   },
 }

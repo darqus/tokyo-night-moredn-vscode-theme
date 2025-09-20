@@ -3,7 +3,6 @@
  */
 import { interfacePalette } from '../core/interface'
 import { basePalette } from '../core/palette'
-import { lighten, withAlpha } from '../core/utils'
 import { generateTokenColors, generateSemanticTokens } from './tokens'
 import type { VSCodeTheme } from '../types/theme'
 
@@ -105,9 +104,10 @@ const generateInterfaceColors = () => ({
   'editor.inactiveSelectionBackground': interfacePalette.bg.hover,
   'editor.lineHighlightBackground': interfacePalette.bg.hover,
   // Search highlights: use warm yellow with adequate contrast
-  'editor.findMatchBackground': withAlpha(basePalette.yellow, 0.22),
-  'editor.findMatchBorder': withAlpha(basePalette.yellow, 0.7),
-  'editor.findMatchHighlightBackground': withAlpha(basePalette.yellow, 0.14),
+  'editor.findMatchBackground': interfacePalette.derived.findMatch.background,
+  'editor.findMatchBorder': interfacePalette.derived.findMatch.border,
+  'editor.findMatchHighlightBackground':
+    interfacePalette.derived.findMatch.highlightBackground,
   'editor.findMatchForeground': interfacePalette.text.primary,
   // Foreground should remain opaque for readability
   'editor.findMatchHighlightForeground': interfacePalette.text.primary,
@@ -128,7 +128,8 @@ const generateInterfaceColors = () => ({
   // Editor Groups
   'editorGroup.border': interfacePalette.border.default,
   // Should be transparent to not obscure content
-  'editorGroup.dropBackground': withAlpha(interfacePalette.bg.overlay, 0.2),
+  'editorGroup.dropBackground':
+    interfacePalette.derived.overlays.dropBackground,
   'editorGroupHeader.noTabsBackground': interfacePalette.bg.base,
   'editorGroupHeader.tabsBackground': interfacePalette.bg.base,
   'editorGroupHeader.tabsBorder': interfacePalette.border.default,
@@ -207,10 +208,11 @@ const generateInterfaceColors = () => ({
   'list.focusBackground': interfacePalette.bg.selection,
   'list.focusForeground': interfacePalette.text.primary,
   // Should be transparent per VS Code theme color docs
-  'list.dropBackground': withAlpha(interfacePalette.bg.overlay, 0.2),
+  'list.dropBackground': interfacePalette.derived.overlays.dropBackground,
   // Filter matches in lists/trees should align with search highlight scheme
-  'list.filterMatchBackground': withAlpha(basePalette.yellow, 0.14),
-  'list.filterMatchBorder': withAlpha(basePalette.yellow, 0.7),
+  'list.filterMatchBackground':
+    interfacePalette.derived.findMatch.highlightBackground,
+  'list.filterMatchBorder': interfacePalette.derived.findMatch.border,
   'list.highlightForeground': interfacePalette.state.info,
   'list.invalidItemForeground': interfacePalette.state.error,
   'list.errorForeground': interfacePalette.state.error,
@@ -270,7 +272,8 @@ const generateInterfaceColors = () => ({
   'panelInput.border': interfacePalette.border.default,
   'panelSection.border': interfacePalette.border.default,
   // Should be transparent to let panel contents shine through
-  'panelSection.dropBackground': withAlpha(interfacePalette.bg.overlay, 0.2),
+  'panelSection.dropBackground':
+    interfacePalette.derived.overlays.dropBackground,
   'panelSectionHeader.background': interfacePalette.bg.elevated,
   'panelSectionHeader.foreground': interfacePalette.text.primary,
   'panelSectionHeader.border': interfacePalette.border.default,
@@ -283,17 +286,19 @@ const generateInterfaceColors = () => ({
   'terminal.inactiveSelectionBackground': interfacePalette.bg.hover,
   'terminal.border': interfacePalette.border.default,
   // Must be transparent or it will obscure terminal content
-  'terminal.dropBackground': withAlpha(interfacePalette.bg.overlay, 0.2),
+  'terminal.dropBackground': interfacePalette.derived.overlays.dropBackground,
   // Cyan-tinted hover with moderate alpha to avoid two-tone feel
-  'terminal.hoverHighlightBackground': withAlpha(basePalette.cyan, 0.22),
+  'terminal.hoverHighlightBackground':
+    interfacePalette.derived.terminal.hoverHighlightBackground,
   'terminal.tab.activeBorder': interfacePalette.state.info,
   'terminalCursor.background': interfacePalette.bg.base,
   'terminalCursor.foreground': interfacePalette.text.primary,
 
   // Terminal search highlight
-  'terminal.findMatchBackground': withAlpha(basePalette.yellow, 0.22),
-  'terminal.findMatchBorder': withAlpha(basePalette.yellow, 0.7),
-  'terminal.findMatchHighlightBackground': withAlpha(basePalette.yellow, 0.14),
+  'terminal.findMatchBackground': interfacePalette.derived.findMatch.background,
+  'terminal.findMatchBorder': interfacePalette.derived.findMatch.border,
+  'terminal.findMatchHighlightBackground':
+    interfacePalette.derived.findMatch.highlightBackground,
   // Border for highlight is optional; keeping only background for clarity
 
   // Terminal command decorations (left markers for commands)
@@ -315,26 +320,28 @@ const generateInterfaceColors = () => ({
   'terminal.ansiGreen': basePalette.green,
   'terminal.ansiYellow': basePalette.yellow,
   // Align blue with link color to avoid two-tone URLs in terminals
-  'terminal.ansiBlue': lighten(basePalette.cyan, 0.22),
+  'terminal.ansiBlue': interfacePalette.derived.terminal.ansiBlue,
   'terminal.ansiMagenta': basePalette.magenta,
   // Unify cyan shades for single-color links in terminals
-  'terminal.ansiCyan': lighten(basePalette.cyan, 0.22),
+  'terminal.ansiCyan': interfacePalette.derived.terminal.ansiCyan,
   'terminal.ansiWhite': basePalette.white,
-  'terminal.ansiBrightBlack': lighten(basePalette.black, 0.4),
-  'terminal.ansiBrightRed': lighten(basePalette.red, 0.15),
-  'terminal.ansiBrightGreen': lighten(basePalette.green, 0.15),
-  'terminal.ansiBrightYellow': lighten(basePalette.yellow, 0.15),
-  'terminal.ansiBrightBlue': lighten(basePalette.cyan, 0.22),
-  'terminal.ansiBrightMagenta': lighten(basePalette.magenta, 0.15),
-  'terminal.ansiBrightCyan': lighten(basePalette.cyan, 0.22),
-  'terminal.ansiBrightWhite': lighten(basePalette.white, 0.1),
+  'terminal.ansiBrightBlack': interfacePalette.derived.terminal.ansiBrightBlack,
+  'terminal.ansiBrightRed': interfacePalette.derived.terminal.ansiBrightRed,
+  'terminal.ansiBrightGreen': interfacePalette.derived.terminal.ansiBrightGreen,
+  'terminal.ansiBrightYellow':
+    interfacePalette.derived.terminal.ansiBrightYellow,
+  'terminal.ansiBrightBlue': interfacePalette.derived.terminal.ansiBrightBlue,
+  'terminal.ansiBrightMagenta':
+    interfacePalette.derived.terminal.ansiBrightMagenta,
+  'terminal.ansiBrightCyan': interfacePalette.derived.terminal.ansiBrightCyan,
+  'terminal.ansiBrightWhite': interfacePalette.derived.terminal.ansiBrightWhite,
 
   // Generic text link colors (used across workbench incl. terminal links)
   // Use a brighter cyan and keep it consistent across states
-  'textLink.foreground': lighten(basePalette.cyan, 0.22),
-  'textLink.activeForeground': lighten(basePalette.cyan, 0.22),
+  'textLink.foreground': interfacePalette.derived.link.foreground,
+  'textLink.activeForeground': interfacePalette.derived.link.foreground,
   // Editor-only link color for consistency
-  'editorLink.activeForeground': lighten(basePalette.cyan, 0.22),
+  'editorLink.activeForeground': interfacePalette.derived.link.foreground,
 
   // Scrollbar
   'scrollbar.shadow': interfacePalette.bg.overlay,
@@ -512,8 +519,9 @@ const generateInterfaceColors = () => ({
   'minimapGutter.deletedBackground': interfacePalette.state.error,
 
   // Search Editor - use the same warm yellow scheme for matches
-  'searchEditor.findMatchBackground': withAlpha(basePalette.yellow, 0.14),
-  'searchEditor.findMatchBorder': withAlpha(basePalette.yellow, 0.7),
+  'searchEditor.findMatchBackground':
+    interfacePalette.derived.findMatch.highlightBackground,
+  'searchEditor.findMatchBorder': interfacePalette.derived.findMatch.border,
 
   // Problem Matcher
   'problemsErrorIcon.foreground': interfacePalette.state.error,
@@ -546,7 +554,7 @@ const generateInterfaceColors = () => ({
   // Inline Chat (toolbar where Keep/Undo live)
   'inlineChat.background': interfacePalette.bg.elevated,
   // Brighten inline chat text for better contrast (affects inactive toolbar buttons)
-  'inlineChat.foreground': lighten(basePalette.white, 0.12),
+  'inlineChat.foreground': interfacePalette.derived.inlineChat.foreground,
   'inlineChat.border': interfacePalette.border.default,
 
   // Icon
