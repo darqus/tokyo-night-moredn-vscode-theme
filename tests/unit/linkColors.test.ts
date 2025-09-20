@@ -5,7 +5,7 @@ import { lighten } from '../../src/core/utils'
 describe('Link colors and terminal hover', () => {
   it('should use unified and brighter textLink colors', () => {
     const c = generateTheme().colors
-    const bright = lighten(basePalette.cyan, 0.15)
+    const bright = lighten(basePalette.cyan, 0.22)
     expect(c['textLink.foreground']).toBe(bright)
     expect(c['textLink.activeForeground']).toBe(bright)
     expect(c['editorLink.activeForeground']).toBe(bright)
@@ -13,7 +13,7 @@ describe('Link colors and terminal hover', () => {
 
   it('should have stronger terminal link hover background', () => {
     const c = generateTheme().colors
-    // rgba hex with alpha expected from withAlpha(basePalette.cyan, 0.32)
-    expect(c['terminal.hoverHighlightBackground']).toBe('#7dcfff52')
+    // rgba hex with alpha expected from withAlpha(basePalette.cyan, 0.22)
+    expect(c['terminal.hoverHighlightBackground']).toBe('#7dcfff38')
   })
 })

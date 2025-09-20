@@ -283,8 +283,8 @@ const generateInterfaceColors = () => ({
   'terminal.border': interfacePalette.border.default,
   // Must be transparent or it will obscure terminal content
   'terminal.dropBackground': withAlpha(interfacePalette.bg.overlay, 0.2),
-  // Stronger cyan-tinted hover to make links stand out
-  'terminal.hoverHighlightBackground': withAlpha(basePalette.cyan, 0.32),
+  // Cyan-tinted hover with moderate alpha to avoid two-tone feel
+  'terminal.hoverHighlightBackground': withAlpha(basePalette.cyan, 0.22),
   'terminal.tab.activeBorder': interfacePalette.state.info,
   'terminalCursor.background': interfacePalette.bg.base,
   'terminalCursor.foreground': interfacePalette.text.primary,
@@ -315,7 +315,8 @@ const generateInterfaceColors = () => ({
   'terminal.ansiYellow': basePalette.yellow,
   'terminal.ansiBlue': basePalette.blue,
   'terminal.ansiMagenta': basePalette.magenta,
-  'terminal.ansiCyan': basePalette.cyan,
+  // Unify cyan shades for single-color links in terminals
+  'terminal.ansiCyan': lighten(basePalette.cyan, 0.22),
   'terminal.ansiWhite': basePalette.white,
   'terminal.ansiBrightBlack': lighten(basePalette.black, 0.4),
   'terminal.ansiBrightRed': lighten(basePalette.red, 0.15),
@@ -323,15 +324,15 @@ const generateInterfaceColors = () => ({
   'terminal.ansiBrightYellow': lighten(basePalette.yellow, 0.15),
   'terminal.ansiBrightBlue': lighten(basePalette.blue, 0.15),
   'terminal.ansiBrightMagenta': lighten(basePalette.magenta, 0.15),
-  'terminal.ansiBrightCyan': lighten(basePalette.cyan, 0.1),
+  'terminal.ansiBrightCyan': lighten(basePalette.cyan, 0.22),
   'terminal.ansiBrightWhite': lighten(basePalette.white, 0.1),
 
   // Generic text link colors (used across workbench incl. terminal links)
-  // Use a slightly brighter cyan to distinguish links from normal text
-  'textLink.foreground': lighten(basePalette.cyan, 0.15),
-  'textLink.activeForeground': lighten(basePalette.cyan, 0.15),
+  // Use a brighter cyan and keep it consistent across states
+  'textLink.foreground': lighten(basePalette.cyan, 0.22),
+  'textLink.activeForeground': lighten(basePalette.cyan, 0.22),
   // Editor-only link color for consistency
-  'editorLink.activeForeground': lighten(basePalette.cyan, 0.15),
+  'editorLink.activeForeground': lighten(basePalette.cyan, 0.22),
 
   // Scrollbar
   'scrollbar.shadow': interfacePalette.bg.overlay,
