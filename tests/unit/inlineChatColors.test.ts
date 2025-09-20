@@ -1,5 +1,7 @@
 import { generateTheme } from '../../src/generators/theme'
 import { interfacePalette } from '../../src/core/interface'
+import { basePalette } from '../../src/core/palette'
+import { lighten } from '../../src/core/utils'
 
 describe('Inline Chat and toolbar colors', () => {
   it('should set inline chat and toolbar hover colors using valid keys', () => {
@@ -12,7 +14,8 @@ describe('Inline Chat and toolbar colors', () => {
 
     // Inline Chat: documented keys
     expect(c['inlineChat.background']).toBe(interfacePalette.bg.elevated)
-    expect(c['inlineChat.foreground']).toBe(interfacePalette.text.primary)
+    // Foreground is slightly brightened to improve contrast on elevated bg
+    expect(c['inlineChat.foreground']).toBe(lighten(basePalette.white, 0.12))
     expect(c['inlineChat.border']).toBe(interfacePalette.border.default)
 
     // Ensure we do not emit undocumented keys

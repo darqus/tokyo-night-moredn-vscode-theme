@@ -544,7 +544,8 @@ const generateInterfaceColors = () => ({
 
   // Inline Chat (toolbar where Keep/Undo live)
   'inlineChat.background': interfacePalette.bg.elevated,
-  'inlineChat.foreground': interfacePalette.text.primary,
+  // Brighten inline chat text for better contrast (affects inactive toolbar buttons)
+  'inlineChat.foreground': lighten(basePalette.white, 0.12),
   'inlineChat.border': interfacePalette.border.default,
 
   // Icon

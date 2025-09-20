@@ -162,7 +162,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "icon.foreground": "#969fca",
     "inlineChat.background": "#202333",
     "inlineChat.border": "#26293a",
-    "inlineChat.foreground": "#c0caf5",
+    "inlineChat.foreground": "#c8d0f6",
     "input.background": "#1e202e",
     "input.border": "#26293a",
     "input.foreground": "#c0caf5",
