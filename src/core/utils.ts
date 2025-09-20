@@ -35,9 +35,15 @@ const parseHex = (hex: string): { r: number; g: number; b: number } => {
  * Конвертация RGB в hex
  */
 const rgbToHex = (r: number, g: number, b: number): Hex => {
-  const toHex = (n: number) => Math.round(Math.max(0, Math.min(255, n))).toString(16).padStart(2, '0')
+  const toHex = (n: number) =>
+    Math.round(Math.max(0, Math.min(255, n)))
+      .toString(16)
+      .padStart(2, '0')
   return `#${toHex(r)}${toHex(g)}${toHex(b)}` as Hex
 }
+
+// Test-only export to validate clamping behavior
+export const __rgbToHexForTests = rgbToHex
 
 /**
  * Смешивание двух цветов (с кэшированием)
@@ -47,7 +53,7 @@ import { getCachedColor } from './cache'
 const mixColors = (color1: string, color2: string, ratio: number): Hex => {
   if (!validateHex(color1)) throw new Error(`Invalid hex color: ${color1}`)
   if (!validateHex(color2)) throw new Error(`Invalid hex color: ${color2}`)
-  
+
   const clampedRatio = clamp(ratio, 0, 1)
   const c1 = parseHex(color1)
   const c2 = parseHex(color2)
@@ -67,9 +73,11 @@ export const mix = (color1: string, color2: string, ratio: number): Hex => {
  */
 export const withAlpha = (color: string, alpha: number): Hex => {
   if (!validateHex(color)) throw new Error(`Invalid hex color: ${color}`)
-  
+
   const clampedAlpha = clamp(alpha, 0, 1)
-  const alphaHex = Math.round(clampedAlpha * 255).toString(16).padStart(2, '0')
+  const alphaHex = Math.round(clampedAlpha * 255)
+    .toString(16)
+    .padStart(2, '0')
   return `${color}${alphaHex}` as Hex
 }
 
@@ -86,3 +94,6 @@ export const lighten = (color: string, amount: number): Hex => {
 export const darken = (color: string, amount: number): Hex => {
   return mix(color, '#000000', amount)
 }
+
+// Test-only export to cover parse error and success branches
+export const __parseHexForTests = parseHex

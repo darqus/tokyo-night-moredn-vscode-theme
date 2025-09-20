@@ -39,6 +39,7 @@ export const buildTheme = () => {
   }
 }
 
+/* istanbul ignore next */
 if (require.main === module) {
   buildTheme()
 }
