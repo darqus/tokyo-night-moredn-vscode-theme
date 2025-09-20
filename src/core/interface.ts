@@ -44,9 +44,22 @@ export const interfacePalette: InterfacePalette = {
   },
 
   // Кнопки (автогенерация)
+  // primary — насыщенный фон с хорошим контрастом
+  // secondary — нейтральный фон (elevated), холодный hover, аккуратная граница
   button: {
-    default: mix(basePalette.black, basePalette.blue, 0.2),
-    hover: mix(basePalette.black, basePalette.blue, 0.25),
+    primary: {
+      background: mix(basePalette.black, basePalette.blue, 0.6),
+      foreground: basePalette.white,
+      hoverBackground: mix(basePalette.black, basePalette.blue, 0.65),
+      border: withAlpha(basePalette.blue, 0.4), // соответствует border.focus
+      separator: mix(basePalette.black, basePalette.gray, 0.1), // соответствует border.default
+    },
+    secondary: {
+      background: mix(basePalette.black, basePalette.blue, 0.1),
+      foreground: basePalette.white,
+      hoverBackground: withAlpha(basePalette.blue, 0.08),
+      border: withAlpha(basePalette.blue, 0.4),
+    },
   },
 
   // Состояния (семантические цвета)

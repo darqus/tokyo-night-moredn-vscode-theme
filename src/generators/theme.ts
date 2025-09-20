@@ -239,15 +239,16 @@ const generateInterfaceColors = () => ({
   'inputValidation.warningBorder': interfacePalette.state.warning,
 
   // Button
-  'button.background': interfacePalette.button.default,
-  'button.foreground': interfacePalette.text.primary,
-  'button.hoverBackground': interfacePalette.button.hover,
+  'button.background': interfacePalette.button.primary.background,
+  'button.foreground': interfacePalette.button.primary.foreground,
+  'button.hoverBackground': interfacePalette.button.primary.hoverBackground,
   // Use a cooler outline to improve secondary button appearance
-  'button.border': interfacePalette.border.focus,
-  'button.separator': interfacePalette.border.default,
-  'button.secondaryBackground': interfacePalette.bg.overlay,
-  'button.secondaryForeground': interfacePalette.text.primary,
-  'button.secondaryHoverBackground': interfacePalette.bg.hover,
+  'button.border': interfacePalette.button.primary.border,
+  'button.separator': interfacePalette.button.primary.separator,
+  'button.secondaryBackground': interfacePalette.button.secondary.background,
+  'button.secondaryForeground': interfacePalette.button.secondary.foreground,
+  'button.secondaryHoverBackground':
+    interfacePalette.button.secondary.hoverBackground,
 
   // Dropdown
   'dropdown.background': interfacePalette.bg.elevated,

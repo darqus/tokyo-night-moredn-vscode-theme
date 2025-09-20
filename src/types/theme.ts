@@ -59,8 +59,19 @@ export interface InterfacePalette {
     focus: Hex
   }
   button: {
-    default: Hex
-    hover: Hex
+    primary: {
+      background: Hex
+      foreground: Hex
+      hoverBackground: Hex
+      border: Hex
+      separator: Hex
+    }
+    secondary: {
+      background: Hex
+      foreground: Hex
+      hoverBackground: Hex
+      border: Hex
+    }
   }
   state: {
     info: Hex

@@ -6,19 +6,33 @@ describe('Button color tokens', () => {
     const theme = generateTheme()
     const c = theme.colors
 
-    expect(c['button.background']).toBe(interfacePalette.button.default)
-    expect(c['button.foreground']).toBe(interfacePalette.text.primary)
-    expect(c['button.hoverBackground']).toBe(interfacePalette.button.hover)
-    expect(c['button.border']).toBe(interfacePalette.border.focus)
-    expect(c['button.separator']).toBe(interfacePalette.border.default)
+    expect(c['button.background']).toBe(
+      interfacePalette.button.primary.background
+    )
+    expect(c['button.foreground']).toBe(
+      interfacePalette.button.primary.foreground
+    )
+    expect(c['button.hoverBackground']).toBe(
+      interfacePalette.button.primary.hoverBackground
+    )
+    expect(c['button.border']).toBe(interfacePalette.button.primary.border)
+    expect(c['button.separator']).toBe(
+      interfacePalette.button.primary.separator
+    )
   })
 
   it('should map secondary button colors from interface palette', () => {
     const theme = generateTheme()
     const c = theme.colors
 
-    expect(c['button.secondaryBackground']).toBe(interfacePalette.bg.overlay)
-    expect(c['button.secondaryForeground']).toBe(interfacePalette.text.primary)
-    expect(c['button.secondaryHoverBackground']).toBe(interfacePalette.bg.hover)
+    expect(c['button.secondaryBackground']).toBe(
+      interfacePalette.button.secondary.background
+    )
+    expect(c['button.secondaryForeground']).toBe(
+      interfacePalette.button.secondary.foreground
+    )
+    expect(c['button.secondaryHoverBackground']).toBe(
+      interfacePalette.button.secondary.hoverBackground
+    )
   })
 })
