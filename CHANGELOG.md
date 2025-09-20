@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.14.29](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.14.23...v1.14.29) (2025-09-20)
+
+
+### Features
+
+* **docs:** add release versioning information and update README metrics ([acf7fa8](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/acf7fa83065ed3660df5a7b3f5ec51c5a0f82485))
+* **interface:** add inlineChat background color ([a02248f](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/a02248f3d4729242e60cbf96b2f24813df466a99))
+
 ### [1.14.23](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.14.22...v1.14.23) (2025-09-20)
 
 
