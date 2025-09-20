@@ -23,8 +23,8 @@
 ## Development
 
 ```bash
-git clone https://github.com/darqus/tokyo-night-moredn-vscode-theme.git
-cd tokyo-night-moredn-vscode-theme
+git clone https://github.com/darqus/tokyo-night-modern-vscode-theme.git
+cd tokyo-night-modern-vscode-theme
 npm install
 npm run build
 ```

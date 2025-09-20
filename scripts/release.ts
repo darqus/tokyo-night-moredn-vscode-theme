@@ -225,7 +225,7 @@ class ReleaseManager {
           '⚠️  Could not create GitHub release (gh CLI not available)'
         )
         console.log(
-          `📝 Manual release creation: https://github.com/darqus/tokyo-night-moredn-vscode-theme/releases/new?tag=v${version}`
+          `📝 Manual release creation: https://github.com/darqus/tokyo-night-modern-vscode-theme/releases/new?tag=v${version}`
         )
       }
     } catch (error) {

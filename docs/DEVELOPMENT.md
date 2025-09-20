@@ -3,23 +3,24 @@
 ## Setup
 
 ```bash
-git clone https://github.com/darqus/tokyo-night-moredn-vscode-theme.git
-cd tokyo-night-moredn-vscode-theme
+git clone https://github.com/darqus/tokyo-night-modern-vscode-theme.git
+cd tokyo-night-modern-vscode-theme
 npm install
 ```
 
 ## Commands
 
 ```bash
-npm run build        # Build theme (~0.6s)
+npm run build        # Build theme (~0.7–1.0s)
 npm run validate     # Validate theme
-npm test             # Run tests (13 tests)
+npm test             # Run unit tests (22 tests)
+npm run validate:all # Validate + tests
 npm run docs:colors  # Generate color docs
 ```
 
 ## Architecture
 
-```
+```text
 src/
 ├── core/           # 12 base colors + utilities
 ├── generators/     # Theme + token generation

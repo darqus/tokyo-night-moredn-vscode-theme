@@ -1,6 +1,6 @@
 {
   "branches": ["main", "master"],
-  "repositoryUrl": "https://github.com/darqus/tokyo-night-moredn-vscode-theme",
+  "repositoryUrl": "https://github.com/darqus/tokyo-night-modern-vscode-theme",
   "tagFormat": "v${version}",
   "plugins": [
     "@semantic-release/commit-analyzer",

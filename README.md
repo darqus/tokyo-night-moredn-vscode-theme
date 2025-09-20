@@ -23,7 +23,7 @@ A **Tokyo Night dark theme** featuring:
 
 ## 🏗️ Architecture
 
-```
+```text
 12 base colors → 366 interface colors → 13 syntax tokens
 ```
 
@@ -38,11 +38,12 @@ src/
 ## 🛠️ Development
 
 ```bash
-git clone https://github.com/darqus/tokyo-night-moredn-vscode-theme.git
-cd tokyo-night-moredn-vscode-theme
+git clone https://github.com/darqus/tokyo-night-modern-vscode-theme.git
+cd tokyo-night-modern-vscode-theme
 npm install
-npm run build       # Build theme (~0.6s)
-npm test           # Run tests (13 tests)
+npm run build        # Build theme (~0.7–1.0s)
+npm test             # Run unit tests (22 tests)
+npm run validate:all # Validate theme schema + run tests
 ```
 
 ## 📊 Metrics
@@ -52,8 +53,8 @@ npm test           # Run tests (13 tests)
 | **Base colors** | 12 | ✅ |
 | **Generated colors** | 366 | ✅ |
 | **Syntax tokens** | 13 | ✅ |
-| **Tests** | 13 | ✅ |
-| **Build time** | ~0.6s | ✅ |
+| **Tests** | 22 | ✅ |
+| **Build time** | ~0.7–1.0s | ✅ |
 | **Hardcoded colors** | 0 | ✅ |
 
 ## 📚 Documentation
@@ -78,11 +79,7 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-<div align="center">
-
 **🌃 Tokyo Night Modern**
-*Crafted with ❤️ for developers*
+Crafted with ❤️ for developers
 
-[⭐ GitHub](https://github.com/darqus/tokyo-night-moredn-vscode-theme) | [📦 Marketplace](https://marketplace.visualstudio.com/items?itemName=lod-inc.tokyo-night-modern)
-
-</div>
+[⭐ GitHub](https://github.com/darqus/tokyo-night-modern-vscode-theme) · [📦 Marketplace](https://marketplace.visualstudio.com/items?itemName=lod-inc.tokyo-night-modern)

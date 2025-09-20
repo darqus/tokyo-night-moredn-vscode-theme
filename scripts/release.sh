@@ -207,7 +207,7 @@ create_github_release() {
         success "GitHub релиз создан"
     else
         warning "GitHub CLI недоступен"
-        info "Создайте релиз вручную: https://github.com/darqus/tokyo-night-moredn-vscode-theme/releases/new?tag=v$version"
+        info "Создайте релиз вручную: https://github.com/darqus/tokyo-night-modern-vscode-theme/releases/new?tag=v$version"
     fi
 }
 
