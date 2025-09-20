@@ -283,7 +283,7 @@ const generateInterfaceColors = () => ({
   'terminal.border': interfacePalette.border.default,
   // Must be transparent or it will obscure terminal content
   'terminal.dropBackground': withAlpha(interfacePalette.bg.overlay, 0.2),
-  'terminal.hoverHighlightBackground': interfacePalette.bg.hover,
+  'terminal.hoverHighlightBackground': interfacePalette.bg.selection,
   'terminal.tab.activeBorder': interfacePalette.state.info,
   'terminalCursor.background': interfacePalette.bg.base,
   'terminalCursor.foreground': interfacePalette.text.primary,
@@ -327,7 +327,7 @@ const generateInterfaceColors = () => ({
 
   // Generic text link colors (used across workbench incl. terminal links)
   'textLink.foreground': interfacePalette.state.info,
-  'textLink.activeForeground': lighten(basePalette.cyan, 0.1),
+  'textLink.activeForeground': interfacePalette.state.info,
 
   // Scrollbar
   'scrollbar.shadow': interfacePalette.bg.overlay,
