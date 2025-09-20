@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.14.20](https://github.com/darqus/tokyo-night-moredn-vscode-theme/compare/v1.14.19...v1.14.20) (2025-09-20)
+
+
+### Features
+
+* **colors:** unify search highlight colors across editor, terminal, and list ([e2434e9](https://github.com/darqus/tokyo-night-moredn-vscode-theme/commit/e2434e96636b049362ee652787d09de6d13bc5e9))
+* **interface:** autogenerate button colors and update theme ([a88fdbe](https://github.com/darqus/tokyo-night-moredn-vscode-theme/commit/a88fdbe87f85c782a2365b74e5e7cd0edbfdcfaf))
+* **theme:** enhance terminal appearance and add drop background transparency ([0304f3d](https://github.com/darqus/tokyo-night-moredn-vscode-theme/commit/0304f3d14bdd6710834dba73d3d484af5b5c5064))
+* **theme:** enhance terminal colors and add text link styles ([262dc5b](https://github.com/darqus/tokyo-night-moredn-vscode-theme/commit/262dc5bd138bbe1a3645178e77b4a991a4ea69e3))
+
 ### [1.14.19](https://github.com/darqus/tokyo-night-moredn-vscode-theme/compare/v1.14.18...v1.14.19) (2025-09-09)
 
 ### [1.14.18](https://github.com/darqus/tokyo-night-moredn-vscode-theme/compare/v1.14.17...v1.14.18) (2025-09-09)
