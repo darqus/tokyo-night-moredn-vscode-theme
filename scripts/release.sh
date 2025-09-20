@@ -147,6 +147,21 @@ bump_version() {
     echo $new_version
 }
 
+# Обновление THEME_VERSION в генераторе темы
+update_theme_version() {
+    local new_version=$1
+    local file="src/generators/theme.ts"
+
+    info "Обновление THEME_VERSION в ${file}..."
+
+    if grep -Eq "THEME_VERSION[[:space:]]*:[[:space:]]*env\\.THEME_VERSION[[:space:]]*\\|\\|[[:space:]]*'[^']*'" "$file"; then
+        sed -i -E "s/(THEME_VERSION[[:space:]]*:[[:space:]]*env\\.THEME_VERSION[[:space:]]*\\|\\|[[:space:]]*')[^']*(')/\\1${new_version}\\2/" "$file"
+        success "THEME_VERSION обновлён до ${new_version}"
+    else
+        warning "Шаблон THEME_VERSION не найден или уже обновлён — пропуск"
+    fi
+}
+
 # Генерация changelog
 generate_changelog() {
     info "Генерация changelog..."
@@ -315,6 +330,10 @@ main() {
     build_project $skip_build
 
     local new_version=$(bump_version $release_type $prerelease)
+
+    # Синхронизация дефолтной версии темы
+    update_theme_version "$new_version"
+
     generate_package
 
     generate_changelog
