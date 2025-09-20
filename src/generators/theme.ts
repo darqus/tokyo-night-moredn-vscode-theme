@@ -313,7 +313,8 @@ const generateInterfaceColors = () => ({
   'terminal.ansiRed': basePalette.red,
   'terminal.ansiGreen': basePalette.green,
   'terminal.ansiYellow': basePalette.yellow,
-  'terminal.ansiBlue': basePalette.blue,
+  // Align blue with link color to avoid two-tone URLs in terminals
+  'terminal.ansiBlue': lighten(basePalette.cyan, 0.22),
   'terminal.ansiMagenta': basePalette.magenta,
   // Unify cyan shades for single-color links in terminals
   'terminal.ansiCyan': lighten(basePalette.cyan, 0.22),
@@ -322,7 +323,7 @@ const generateInterfaceColors = () => ({
   'terminal.ansiBrightRed': lighten(basePalette.red, 0.15),
   'terminal.ansiBrightGreen': lighten(basePalette.green, 0.15),
   'terminal.ansiBrightYellow': lighten(basePalette.yellow, 0.15),
-  'terminal.ansiBrightBlue': lighten(basePalette.blue, 0.15),
+  'terminal.ansiBrightBlue': lighten(basePalette.cyan, 0.22),
   'terminal.ansiBrightMagenta': lighten(basePalette.magenta, 0.15),
   'terminal.ansiBrightCyan': lighten(basePalette.cyan, 0.22),
   'terminal.ansiBrightWhite': lighten(basePalette.white, 0.1),

@@ -16,4 +16,13 @@ describe('Link colors and terminal hover', () => {
     // rgba hex with alpha expected from withAlpha(basePalette.cyan, 0.22)
     expect(c['terminal.hoverHighlightBackground']).toBe('#7dcfff38')
   })
+
+  it('should align terminal ANSI blue/cyan with link color', () => {
+    const c = generateTheme().colors
+    const bright = lighten(basePalette.cyan, 0.22)
+    expect(c['terminal.ansiCyan']).toBe(bright)
+    expect(c['terminal.ansiBrightCyan']).toBe(bright)
+    expect(c['terminal.ansiBlue']).toBe(bright)
+    expect(c['terminal.ansiBrightBlue']).toBe(bright)
+  })
 })
