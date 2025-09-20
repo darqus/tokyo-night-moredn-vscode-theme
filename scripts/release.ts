@@ -3,6 +3,7 @@
 import { execSync } from 'child_process'
 import { readFileSync, writeFileSync } from 'fs'
 import { join } from 'path'
+import { computeVersion } from './versioning'
 
 interface ReleaseOptions {
   type?: 'patch' | 'minor' | 'major'
@@ -66,45 +67,7 @@ class ReleaseManager {
     }
   }
 
-  private computeVersion(
-    currentVersion: string,
-    releaseType: 'patch' | 'minor' | 'major',
-    commitCount: number,
-    prerelease: boolean
-  ): string {
-    // Parse semver (ignore existing pre-release/build metadata if any)
-    const base = currentVersion.split('-')[0]
-    const [majS, minS, patS] = base.split('.')
-    let major = parseInt(majS, 10) || 0
-    let minor = parseInt(minS, 10) || 0
-    let patch = parseInt(patS, 10) || 0
-
-    // Ensure at least +1 so version always moves forward when releasing
-    const count = Math.max(commitCount, 1)
-
-    switch (releaseType) {
-      case 'major':
-        major += 1
-        minor = 0
-        patch = count
-        break
-      case 'minor':
-        minor += 1
-        patch = count
-        break
-      case 'patch':
-      default:
-        patch += count
-        break
-    }
-
-    const next = `${major}.${minor}.${patch}`
-    if (prerelease) {
-      // Add commit count as prerelease identifier to keep it monotonic
-      return `${next}-beta.${count}`
-    }
-    return next
-  }
+  // computeVersion moved to ./versioning
 
   private detectReleaseType(): 'patch' | 'minor' | 'major' {
     try {
@@ -215,7 +178,7 @@ class ReleaseManager {
     console.log(`Current version: ${currentVersion}`)
     console.log(`Commits since last release: ${commitCount}`)
 
-    const newVersion = this.computeVersion(
+    const newVersion = computeVersion(
       currentVersion,
       type,
       commitCount,
@@ -356,7 +319,7 @@ class ReleaseManager {
         console.log('🔍 DRY RUN MODE - no changes will be made')
         const currentVersion = this.getCurrentVersion()
         const commitCount = this.getCommitCountSinceLastRelease()
-        const previewVersion = this.computeVersion(
+        const previewVersion = computeVersion(
           currentVersion,
           releaseType,
           commitCount,
