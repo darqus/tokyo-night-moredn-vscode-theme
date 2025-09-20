@@ -54,9 +54,125 @@ function validateTheme(themePath: string): ValidationResult {
     return result
   }
 
+  // Набор известных допустимых ключей, чтобы отлавливать опечатки.
+  // Список неполный, но включает проблемные зоны: toolbar и inlineChat.
+  const KNOWN_KEYS_PREFIXES = [
+    // глобально допустимые префиксы, не будем перечислять все ключи VS Code
+    'foreground',
+    'descriptionForeground',
+    'disabledForeground',
+    'focusBorder',
+    'errorForeground',
+    'selection.background',
+    'widget.shadow',
+    'titleBar.',
+    'menubar.',
+    'menu.',
+    'commandCenter.',
+    'quickInput',
+    'editor',
+    'editorGroup',
+    'activityBar',
+    'activityBarBadge',
+    'sideBar',
+    'statusBar',
+    'statusBarItem',
+    'tab',
+    'list',
+    'tree.',
+    'input',
+    'inputOption',
+    'inputValidation',
+    'button',
+    'dropdown',
+    'badge',
+    'progressBar.',
+    'panel',
+    'panelTitle',
+    'panelSection',
+    'terminal',
+    'terminalCommandDecoration',
+    'terminalOverviewRuler',
+    'textLink',
+    'scrollbar',
+    'scrollbarSlider',
+    'notifications',
+    'notificationCenter',
+    'notificationCenterHeader',
+    'notificationToast',
+    'extensionButton',
+    'extensionBadge',
+    'gitDecoration',
+    'scmGraph',
+    'diffEditor',
+    'settings.',
+    'breadcrumb',
+    'breadcrumbPicker',
+    'widget.',
+    'peekView',
+    'editorWidget',
+    'editorSuggestWidget',
+    'editorHoverWidget',
+    'debugExceptionWidget',
+    'editorMarkerNavigation',
+    'merge.',
+    'editorOverviewRuler.',
+    'minimap',
+    'minimapSlider',
+    'minimapGutter',
+    'searchEditor',
+    'problems',
+    'charts',
+    'checkbox',
+    'toolbar', // важно оставить только допустимые toolbar.*
+    'icon.',
+    'keybindingLabel',
+    'welcomePage',
+    'walkThrough',
+    'debugToolBar',
+    'debugIcon',
+    'debugConsole',
+    'testing.',
+    'ports.',
+    // Inline Chat раздел (важные префиксы)
+    'inlineChat.',
+    'inlineChatInput.',
+    'inlineChatDiff.',
+  ]
+
   // Проверка каждого свойства
   for (const [property, value] of Object.entries(theme.colors)) {
     const stringValue = String(value)
+
+    // Проверка неизвестных свойств (грубая эвристика по префиксам)
+    const known = KNOWN_KEYS_PREFIXES.some(
+      (p) => property === p || property.startsWith(p)
+    )
+    if (!known) {
+      result.unknownProperties.push(property)
+    }
+
+    // Специальная строгая проверка для toolbar.* (раздел Action colors)
+    if (property.startsWith('toolbar.')) {
+      const allowed = new Set<
+        'hoverBackground' | 'hoverOutline' | 'activeBackground'
+      >(['hoverBackground', 'hoverOutline', 'activeBackground'])
+      const key = property.split('.')[1] as any
+      if (!allowed.has(key)) {
+        result.unknownProperties.push(property)
+      }
+    }
+
+    // Специальная строгая проверка для inlineChat.* (только базовые ключи)
+    if (property.startsWith('inlineChat.')) {
+      const allowed = new Set<
+        'background' | 'foreground' | 'border' | 'shadow'
+      >(['background', 'foreground', 'border', 'shadow'])
+      const key = property.split('.')[1] as any
+      if (!allowed.has(key)) {
+        result.unknownProperties.push(property)
+      }
+    }
 
     // Проверка на устаревшие свойства
     if (DEPRECATED_PROPERTIES.includes(property)) {
@@ -143,10 +259,19 @@ function printReport(result: ValidationResult): void {
     console.log()
   }
 
+  if (result.unknownProperties.length > 0) {
+    console.log('❓ Неизвестные ключи (возможны опечатки или устаревшие ID):')
+    result.unknownProperties.forEach((property) => {
+      console.log(`   • ${property}`)
+    })
+    console.log()
+  }
+
   const totalIssues =
     result.deprecated.length +
     result.invalidValues.length +
-    result.invalidColors.length
+    result.invalidColors.length +
+    result.unknownProperties.length
 
   if (totalIssues === 0) {
     console.log('✅ Проблем не найдено! Тема соответствует стандартам VS Code.')
@@ -155,6 +280,7 @@ function printReport(result: ValidationResult): void {
     console.log('   - Устаревших свойств:', result.deprecated.length)
     console.log('   - Недопустимых значений:', result.invalidValues.length)
     console.log('   - Некорректных цветов:', result.invalidColors.length)
+    console.log('   - Неизвестных ключей:', result.unknownProperties.length)
   }
 }
 

@@ -532,7 +532,6 @@ const generateInterfaceColors = () => ({
   'checkbox.border': interfacePalette.border.default,
 
   // Toolbar
-  'toolbar.foreground': interfacePalette.text.primary,
   'toolbar.hoverBackground': interfacePalette.bg.hover,
   'toolbar.hoverOutline': interfacePalette.border.focus,
   'toolbar.activeBackground': interfacePalette.bg.selection,
@@ -541,9 +540,6 @@ const generateInterfaceColors = () => ({
   'inlineChat.background': interfacePalette.bg.elevated,
   'inlineChat.foreground': interfacePalette.text.primary,
   'inlineChat.border': interfacePalette.border.default,
-  'inlineChat.toolbarForeground': interfacePalette.text.primary,
-  'inlineChat.toolbarHoverBackground': interfacePalette.bg.hover,
-  'inlineChat.toolbarBorder': interfacePalette.border.default,
 
   // Icon
   'icon.foreground': interfacePalette.text.muted,
