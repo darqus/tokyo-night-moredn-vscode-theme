@@ -9,7 +9,7 @@ describe('Button color tokens', () => {
     expect(c['button.background']).toBe(interfacePalette.button.default)
     expect(c['button.foreground']).toBe(interfacePalette.text.primary)
     expect(c['button.hoverBackground']).toBe(interfacePalette.button.hover)
-    expect(c['button.border']).toBe(interfacePalette.border.default)
+    expect(c['button.border']).toBe(interfacePalette.border.focus)
     expect(c['button.separator']).toBe(interfacePalette.border.default)
   })
 

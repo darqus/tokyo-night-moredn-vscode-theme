@@ -240,7 +240,8 @@ const generateInterfaceColors = () => ({
   'button.background': interfacePalette.button.default,
   'button.foreground': interfacePalette.text.primary,
   'button.hoverBackground': interfacePalette.button.hover,
-  'button.border': interfacePalette.border.default,
+  // Use a cooler outline to improve secondary button appearance
+  'button.border': interfacePalette.border.focus,
   'button.separator': interfacePalette.border.default,
   'button.secondaryBackground': interfacePalette.bg.overlay,
   'button.secondaryForeground': interfacePalette.text.primary,

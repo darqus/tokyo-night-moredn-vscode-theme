@@ -151,7 +151,7 @@
     "button.background": "#2d3650",
     "button.foreground": "#c0caf5",
     "button.hoverBackground": "#323d5a",
-    "button.border": "#26293a",
+    "button.border": "#7aa2f766",
     "button.separator": "#26293a",
     "button.secondaryBackground": "#24293b",
     "button.secondaryForeground": "#c0caf5",

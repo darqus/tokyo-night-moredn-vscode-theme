@@ -19,7 +19,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "breadcrumb.foreground": "#969fca",
     "breadcrumbPicker.background": "#202333",
     "button.background": "#2d3650",
-    "button.border": "#26293a",
+    "button.border": "#7aa2f766",
     "button.foreground": "#c0caf5",
     "button.hoverBackground": "#323d5a",
     "button.secondaryBackground": "#24293b",
