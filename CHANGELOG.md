@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.14.22](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.14.21...v1.14.22) (2025-09-20)
+
+
+### Features
+
+* **package:** add test:update script for updating snapshots ([7aa7626](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/7aa7626cea8771c67064809e7fd7757b62238ae0))
+* **theme:** add inline chat and toolbar color configurations ([0a9e828](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/0a9e828e225d234f5fad6faafd386d5111d460da))
+* **theme:** improve secondary button appearance with cooler outline ([1600237](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/160023764a9d81b2aafaafb71dd875efa508fd18))
+* **theme:** unify terminal blue and cyan ANSI colors with link color ([c995844](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/c99584410ccd2783c6923cf645b1adcc963fadda))
+* **theme:** update Tokyo Night Modern theme colors ([8ddcda1](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/8ddcda18516afb4ed6957f33bd206212a358913d))
+
+
+### Bug Fixes
+
+* **theme:** improve inline chat text contrast ([2d96606](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/2d966068085ff51460a02563d78316b21e02cb7f)), closes [#c8d0f6](https://github.com/darqus/tokyo-night-modern-vscode-theme/issues/c8d0f6)
+* **theme:** improve terminal link hover and text link colors ([87446ae](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/87446ae4ce72b7e765850a8b754a1ebd8db5cfd6))
+* **theme:** remove deprecated Inline Chat and toolbar color properties ([05f1cef](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/05f1cef07f85fa9a17d2884c5c1711b824ee6476))
+
 ### [1.14.21](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.14.20...v1.14.21) (2025-09-20)
 
 ### [1.14.20](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.14.19...v1.14.20) (2025-09-20)
