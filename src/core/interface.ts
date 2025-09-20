@@ -3,7 +3,7 @@
  * Автогенерация всех цветов интерфейса из базовой палитры
  */
 import { basePalette } from './palette'
-import { mix, withAlpha, lighten } from './utils'
+import { mix, withAlpha, lighten, darken } from './utils'
 import type { InterfacePalette } from '../types/theme'
 
 export const interfacePalette: InterfacePalette = {
@@ -104,6 +104,7 @@ export const interfacePalette: InterfacePalette = {
       highlightBackground: withAlpha(basePalette.yellow, 0.14),
     },
     inlineChat: {
+      background: darken(basePalette.blue, 0.8),
       foreground: lighten(basePalette.white, 0.12),
     },
   },

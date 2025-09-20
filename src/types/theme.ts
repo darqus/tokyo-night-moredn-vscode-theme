@@ -113,6 +113,7 @@ export interface InterfacePalette {
       highlightBackground: Hex
     }
     inlineChat: {
+      background: Hex
       foreground: Hex
     }
   }
