@@ -8,9 +8,9 @@
 
 A **Tokyo Night dark theme** featuring:
 
-- **12 base colors** → **366 interface colors** (programmatically generated)
+- **12 base colors** → **406 workbench UI colors** (programmatically generated)
 - **WCAG compliant** contrast ratios for accessibility
-- **Zero hardcoded colors** - centralized palette system
+- **Zero hardcoded colors** — centralized palette system
 - **Modern TypeScript architecture** with full test coverage
 
 ## 🚀 Quick Start
@@ -24,7 +24,7 @@ A **Tokyo Night dark theme** featuring:
 ## 🏗️ Architecture
 
 ```text
-12 base colors → 366 interface colors → 13 syntax tokens
+12 base colors → 406 workbench colors → 13 syntax tokens
 ```
 
 ```text
@@ -41,9 +41,10 @@ src/
 git clone https://github.com/darqus/tokyo-night-modern-vscode-theme.git
 cd tokyo-night-modern-vscode-theme
 npm install
-npm run build        # Build theme (~0.7–1.0s)
-npm test             # Run unit tests (22 tests)
-npm run validate:all # Validate theme schema + run tests
+npm run build         # Build theme (~0.7–1.0s)
+npm test              # Run unit tests (49+ tests)
+npm run validate:all  # Validate theme schema + run tests
+npm run test:coverage # Coverage report (expect ~100% / ~97% branches)
 ```
 
 ## 📊 Metrics
@@ -51,9 +52,9 @@ npm run validate:all # Validate theme schema + run tests
 | Metric | Value | Status |
 |--------|-------|--------|
 | **Base colors** | 12 | ✅ |
-| **Generated colors** | 366 | ✅ |
+| **Workbench colors** | 406 | ✅ |
 | **Syntax tokens** | 13 | ✅ |
-| **Tests** | 22 | ✅ |
+| **Tests** | 49 | ✅ |
 | **Build time** | ~0.7–1.0s | ✅ |
 | **Hardcoded colors** | 0 | ✅ |
 
@@ -63,6 +64,7 @@ npm run validate:all # Validate theme schema + run tests
 - [Development](docs/DEVELOPMENT.md) - Build and contribute
 - [Colors](docs/COLORS.md) - Color palette reference
 - [Theme Analysis](docs/THEME_ANALYSIS.md) - Architecture deep dive
+- [Release & Versioning](docs/RELEASE_VERSIONING.md) - Automated releases and version rules
 
 ## 🤝 Contributing
 
@@ -72,6 +74,10 @@ npm run validate:all # Validate theme schema + run tests
 4. Submit PR
 
 See [CONTRIBUTING.md](docs/CONTRIBUTING.md) for details.
+
+## 📦 Release & Versioning
+
+See docs/RELEASE_VERSIONING.md for full details on the automated release flow, versioning rules, commands, and outputs.
 
 ## 📄 License
 
