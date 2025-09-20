@@ -3,6 +3,7 @@
  */
 import { interfacePalette } from '../core/interface'
 import { basePalette } from '../core/palette'
+import { lighten } from '../core/utils'
 import { generateTokenColors, generateSemanticTokens } from './tokens'
 import type { VSCodeTheme } from '../types/theme'
 
@@ -269,9 +270,32 @@ const generateInterfaceColors = () => ({
   'terminal.selectionBackground': interfacePalette.bg.selection,
   'terminal.border': interfacePalette.border.default,
   'terminal.dropBackground': interfacePalette.bg.overlay,
+  'terminal.hoverHighlightBackground': interfacePalette.bg.hover,
   'terminal.tab.activeBorder': interfacePalette.state.info,
   'terminalCursor.background': interfacePalette.bg.base,
   'terminalCursor.foreground': interfacePalette.text.primary,
+
+  // Terminal ANSI palette (makes links/paths readable)
+  'terminal.ansiBlack': basePalette.black,
+  'terminal.ansiRed': basePalette.red,
+  'terminal.ansiGreen': basePalette.green,
+  'terminal.ansiYellow': basePalette.yellow,
+  'terminal.ansiBlue': basePalette.blue,
+  'terminal.ansiMagenta': basePalette.magenta,
+  'terminal.ansiCyan': basePalette.cyan,
+  'terminal.ansiWhite': basePalette.white,
+  'terminal.ansiBrightBlack': lighten(basePalette.black, 0.4),
+  'terminal.ansiBrightRed': lighten(basePalette.red, 0.15),
+  'terminal.ansiBrightGreen': lighten(basePalette.green, 0.15),
+  'terminal.ansiBrightYellow': lighten(basePalette.yellow, 0.15),
+  'terminal.ansiBrightBlue': lighten(basePalette.blue, 0.15),
+  'terminal.ansiBrightMagenta': lighten(basePalette.magenta, 0.15),
+  'terminal.ansiBrightCyan': lighten(basePalette.cyan, 0.1),
+  'terminal.ansiBrightWhite': lighten(basePalette.white, 0.1),
+
+  // Generic text link colors (used across workbench incl. terminal links)
+  'textLink.foreground': interfacePalette.state.info,
+  'textLink.activeForeground': lighten(basePalette.cyan, 0.1),
 
   // Scrollbar
   'scrollbar.shadow': interfacePalette.bg.overlay,

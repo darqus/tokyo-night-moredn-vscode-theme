@@ -1,31 +1,51 @@
 {
-  "version": "1.3.0",
-  "tasks": [
-    {
-      "label": "Build theme JSON",
-      "type": "shell",
-      "command": "npm run build",
-      "problemMatcher": ["$tsc"]
-    },
-    {
-      "label": "Build theme JSON",
-      "type": "shell",
-      "command": "npm run build"
-    },
-    {
-      "label": "Build theme JSON",
-      "type": "shell",
-      "command": "npm run validate:all"
-    },
-    {
-      "label": "Build theme JSON",
-      "type": "shell",
-      "command": "npm run build"
-    },
-    {
-      "label": "Build theme JSON",
-      "type": "shell",
-      "command": "npm run validate:all"
-    }
-  ]
+	"version": "1.3.0",
+	"tasks": [
+		{
+			"label": "Build theme JSON",
+			"type": "shell",
+			"command": "npm run build",
+			"problemMatcher": [
+				"$tsc"
+			]
+		},
+		{
+			"label": "Build theme JSON",
+			"type": "shell",
+			"command": "npm run build"
+		},
+		{
+			"label": "Build theme JSON",
+			"type": "shell",
+			"command": "npm run validate:all"
+		},
+		{
+			"label": "Build theme JSON",
+			"type": "shell",
+			"command": "npm run build"
+		},
+		{
+			"label": "Build theme JSON",
+			"type": "shell",
+			"command": "npm run validate:all"
+		},
+		{
+			"label": "Build theme JSON",
+			"type": "shell",
+			"command": "npm run build",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Build theme JSON",
+			"type": "shell",
+			"command": "npm run validate:all",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		}
+	]
 }
