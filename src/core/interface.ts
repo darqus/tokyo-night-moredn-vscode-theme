@@ -88,6 +88,13 @@ export const interfacePalette: InterfacePalette = {
   minimap: {
     findMatchHighlight: withAlpha(basePalette.yellow, 0.5),
   },
+  // Элементы управления
+  dropdown: {
+    background: mix(basePalette.black, basePalette.blue, 0.06), // соответствует bg.elevated (#202333)
+    foreground: basePalette.white,
+    border: mix(basePalette.black, basePalette.gray, 0.1), // соответствует border.default (#202230)
+    listBackground: mix(basePalette.black, basePalette.blue, 0.06), // соответствует bg.elevated (#202333)
+  },
   derived: {
     link: {
       foreground: lighten(basePalette.cyan, 0.22),

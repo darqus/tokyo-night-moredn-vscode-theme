@@ -251,10 +251,10 @@ const generateInterfaceColors = () => ({
     interfacePalette.button.secondary.hoverBackground,
 
   // Dropdown
-  'dropdown.background': interfacePalette.bg.elevated,
-  'dropdown.foreground': interfacePalette.text.primary,
-  'dropdown.border': interfacePalette.border.default,
-  'dropdown.listBackground': interfacePalette.bg.elevated,
+  'dropdown.background': interfacePalette.dropdown.background,
+  'dropdown.foreground': interfacePalette.dropdown.foreground,
+  'dropdown.border': interfacePalette.dropdown.border,
+  'dropdown.listBackground': interfacePalette.dropdown.listBackground,
 
   // Badge
   'badge.background': interfacePalette.state.info,

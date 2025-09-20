@@ -128,6 +128,13 @@ export interface InterfacePalette {
       foreground: Hex
     }
   }
+  // Controls
+  dropdown: {
+    background: Hex
+    foreground: Hex
+    border: Hex
+    listBackground: Hex
+  }
 }
 
 export interface SyntaxPalette {
