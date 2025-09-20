@@ -419,6 +419,9 @@ class ReleaseManager {
   }
 }
 
+// Export for tests
+export { ReleaseManager }
+
 // CLI интерфейс
 async function main() {
   const args = process.argv.slice(2)
