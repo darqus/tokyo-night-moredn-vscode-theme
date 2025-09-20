@@ -450,7 +450,7 @@ const generateInterfaceColors = () => ({
   'editorWidget.resizeBorder': interfacePalette.border.focus,
 
   // Editor Suggest Widget
-  'editorSuggestWidget.background': interfacePalette.bg.elevated,
+  'editorSuggestWidget.background': interfacePalette.bg.overlay,
   'editorSuggestWidget.border': interfacePalette.border.default,
   'editorSuggestWidget.foreground': interfacePalette.text.primary,
   'editorSuggestWidget.highlightForeground': interfacePalette.state.info,
@@ -460,7 +460,7 @@ const generateInterfaceColors = () => ({
   'editorSuggestWidgetStatus.foreground': interfacePalette.text.muted,
 
   // Editor Hover Widget
-  'editorHoverWidget.background': interfacePalette.bg.elevated,
+  'editorHoverWidget.background': interfacePalette.bg.overlay,
   'editorHoverWidget.border': interfacePalette.border.default,
   'editorHoverWidget.foreground': interfacePalette.text.primary,
   'editorHoverWidget.highlightForeground': interfacePalette.state.info,
