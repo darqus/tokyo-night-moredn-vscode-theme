@@ -39,7 +39,7 @@ export const interfacePalette: InterfacePalette = {
 
   // Границы (автогенерация)
   border: {
-    default: mix(basePalette.black, basePalette.gray, 0.2),
+    default: mix(basePalette.black, basePalette.gray, 0.1),
     focus: withAlpha(basePalette.blue, 0.4),
   },
 

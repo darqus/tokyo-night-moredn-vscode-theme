@@ -47,6 +47,7 @@
     "validate": "ts-node scripts/validate-theme.ts",
     "validate:all": "npm run validate && npm run test",
     "test": "npm run test:unit",
+    "test:update": "npm run test:unit -- -u",
     "test:unit": "jest tests/unit",
     "test:watch": "jest tests/unit --watch",
     "test:coverage": "jest tests/unit --coverage",
