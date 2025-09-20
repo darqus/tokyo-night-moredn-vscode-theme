@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.14.23](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.14.22...v1.14.23) (2025-09-20)
+
+
+### Features
+
+* **release:** incorporate commit count into version bump ([c146ac4](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/c146ac4d05ea3733372513e83d3b981e9c516a81))
+
 ### [1.14.22](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.14.21...v1.14.22) (2025-09-20)
 
 
