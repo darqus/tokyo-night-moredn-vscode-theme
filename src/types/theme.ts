@@ -58,6 +58,10 @@ export interface InterfacePalette {
     default: Hex
     focus: Hex
   }
+  button: {
+    default: Hex
+    hover: Hex
+  }
   state: {
     info: Hex
     success: Hex

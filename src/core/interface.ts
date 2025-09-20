@@ -3,7 +3,7 @@
  * Автогенерация всех цветов интерфейса из базовой палитры
  */
 import { basePalette } from './palette'
-import { mix, withAlpha, lighten } from './utils'
+import { mix, withAlpha } from './utils'
 import type { InterfacePalette } from '../types/theme'
 
 export const interfacePalette: InterfacePalette = {
@@ -41,6 +41,12 @@ export const interfacePalette: InterfacePalette = {
   border: {
     default: mix(basePalette.black, basePalette.gray, 0.3),
     focus: withAlpha(basePalette.blue, 0.4),
+  },
+
+  // Кнопки (автогенерация)
+  button: {
+    default: mix(basePalette.black, basePalette.blue, 0.2),
+    hover: mix(basePalette.black, basePalette.blue, 0.25),
   },
 
   // Состояния (семантические цвета)

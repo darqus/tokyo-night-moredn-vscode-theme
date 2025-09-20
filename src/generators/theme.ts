@@ -230,9 +230,9 @@ const generateInterfaceColors = () => ({
   'inputValidation.warningBorder': interfacePalette.state.warning,
 
   // Button
-  'button.background': interfacePalette.state.info,
-  'button.foreground': interfacePalette.bg.base,
-  'button.hoverBackground': interfacePalette.state.info,
+  'button.background': interfacePalette.button.default,
+  'button.foreground': interfacePalette.text.primary,
+  'button.hoverBackground': interfacePalette.button.hover,
   'button.border': interfacePalette.border.default,
   'button.separator': interfacePalette.border.default,
   'button.secondaryBackground': interfacePalette.bg.overlay,
