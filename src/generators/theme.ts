@@ -104,9 +104,12 @@ const generateInterfaceColors = () => ({
   'editor.selectionForeground': interfacePalette.text.primary,
   'editor.inactiveSelectionBackground': interfacePalette.bg.hover,
   'editor.lineHighlightBackground': interfacePalette.bg.hover,
-  'editor.findMatchBackground': interfacePalette.bg.findMatch,
-  'editor.findMatchBorder': interfacePalette.bg.findMatchBorder,
-  'editor.findMatchHighlightBackground': interfacePalette.bg.selection,
+  // Search highlights: use warm yellow with adequate contrast
+  'editor.findMatchBackground': withAlpha(basePalette.yellow, 0.22),
+  'editor.findMatchBorder': withAlpha(basePalette.yellow, 0.7),
+  'editor.findMatchHighlightBackground': withAlpha(basePalette.yellow, 0.14),
+  'editor.findMatchForeground': interfacePalette.text.primary,
+  'editor.findMatchHighlightForeground': interfacePalette.text.primary,
   'editor.wordHighlightBackground': interfacePalette.bg.hover,
   'editor.wordHighlightStrongBackground': interfacePalette.bg.selection,
   'editor.hoverHighlightBackground': interfacePalette.bg.hover,
@@ -204,6 +207,9 @@ const generateInterfaceColors = () => ({
   'list.focusForeground': interfacePalette.text.primary,
   // Should be transparent per VS Code theme color docs
   'list.dropBackground': withAlpha(interfacePalette.bg.overlay, 0.2),
+  // Filter matches in lists/trees should align with search highlight scheme
+  'list.filterMatchBackground': withAlpha(basePalette.yellow, 0.14),
+  'list.filterMatchBorder': withAlpha(basePalette.yellow, 0.7),
   'list.highlightForeground': interfacePalette.state.info,
   'list.invalidItemForeground': interfacePalette.state.error,
   'list.errorForeground': interfacePalette.state.error,
@@ -282,9 +288,9 @@ const generateInterfaceColors = () => ({
   'terminalCursor.foreground': interfacePalette.text.primary,
 
   // Terminal search highlight
-  'terminal.findMatchBackground': interfacePalette.bg.findMatch,
-  'terminal.findMatchBorder': interfacePalette.bg.findMatchBorder,
-  'terminal.findMatchHighlightBackground': interfacePalette.bg.selection,
+  'terminal.findMatchBackground': withAlpha(basePalette.yellow, 0.22),
+  'terminal.findMatchBorder': withAlpha(basePalette.yellow, 0.7),
+  'terminal.findMatchHighlightBackground': withAlpha(basePalette.yellow, 0.14),
   // Border for highlight is optional; keeping only background for clarity
 
   // Terminal command decorations (left markers for commands)
@@ -496,6 +502,10 @@ const generateInterfaceColors = () => ({
   'minimapGutter.addedBackground': interfacePalette.state.success,
   'minimapGutter.modifiedBackground': interfacePalette.state.info,
   'minimapGutter.deletedBackground': interfacePalette.state.error,
+
+  // Search Editor - use the same warm yellow scheme for matches
+  'searchEditor.findMatchBackground': withAlpha(basePalette.yellow, 0.14),
+  'searchEditor.findMatchBorder': withAlpha(basePalette.yellow, 0.7),
 
   // Problem Matcher
   'problemsErrorIcon.foreground': interfacePalette.state.error,
