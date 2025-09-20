@@ -3,7 +3,7 @@
  */
 import { interfacePalette } from '../core/interface'
 import { basePalette } from '../core/palette'
-import { lighten } from '../core/utils'
+import { lighten, withAlpha } from '../core/utils'
 import { generateTokenColors, generateSemanticTokens } from './tokens'
 import type { VSCodeTheme } from '../types/theme'
 
@@ -123,7 +123,8 @@ const generateInterfaceColors = () => ({
 
   // Editor Groups
   'editorGroup.border': interfacePalette.border.default,
-  'editorGroup.dropBackground': interfacePalette.bg.overlay,
+  // Should be transparent to not obscure content
+  'editorGroup.dropBackground': withAlpha(interfacePalette.bg.overlay, 0.2),
   'editorGroupHeader.noTabsBackground': interfacePalette.bg.base,
   'editorGroupHeader.tabsBackground': interfacePalette.bg.base,
   'editorGroupHeader.tabsBorder': interfacePalette.border.default,
@@ -201,7 +202,8 @@ const generateInterfaceColors = () => ({
   'list.hoverForeground': interfacePalette.text.primary,
   'list.focusBackground': interfacePalette.bg.selection,
   'list.focusForeground': interfacePalette.text.primary,
-  'list.dropBackground': interfacePalette.bg.overlay,
+  // Should be transparent per VS Code theme color docs
+  'list.dropBackground': withAlpha(interfacePalette.bg.overlay, 0.2),
   'list.highlightForeground': interfacePalette.state.info,
   'list.invalidItemForeground': interfacePalette.state.error,
   'list.errorForeground': interfacePalette.state.error,
@@ -259,7 +261,8 @@ const generateInterfaceColors = () => ({
   'panelTitle.inactiveForeground': interfacePalette.text.muted,
   'panelInput.border': interfacePalette.border.default,
   'panelSection.border': interfacePalette.border.default,
-  'panelSection.dropBackground': interfacePalette.bg.overlay,
+  // Should be transparent to let panel contents shine through
+  'panelSection.dropBackground': withAlpha(interfacePalette.bg.overlay, 0.2),
   'panelSectionHeader.background': interfacePalette.bg.elevated,
   'panelSectionHeader.foreground': interfacePalette.text.primary,
   'panelSectionHeader.border': interfacePalette.border.default,
@@ -268,12 +271,34 @@ const generateInterfaceColors = () => ({
   'terminal.background': interfacePalette.bg.base,
   'terminal.foreground': interfacePalette.text.primary,
   'terminal.selectionBackground': interfacePalette.bg.selection,
+  // Omit selectionForeground to let VS Code auto-contrast without schema warnings
+  'terminal.inactiveSelectionBackground': interfacePalette.bg.hover,
   'terminal.border': interfacePalette.border.default,
-  'terminal.dropBackground': interfacePalette.bg.overlay,
+  // Must be transparent or it will obscure terminal content
+  'terminal.dropBackground': withAlpha(interfacePalette.bg.overlay, 0.2),
   'terminal.hoverHighlightBackground': interfacePalette.bg.hover,
   'terminal.tab.activeBorder': interfacePalette.state.info,
   'terminalCursor.background': interfacePalette.bg.base,
   'terminalCursor.foreground': interfacePalette.text.primary,
+
+  // Terminal search highlight
+  'terminal.findMatchBackground': interfacePalette.bg.findMatch,
+  'terminal.findMatchBorder': interfacePalette.bg.findMatchBorder,
+  'terminal.findMatchHighlightBackground': interfacePalette.bg.selection,
+  // Border for highlight is optional; keeping only background for clarity
+
+  // Terminal command decorations (left markers for commands)
+  'terminalCommandDecoration.defaultBackground': interfacePalette.bg.hoverMuted,
+  'terminalCommandDecoration.successBackground': interfacePalette.state.success,
+  'terminalCommandDecoration.errorBackground': interfacePalette.state.error,
+
+  // Terminal overview ruler colors
+  'terminalOverviewRuler.cursorForeground': interfacePalette.state.info,
+  'terminalOverviewRuler.findMatchForeground': interfacePalette.state.warning,
+  'terminalOverviewRuler.border': interfacePalette.border.default,
+
+  // Terminal initial hint color (placeholder text)
+  'terminal.initialHintForeground': interfacePalette.text.muted,
 
   // Terminal ANSI palette (makes links/paths readable)
   'terminal.ansiBlack': basePalette.black,
