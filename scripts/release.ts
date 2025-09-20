@@ -41,6 +41,71 @@ class ReleaseManager {
     return pkg.version
   }
 
+  private getLastTag(): string | null {
+    try {
+      const lastTag = this.exec('git describe --tags --abbrev=0', {
+        silent: true,
+      })
+      return lastTag || null
+    } catch {
+      return null
+    }
+  }
+
+  private getCommitCountSinceLastRelease(): number {
+    const lastTag = this.getLastTag()
+    try {
+      const countCmd = lastTag
+        ? `git rev-list ${lastTag}..HEAD --count`
+        : 'git rev-list HEAD --count'
+      const count = this.exec(countCmd, { silent: true })
+      const n = parseInt(count || '0', 10)
+      return Number.isFinite(n) ? n : 0
+    } catch {
+      return 0
+    }
+  }
+
+  private computeVersion(
+    currentVersion: string,
+    releaseType: 'patch' | 'minor' | 'major',
+    commitCount: number,
+    prerelease: boolean
+  ): string {
+    // Parse semver (ignore existing pre-release/build metadata if any)
+    const base = currentVersion.split('-')[0]
+    const [majS, minS, patS] = base.split('.')
+    let major = parseInt(majS, 10) || 0
+    let minor = parseInt(minS, 10) || 0
+    let patch = parseInt(patS, 10) || 0
+
+    // Ensure at least +1 so version always moves forward when releasing
+    const count = Math.max(commitCount, 1)
+
+    switch (releaseType) {
+      case 'major':
+        major += 1
+        minor = 0
+        patch = count
+        break
+      case 'minor':
+        minor += 1
+        patch = count
+        break
+      case 'patch':
+      default:
+        patch += count
+        break
+    }
+
+    const next = `${major}.${minor}.${patch}`
+    if (prerelease) {
+      // Add commit count as prerelease identifier to keep it monotonic
+      return `${next}-beta.${count}`
+    }
+    return next
+  }
+
   private detectReleaseType(): 'patch' | 'minor' | 'major' {
     try {
       // Получаем коммиты с последнего тега
@@ -139,16 +204,26 @@ class ReleaseManager {
     console.log('✅ Package generated')
   }
 
-  private bumpVersion(type: string, prerelease: boolean): string {
-    console.log(`📈 Bumping ${type} version...`)
+  private bumpVersion(
+    type: 'patch' | 'minor' | 'major',
+    prerelease: boolean
+  ): string {
+    console.log(`📈 Bumping ${type} version (with commit count)...`)
 
     const currentVersion = this.getCurrentVersion()
+    const commitCount = this.getCommitCountSinceLastRelease()
     console.log(`Current version: ${currentVersion}`)
+    console.log(`Commits since last release: ${commitCount}`)
 
-    const prereleaseFlag = prerelease ? '--prerelease' : ''
-    this.exec(`npm version ${type} ${prereleaseFlag} --no-git-tag-version`)
+    const newVersion = this.computeVersion(
+      currentVersion,
+      type,
+      commitCount,
+      prerelease
+    )
 
-    const newVersion = this.getCurrentVersion()
+    this.exec(`npm version ${newVersion} --no-git-tag-version`)
+
     console.log(`✅ Version bumped to ${newVersion}`)
     return newVersion
   }
@@ -280,8 +355,16 @@ class ReleaseManager {
       if (options.dryRun) {
         console.log('🔍 DRY RUN MODE - no changes will be made')
         const currentVersion = this.getCurrentVersion()
+        const commitCount = this.getCommitCountSinceLastRelease()
+        const previewVersion = this.computeVersion(
+          currentVersion,
+          releaseType,
+          commitCount,
+          !!options.prerelease
+        )
         console.log(`Current version: ${currentVersion}`)
-        console.log(`Would bump to: ${releaseType} release`)
+        console.log(`Commits since last release: ${commitCount}`)
+        console.log(`Would bump to: ${previewVersion}`)
         return
       }
 

@@ -98,6 +98,16 @@ detect_release_type() {
     fi
 }
 
+# Подсчет количества коммитов с последнего релиза
+commit_count_since_last_release() {
+    local last_tag=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+    if [ -n "$last_tag" ]; then
+        git rev-list ${last_tag}..HEAD --count 2>/dev/null || echo 0
+    else
+        git rev-list HEAD --count 2>/dev/null || echo 0
+    fi
+}
+
 # Запуск тестов
 run_tests() {
     if [[ "$1" == "--skip-tests" ]]; then
@@ -134,17 +144,41 @@ bump_version() {
     local release_type=$1
     local prerelease=$2
 
-    info "Поднятие версии ($release_type)..."
+    info "Поднятие версии ($release_type) с учетом количества коммитов..."
 
-    if [[ "$prerelease" == "--prerelease" ]]; then
-        npm version $release_type --preid=beta --no-git-tag-version
-    else
-        npm version $release_type --no-git-tag-version
+    local current_version=$(node -p "require('./package.json').version")
+    local base=${current_version%%-*}
+    local major=$(echo $base | cut -d. -f1)
+    local minor=$(echo $base | cut -d. -f2)
+    local patch=$(echo $base | cut -d. -f3)
+    local count=$(commit_count_since_last_release)
+    if [ -z "$count" ] || [ "$count" -lt 1 ]; then
+        count=1
     fi
 
-    local new_version=$(node -p "require('./package.json').version")
-    success "Версия поднята до $new_version"
-    echo $new_version
+    case "$release_type" in
+        major)
+            major=$((major + 1))
+            minor=0
+            patch=$count
+            ;;
+        minor)
+            minor=$((minor + 1))
+            patch=$count
+            ;;
+        patch|*)
+            patch=$((patch + count))
+            ;;
+    esac
+
+    local next="${major}.${minor}.${patch}"
+    if [[ "$prerelease" == "--prerelease" ]]; then
+        next="${next}-beta.${count}"
+    fi
+
+    npm version "$next" --no-git-tag-version
+    success "Версия поднята до $next"
+    echo $next
 }
 
 # Обновление THEME_VERSION в генераторе темы
@@ -320,8 +354,32 @@ main() {
     if [[ "$dry_run" == true ]]; then
         info "🔍 РЕЖИМ ПРЕДВАРИТЕЛЬНОГО ПРОСМОТРА - изменения не будут внесены"
         local current_version=$(node -p "require('./package.json').version")
+        local commits=$(commit_count_since_last_release)
+        # Предпросчет следующей версии
+        local preview_release_type=$release_type
+        if [ -z "$preview_release_type" ]; then
+            preview_release_type=$(detect_release_type)
+        fi
+        local base=${current_version%%-*}
+        local maj=$(echo $base | cut -d. -f1)
+        local min=$(echo $base | cut -d. -f2)
+        local pat=$(echo $base | cut -d. -f3)
+        local cnt=$commits; [ -z "$cnt" ] || [ "$cnt" -lt 1 ] && cnt=1
+        case "$preview_release_type" in
+            major)
+                maj=$((maj + 1)); min=0; pat=$cnt;;
+            minor)
+                min=$((min + 1)); pat=$cnt;;
+            *)
+                pat=$((pat + cnt));;
+        esac
+        local preview_next="${maj}.${min}.${pat}"
+        if [ -n "$prerelease" ]; then
+            preview_next="${preview_next}-beta.${cnt}"
+        fi
         info "Текущая версия: $current_version"
-        info "Будет создан: $release_type релиз"
+        info "Коммитов с последнего релиза: $commits"
+        info "Будет поднято до: $preview_next"
         exit 0
     fi
 
