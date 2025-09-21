@@ -155,7 +155,7 @@ const generateInterfaceColors = () => ({
   'sideBarSectionHeader.border': interfacePalette.border.default,
 
   // Status Bar
-  'statusBar.background': interfacePalette.bg.base,
+  'statusBar.background': interfacePalette.bg.elevated,
   'statusBar.foreground': interfacePalette.text.muted,
   'statusBar.border': interfacePalette.border.default,
   'statusBar.noFolderBackground': interfacePalette.bg.base,

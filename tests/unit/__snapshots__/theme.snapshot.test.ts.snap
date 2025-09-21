@@ -305,7 +305,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "sideBarSectionHeader.border": "#202230",
     "sideBarSectionHeader.foreground": "#c0caf5",
     "sideBarTitle.foreground": "#c0caf5",
-    "statusBar.background": "#1a1b26",
+    "statusBar.background": "#202333",
     "statusBar.border": "#202230",
     "statusBar.debuggingBackground": "#e0af68",
     "statusBar.debuggingForeground": "#1a1b26",
