@@ -254,6 +254,7 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
     alpha: 'opaque',
     contrastHints: { primaryMin: 4.5 },
     bgKey: 'panel.background',
+    notes: 'Panel title should meet AA when active',
   },
   // PeekView title text
   {
@@ -288,6 +289,7 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
     alpha: 'opaque',
     contrastHints: { primaryMin: 4.5 },
     bgKey: 'notificationCenterHeader.background',
+    notes: 'Notifications header should be as readable as overlay titles',
   },
   // Terminal initial hint (placeholder-style)
   {
@@ -302,6 +304,8 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
     surface: 'base',
     alpha: 'opaque',
     contrastHints: { mutedMin: 3.0 },
+    notes:
+      'Inline chat foreground vs background: keep AA for clarity in chat UIs',
     bgKey: 'breadcrumb.background',
   },
   {

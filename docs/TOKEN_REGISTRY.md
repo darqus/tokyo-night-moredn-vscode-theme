@@ -49,13 +49,13 @@
 | menu.foreground | menu | opaque |  |  | menu.background | primary≥4.5 |  |
 | menu.selectionForeground | menu | opaque |  |  | menu.background | primary≥4.5 |  |
 | panelTitle.inactiveForeground | panel | opaque |  |  | panel.background | muted≥3 |  |
-| panelTitle.activeForeground | panel | opaque |  |  | panel.background | primary≥4.5 |  |
+| panelTitle.activeForeground | panel | opaque |  |  | panel.background | primary≥4.5 | Panel title should meet AA when active |
 | peekViewTitleLabel.foreground | overlay | opaque |  |  | peekViewTitle.background | primary≥4.5 | Title label should remain readable over overlay title background |
 | peekViewTitleDescription.foreground | overlay | opaque |  |  | peekViewTitle.background | muted≥3 | Description text can be muted but should stay >=3.0 |
 | sideBarSectionHeader.foreground | base | opaque |  |  | sideBarSectionHeader.background | primary≥4 | Headers over elevated background should be clearly readable |
-| notificationCenterHeader.foreground | overlay | opaque |  |  | notificationCenterHeader.background | primary≥4.5 |  |
+| notificationCenterHeader.foreground | overlay | opaque |  |  | notificationCenterHeader.background | primary≥4.5 | Notifications header should be as readable as overlay titles |
 | terminal.initialHintForeground | terminal | opaque |  |  | terminal.background | muted≥3 |  |
-| breadcrumb.foreground | base | opaque |  |  | breadcrumb.background | muted≥3 |  |
+| breadcrumb.foreground | base | opaque |  |  | breadcrumb.background | muted≥3 | Inline chat foreground vs background: keep AA for clarity in chat UIs |
 | statusBar.foreground | base | opaque |  |  | statusBar.background | muted≥3 |  |
 | activityBar.foreground | base | opaque |  |  | activityBar.background | muted≥3 |  |
 | sideBar.foreground | base | opaque |  |  | sideBar.background | primary≥4 |  |

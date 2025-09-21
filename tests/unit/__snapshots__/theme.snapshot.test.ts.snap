@@ -276,7 +276,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "scmGraph.historyItemHoverLabelForeground": "#1a1b26",
     "scmGraph.historyItemRefColor": "#7aa2f7",
     "scmGraph.historyItemRemoteRefColor": "#bb9af7",
-    "scrollbar.shadow": "#232739",
+    "scrollbar.shadow": "#282d43",
     "scrollbarSlider.activeBackground": "#86afff33",
     "scrollbarSlider.background": "#80a8fe14",
     "scrollbarSlider.hoverBackground": "#83acff1f",
@@ -409,7 +409,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "welcomePage.tileBorder": "#202230",
     "welcomePage.tileHoverBackground": "#80a8fe14",
     "widget.border": "#30344c",
-    "widget.shadow": "#232739",
+    "widget.shadow": "#282d43",
   },
   "name": "Tokyo Night Modern",
   "semanticTokenColors": {

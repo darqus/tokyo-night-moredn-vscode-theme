@@ -151,6 +151,10 @@ export interface InterfacePalette {
       border: Hex
       highlightBackground: Hex
     }
+    shadows: {
+      widget: Hex
+      scrollbar: Hex
+    }
     peekView: {
       matchHighlightBackground: Hex
       selectionBackground: Hex

@@ -24,6 +24,24 @@ Swatches (hex):
 
 Rationale: distinguish matches from selection subtly while keeping both transparent and cool-toned.
 
+## Try it: quick swatches
+
+Use these hex values to preview the change in your editor:
+
+- Peek match: `#86afff33` → `#85aeff2e`
+- Peek selection: `#86afff33` → `#86afff33` (unchanged)
+- Thin border: `#202230` → `#30344c`
+
+Example CSS to reproduce the chips locally (optional):
+
+```css
+.chip { width: 28px; height: 20px; border: 1px solid #202230; display: inline-block; }
+.chip.old-match { background: #86afff33; }
+.chip.new-match { background: #85aeff2e; }
+.chip.border-old { background: #202230; border-color: #202230; }
+.chip.border-new { background: #30344c; border-color: #30344c; }
+```
+
 ## Thin borders
 
 - `menu.separatorBackground` and `editorHoverWidget.border` already use an OKLCH-tinted neutral.

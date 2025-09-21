@@ -201,6 +201,19 @@ export const interfacePalette: InterfacePalette = {
       background: darken(basePalette.blue, 0.8),
       foreground: lighten(basePalette.white, 0.12),
     },
+    // Shadows: лёгкий OKLCH-сдвиг к более холодному оттенку для четкости
+    shadows: {
+      widget: oklchMix(
+        mix(basePalette.black, basePalette.blue, 0.09),
+        basePalette.blue,
+        0.06
+      ),
+      scrollbar: oklchMix(
+        mix(basePalette.black, basePalette.blue, 0.09),
+        basePalette.blue,
+        0.06
+      ),
+    },
     // Peek View: использовать те же холодные OKLCH‑тоны, что и selection,
     // но с очень малым ΔL/ΔC для match highlight, чтобы он чуть отличался от selection
     // и оставался прозрачным (не перекрывал контент).

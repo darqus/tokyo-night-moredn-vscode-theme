@@ -61,7 +61,7 @@ const generateInterfaceColors = () => ({
   focusBorder: interfacePalette.border.focus,
   errorForeground: interfacePalette.state.error,
   'selection.background': interfacePalette.bg.selection,
-  'widget.shadow': interfacePalette.bg.overlay,
+  'widget.shadow': interfacePalette.derived.shadows.widget,
 
   // Title Bar (главное меню)
   'titleBar.activeBackground': interfacePalette.bg.base,
@@ -350,7 +350,7 @@ const generateInterfaceColors = () => ({
   'textBlockQuote.border': interfacePalette.derived.blockquote.border,
 
   // Scrollbar
-  'scrollbar.shadow': interfacePalette.bg.overlay,
+  'scrollbar.shadow': interfacePalette.derived.shadows.scrollbar,
   'scrollbarSlider.background': interfacePalette.bg.hover,
   'scrollbarSlider.hoverBackground': interfacePalette.bg.active,
   'scrollbarSlider.activeBackground': interfacePalette.bg.selection,
