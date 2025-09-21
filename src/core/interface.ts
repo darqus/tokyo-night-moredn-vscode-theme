@@ -4,6 +4,7 @@
  */
 import { basePalette } from './palette'
 import { mix, withAlpha, lighten, darken } from './utils'
+import { oklchLighten } from './oklch'
 import type { InterfacePalette } from '../types/theme'
 
 export const interfacePalette: InterfacePalette = {
@@ -14,9 +15,10 @@ export const interfacePalette: InterfacePalette = {
     elevated: mix(basePalette.black, basePalette.blue, 0.05),
     overlay: mix(basePalette.black, basePalette.blue, 0.09),
     input: mix(basePalette.black, basePalette.blue, 0.04),
-    hover: withAlpha(basePalette.blue, 0.08),
-    active: withAlpha(basePalette.blue, 0.12),
-    selection: withAlpha(basePalette.blue, 0.2),
+    // OKLCH этап 1: используем оbёртку, не меняя цвет (amount = 0)
+    hover: withAlpha(oklchLighten(basePalette.blue, 0), 0.08),
+    active: withAlpha(oklchLighten(basePalette.blue, 0), 0.12),
+    selection: withAlpha(oklchLighten(basePalette.blue, 0), 0.2),
     // Специализированные hover цвета
     hoverSubtle: withAlpha(mix(basePalette.white, basePalette.gray, 0.4), 0.08),
     hoverMuted: withAlpha(mix(basePalette.white, basePalette.gray, 0.4), 0.12),
@@ -177,10 +179,10 @@ export const interfacePalette: InterfacePalette = {
       ),
     },
     findMatch: {
-      // Balanced profile: keep current active match, soften border, make other matches a bit more visible
-      background: withAlpha(basePalette.yellow, 0.22),
-      border: withAlpha(basePalette.yellow, 0.6),
-      highlightBackground: withAlpha(basePalette.yellow, 0.16),
+      // OKLCH этап 1: через OKLCH-утилиту с нулевым изменением (визуально без изменений)
+      background: withAlpha(oklchLighten(basePalette.yellow, 0), 0.22),
+      border: withAlpha(oklchLighten(basePalette.yellow, 0), 0.6),
+      highlightBackground: withAlpha(oklchLighten(basePalette.yellow, 0), 0.16),
     },
     inlineChat: {
       background: darken(basePalette.blue, 0.8),

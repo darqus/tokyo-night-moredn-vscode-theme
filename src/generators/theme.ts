@@ -138,8 +138,8 @@ const generateInterfaceColors = () => ({
   'activityBar.foreground': interfacePalette.text.muted,
   'activityBar.activeBorder': interfacePalette.state.info,
   'activityBar.activeBackground': interfacePalette.bg.hover,
-  // Use a slightly brighter tone to avoid blending with background
-  'activityBar.inactiveForeground': interfacePalette.text.subtle,
+  // Surface-aware: text on base surface
+  'activityBar.inactiveForeground': interfacePalette.textOn.base.subtle,
   'activityBar.border': interfacePalette.border.default,
   'activityBarBadge.background': interfacePalette.state.info,
   'activityBarBadge.foreground': interfacePalette.text.inverse,
@@ -196,7 +196,7 @@ const generateInterfaceColors = () => ({
   'tab.unfocusedActiveForeground': interfacePalette.text.muted,
   'tab.unfocusedInactiveBackground': interfacePalette.bg.base,
   // Improve readability of inactive/unfocused tabs
-  'tab.unfocusedInactiveForeground': interfacePalette.text.subtle,
+  'tab.unfocusedInactiveForeground': interfacePalette.textOn.base.subtle,
   'tab.lastPinnedBorder': interfacePalette.border.default,
 
   // Lists
@@ -478,12 +478,13 @@ const generateInterfaceColors = () => ({
   'editorSuggestWidget.selectedBackground': interfacePalette.bg.selection,
   'editorSuggestWidget.selectedForeground': interfacePalette.text.primary,
   'editorSuggestWidget.selectedIconForeground': interfacePalette.text.primary,
-  'editorSuggestWidgetStatus.foreground': interfacePalette.text.muted,
+  // Overlay widget, use overlay-muted for secondary text
+  'editorSuggestWidgetStatus.foreground': interfacePalette.textOn.overlay.muted,
 
   // Editor Hover Widget
   'editorHoverWidget.background': interfacePalette.bg.overlay,
   'editorHoverWidget.border': interfacePalette.border.separatorBackground,
-  'editorHoverWidget.foreground': interfacePalette.text.primary,
+  'editorHoverWidget.foreground': interfacePalette.textOn.overlay.primary,
   'editorHoverWidget.highlightForeground': interfacePalette.state.info,
   'editorHoverWidget.statusBarBackground': interfacePalette.bg.overlay,
 
