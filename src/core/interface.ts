@@ -50,12 +50,14 @@ export const interfacePalette: InterfacePalette = {
       foreground: basePalette.white,
       hoverBackground: darken(basePalette.blue, 0.6),
       border: withAlpha(basePalette.blue, 0.6), // усиленная контрастность
-      separator: mix(basePalette.blue, basePalette.gray, 0.1), // соответствует border.default
+      // separator выравнен с border.default (нейтральный)
+      separator: mix(basePalette.black, basePalette.gray, 0.1),
     },
     secondary: {
       background: darken(basePalette.blue, 0.7),
       foreground: basePalette.white,
-      hoverBackground: darken(basePalette.blue, 0.7),
+      // Делает наведение ощутимым, но остаётся холодным и ненавязчивым
+      hoverBackground: withAlpha(basePalette.blue, 0.12),
       border: basePalette.blue,
     },
   },
