@@ -126,6 +126,13 @@ export const interfacePalette: InterfacePalette = {
       border: withAlpha(basePalette.cyan, 0.35),
     },
     terminal: {
+      // Base ANSI (non-bright)
+      ansiBlack: basePalette.black,
+      ansiRed: basePalette.red,
+      ansiGreen: basePalette.green,
+      ansiYellow: basePalette.yellow,
+      ansiMagenta: basePalette.magenta,
+      ansiWhite: basePalette.white,
       // Cooler hover with cyan->blue mix for terminal command/hover highlight
       hoverHighlightBackground: withAlpha(
         mix(basePalette.cyan, basePalette.blue, 0.35),
@@ -158,5 +165,17 @@ export const interfacePalette: InterfacePalette = {
       background: darken(basePalette.blue, 0.8),
       foreground: lighten(basePalette.white, 0.12),
     },
+  },
+
+  // Charts palette used by charts.* tokens
+  charts: {
+    foreground: basePalette.white,
+    lines: mix(basePalette.black, basePalette.gray, 0.1),
+    red: basePalette.red,
+    blue: basePalette.blue,
+    yellow: basePalette.yellow,
+    orange: basePalette.orange,
+    green: basePalette.green,
+    purple: basePalette.purple,
   },
 }

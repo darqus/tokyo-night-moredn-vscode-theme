@@ -2,7 +2,6 @@
  * Генератор финальной темы VS Code
  */
 import { interfacePalette } from '../core/interface'
-import { basePalette } from '../core/palette'
 import { generateTokenColors, generateSemanticTokens } from './tokens'
 import type { VSCodeTheme } from '../types/theme'
 
@@ -318,16 +317,16 @@ const generateInterfaceColors = () => ({
   'terminal.initialHintForeground': interfacePalette.text.muted,
 
   // Terminal ANSI palette (makes links/paths readable)
-  'terminal.ansiBlack': basePalette.black,
-  'terminal.ansiRed': basePalette.red,
-  'terminal.ansiGreen': basePalette.green,
-  'terminal.ansiYellow': basePalette.yellow,
+  'terminal.ansiBlack': interfacePalette.derived.terminal.ansiBlack,
+  'terminal.ansiRed': interfacePalette.derived.terminal.ansiRed,
+  'terminal.ansiGreen': interfacePalette.derived.terminal.ansiGreen,
+  'terminal.ansiYellow': interfacePalette.derived.terminal.ansiYellow,
   // Align blue with link color to avoid two-tone URLs in terminals
   'terminal.ansiBlue': interfacePalette.derived.terminal.ansiBlue,
-  'terminal.ansiMagenta': basePalette.magenta,
+  'terminal.ansiMagenta': interfacePalette.derived.terminal.ansiMagenta,
   // Unify cyan shades for single-color links in terminals
   'terminal.ansiCyan': interfacePalette.derived.terminal.ansiCyan,
-  'terminal.ansiWhite': basePalette.white,
+  'terminal.ansiWhite': interfacePalette.derived.terminal.ansiWhite,
   'terminal.ansiBrightBlack': interfacePalette.derived.terminal.ansiBrightBlack,
   'terminal.ansiBrightRed': interfacePalette.derived.terminal.ansiBrightRed,
   'terminal.ansiBrightGreen': interfacePalette.derived.terminal.ansiBrightGreen,
@@ -543,14 +542,14 @@ const generateInterfaceColors = () => ({
   'problemsInfoIcon.foreground': interfacePalette.state.info,
 
   // Charts (для расширений)
-  'charts.foreground': interfacePalette.text.primary,
-  'charts.lines': interfacePalette.border.default,
-  'charts.red': interfacePalette.state.error,
-  'charts.blue': basePalette.blue,
-  'charts.yellow': interfacePalette.state.warning,
-  'charts.orange': basePalette.orange,
-  'charts.green': interfacePalette.state.success,
-  'charts.purple': basePalette.purple,
+  'charts.foreground': interfacePalette.charts.foreground,
+  'charts.lines': interfacePalette.charts.lines,
+  'charts.red': interfacePalette.charts.red,
+  'charts.blue': interfacePalette.charts.blue,
+  'charts.yellow': interfacePalette.charts.yellow,
+  'charts.orange': interfacePalette.charts.orange,
+  'charts.green': interfacePalette.charts.green,
+  'charts.purple': interfacePalette.charts.purple,
 
   // Ports
   'ports.iconRunningProcessForeground': interfacePalette.state.success,

@@ -103,6 +103,13 @@ export interface InterfacePalette {
       foreground: Hex
     }
     terminal: {
+      // Base ANSI colors
+      ansiBlack: Hex
+      ansiRed: Hex
+      ansiGreen: Hex
+      ansiYellow: Hex
+      ansiMagenta: Hex
+      ansiWhite: Hex
       hoverHighlightBackground: Hex
       ansiBlue: Hex
       ansiCyan: Hex
@@ -131,6 +138,17 @@ export interface InterfacePalette {
       background: Hex
       border: Hex
     }
+  }
+  // Charts palette for extensions and charts.* tokens
+  charts: {
+    foreground: Hex
+    lines: Hex
+    red: Hex
+    blue: Hex
+    yellow: Hex
+    orange: Hex
+    green: Hex
+    purple: Hex
   }
   // Controls
   dropdown: {
