@@ -32,6 +32,11 @@ Use these hex values to preview the change in your editor:
 - Peek selection: `#86afff33` → `#86afff33` (unchanged)
 - Thin border: `#202230` → `#30344c`
 
+Shadows:
+
+- Scrollbar shadow: `#282d43` → `#272b40`
+- Widget shadow: `#282d43` → `#282d43eb` (slightly translucent)
+
 Example CSS to reproduce the chips locally (optional):
 
 ```css

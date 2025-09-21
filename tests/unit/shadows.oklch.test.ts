@@ -14,4 +14,10 @@ describe('OKLCH shadow tones', () => {
     const c = generateTheme().colors
     expect(c['widget.shadow']).not.toBe(c['scrollbar.shadow'])
   })
+
+  it('widget.shadow has alpha while scrollbar.shadow remains opaque', () => {
+    const c = generateTheme().colors
+    expect(c['widget.shadow']).toMatch(/^#[0-9a-fA-F]{8}$/)
+    expect(c['scrollbar.shadow']).toMatch(/^#[0-9a-fA-F]{6}$/)
+  })
 })

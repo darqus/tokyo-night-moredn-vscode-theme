@@ -255,7 +255,8 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
     alpha: 'opaque',
     contrastHints: { primaryMin: 4.5 },
     bgKey: 'panel.background',
-    notes: 'Panel title should meet AA when active',
+    notes:
+      'Panel title should meet AA when active (conceptually applies to terminal panels when such tokens are available)',
   },
   // PeekView title text
   {
