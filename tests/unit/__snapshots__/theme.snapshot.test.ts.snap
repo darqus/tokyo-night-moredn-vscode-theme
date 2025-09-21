@@ -66,7 +66,6 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "debugIcon.stopForeground": "#f7768e",
     "debugToolBar.background": "#1f2230",
     "debugToolBar.border": "#202230",
-    "debugToolBar.foreground": "#c0caf5",
     "descriptionForeground": "#9ba5cf",
     "diffEditor.diagonalFill": "#232739",
     "diffEditor.insertedLineBackground": "#9ece6a1a",

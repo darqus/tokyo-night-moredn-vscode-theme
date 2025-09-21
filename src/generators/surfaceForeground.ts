@@ -47,7 +47,6 @@ export const SURFACE_FOREGROUND_MAP: Record<
   'settings.checkboxForeground': (ip) => ip.textOn.elevated.primary,
   'settings.textInputForeground': (ip) => ip.textOn.elevated.primary,
   'settings.numberInputForeground': (ip) => ip.textOn.elevated.primary,
-  'debugToolBar.foreground': (ip) => ip.textOn.elevated.primary,
 
   // Overlay
   'editorSuggestWidget.foreground': (ip) => ip.textOn.overlay.primary,
