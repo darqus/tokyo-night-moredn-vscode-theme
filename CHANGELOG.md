@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.14.54](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.14.52...v1.14.54) (2025-09-21)
+
+
+### Bug Fixes
+
+* **theme:** remove editor.findMatchHighlightForeground to avoid warnings ([084be1a](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/084be1a33ba606fccdedd159cf61311f28d9ee63))
+
 ### [1.14.52](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.14.33...v1.14.52) (2025-09-21)
 
 
