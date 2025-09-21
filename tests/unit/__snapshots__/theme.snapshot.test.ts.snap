@@ -160,7 +160,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "gitDecoration.submoduleResourceForeground": "#969fca",
     "gitDecoration.untrackedResourceForeground": "#9ece6a",
     "icon.foreground": "#969fca",
-    "inlineChat.background": "#202333",
+    "inlineChat.background": "#182031",
     "inlineChat.border": "#202230",
     "inlineChat.foreground": "#c8d0f6",
     "input.background": "#1e202e",

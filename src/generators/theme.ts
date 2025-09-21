@@ -557,7 +557,7 @@ const generateInterfaceColors = () => ({
   'toolbar.activeBackground': interfacePalette.bg.selection,
 
   // Inline Chat (toolbar where Keep/Undo live)
-  'inlineChat.background': interfacePalette.bg.elevated,
+  'inlineChat.background': interfacePalette.derived.inlineChat.background,
   // Brighten inline chat text for better contrast (affects inactive toolbar buttons)
   'inlineChat.foreground': interfacePalette.derived.inlineChat.foreground,
   'inlineChat.border': interfacePalette.border.default,
@@ -634,4 +634,3 @@ export const generateTheme = (): VSCodeTheme => {
     semanticTokenColors: generateSemanticTokens(),
   }
 }
-// Test comment
