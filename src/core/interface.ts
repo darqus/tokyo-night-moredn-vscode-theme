@@ -98,7 +98,6 @@ export const interfacePalette: InterfacePalette = {
   },
   // SCM Graph
   scmGraph: {
-    // Темним фон ховера чуть сильнее базового синего, сохраняя читаемость
     label: {
       hoverForeground: basePalette.black,
       hoverBackground: basePalette.blue,
