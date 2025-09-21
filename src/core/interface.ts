@@ -96,6 +96,24 @@ export const interfacePalette: InterfacePalette = {
     border: mix(basePalette.black, basePalette.gray, 0.1), // соответствует border.default (#202230)
     listBackground: mix(basePalette.black, basePalette.blue, 0.06), // соответствует bg.elevated (#202333)
   },
+  // SCM Graph
+  scmGraph: {
+    // Темним фон ховера чуть сильнее базового синего, сохраняя читаемость
+    label: {
+      hoverForeground: basePalette.white,
+      hoverBackground: darken(basePalette.blue, 0.25),
+    },
+    foreground1: basePalette.blue,
+    foreground2: basePalette.magenta,
+    foreground3: basePalette.teal,
+    foreground4: basePalette.cyan,
+    foreground5: basePalette.purple,
+    historyItemHoverAdditionsForeground: basePalette.green,
+    historyItemHoverDeletionsForeground: basePalette.red,
+    historyItemRefColor: basePalette.blue,
+    historyItemRemoteRefColor: basePalette.magenta,
+    historyItemBaseRefColor: basePalette.teal,
+  },
   derived: {
     link: {
       foreground: lighten(basePalette.cyan, 0.22),
@@ -125,9 +143,9 @@ export const interfacePalette: InterfacePalette = {
     },
     findMatch: {
       // Balanced profile: keep current active match, soften border, make other matches a bit more visible
-      background: withAlpha(basePalette.magenta, 0.22),
-      border: withAlpha(basePalette.magenta, 0.6),
-      highlightBackground: withAlpha(basePalette.magenta, 0.16),
+      background: withAlpha(basePalette.yellow, 0.22),
+      border: withAlpha(basePalette.yellow, 0.6),
+      highlightBackground: withAlpha(basePalette.yellow, 0.16),
     },
     inlineChat: {
       background: darken(basePalette.blue, 0.8),

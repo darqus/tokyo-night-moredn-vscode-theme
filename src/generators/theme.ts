@@ -390,20 +390,26 @@ const generateInterfaceColors = () => ({
   'gitDecoration.submoduleResourceForeground': interfacePalette.text.muted,
 
   // SCM Graph (Git History)
-  'scmGraph.historyItemHoverLabelForeground': interfacePalette.text.inverse,
-  'scmGraph.foreground1': basePalette.blue,
-  'scmGraph.foreground2': basePalette.magenta,
-  'scmGraph.foreground3': basePalette.teal,
-  'scmGraph.foreground4': basePalette.cyan,
-  'scmGraph.foreground5': basePalette.purple,
+  'scmGraph.historyItemHoverLabelForeground':
+    interfacePalette.scmGraph.label.hoverForeground,
+  'scmGraph.historyItemHoverDefaultLabelForeground':
+    interfacePalette.scmGraph.label.hoverForeground,
+  'scmGraph.historyItemHoverDefaultLabelBackground':
+    interfacePalette.scmGraph.label.hoverBackground,
+  'scmGraph.foreground1': interfacePalette.scmGraph.foreground1,
+  'scmGraph.foreground2': interfacePalette.scmGraph.foreground2,
+  'scmGraph.foreground3': interfacePalette.scmGraph.foreground3,
+  'scmGraph.foreground4': interfacePalette.scmGraph.foreground4,
+  'scmGraph.foreground5': interfacePalette.scmGraph.foreground5,
   'scmGraph.historyItemHoverAdditionsForeground':
-    interfacePalette.state.success,
-  'scmGraph.historyItemHoverDeletionsForeground': interfacePalette.state.error,
-  'scmGraph.historyItemRefColor': basePalette.blue,
-  'scmGraph.historyItemRemoteRefColor': basePalette.magenta,
-  'scmGraph.historyItemBaseRefColor': basePalette.teal,
-  'scmGraph.historyItemHoverDefaultLabelForeground': basePalette.black,
-  'scmGraph.historyItemHoverDefaultLabelBackground': basePalette.blue,
+    interfacePalette.scmGraph.historyItemHoverAdditionsForeground,
+  'scmGraph.historyItemHoverDeletionsForeground':
+    interfacePalette.scmGraph.historyItemHoverDeletionsForeground,
+  'scmGraph.historyItemRefColor': interfacePalette.scmGraph.historyItemRefColor,
+  'scmGraph.historyItemRemoteRefColor':
+    interfacePalette.scmGraph.historyItemRemoteRefColor,
+  'scmGraph.historyItemBaseRefColor':
+    interfacePalette.scmGraph.historyItemBaseRefColor,
 
   // Diff Editor
   'diffEditor.insertedTextBackground':
@@ -419,9 +425,9 @@ const generateInterfaceColors = () => ({
   // Settings
   'settings.headerForeground': interfacePalette.text.primary,
   'settings.modifiedItemIndicator': interfacePalette.state.info,
-  'settings.dropdownBackground': interfacePalette.bg.elevated,
-  'settings.dropdownForeground': interfacePalette.text.primary,
-  'settings.dropdownBorder': interfacePalette.border.default,
+  'settings.dropdownBackground': interfacePalette.dropdown.background,
+  'settings.dropdownForeground': interfacePalette.dropdown.foreground,
+  'settings.dropdownBorder': interfacePalette.dropdown.border,
   'settings.checkboxBackground': interfacePalette.bg.elevated,
   'settings.checkboxForeground': interfacePalette.text.primary,
   'settings.checkboxBorder': interfacePalette.border.default,
@@ -538,11 +544,11 @@ const generateInterfaceColors = () => ({
   'charts.foreground': interfacePalette.text.primary,
   'charts.lines': interfacePalette.border.default,
   'charts.red': interfacePalette.state.error,
-  'charts.blue': interfacePalette.state.info,
+  'charts.blue': basePalette.blue,
   'charts.yellow': interfacePalette.state.warning,
-  'charts.orange': interfacePalette.state.warning,
+  'charts.orange': basePalette.orange,
   'charts.green': interfacePalette.state.success,
-  'charts.purple': interfacePalette.state.info,
+  'charts.purple': basePalette.purple,
 
   // Ports
   'ports.iconRunningProcessForeground': interfacePalette.state.success,

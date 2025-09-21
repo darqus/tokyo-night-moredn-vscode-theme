@@ -137,6 +137,27 @@ export interface InterfacePalette {
     border: Hex
     listBackground: Hex
   }
+  // SCM Graph palette
+  scmGraph: {
+    // Label on hover
+    label: {
+      hoverForeground: Hex
+      hoverBackground: Hex
+    }
+    // Graph line/node colors
+    foreground1: Hex
+    foreground2: Hex
+    foreground3: Hex
+    foreground4: Hex
+    foreground5: Hex
+    // Hover state colors for additions/deletions
+    historyItemHoverAdditionsForeground: Hex
+    historyItemHoverDeletionsForeground: Hex
+    // Ref colors
+    historyItemRefColor: Hex
+    historyItemRemoteRefColor: Hex
+    historyItemBaseRefColor: Hex
+  }
 }
 
 export interface SyntaxPalette {
