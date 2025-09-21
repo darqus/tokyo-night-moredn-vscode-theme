@@ -257,6 +257,13 @@
 			"command": "npm test --silent -- -u",
 			"isBackground": false,
 			"group": "build"
+		},
+		{
+			"label": "Run tests after shared mapping sync",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"group": "build"
 		}
 	]
 }

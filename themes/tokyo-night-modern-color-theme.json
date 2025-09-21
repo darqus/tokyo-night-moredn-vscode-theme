@@ -292,7 +292,7 @@
     "peekViewResult.selectionBackground": "#86afff33",
     "peekViewResult.selectionForeground": "#c0caf5",
     "peekViewTitle.background": "#232739",
-    "peekViewTitleDescription.foreground": "#9ba5cf",
+    "peekViewTitleDescription.foreground": "#a0aad4",
     "peekViewTitleLabel.foreground": "#c0caf5",
     "editorWidget.background": "#1f2230",
     "editorWidget.foreground": "#c0caf5",
@@ -408,7 +408,8 @@
     "testing.iconUnset": "#9ba5cf",
     "testing.iconSkipped": "#717aa4",
     "testing.peekBorder": "#7aa2f766",
-    "testing.peekHeaderBackground": "#232739"
+    "testing.peekHeaderBackground": "#232739",
+    "debugToolBar.foreground": "#c0caf5"
   },
   "tokenColors": [
     {
