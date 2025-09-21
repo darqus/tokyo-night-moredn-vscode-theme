@@ -100,8 +100,8 @@ export const interfacePalette: InterfacePalette = {
   scmGraph: {
     // Темним фон ховера чуть сильнее базового синего, сохраняя читаемость
     label: {
-      hoverForeground: basePalette.white,
-      hoverBackground: darken(basePalette.blue, 0.25),
+      hoverForeground: basePalette.black,
+      hoverBackground: basePalette.blue,
     },
     foreground1: basePalette.blue,
     foreground2: basePalette.magenta,
