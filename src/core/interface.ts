@@ -48,17 +48,17 @@ export const interfacePalette: InterfacePalette = {
   // secondary — нейтральный фон (elevated), холодный hover, аккуратная граница
   button: {
     primary: {
-      background: mix(basePalette.black, basePalette.blue, 0.6),
+      background: darken(basePalette.blue, 0.7),
       foreground: basePalette.white,
-      hoverBackground: mix(basePalette.black, basePalette.blue, 0.65),
-      border: withAlpha(basePalette.blue, 0.4), // соответствует border.focus
-      separator: mix(basePalette.black, basePalette.gray, 0.1), // соответствует border.default
+      hoverBackground: darken(basePalette.blue, 0.6),
+      border: withAlpha(basePalette.blue, 0.6), // усиленная контрастность
+      separator: mix(basePalette.blue, basePalette.gray, 0.1), // соответствует border.default
     },
     secondary: {
-      background: mix(basePalette.black, basePalette.blue, 0.1),
+      background: darken(basePalette.blue, 0.7),
       foreground: basePalette.white,
-      hoverBackground: withAlpha(basePalette.blue, 0.08),
-      border: withAlpha(basePalette.blue, 0.4),
+      hoverBackground: darken(basePalette.blue, 0.7),
+      border: basePalette.blue,
     },
   },
 
