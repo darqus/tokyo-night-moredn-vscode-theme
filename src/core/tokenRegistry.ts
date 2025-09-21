@@ -246,6 +246,15 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
     bgKey: 'menu.background',
   },
   {
+    key: 'menubar.selectionForeground',
+    surface: 'menu',
+    alpha: 'opaque',
+    contrastHints: { primaryMin: 4.5 },
+    bgKey: 'menubar.selectionBackground',
+    notes:
+      'Menu bar selection foreground should stay readable over its hover/selection background',
+  },
+  {
     key: 'panelTitle.inactiveForeground',
     surface: 'panel',
     alpha: 'opaque',
@@ -287,6 +296,15 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
     contrastHints: { primaryMin: 4.0 },
     bgKey: 'sideBarSectionHeader.background',
     notes: 'Headers over elevated background should be clearly readable',
+  },
+  {
+    key: 'panelSectionHeader.foreground',
+    surface: 'panel',
+    alpha: 'opaque',
+    contrastHints: { primaryMin: 4.0 },
+    bgKey: 'panelSectionHeader.background',
+    notes:
+      'Panel section headers should maintain clear readability over their background',
   },
   // Notifications header
   {
@@ -406,9 +424,21 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
     surface: 'overlay',
     alpha: 'opaque',
     contrastHints: { primaryMin: 4.5 },
-    bgKey: 'quickInput.background',
+    bgKey: 'quickInputList.focusBackground',
     notes:
       'Selected item foreground should remain readable over selection tone',
+  },
+
+  // CodeLens and inline editor adornments
+  {
+    key: 'editorCodeLens.foreground',
+    surface: 'base',
+    alpha: 'opaque',
+    // CodeLens — вторичный текст, но кликабельный; держим >=4.0 над фоном редактора
+    contrastHints: { primaryMin: 4.0, mutedMin: 3.0 },
+    bgKey: 'editor.background',
+    notes:
+      'CodeLens text should be readable over editor background; prefer textOn.base.primary by default, allow muted if contrast >= 4.0',
   },
 
   // Aliases / legacy (пример): нет в текущей теме, но оставим как образец поля aliasOf
