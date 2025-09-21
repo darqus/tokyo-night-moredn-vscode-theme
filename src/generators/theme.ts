@@ -278,7 +278,7 @@ const generateInterfaceColors = () => ({
     interfacePalette.derived.overlays.dropBackground,
   'panelSectionHeader.background': interfacePalette.bg.elevated,
   'panelSectionHeader.foreground': interfacePalette.text.primary,
-  'panelSectionHeader.border': interfacePalette.border.default,
+  'panelSectionHeader.border': interfacePalette.border.separatorBackground,
 
   // Terminal
   'terminal.background': interfacePalette.bg.darkenBase,

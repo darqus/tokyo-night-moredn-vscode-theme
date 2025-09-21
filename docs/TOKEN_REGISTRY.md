@@ -54,8 +54,10 @@
 | peekViewTitleDescription.foreground | overlay | opaque |  |  | peekViewTitle.background | muted≥3 | Description text can be muted but should stay >=3.0 |
 | sideBarSectionHeader.foreground | base | opaque |  |  | sideBarSectionHeader.background | primary≥4 | Headers over elevated background should be clearly readable |
 | notificationCenterHeader.foreground | overlay | opaque |  |  | notificationCenterHeader.background | primary≥4.5 | Notifications header should be as readable as overlay titles |
+| debugToolBar.foreground | overlay | opaque |  |  | debugToolBar.background | primary≥4.5 | Debug toolbar text should meet AA against its elevated background |
 | terminal.initialHintForeground | terminal | opaque |  |  | terminal.background | muted≥3 |  |
-| breadcrumb.foreground | base | opaque |  |  | breadcrumb.background | muted≥3 | Inline chat foreground vs background: keep AA for clarity in chat UIs |
+| breadcrumb.foreground | base | opaque |  |  | breadcrumb.background | muted≥3 |  |
+| inlineChat.border | overlay | opaque |  |  |  |  | Guidance: use subtle thin border (align with separator tone) to delineate chat container without heavy contrast |
 | statusBar.foreground | base | opaque |  |  | statusBar.background | muted≥3 |  |
 | activityBar.foreground | base | opaque |  |  | activityBar.background | muted≥3 |  |
 | sideBar.foreground | base | opaque |  |  | sideBar.background | primary≥4 |  |

@@ -291,6 +291,15 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
     bgKey: 'notificationCenterHeader.background',
     notes: 'Notifications header should be as readable as overlay titles',
   },
+  // Debug toolbar title/foreground
+  {
+    key: 'debugToolBar.foreground',
+    surface: 'overlay',
+    alpha: 'opaque',
+    contrastHints: { primaryMin: 4.5 },
+    bgKey: 'debugToolBar.background',
+    notes: 'Debug toolbar text should meet AA against its elevated background',
+  },
   // Terminal initial hint (placeholder-style)
   {
     key: 'terminal.initialHintForeground',
@@ -304,9 +313,14 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
     surface: 'base',
     alpha: 'opaque',
     contrastHints: { mutedMin: 3.0 },
-    notes:
-      'Inline chat foreground vs background: keep AA for clarity in chat UIs',
     bgKey: 'breadcrumb.background',
+  },
+  {
+    key: 'inlineChat.border',
+    surface: 'overlay',
+    alpha: 'opaque',
+    notes:
+      'Guidance: use subtle thin border (align with separator tone) to delineate chat container without heavy contrast',
   },
   {
     key: 'statusBar.foreground',
