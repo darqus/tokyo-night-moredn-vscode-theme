@@ -180,7 +180,7 @@
     "terminal.inactiveSelectionBackground": "#7aa2f714",
     "terminal.border": "#202230",
     "terminal.dropBackground": "#24293b33",
-    "terminal.hoverHighlightBackground": "#7dcfff38",
+    "terminal.hoverHighlightBackground": "#7cbffc3d",
     "terminal.tab.activeBorder": "#7dcfff",
     "terminalCursor.background": "#1a1b26",
     "terminalCursor.foreground": "#c0caf5",

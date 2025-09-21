@@ -126,7 +126,11 @@ export const interfacePalette: InterfacePalette = {
       border: withAlpha(basePalette.cyan, 0.35),
     },
     terminal: {
-      hoverHighlightBackground: withAlpha(basePalette.cyan, 0.22),
+      // Cooler hover with cyan->blue mix for terminal command/hover highlight
+      hoverHighlightBackground: withAlpha(
+        mix(basePalette.cyan, basePalette.blue, 0.35),
+        0.24
+      ),
       ansiBlue: lighten(basePalette.cyan, 0.22),
       ansiCyan: lighten(basePalette.cyan, 0.22),
       ansiBrightBlack: lighten(basePalette.black, 0.4),

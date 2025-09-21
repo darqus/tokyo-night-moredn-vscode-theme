@@ -1,6 +1,6 @@
 import { generateTheme } from '../../src/generators/theme'
 import { basePalette } from '../../src/core/palette'
-import { lighten } from '../../src/core/utils'
+import { lighten, mix, withAlpha } from '../../src/core/utils'
 
 describe('Link colors and terminal hover', () => {
   it('should use unified and brighter textLink colors', () => {
@@ -13,8 +13,12 @@ describe('Link colors and terminal hover', () => {
 
   it('should have stronger terminal link hover background', () => {
     const c = generateTheme().colors
-    // rgba hex with alpha expected from withAlpha(basePalette.cyan, 0.22)
-    expect(c['terminal.hoverHighlightBackground']).toBe('#7dcfff38')
+    // Cooler cyan→blue mix with a bit more alpha for visibility
+    const expected = withAlpha(
+      mix(basePalette.cyan, basePalette.blue, 0.35),
+      0.24
+    )
+    expect(c['terminal.hoverHighlightBackground']).toBe(expected)
   })
 
   it('should align terminal ANSI blue/cyan with link color', () => {

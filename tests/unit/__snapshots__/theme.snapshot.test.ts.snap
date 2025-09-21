@@ -366,7 +366,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "terminal.findMatchBorder": "#e0af6899",
     "terminal.findMatchHighlightBackground": "#e0af6829",
     "terminal.foreground": "#c0caf5",
-    "terminal.hoverHighlightBackground": "#7dcfff38",
+    "terminal.hoverHighlightBackground": "#7cbffc3d",
     "terminal.inactiveSelectionBackground": "#7aa2f714",
     "terminal.initialHintForeground": "#9ba5cf",
     "terminal.selectionBackground": "#7aa2f733",
