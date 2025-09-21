@@ -143,7 +143,7 @@ const generateInterfaceColors = () => ({
   'activityBar.inactiveForeground': interfacePalette.text.inactive,
   'activityBar.border': interfacePalette.border.default,
   'activityBarBadge.background': interfacePalette.state.info,
-  'activityBarBadge.foreground': interfacePalette.bg.base,
+  'activityBarBadge.foreground': interfacePalette.text.inverse,
 
   // Side Bar
   'sideBar.background': interfacePalette.bg.base,
@@ -160,7 +160,7 @@ const generateInterfaceColors = () => ({
   'statusBar.border': interfacePalette.border.default,
   'statusBar.noFolderBackground': interfacePalette.bg.base,
   'statusBar.debuggingBackground': interfacePalette.state.warning,
-  'statusBar.debuggingForeground': interfacePalette.bg.base,
+  'statusBar.debuggingForeground': interfacePalette.text.inverse,
   'statusBarItem.activeBackground': interfacePalette.bg.hoverActive,
   'statusBarItem.hoverBackground': interfacePalette.bg.hoverMuted,
   'statusBarItem.hoverForeground': interfacePalette.text.primary,
@@ -214,7 +214,7 @@ const generateInterfaceColors = () => ({
   'list.filterMatchBackground':
     interfacePalette.derived.findMatch.highlightBackground,
   'list.filterMatchBorder': interfacePalette.derived.findMatch.border,
-  'list.highlightForeground': interfacePalette.state.info,
+  'list.highlightForeground': interfacePalette.derived.link.foreground,
   'list.invalidItemForeground': interfacePalette.state.error,
   'list.errorForeground': interfacePalette.state.error,
   'list.warningForeground': interfacePalette.state.warning,
@@ -230,13 +230,13 @@ const generateInterfaceColors = () => ({
   'inputOption.activeBackground': interfacePalette.bg.selection,
   'inputOption.activeBorder': interfacePalette.border.focus,
   'inputValidation.errorBackground': interfacePalette.state.error,
-  'inputValidation.errorForeground': interfacePalette.bg.base,
+  'inputValidation.errorForeground': interfacePalette.text.inverse,
   'inputValidation.errorBorder': interfacePalette.state.error,
   'inputValidation.infoBackground': interfacePalette.state.info,
-  'inputValidation.infoForeground': interfacePalette.bg.base,
+  'inputValidation.infoForeground': interfacePalette.text.inverse,
   'inputValidation.infoBorder': interfacePalette.state.info,
   'inputValidation.warningBackground': interfacePalette.state.warning,
-  'inputValidation.warningForeground': interfacePalette.bg.base,
+  'inputValidation.warningForeground': interfacePalette.text.inverse,
   'inputValidation.warningBorder': interfacePalette.state.warning,
 
   // Button
@@ -259,7 +259,7 @@ const generateInterfaceColors = () => ({
 
   // Badge
   'badge.background': interfacePalette.state.info,
-  'badge.foreground': interfacePalette.bg.base,
+  'badge.foreground': interfacePalette.text.inverse,
 
   // Progress Bar
   'progressBar.background': interfacePalette.state.info,
@@ -369,10 +369,10 @@ const generateInterfaceColors = () => ({
 
   // Extensions
   'extensionButton.prominentBackground': interfacePalette.state.info,
-  'extensionButton.prominentForeground': interfacePalette.bg.base,
+  'extensionButton.prominentForeground': interfacePalette.text.inverse,
   'extensionButton.prominentHoverBackground': interfacePalette.state.infoHover,
   'extensionBadge.remoteBackground': interfacePalette.state.info,
-  'extensionBadge.remoteForeground': interfacePalette.bg.base,
+  'extensionBadge.remoteForeground': interfacePalette.text.inverse,
 
   // Git
   'gitDecoration.addedResourceForeground': interfacePalette.state.success,
