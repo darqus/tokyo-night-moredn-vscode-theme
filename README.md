@@ -13,17 +13,21 @@ A **Tokyo Night dark theme** featuring:
 - **Zero hardcoded colors** — centralized palette system
 - **Modern TypeScript architecture** with full test coverage
 
-## 🌎 Demo
+### 🌎 Demo
 
 🔮 [TRY ONLINE](https://vscode.dev/theme/lod-inc.tokyo-night-modern) 🔮
 
-## 🚀 Quick Start
+---
+
+### 🚀 Quick Start
 
 1. Open VS Code Extensions (`Ctrl+Shift+X`)
 2. Search "Tokyo Night Modern"
 3. Install and select **Tokyo Night Modern**
 
-## 🏗️ Architecture
+---
+
+### 🏗️ Architecture
 
 ```text
 12 base colors → 406 workbench colors → 13 syntax tokens
@@ -37,7 +41,9 @@ src/
 └── build.ts        # Main build script
 ```
 
-## 🛠️ Development
+---
+
+### 🛠️ Development
 
 ```bash
 git clone https://github.com/darqus/tokyo-night-modern-vscode-theme.git
@@ -49,7 +55,9 @@ npm run validate:all  # Validate theme schema + run tests
 npm run test:coverage # Coverage report (expect ~100% / ~97% branches)
 ```
 
-## 📊 Metrics
+---
+
+### 📊 Metrics
 
 | Metric | Value | Status |
 |--------|-------|--------|
@@ -60,7 +68,9 @@ npm run test:coverage # Coverage report (expect ~100% / ~97% branches)
 | **Build time** | ~0.7–1.0s | ✅ |
 | **Hardcoded colors** | 0 | ✅ |
 
-## 📚 Documentation
+---
+
+### 📚 Documentation
 
 - [Quick Start](docs/QUICK_START.md) - Installation and setup
 - [Development](docs/DEVELOPMENT.md) - Build and contribute
@@ -69,13 +79,18 @@ npm run test:coverage # Coverage report (expect ~100% / ~97% branches)
 - [Release & Versioning](docs/RELEASE_VERSIONING.md) - Automated releases and version rules
 - [Contributing](docs/CONTRIBUTING.md) - Guidelines for contributing
 
-## 📄 License
+---
+
+### 📄 License
 
 MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-**🌃 Tokyo Night Modern**
+### 🌆 Tokyo Night Modern theme
+
 Crafted with ❤️ for developers
 
-[⭐ GitHub](https://github.com/darqus/tokyo-night-modern-vscode-theme) · [📦 Marketplace](https://marketplace.visualstudio.com/items?itemName=lod-inc.tokyo-night-modern)
+⭐ [GitHub](https://github.com/darqus/tokyo-night-modern-vscode-theme)
+
+📦 [Marketplace](https://marketplace.visualstudio.com/items?itemName=lod-inc.tokyo-night-modern)
