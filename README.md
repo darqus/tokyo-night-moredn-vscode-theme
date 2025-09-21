@@ -13,6 +13,8 @@ A **Tokyo Night dark theme** featuring:
 - **Zero hardcoded colors** — centralized palette system
 - **Modern TypeScript architecture** with full test coverage
 
+---
+
 ### 🌎 Demo
 
 🔮 [TRY ONLINE](https://vscode.dev/theme/lod-inc.tokyo-night-modern) 🔮
