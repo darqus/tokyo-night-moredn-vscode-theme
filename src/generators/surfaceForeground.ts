@@ -15,6 +15,7 @@ export const SURFACE_FOREGROUND_MAP: Record<
   'editor.foreground': (ip) => ip.textOn.base.primary,
   'editor.findMatchForeground': (ip) => ip.textOn.base.primary,
   'editorWhitespace.foreground': (ip) => ip.textOn.base.subtle,
+  'editorCodeLens.foreground': (ip) => ip.textOn.base.primary,
   'activityBar.foreground': (ip) => ip.textOn.base.muted,
   'activityBar.inactiveForeground': (ip) => ip.textOn.base.inactive,
   'sideBar.foreground': (ip) => ip.textOn.base.primary,

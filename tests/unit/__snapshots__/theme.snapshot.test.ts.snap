@@ -93,6 +93,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "editor.wordHighlightStrongBackground": "#86afff33",
     "editorBracketMatch.background": "#80a8fe14",
     "editorBracketMatch.border": "#7aa2f766",
+    "editorCodeLens.foreground": "#c0caf5",
     "editorCursor.foreground": "#c0caf5",
     "editorGroup.border": "#202230",
     "editorGroup.dropBackground": "#24293b33",
