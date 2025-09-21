@@ -229,6 +229,13 @@
 			"command": "npm test --silent",
 			"isBackground": false,
 			"group": "build"
+		},
+		{
+			"label": "Run unit tests (rule + docs link)",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"group": "build"
 		}
 	]
 }
