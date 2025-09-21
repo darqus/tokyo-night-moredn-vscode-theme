@@ -12,6 +12,8 @@ export type Surface =
   | 'list'
   | 'statusBar'
   | 'tabs'
+  | 'editor'
+  | 'quickInput'
 export type AlphaPolicy = 'opaque' | 'transparent' | 'either'
 
 export interface TokenMeta {
@@ -42,6 +44,13 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
     surface: 'terminal',
     alpha: 'transparent',
   },
+  // Matches and search in lists/editors should be non-opaque
+  { key: 'list.filterMatchBackground', surface: 'list', alpha: 'transparent' },
+  {
+    key: 'searchEditor.findMatchBackground',
+    surface: 'editor',
+    alpha: 'transparent',
+  },
 
   // Find/search highlights should be non-opaque
   {
@@ -64,6 +73,14 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
   { key: 'editor.background', surface: 'base', alpha: 'opaque' },
   { key: 'panel.background', surface: 'panel', alpha: 'opaque' },
   { key: 'menu.background', surface: 'menu', alpha: 'opaque' },
+  // Overlay widgets (opaque backgrounds)
+  { key: 'editorHoverWidget.background', surface: 'overlay', alpha: 'opaque' },
+  {
+    key: 'editorSuggestWidget.background',
+    surface: 'overlay',
+    alpha: 'opaque',
+  },
+  { key: 'quickInput.background', surface: 'quickInput', alpha: 'opaque' },
 ]
 
 // Простая проверка альфа-политики для hex (#RRGGBB[AA])
@@ -82,3 +99,9 @@ export const validateTokenAlpha = (
   if (policy === 'opaque') return isOpaqueHex(value)
   return true
 }
+
+// Coverage helper (optional use in tests): check presence
+export const hasToken = (
+  colors: Record<string, string>,
+  key: string
+): boolean => Object.prototype.hasOwnProperty.call(colors, key)

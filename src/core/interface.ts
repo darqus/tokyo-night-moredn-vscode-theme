@@ -4,7 +4,7 @@
  */
 import { basePalette } from './palette'
 import { mix, withAlpha, lighten, darken } from './utils'
-import { oklchLighten } from './oklch'
+import { oklchLighten, oklchMix } from './oklch'
 import type { InterfacePalette } from '../types/theme'
 
 export const interfacePalette: InterfacePalette = {
@@ -15,10 +15,11 @@ export const interfacePalette: InterfacePalette = {
     elevated: mix(basePalette.black, basePalette.blue, 0.05),
     overlay: mix(basePalette.black, basePalette.blue, 0.09),
     input: mix(basePalette.black, basePalette.blue, 0.04),
-    // OKLCH этап 1: используем оbёртку, не меняя цвет (amount = 0)
-    hover: withAlpha(oklchLighten(basePalette.blue, 0), 0.08),
-    active: withAlpha(oklchLighten(basePalette.blue, 0), 0.12),
-    selection: withAlpha(oklchLighten(basePalette.blue, 0), 0.2),
+    // OKLCH: лёгкая коррекция L для лучшей перцептуальной читаемости
+    // amount 0.2 ~ +0.02 L, 0.3 ~ +0.03 L, 0.4 ~ +0.04 L
+    hover: withAlpha(oklchLighten(basePalette.blue, 0.2), 0.08),
+    active: withAlpha(oklchLighten(basePalette.blue, 0.3), 0.12),
+    selection: withAlpha(oklchLighten(basePalette.blue, 0.4), 0.2),
     // Специализированные hover цвета
     hoverSubtle: withAlpha(mix(basePalette.white, basePalette.gray, 0.4), 0.08),
     hoverMuted: withAlpha(mix(basePalette.white, basePalette.gray, 0.4), 0.12),
@@ -53,7 +54,7 @@ export const interfacePalette: InterfacePalette = {
     },
     overlay: {
       primary: basePalette.white,
-      muted: mix(basePalette.white, basePalette.gray, 0.35),
+      muted: oklchLighten(mix(basePalette.white, basePalette.gray, 0.35), 0.15),
       subtle: mix(basePalette.white, basePalette.gray, 0.55),
       inactive: mix(basePalette.white, basePalette.gray, 0.75),
     },
@@ -179,10 +180,16 @@ export const interfacePalette: InterfacePalette = {
       ),
     },
     findMatch: {
-      // OKLCH этап 1: через OKLCH-утилиту с нулевым изменением (визуально без изменений)
-      background: withAlpha(oklchLighten(basePalette.yellow, 0), 0.22),
-      border: withAlpha(oklchLighten(basePalette.yellow, 0), 0.6),
-      highlightBackground: withAlpha(oklchLighten(basePalette.yellow, 0), 0.16),
+      // Слегка уменьшаем хрому (C) и слегка повышаем L за счёт смешения с белым
+      background: withAlpha(
+        oklchMix(basePalette.yellow, basePalette.white, 0.08),
+        0.22
+      ),
+      border: withAlpha(basePalette.yellow, 0.6),
+      highlightBackground: withAlpha(
+        oklchMix(basePalette.yellow, basePalette.white, 0.12),
+        0.16
+      ),
     },
     inlineChat: {
       background: darken(basePalette.blue, 0.8),

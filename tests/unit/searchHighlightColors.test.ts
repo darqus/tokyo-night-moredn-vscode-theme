@@ -1,5 +1,4 @@
 import { generateTheme } from '../../src/generators/theme'
-import { basePalette } from '../../src/core/palette'
 import { withAlpha } from '../../src/core/utils'
 import { interfacePalette } from '../../src/core/interface'
 
@@ -8,9 +7,9 @@ describe('Search highlight colors', () => {
     const theme = generateTheme()
     const c = theme.colors
 
-    const current = withAlpha(basePalette.yellow, 0.22)
-    const border = withAlpha(basePalette.yellow, 0.6)
-    const other = withAlpha(basePalette.yellow, 0.16)
+    const current = interfacePalette.derived.findMatch.background
+    const border = interfacePalette.derived.findMatch.border
+    const other = interfacePalette.derived.findMatch.highlightBackground
 
     expect(c['editor.findMatchBackground']).toBe(current)
     expect(c['editor.findMatchBorder']).toBe(border)
@@ -23,9 +22,9 @@ describe('Search highlight colors', () => {
     const theme = generateTheme()
     const c = theme.colors
 
-    const current = withAlpha(basePalette.yellow, 0.22)
-    const border = withAlpha(basePalette.yellow, 0.6)
-    const other = withAlpha(basePalette.yellow, 0.16)
+    const current = interfacePalette.derived.findMatch.background
+    const border = interfacePalette.derived.findMatch.border
+    const other = interfacePalette.derived.findMatch.highlightBackground
 
     expect(c['terminal.findMatchBackground']).toBe(current)
     expect(c['terminal.findMatchBorder']).toBe(border)
@@ -36,8 +35,8 @@ describe('Search highlight colors', () => {
     const theme = generateTheme()
     const c = theme.colors
 
-    const border = withAlpha(basePalette.yellow, 0.6)
-    const other = withAlpha(basePalette.yellow, 0.16)
+    const border = interfacePalette.derived.findMatch.border
+    const other = interfacePalette.derived.findMatch.highlightBackground
 
     expect(c['list.filterMatchBackground']).toBe(other)
     expect(c['list.filterMatchBorder']).toBe(border)
@@ -47,8 +46,8 @@ describe('Search highlight colors', () => {
     const theme = generateTheme()
     const c = theme.colors
 
-    const border = withAlpha(basePalette.yellow, 0.6)
-    const other = withAlpha(basePalette.yellow, 0.16)
+    const border = interfacePalette.derived.findMatch.border
+    const other = interfacePalette.derived.findMatch.highlightBackground
 
     expect(c['searchEditor.findMatchBackground']).toBe(other)
     expect(c['searchEditor.findMatchBorder']).toBe(border)
