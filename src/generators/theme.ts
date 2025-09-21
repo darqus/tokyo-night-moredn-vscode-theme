@@ -139,7 +139,8 @@ const generateInterfaceColors = () => ({
   'activityBar.foreground': interfacePalette.text.muted,
   'activityBar.activeBorder': interfacePalette.state.info,
   'activityBar.activeBackground': interfacePalette.bg.hover,
-  'activityBar.inactiveForeground': interfacePalette.text.inactive,
+  // Use a slightly brighter tone to avoid blending with background
+  'activityBar.inactiveForeground': interfacePalette.text.subtle,
   'activityBar.border': interfacePalette.border.default,
   'activityBarBadge.background': interfacePalette.state.info,
   'activityBarBadge.foreground': interfacePalette.text.inverse,
@@ -195,7 +196,8 @@ const generateInterfaceColors = () => ({
   'tab.unfocusedActiveBackground': interfacePalette.bg.elevated,
   'tab.unfocusedActiveForeground': interfacePalette.text.muted,
   'tab.unfocusedInactiveBackground': interfacePalette.bg.base,
-  'tab.unfocusedInactiveForeground': interfacePalette.text.inactive,
+  // Improve readability of inactive/unfocused tabs
+  'tab.unfocusedInactiveForeground': interfacePalette.text.subtle,
   'tab.lastPinnedBorder': interfacePalette.border.default,
 
   // Lists
