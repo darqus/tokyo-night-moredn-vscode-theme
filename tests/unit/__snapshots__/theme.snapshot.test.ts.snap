@@ -101,7 +101,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "editorGroupHeader.tabsBackground": "#1a1b26",
     "editorGroupHeader.tabsBorder": "#202230",
     "editorHoverWidget.background": "#24293b",
-    "editorHoverWidget.border": "#202230",
+    "editorHoverWidget.border": "#2c2f44",
     "editorHoverWidget.foreground": "#c0caf5",
     "editorHoverWidget.highlightForeground": "#7dcfff",
     "editorHoverWidget.statusBarBackground": "#24293b",

@@ -308,7 +308,7 @@
     "editorSuggestWidget.selectedIconForeground": "#c0caf5",
     "editorSuggestWidgetStatus.foreground": "#9ba5cf",
     "editorHoverWidget.background": "#24293b",
-    "editorHoverWidget.border": "#202230",
+    "editorHoverWidget.border": "#2c2f44",
     "editorHoverWidget.foreground": "#c0caf5",
     "editorHoverWidget.highlightForeground": "#7dcfff",
     "editorHoverWidget.statusBarBackground": "#24293b",

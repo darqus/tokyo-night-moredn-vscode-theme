@@ -481,7 +481,7 @@ const generateInterfaceColors = () => ({
 
   // Editor Hover Widget
   'editorHoverWidget.background': interfacePalette.bg.overlay,
-  'editorHoverWidget.border': interfacePalette.border.default,
+  'editorHoverWidget.border': interfacePalette.border.separatorBackground,
   'editorHoverWidget.foreground': interfacePalette.text.primary,
   'editorHoverWidget.highlightForeground': interfacePalette.state.info,
   'editorHoverWidget.statusBarBackground': interfacePalette.bg.overlay,
