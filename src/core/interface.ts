@@ -1,13 +1,13 @@
 /**
  * Палитра интерфейса VS Code
- * Автогенерация всех цветов интерфейса из базовой палитры
+ * Генерация всех цветов интерфейса из базовой палитры
  */
 import { basePalette } from './palette'
 import { mix, withAlpha, lighten, darken } from './utils'
 import type { InterfacePalette } from '../types/theme'
 
 export const interfacePalette: InterfacePalette = {
-  // Фоновые цвета (автогенерация)
+  // Фоновые цвета
   bg: {
     base: basePalette.black,
     elevated: mix(basePalette.black, basePalette.blue, 0.06),
@@ -23,7 +23,7 @@ export const interfacePalette: InterfacePalette = {
     // Специализированные цвета для поиска и выделения — вынесены в derived.findMatch
   },
 
-  // Текстовые цвета (автогенерация)
+  // Текстовые цвета
   text: {
     primary: basePalette.white,
     inverse: basePalette.black,
@@ -35,13 +35,13 @@ export const interfacePalette: InterfacePalette = {
     lineNumberActive: mix(basePalette.yellow, basePalette.gray, 0.8),
   },
 
-  // Границы (автогенерация)
+  // Границы
   border: {
     default: mix(basePalette.black, basePalette.gray, 0.1),
     focus: withAlpha(basePalette.blue, 0.4),
   },
 
-  // Кнопки (автогенерация)
+  // Кнопки
   // primary — насыщенный фон с хорошим контрастом
   // secondary — нейтральный фон (elevated), холодный hover, аккуратная граница
   button: {
