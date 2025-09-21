@@ -33,7 +33,7 @@ export const loadEnvVars = (): ThemeEnvVars => {
     THEME_DISPLAY_NAME: env.THEME_DISPLAY_NAME || 'Tokyo Night Modern',
     THEME_DESCRIPTION:
       env.THEME_DESCRIPTION || 'A dark theme for Visual Studio Code',
-    THEME_VERSION: env.THEME_VERSION || '1.14.29',
+    THEME_VERSION: env.THEME_VERSION || '1.14.32',
     THEME_AUTHOR: env.THEME_AUTHOR || 'lod',
     THEME_PUBLISHER: env.THEME_PUBLISHER || 'lod-inc',
     THEME_LICENSE: env.THEME_LICENSE || 'MIT',

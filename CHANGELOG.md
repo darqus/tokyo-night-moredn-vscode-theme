@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.14.32](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.14.29...v1.14.32) (2025-09-21)
+
+
+### Features
+
+* **button:** enhance button contrast and adjust color scheme ([9eff309](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/9eff30964722e98792ac03b6328f525d545f5181))
+* **core:** add dropdown control palette ([bca051d](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/bca051d245afafe42156320df586cffd7a934bd1))
+* **interface:** expand button color palette and adjust generated colors ([2e5c73e](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/2e5c73eb0588dd818c6cb1e749d246981f392e3f))
+
 ### [1.14.29](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.14.23...v1.14.29) (2025-09-20)
 
 
