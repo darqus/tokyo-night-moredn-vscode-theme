@@ -171,6 +171,22 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
   },
   { key: 'quickInput.background', surface: 'quickInput', alpha: 'opaque' },
 
+  // Shadows: VS Code exposes only global widget/scrollbar shadows; no per-QuickInput shadow exists
+  {
+    key: 'widget.shadow',
+    surface: 'overlay',
+    alpha: 'transparent',
+    notes:
+      'Global overlay/widget shadow; may include alpha. Quick Input relies on this, there is no quickInput.shadow token.',
+  },
+  {
+    key: 'scrollbar.shadow',
+    surface: 'base',
+    alpha: 'opaque',
+    notes:
+      'Scrollbar uses an opaque shadow tone distinct from widget.shadow to avoid double-opacity stacking.',
+  },
+
   // Text roles on overlay: задать advisory пороги контраста
   {
     key: 'editorHoverWidget.foreground',
@@ -219,13 +235,6 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
     bgKey: 'editorWidget.background',
     notes:
       'Widget foreground vs elevated background: keep AA for clarity in inline UIs',
-  },
-  {
-    key: 'quickInput.foreground',
-    surface: 'overlay',
-    alpha: 'opaque',
-    contrastHints: { primaryMin: 4.5 },
-    bgKey: 'quickInput.background',
   },
   {
     key: 'menu.foreground',
@@ -398,6 +407,8 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
     alpha: 'opaque',
     contrastHints: { primaryMin: 4.5 },
     bgKey: 'quickInput.background',
+    notes:
+      'Quick Input uses overlay-like surfaces: keep primary text at AA against quickInput.background.',
   },
   {
     key: 'quickInputTitle.background',

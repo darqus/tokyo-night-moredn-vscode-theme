@@ -35,7 +35,9 @@ Use these hex values to preview the change in your editor:
 Shadows:
 
 - Scrollbar shadow: `#282d43` → `#272b40`
-- Widget shadow: `#282d43` → `#282d43eb` (slightly translucent)
+- Widget shadow: `#282d43` → `#282d43e6` (slightly more translucent)
+
+Note: Quick Input relies on the global `widget.shadow`. VS Code does not expose a dedicated `quickInput.shadow` token, so per-Quick Input shadow tuning isn’t possible; we keep a guard test to document and protect this constraint.
 
 Example CSS to reproduce the chips locally (optional):
 

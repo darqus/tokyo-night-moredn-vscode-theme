@@ -409,7 +409,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "welcomePage.tileBorder": "#202230",
     "welcomePage.tileHoverBackground": "#80a8fe14",
     "widget.border": "#30344c",
-    "widget.shadow": "#282d43eb",
+    "widget.shadow": "#282d43e6",
   },
   "name": "Tokyo Night Modern",
   "semanticTokenColors": {

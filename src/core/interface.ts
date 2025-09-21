@@ -210,7 +210,7 @@ export const interfacePalette: InterfacePalette = {
           basePalette.blue,
           0.06
         ),
-        0.92
+        0.9
       ),
       // scrollbar: на чуть-чуть мягче (меньше синего)
       scrollbar: oklchMix(

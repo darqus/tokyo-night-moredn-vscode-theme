@@ -39,17 +39,18 @@
 | editorHoverWidget.background | overlay | opaque |  |  |  |  |  |
 | editorSuggestWidget.background | overlay | opaque |  |  |  |  |  |
 | quickInput.background | quickInput | opaque |  |  |  |  |  |
+| widget.shadow | overlay | transparent |  |  |  |  | Global overlay/widget shadow; may include alpha. Quick Input relies on this, there is no quickInput.shadow token. |
+| scrollbar.shadow | base | opaque |  |  |  |  | Scrollbar uses an opaque shadow tone distinct from widget.shadow to avoid double-opacity stacking. |
 | editorHoverWidget.foreground | overlay | opaque |  |  | editorHoverWidget.background | primary≥4.5, muted≥3 | Overlay widgets: primary text should reach ~WCAG AA (4.5) over overlay bg; muted at least 3.0 |
 | editorSuggestWidgetStatus.foreground | overlay | opaque |  |  | editorSuggestWidget.background | muted≥3 |  |
 | editorSuggestWidget.foreground | overlay | opaque |  |  | editorSuggestWidget.background | primary≥4.5 |  |
 | activityBar.inactiveForeground | base | opaque |  |  | activityBar.background | muted≥3 |  |
 | tab.unfocusedInactiveForeground | base | opaque |  |  | tab.unfocusedInactiveBackground | muted≥3 |  |
 | editorWidget.foreground | overlay | opaque |  |  | editorWidget.background | primary≥4.5 | Widget foreground vs elevated background: keep AA for clarity in inline UIs |
-| quickInput.foreground | overlay | opaque |  |  | quickInput.background | primary≥4.5 |  |
 | menu.foreground | menu | opaque |  |  | menu.background | primary≥4.5 |  |
 | menu.selectionForeground | menu | opaque |  |  | menu.background | primary≥4.5 |  |
 | panelTitle.inactiveForeground | panel | opaque |  |  | panel.background | muted≥3 | Inactive panel title should retain minimum muted contrast |
-| panelTitle.activeForeground | panel | opaque |  |  | panel.background | primary≥4.5 | Panel title should meet AA when active |
+| panelTitle.activeForeground | panel | opaque |  |  | panel.background | primary≥4.5 | Panel title should meet AA when active (conceptually applies to terminal panels when such tokens are available) |
 | peekViewTitleLabel.foreground | overlay | opaque |  |  | peekViewTitle.background | primary≥4.5 | Title label should remain readable over overlay title background |
 | peekViewTitleDescription.foreground | overlay | opaque |  |  | peekViewTitle.background | muted≥3 | Description text can be muted but should stay >=3.0 |
 | sideBarSectionHeader.foreground | base | opaque |  |  | sideBarSectionHeader.background | primary≥4 | Headers over elevated background should be clearly readable |
@@ -67,7 +68,7 @@
 | statusBarItem.prominentForeground | base | opaque |  |  | statusBarItem.prominentBackground | primary≥4.5 | Prominent items should remain readable over colored or elevated backgrounds |
 | statusBarItem.remoteForeground | base | opaque |  |  | statusBarItem.remoteBackground | primary≥4.5 |  |
 | statusBarItem.hoverForeground | base | opaque |  |  | statusBar.background | primary≥4.5 |  |
-| quickInput.foreground | overlay | opaque |  |  | quickInput.background | primary≥4.5 |  |
+| quickInput.foreground | overlay | opaque |  |  | quickInput.background | primary≥4.5 | Quick Input uses overlay-like surfaces: keep primary text at AA against quickInput.background. |
 | quickInputTitle.background | overlay | opaque |  |  |  |  |  |
 | quickInputList.focusForeground | overlay | opaque |  |  | quickInput.background | primary≥4.5 | Selected item foreground should remain readable over selection tone |
 | editorIndentGuide.background |  |  | yes | editorIndentGuide.background1 |  |  |  |
