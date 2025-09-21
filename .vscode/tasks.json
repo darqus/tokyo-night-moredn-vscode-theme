@@ -143,6 +143,17 @@
 				"$tsc"
 			],
 			"group": "build"
+		},
+		{
+			"label": "Run tests",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc",
+				"$eslint-stylish"
+			],
+			"group": "build"
 		}
 	]
 }

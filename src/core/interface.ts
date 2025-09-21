@@ -35,6 +35,27 @@ export const interfacePalette: InterfacePalette = {
     lineNumber: mix(basePalette.black, basePalette.gray, 0.6),
     lineNumberActive: mix(basePalette.yellow, basePalette.gray, 0.7),
   },
+  // Текст на разных поверхностях (пока проксирует базовые роли, чтобы не менять визуал)
+  textOn: {
+    base: {
+      primary: basePalette.white,
+      muted: mix(basePalette.white, basePalette.gray, 0.35),
+      subtle: mix(basePalette.white, basePalette.gray, 0.55),
+      inactive: mix(basePalette.white, basePalette.gray, 0.75),
+    },
+    elevated: {
+      primary: basePalette.white,
+      muted: mix(basePalette.white, basePalette.gray, 0.35),
+      subtle: mix(basePalette.white, basePalette.gray, 0.55),
+      inactive: mix(basePalette.white, basePalette.gray, 0.75),
+    },
+    overlay: {
+      primary: basePalette.white,
+      muted: mix(basePalette.white, basePalette.gray, 0.35),
+      subtle: mix(basePalette.white, basePalette.gray, 0.55),
+      inactive: mix(basePalette.white, basePalette.gray, 0.75),
+    },
+  },
 
   // Границы
   border: {

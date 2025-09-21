@@ -53,6 +53,27 @@ export interface InterfacePalette {
     lineNumber: Hex
     lineNumberActive: Hex
   }
+  // Surface-aware text roles
+  textOn: {
+    base: {
+      primary: Hex
+      muted: Hex
+      subtle: Hex
+      inactive: Hex
+    }
+    elevated: {
+      primary: Hex
+      muted: Hex
+      subtle: Hex
+      inactive: Hex
+    }
+    overlay: {
+      primary: Hex
+      muted: Hex
+      subtle: Hex
+      inactive: Hex
+    }
+  }
   border: {
     default: Hex
     focus: Hex
