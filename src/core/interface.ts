@@ -201,6 +201,20 @@ export const interfacePalette: InterfacePalette = {
       background: darken(basePalette.blue, 0.8),
       foreground: lighten(basePalette.white, 0.12),
     },
+    // Peek View: использовать те же холодные OKLCH‑тоны, что и selection,
+    // но с очень малым ΔL/ΔC для match highlight, чтобы он чуть отличался от selection
+    // и оставался прозрачным (не перекрывал контент).
+    peekView: {
+      // немного ниже альфа и капля меньше осветления, чем у selection
+      // selection: oklchLighten(blue, 0.4) @ α=0.20
+      matchHighlightBackground: withAlpha(
+        oklchLighten(basePalette.blue, 0.38),
+        0.18
+      ),
+      // для selection внутри peek используем ровно общий selection‑тон,
+      // чтобы визуально соответствовать остальным спискам/виджетам
+      selectionBackground: withAlpha(oklchLighten(basePalette.blue, 0.4), 0.2),
+    },
   },
 
   // Charts palette used by charts.* tokens

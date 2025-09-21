@@ -151,6 +151,10 @@ export interface InterfacePalette {
       border: Hex
       highlightBackground: Hex
     }
+    peekView: {
+      matchHighlightBackground: Hex
+      selectionBackground: Hex
+    }
     inlineChat: {
       background: Hex
       foreground: Hex

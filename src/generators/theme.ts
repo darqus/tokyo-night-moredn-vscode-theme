@@ -453,12 +453,15 @@ const generateInterfaceColors = () => ({
   // Peek View Widget
   'peekView.border': interfacePalette.border.focus,
   'peekViewEditor.background': interfacePalette.bg.elevated,
-  'peekViewEditor.matchHighlightBackground': interfacePalette.bg.selection,
+  'peekViewEditor.matchHighlightBackground':
+    interfacePalette.derived.peekView.matchHighlightBackground,
   'peekViewResult.background': interfacePalette.bg.base,
   'peekViewResult.fileForeground': interfacePalette.text.primary,
   'peekViewResult.lineForeground': interfacePalette.text.muted,
-  'peekViewResult.matchHighlightBackground': interfacePalette.bg.selection,
-  'peekViewResult.selectionBackground': interfacePalette.bg.selection,
+  'peekViewResult.matchHighlightBackground':
+    interfacePalette.derived.peekView.matchHighlightBackground,
+  'peekViewResult.selectionBackground':
+    interfacePalette.derived.peekView.selectionBackground,
   'peekViewResult.selectionForeground': interfacePalette.text.primary,
   'peekViewTitle.background': interfacePalette.bg.overlay,
   'peekViewTitleDescription.foreground': interfacePalette.text.muted,

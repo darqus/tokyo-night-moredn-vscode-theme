@@ -33,6 +33,8 @@ export interface TokenMeta {
   contrastHints?: ContrastHints
   // ключ фоновой поверхности, относительно которой измеряется контраст
   bgKey?: string
+  // дополнительная заметка для документации (пояснение порогов/причин)
+  notes?: string
 }
 
 // Минимальный набор чувствительных токенов + примеры групп
@@ -122,6 +124,22 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
     surface: 'base',
     alpha: 'transparent',
   },
+  // Peek View highlights should be non-opaque as well
+  {
+    key: 'peekViewEditor.matchHighlightBackground',
+    surface: 'overlay',
+    alpha: 'transparent',
+  },
+  {
+    key: 'peekViewResult.matchHighlightBackground',
+    surface: 'base',
+    alpha: 'transparent',
+  },
+  {
+    key: 'peekViewResult.selectionBackground',
+    surface: 'base',
+    alpha: 'transparent',
+  },
 
   // Word/Range highlights: мягкие подложки — прозрачные
   {
@@ -160,6 +178,8 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
     alpha: 'opaque',
     contrastHints: { primaryMin: 4.5, mutedMin: 3.0 },
     bgKey: 'editorHoverWidget.background',
+    notes:
+      'Overlay widgets: primary text should reach ~WCAG AA (4.5) over overlay bg; muted at least 3.0',
   },
   {
     key: 'editorSuggestWidgetStatus.foreground',
@@ -213,10 +233,24 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
     bgKey: 'menu.background',
   },
   {
+    key: 'menu.selectionForeground',
+    surface: 'menu',
+    alpha: 'opaque',
+    contrastHints: { primaryMin: 4.5 },
+    bgKey: 'menu.background',
+  },
+  {
     key: 'panelTitle.inactiveForeground',
     surface: 'panel',
     alpha: 'opaque',
     contrastHints: { mutedMin: 3.0 },
+    bgKey: 'panel.background',
+  },
+  {
+    key: 'panelTitle.activeForeground',
+    surface: 'panel',
+    alpha: 'opaque',
+    contrastHints: { primaryMin: 4.5 },
     bgKey: 'panel.background',
   },
   {
@@ -239,6 +273,50 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
     alpha: 'opaque',
     contrastHints: { mutedMin: 3.0 },
     bgKey: 'activityBar.background',
+  },
+  {
+    key: 'sideBar.foreground',
+    surface: 'base',
+    alpha: 'opaque',
+    contrastHints: { primaryMin: 4.0 },
+    bgKey: 'sideBar.background',
+  },
+  {
+    key: 'sideBarTitle.foreground',
+    surface: 'base',
+    alpha: 'opaque',
+    contrastHints: { primaryMin: 4.5 },
+    bgKey: 'sideBar.background',
+  },
+  {
+    key: 'editor.foreground',
+    surface: 'base',
+    alpha: 'opaque',
+    contrastHints: { primaryMin: 7.0 },
+    bgKey: 'editor.background',
+    notes:
+      'Editor text vs editor background: aim higher (~7.0) for code readability',
+  },
+  {
+    key: 'statusBar.foreground',
+    surface: 'base',
+    alpha: 'opaque',
+    contrastHints: { mutedMin: 3.0 },
+    bgKey: 'statusBar.background',
+  },
+  {
+    key: 'statusBarItem.hoverForeground',
+    surface: 'base',
+    alpha: 'opaque',
+    contrastHints: { primaryMin: 4.5 },
+    bgKey: 'statusBar.background',
+  },
+  {
+    key: 'quickInput.foreground',
+    surface: 'overlay',
+    alpha: 'opaque',
+    contrastHints: { primaryMin: 4.5 },
+    bgKey: 'quickInput.background',
   },
 
   // Aliases / legacy (пример): нет в текущей теме, но оставим как образец поля aliasOf

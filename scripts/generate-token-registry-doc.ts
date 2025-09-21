@@ -16,7 +16,9 @@ function generate(): string {
     'Alpha',
     'Deprecated',
     'Alias Of',
+    'BG Key',
     'Contrast Hints',
+    'Notes',
   ]
   const head = `| ${columns.join(' | ')} |\n| ${columns
     .map(() => '---')
@@ -42,7 +44,9 @@ function generate(): string {
       t.alpha ?? '',
       t.deprecated ? 'yes' : '',
       t.aliasOf ?? '',
+      t.bgKey ? mdEscape(t.bgKey) : '',
       hints,
+      t.notes ? mdEscape(t.notes) : '',
     ]
     return `| ${vals.join(' | ')} |`
   })
