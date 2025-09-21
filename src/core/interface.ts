@@ -11,8 +11,8 @@ export const interfacePalette: InterfacePalette = {
   bg: {
     base: basePalette.black,
     darkenBase: darken(basePalette.black, 0.075),
-    elevated: mix(basePalette.black, basePalette.blue, 0.06),
-    overlay: mix(basePalette.black, basePalette.blue, 0.1),
+    elevated: mix(basePalette.black, basePalette.blue, 0.05),
+    overlay: mix(basePalette.black, basePalette.blue, 0.09),
     input: mix(basePalette.black, basePalette.blue, 0.04),
     hover: withAlpha(basePalette.blue, 0.08),
     active: withAlpha(basePalette.blue, 0.12),
