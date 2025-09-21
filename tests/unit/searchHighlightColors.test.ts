@@ -16,9 +16,7 @@ describe('Search highlight colors', () => {
     expect(c['editor.findMatchBorder']).toBe(border)
     expect(c['editor.findMatchHighlightBackground']).toBe(other)
     expect(c['editor.findMatchForeground']).toBe(interfacePalette.text.primary)
-    expect(c['editor.findMatchHighlightForeground']).toBe(
-      interfacePalette.text.primary
-    )
+    // Do not assert on editor.findMatchHighlightForeground: we omit it to avoid opaque overlay
   })
 
   it('terminal find highlight should mirror editor scheme', () => {

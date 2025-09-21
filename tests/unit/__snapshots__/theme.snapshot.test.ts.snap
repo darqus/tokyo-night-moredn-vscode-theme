@@ -82,7 +82,6 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "editor.findMatchBorder": "#e0af6899",
     "editor.findMatchForeground": "#c0caf5",
     "editor.findMatchHighlightBackground": "#e0af6829",
-    "editor.findMatchHighlightForeground": "#c0caf5",
     "editor.foreground": "#c0caf5",
     "editor.hoverHighlightBackground": "#7aa2f714",
     "editor.inactiveSelectionBackground": "#7aa2f714",

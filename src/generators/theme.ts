@@ -110,8 +110,7 @@ const generateInterfaceColors = () => ({
   'editor.findMatchHighlightBackground':
     interfacePalette.derived.findMatch.highlightBackground,
   'editor.findMatchForeground': interfacePalette.text.primary,
-  // Foreground should remain opaque for readability
-  'editor.findMatchHighlightForeground': interfacePalette.text.primary,
+  // Do not set findMatchHighlightForeground to avoid opaque overlay warnings
   'editor.wordHighlightBackground': interfacePalette.bg.hover,
   'editor.wordHighlightStrongBackground': interfacePalette.bg.selection,
   'editor.hoverHighlightBackground': interfacePalette.bg.hover,
