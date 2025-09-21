@@ -251,7 +251,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "peekViewResult.selectionBackground": "#86afff33",
     "peekViewResult.selectionForeground": "#c0caf5",
     "peekViewTitle.background": "#232739",
-    "peekViewTitleDescription.foreground": "#9ba5cf",
+    "peekViewTitleDescription.foreground": "#a0aad4",
     "peekViewTitleLabel.foreground": "#c0caf5",
     "ports.iconRunningProcessForeground": "#9ece6a",
     "problemsErrorIcon.foreground": "#f7768e",

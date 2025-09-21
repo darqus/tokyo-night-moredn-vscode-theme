@@ -150,12 +150,12 @@ const generateInterfaceColors = () => ({
   'sideBar.border': interfacePalette.border.default,
   'sideBarTitle.foreground': interfacePalette.textOn.base.primary,
   'sideBarSectionHeader.background': interfacePalette.bg.elevated,
-  'sideBarSectionHeader.foreground': interfacePalette.text.primary,
+  'sideBarSectionHeader.foreground': interfacePalette.textOn.elevated.primary,
   'sideBarSectionHeader.border': interfacePalette.border.default,
 
   // Status Bar
   'statusBar.background': interfacePalette.bg.elevated,
-  'statusBar.foreground': interfacePalette.text.muted,
+  'statusBar.foreground': interfacePalette.textOn.elevated.muted,
   'statusBar.border': interfacePalette.border.default,
   'statusBar.noFolderBackground': interfacePalette.bg.base,
   'statusBar.debuggingBackground': interfacePalette.state.warning,
@@ -360,7 +360,8 @@ const generateInterfaceColors = () => ({
   'notifications.foreground': interfacePalette.textOn.elevated.primary,
   'notifications.border': interfacePalette.border.default,
   'notificationCenter.border': interfacePalette.border.default,
-  'notificationCenterHeader.foreground': interfacePalette.text.primary,
+  'notificationCenterHeader.foreground':
+    interfacePalette.textOn.elevated.primary,
   'notificationCenterHeader.background': interfacePalette.bg.elevated,
   'notificationToast.border': interfacePalette.border.default,
   'notificationsErrorIcon.foreground': interfacePalette.state.error,
@@ -442,8 +443,8 @@ const generateInterfaceColors = () => ({
   // Breadcrumbs
   'breadcrumb.foreground': interfacePalette.text.muted,
   'breadcrumb.background': interfacePalette.bg.base,
-  'breadcrumb.focusForeground': interfacePalette.text.primary,
-  'breadcrumb.activeSelectionForeground': interfacePalette.text.primary,
+  'breadcrumb.focusForeground': interfacePalette.textOn.base.primary,
+  'breadcrumb.activeSelectionForeground': interfacePalette.textOn.base.primary,
   'breadcrumbPicker.background': interfacePalette.bg.elevated,
 
   // Widgets
@@ -456,20 +457,20 @@ const generateInterfaceColors = () => ({
   'peekViewEditor.matchHighlightBackground':
     interfacePalette.derived.peekView.matchHighlightBackground,
   'peekViewResult.background': interfacePalette.bg.base,
-  'peekViewResult.fileForeground': interfacePalette.text.primary,
-  'peekViewResult.lineForeground': interfacePalette.text.muted,
+  'peekViewResult.fileForeground': interfacePalette.textOn.base.primary,
+  'peekViewResult.lineForeground': interfacePalette.textOn.base.muted,
   'peekViewResult.matchHighlightBackground':
     interfacePalette.derived.peekView.matchHighlightBackground,
   'peekViewResult.selectionBackground':
     interfacePalette.derived.peekView.selectionBackground,
   'peekViewResult.selectionForeground': interfacePalette.text.primary,
   'peekViewTitle.background': interfacePalette.bg.overlay,
-  'peekViewTitleDescription.foreground': interfacePalette.text.muted,
-  'peekViewTitleLabel.foreground': interfacePalette.text.primary,
+  'peekViewTitleDescription.foreground': interfacePalette.textOn.overlay.muted,
+  'peekViewTitleLabel.foreground': interfacePalette.textOn.overlay.primary,
 
   // Editor Widget
   'editorWidget.background': interfacePalette.bg.elevated,
-  'editorWidget.foreground': interfacePalette.text.primary,
+  'editorWidget.foreground': interfacePalette.textOn.elevated.primary,
   'editorWidget.border': interfacePalette.border.separatorBackground,
   'editorWidget.resizeBorder': interfacePalette.border.focus,
 
