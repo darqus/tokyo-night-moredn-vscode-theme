@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.14.52](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.14.33...v1.14.52) (2025-09-21)
+
+
+### Features
+
+* **button:** adjust hover and separator colors for improved contrast and visibility ([c522444](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/c5224447a0fbef23c133e0545406fa086405f2d7))
+* **interface:** add darkened base background color ([aa880ac](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/aa880ac5990e8ab33f90b327c4e1f138762d7c50))
+* **theme:** enhance SCM graph colors and adjust find match highlighting ([666870f](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/666870ff90a96a15e6a7d73444a0a27792387208))
+* **theme:** update theme description for enhanced marketing ([3bb436a](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/3bb436acdfb740eb66d94dea390de673ce330566))
+
+
+### Bug Fixes
+
+* **theme:** update extensionButton prominent hover background color ([5c883e8](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/5c883e84420912d89437d38b8fa10363fec9386f))
+
 ### [1.14.33](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.14.32...v1.14.33) (2025-09-21)
 
 

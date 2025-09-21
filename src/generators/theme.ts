@@ -34,7 +34,7 @@ export const loadEnvVars = (): ThemeEnvVars => {
     THEME_DESCRIPTION:
       env.THEME_DESCRIPTION ||
       'Beautiful modern dark theme for VS Code with carefully crafted colors and contemporary design',
-    THEME_VERSION: env.THEME_VERSION || '1.14.33',
+    THEME_VERSION: env.THEME_VERSION || '1.14.52',
     THEME_AUTHOR: env.THEME_AUTHOR || 'lod',
     THEME_PUBLISHER: env.THEME_PUBLISHER || 'lod-inc',
     THEME_LICENSE: env.THEME_LICENSE || 'MIT',
