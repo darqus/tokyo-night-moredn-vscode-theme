@@ -215,6 +215,13 @@
 			"command": "npm test --silent",
 			"isBackground": false,
 			"group": "build"
+		},
+		{
+			"label": "Run full tests after OKLCH and registry expansion",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"group": "build"
 		}
 	]
 }

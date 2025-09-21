@@ -65,9 +65,9 @@ const generateInterfaceColors = () => ({
 
   // Title Bar (главное меню)
   'titleBar.activeBackground': interfacePalette.bg.base,
-  'titleBar.activeForeground': interfacePalette.text.primary,
+  'titleBar.activeForeground': interfacePalette.textOn.base.primary,
   'titleBar.inactiveBackground': interfacePalette.bg.base,
-  'titleBar.inactiveForeground': interfacePalette.text.muted,
+  'titleBar.inactiveForeground': interfacePalette.textOn.base.muted,
   'titleBar.border': interfacePalette.border.default,
 
   // Menu Bar
@@ -76,7 +76,7 @@ const generateInterfaceColors = () => ({
   'menubar.selectionBorder': interfacePalette.border.focus,
 
   // Menu (контекстное меню)
-  'menu.foreground': interfacePalette.text.primary,
+  'menu.foreground': interfacePalette.textOn.elevated.primary,
   'menu.background': interfacePalette.bg.elevated,
   'menu.selectionForeground': interfacePalette.text.primary,
   'menu.selectionBackground': interfacePalette.bg.selection,
@@ -85,20 +85,20 @@ const generateInterfaceColors = () => ({
   'menu.border': interfacePalette.border.default,
 
   // Command Center & Quick Input (командная панель)
-  'commandCenter.foreground': interfacePalette.text.muted,
-  'commandCenter.activeForeground': interfacePalette.text.primary,
+  'commandCenter.foreground': interfacePalette.textOn.base.muted,
+  'commandCenter.activeForeground': interfacePalette.textOn.base.primary,
   'commandCenter.background': interfacePalette.bg.base,
   'commandCenter.activeBackground': interfacePalette.bg.hover,
   'commandCenter.border': interfacePalette.border.default,
   'quickInput.background': interfacePalette.bg.elevated,
-  'quickInput.foreground': interfacePalette.text.primary,
+  'quickInput.foreground': interfacePalette.textOn.elevated.primary,
   'quickInputTitle.background': interfacePalette.bg.overlay,
   'quickInputList.focusBackground': interfacePalette.bg.selection,
   'quickInputList.focusForeground': interfacePalette.text.primary,
 
   // Редактор
   'editor.background': interfacePalette.bg.base,
-  'editor.foreground': interfacePalette.text.primary,
+  'editor.foreground': interfacePalette.textOn.base.primary,
   'editor.selectionBackground': interfacePalette.bg.selection,
   'editor.selectionForeground': interfacePalette.text.primary,
   'editor.inactiveSelectionBackground': interfacePalette.bg.hover,
@@ -108,7 +108,7 @@ const generateInterfaceColors = () => ({
   'editor.findMatchBorder': interfacePalette.derived.findMatch.border,
   'editor.findMatchHighlightBackground':
     interfacePalette.derived.findMatch.highlightBackground,
-  'editor.findMatchForeground': interfacePalette.text.primary,
+  'editor.findMatchForeground': interfacePalette.textOn.base.primary,
   // Do not set findMatchHighlightForeground to avoid opaque overlay warnings
   'editor.wordHighlightBackground': interfacePalette.bg.hover,
   'editor.wordHighlightStrongBackground': interfacePalette.bg.selection,
@@ -117,7 +117,7 @@ const generateInterfaceColors = () => ({
   'editorBracketMatch.background': interfacePalette.bg.hover,
   'editorBracketMatch.border': interfacePalette.border.focus,
   'editorCursor.foreground': interfacePalette.text.primary,
-  'editorWhitespace.foreground': interfacePalette.text.subtle,
+  'editorWhitespace.foreground': interfacePalette.textOn.base.subtle,
   'editorIndentGuide.background1': interfacePalette.border.default,
   'editorIndentGuide.activeBackground1': interfacePalette.border.focus,
   'editorLineNumber.foreground': interfacePalette.text.lineNumber,
@@ -135,7 +135,7 @@ const generateInterfaceColors = () => ({
 
   // Activity Bar
   'activityBar.background': interfacePalette.bg.base,
-  'activityBar.foreground': interfacePalette.text.muted,
+  'activityBar.foreground': interfacePalette.textOn.base.muted,
   'activityBar.activeBorder': interfacePalette.state.info,
   'activityBar.activeBackground': interfacePalette.bg.hover,
   // Surface-aware: text on base surface
@@ -146,9 +146,9 @@ const generateInterfaceColors = () => ({
 
   // Side Bar
   'sideBar.background': interfacePalette.bg.darkenBase,
-  'sideBar.foreground': interfacePalette.text.primary,
+  'sideBar.foreground': interfacePalette.textOn.base.primary,
   'sideBar.border': interfacePalette.border.default,
-  'sideBarTitle.foreground': interfacePalette.text.primary,
+  'sideBarTitle.foreground': interfacePalette.textOn.base.primary,
   'sideBarSectionHeader.background': interfacePalette.bg.elevated,
   'sideBarSectionHeader.foreground': interfacePalette.text.primary,
   'sideBarSectionHeader.border': interfacePalette.border.default,
@@ -269,8 +269,8 @@ const generateInterfaceColors = () => ({
   'panel.border': interfacePalette.border.default,
   'panel.dropBorder': interfacePalette.state.info,
   'panelTitle.activeBorder': interfacePalette.state.info,
-  'panelTitle.activeForeground': interfacePalette.text.primary,
-  'panelTitle.inactiveForeground': interfacePalette.text.muted,
+  'panelTitle.activeForeground': interfacePalette.textOn.base.primary,
+  'panelTitle.inactiveForeground': interfacePalette.textOn.base.muted,
   'panelInput.border': interfacePalette.border.default,
   'panelSection.border': interfacePalette.border.separatorBackground,
   // Should be transparent to let panel contents shine through
@@ -282,7 +282,7 @@ const generateInterfaceColors = () => ({
 
   // Terminal
   'terminal.background': interfacePalette.bg.darkenBase,
-  'terminal.foreground': interfacePalette.text.primary,
+  'terminal.foreground': interfacePalette.textOn.base.primary,
   'terminal.selectionBackground': interfacePalette.bg.selection,
   // Omit selectionForeground to let VS Code auto-contrast without schema warnings
   'terminal.inactiveSelectionBackground': interfacePalette.bg.hover,
@@ -314,7 +314,7 @@ const generateInterfaceColors = () => ({
   'terminalOverviewRuler.border': interfacePalette.border.default,
 
   // Terminal initial hint color (placeholder text)
-  'terminal.initialHintForeground': interfacePalette.text.muted,
+  'terminal.initialHintForeground': interfacePalette.textOn.base.muted,
 
   // Terminal ANSI palette (makes links/paths readable)
   'terminal.ansiBlack': interfacePalette.derived.terminal.ansiBlack,
@@ -357,7 +357,7 @@ const generateInterfaceColors = () => ({
 
   // Notifications
   'notifications.background': interfacePalette.bg.elevated,
-  'notifications.foreground': interfacePalette.text.primary,
+  'notifications.foreground': interfacePalette.textOn.elevated.primary,
   'notifications.border': interfacePalette.border.default,
   'notificationCenter.border': interfacePalette.border.default,
   'notificationCenterHeader.foreground': interfacePalette.text.primary,
@@ -476,7 +476,7 @@ const generateInterfaceColors = () => ({
   // Editor Suggest Widget
   'editorSuggestWidget.background': interfacePalette.bg.overlay,
   'editorSuggestWidget.border': interfacePalette.border.default,
-  'editorSuggestWidget.foreground': interfacePalette.text.primary,
+  'editorSuggestWidget.foreground': interfacePalette.textOn.overlay.primary,
   'editorSuggestWidget.highlightForeground': interfacePalette.state.info,
   'editorSuggestWidget.selectedBackground': interfacePalette.bg.selection,
   'editorSuggestWidget.selectedForeground': interfacePalette.text.primary,

@@ -3,8 +3,14 @@
  * Генерация всех цветов интерфейса из базовой палитры
  */
 import { basePalette } from './palette'
-import { mix, withAlpha, lighten, darken } from './utils'
-import { oklchLighten, oklchMix } from './oklch'
+import {
+  mixSrgb as mix,
+  withAlpha,
+  lightenSrgb as lighten,
+  darkenSrgb as darken,
+  mixPerceptual,
+  lightenPerceptual,
+} from './colorEngine'
 import type { InterfacePalette } from '../types/theme'
 
 export const interfacePalette: InterfacePalette = {
@@ -17,9 +23,9 @@ export const interfacePalette: InterfacePalette = {
     input: mix(basePalette.black, basePalette.blue, 0.04),
     // OKLCH: лёгкая коррекция L для лучшей перцептуальной читаемости
     // amount 0.2 ~ +0.02 L, 0.3 ~ +0.03 L, 0.4 ~ +0.04 L
-    hover: withAlpha(oklchLighten(basePalette.blue, 0.2), 0.08),
-    active: withAlpha(oklchLighten(basePalette.blue, 0.3), 0.12),
-    selection: withAlpha(oklchLighten(basePalette.blue, 0.4), 0.2),
+    hover: withAlpha(lightenPerceptual(basePalette.blue, 0.2), 0.08),
+    active: withAlpha(lightenPerceptual(basePalette.blue, 0.3), 0.12),
+    selection: withAlpha(lightenPerceptual(basePalette.blue, 0.4), 0.2),
     // Специализированные hover цвета
     // Сохраняем стабильный sRGB-mix для вспомогательных hover-градаций
     hoverSubtle: withAlpha(mix(basePalette.white, basePalette.gray, 0.4), 0.08),
@@ -55,7 +61,10 @@ export const interfacePalette: InterfacePalette = {
     },
     overlay: {
       primary: basePalette.white,
-      muted: oklchLighten(mix(basePalette.white, basePalette.gray, 0.35), 0.15),
+      muted: lightenPerceptual(
+        mix(basePalette.white, basePalette.gray, 0.35),
+        0.15
+      ),
       subtle: mix(basePalette.white, basePalette.gray, 0.55),
       inactive: mix(basePalette.white, basePalette.gray, 0.75),
     },
@@ -66,7 +75,7 @@ export const interfacePalette: InterfacePalette = {
     default: mix(basePalette.black, basePalette.gray, 0.1),
     focus: withAlpha(basePalette.blue, 0.4),
     // Лёгкий OKLCH-тон для separator: чуть холоднее нейтрального серого
-    separatorBackground: oklchMix(
+    separatorBackground: mixPerceptual(
       mix(basePalette.black, basePalette.gray, 0.3),
       basePalette.blue,
       0.05
@@ -188,12 +197,12 @@ export const interfacePalette: InterfacePalette = {
     findMatch: {
       // Слегка уменьшаем хрому (C) и слегка повышаем L за счёт смешения с белым
       background: withAlpha(
-        oklchMix(basePalette.yellow, basePalette.white, 0.08),
+        mixPerceptual(basePalette.yellow, basePalette.white, 0.08),
         0.22
       ),
       border: withAlpha(basePalette.yellow, 0.6),
       highlightBackground: withAlpha(
-        oklchMix(basePalette.yellow, basePalette.white, 0.12),
+        mixPerceptual(basePalette.yellow, basePalette.white, 0.12),
         0.16
       ),
     },
@@ -205,7 +214,7 @@ export const interfacePalette: InterfacePalette = {
     shadows: {
       // widget: слегка более «холодная» тень + небольшая прозрачность
       widget: withAlpha(
-        oklchMix(
+        mixPerceptual(
           mix(basePalette.black, basePalette.blue, 0.09),
           basePalette.blue,
           0.06
@@ -213,7 +222,7 @@ export const interfacePalette: InterfacePalette = {
         0.9
       ),
       // scrollbar: на чуть-чуть мягче (меньше синего)
-      scrollbar: oklchMix(
+      scrollbar: mixPerceptual(
         mix(basePalette.black, basePalette.blue, 0.09),
         basePalette.blue,
         0.04
@@ -226,12 +235,15 @@ export const interfacePalette: InterfacePalette = {
       // немного ниже альфа и капля меньше осветления, чем у selection
       // selection: oklchLighten(blue, 0.4) @ α=0.20
       matchHighlightBackground: withAlpha(
-        oklchLighten(basePalette.blue, 0.38),
+        lightenPerceptual(basePalette.blue, 0.38),
         0.18
       ),
       // для selection внутри peek используем ровно общий selection‑тон,
       // чтобы визуально соответствовать остальным спискам/виджетам
-      selectionBackground: withAlpha(oklchLighten(basePalette.blue, 0.4), 0.2),
+      selectionBackground: withAlpha(
+        lightenPerceptual(basePalette.blue, 0.4),
+        0.2
+      ),
     },
   },
 
