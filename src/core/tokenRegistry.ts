@@ -217,6 +217,8 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
     alpha: 'opaque',
     contrastHints: { primaryMin: 4.5 },
     bgKey: 'editorWidget.background',
+    notes:
+      'Widget foreground vs elevated background: keep AA for clarity in inline UIs',
   },
   {
     key: 'quickInput.foreground',
@@ -329,6 +331,7 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
     alpha: 'opaque',
     contrastHints: { primaryMin: 4.5 },
     bgKey: 'sideBar.background',
+    notes: 'Section titles should meet AA for clarity in navigation',
   },
   {
     key: 'editor.foreground',
@@ -347,6 +350,22 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
     bgKey: 'statusBar.background',
   },
   {
+    key: 'statusBarItem.prominentForeground',
+    surface: 'base',
+    alpha: 'opaque',
+    contrastHints: { primaryMin: 4.5 },
+    bgKey: 'statusBarItem.prominentBackground',
+    notes:
+      'Prominent items should remain readable over colored or elevated backgrounds',
+  },
+  {
+    key: 'statusBarItem.remoteForeground',
+    surface: 'base',
+    alpha: 'opaque',
+    contrastHints: { primaryMin: 4.5 },
+    bgKey: 'statusBarItem.remoteBackground',
+  },
+  {
     key: 'statusBarItem.hoverForeground',
     surface: 'base',
     alpha: 'opaque',
@@ -359,6 +378,20 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
     alpha: 'opaque',
     contrastHints: { primaryMin: 4.5 },
     bgKey: 'quickInput.background',
+  },
+  {
+    key: 'quickInputTitle.background',
+    surface: 'overlay',
+    alpha: 'opaque',
+  },
+  {
+    key: 'quickInputList.focusForeground',
+    surface: 'overlay',
+    alpha: 'opaque',
+    contrastHints: { primaryMin: 4.5 },
+    bgKey: 'quickInput.background',
+    notes:
+      'Selected item foreground should remain readable over selection tone',
   },
 
   // Aliases / legacy (пример): нет в текущей теме, но оставим как образец поля aliasOf

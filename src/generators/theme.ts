@@ -272,7 +272,7 @@ const generateInterfaceColors = () => ({
   'panelTitle.activeForeground': interfacePalette.text.primary,
   'panelTitle.inactiveForeground': interfacePalette.text.muted,
   'panelInput.border': interfacePalette.border.default,
-  'panelSection.border': interfacePalette.border.default,
+  'panelSection.border': interfacePalette.border.separatorBackground,
   // Should be transparent to let panel contents shine through
   'panelSection.dropBackground':
     interfacePalette.derived.overlays.dropBackground,

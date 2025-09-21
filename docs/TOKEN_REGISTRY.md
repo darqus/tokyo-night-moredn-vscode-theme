@@ -44,7 +44,7 @@
 | editorSuggestWidget.foreground | overlay | opaque |  |  | editorSuggestWidget.background | primary≥4.5 |  |
 | activityBar.inactiveForeground | base | opaque |  |  | activityBar.background | muted≥3 |  |
 | tab.unfocusedInactiveForeground | base | opaque |  |  | tab.unfocusedInactiveBackground | muted≥3 |  |
-| editorWidget.foreground | overlay | opaque |  |  | editorWidget.background | primary≥4.5 |  |
+| editorWidget.foreground | overlay | opaque |  |  | editorWidget.background | primary≥4.5 | Widget foreground vs elevated background: keep AA for clarity in inline UIs |
 | quickInput.foreground | overlay | opaque |  |  | quickInput.background | primary≥4.5 |  |
 | menu.foreground | menu | opaque |  |  | menu.background | primary≥4.5 |  |
 | menu.selectionForeground | menu | opaque |  |  | menu.background | primary≥4.5 |  |
@@ -59,10 +59,14 @@
 | statusBar.foreground | base | opaque |  |  | statusBar.background | muted≥3 |  |
 | activityBar.foreground | base | opaque |  |  | activityBar.background | muted≥3 |  |
 | sideBar.foreground | base | opaque |  |  | sideBar.background | primary≥4 |  |
-| sideBarTitle.foreground | base | opaque |  |  | sideBar.background | primary≥4.5 |  |
+| sideBarTitle.foreground | base | opaque |  |  | sideBar.background | primary≥4.5 | Section titles should meet AA for clarity in navigation |
 | editor.foreground | base | opaque |  |  | editor.background | primary≥7 | Editor text vs editor background: aim higher (~7.0) for code readability |
 | statusBar.foreground | base | opaque |  |  | statusBar.background | muted≥3 |  |
+| statusBarItem.prominentForeground | base | opaque |  |  | statusBarItem.prominentBackground | primary≥4.5 | Prominent items should remain readable over colored or elevated backgrounds |
+| statusBarItem.remoteForeground | base | opaque |  |  | statusBarItem.remoteBackground | primary≥4.5 |  |
 | statusBarItem.hoverForeground | base | opaque |  |  | statusBar.background | primary≥4.5 |  |
 | quickInput.foreground | overlay | opaque |  |  | quickInput.background | primary≥4.5 |  |
+| quickInputTitle.background | overlay | opaque |  |  |  |  |  |
+| quickInputList.focusForeground | overlay | opaque |  |  | quickInput.background | primary≥4.5 | Selected item foreground should remain readable over selection tone |
 | editorIndentGuide.background |  |  | yes | editorIndentGuide.background1 |  |  |  |
 | editorIndentGuide.activeBackground |  |  | yes | editorIndentGuide.activeBackground1 |  |  |  |

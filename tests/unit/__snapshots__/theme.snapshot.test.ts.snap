@@ -233,7 +233,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "panel.border": "#202230",
     "panel.dropBorder": "#7dcfff",
     "panelInput.border": "#202230",
-    "panelSection.border": "#202230",
+    "panelSection.border": "#30344c",
     "panelSection.dropBackground": "#24293b33",
     "panelSectionHeader.background": "#1f2230",
     "panelSectionHeader.border": "#202230",

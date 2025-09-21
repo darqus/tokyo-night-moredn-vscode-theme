@@ -8,4 +8,10 @@ describe('OKLCH thin border tone', () => {
     expect(c['widget.border']).toBe(sep)
     expect(c['editorWidget.border']).toBe(sep)
   })
+
+  it('panelSection.border should use separatorBackground tone', () => {
+    const c = generateTheme().colors
+    const sep = interfacePalette.border.separatorBackground
+    expect(c['panelSection.border']).toBe(sep)
+  })
 })
