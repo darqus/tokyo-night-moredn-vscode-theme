@@ -2,6 +2,7 @@
 
 import * as fs from 'fs'
 import * as path from 'path'
+import { TOKEN_REGISTRY } from '../src/core/tokenRegistry'
 
 // Устаревшие свойства VS Code
 const DEPRECATED_PROPERTIES = [
@@ -238,12 +239,19 @@ function printReport(result: ValidationResult): void {
 
   if (result.deprecated.length > 0) {
     console.log('⚠️  Устаревшие свойства:')
+    const aliasMap = new Map<string, string>()
+    TOKEN_REGISTRY.forEach((m) => {
+      if (m.aliasOf) aliasMap.set(m.key, m.aliasOf)
+    })
     result.deprecated.forEach(({ property, replacement }) => {
+      const aliasOf = aliasMap.get(property)
+      const repl = replacement || aliasOf
       console.log(
-        `   • ${property}${replacement ? ` → ${replacement}` : ' (нет замены)'}`
+        `   • ${property}${repl ? ` → ${repl}` : ' (нет замены)'}${
+          aliasOf && !replacement ? ' (из реестра aliasOf)' : ''
+        }`
       )
     })
-    console.log()
   }
 
   if (result.invalidValues.length > 0) {
@@ -341,6 +349,19 @@ function main() {
   console.log('🔍 Валидация темы Tokyo Night Modern...\n')
 
   const result = validateTheme(themePath)
+
+  // Режим подсказок: печатаем только неизвестные и их близкие варианты
+  if (process.argv.includes('--suggest')) {
+    const onlyUnknown: ValidationResult = {
+      deprecated: [],
+      invalidValues: [],
+      invalidColors: [],
+      unknownProperties: result.unknownProperties,
+    }
+    printReport(onlyUnknown)
+    return
+  }
+
   printReport(result)
 
   // Предложение исправления

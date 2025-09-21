@@ -168,6 +168,13 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
     contrastHints: { mutedMin: 3.0 },
     bgKey: 'editorSuggestWidget.background',
   },
+  {
+    key: 'editorSuggestWidget.foreground',
+    surface: 'overlay',
+    alpha: 'opaque',
+    contrastHints: { primaryMin: 4.5 },
+    bgKey: 'editorSuggestWidget.background',
+  },
 
   // Base surface text
   {
@@ -206,6 +213,13 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
     bgKey: 'menu.background',
   },
   {
+    key: 'panelTitle.inactiveForeground',
+    surface: 'panel',
+    alpha: 'opaque',
+    contrastHints: { mutedMin: 3.0 },
+    bgKey: 'panel.background',
+  },
+  {
     key: 'breadcrumb.foreground',
     surface: 'base',
     alpha: 'opaque',
@@ -218,6 +232,13 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
     alpha: 'opaque',
     contrastHints: { mutedMin: 3.0 },
     bgKey: 'statusBar.background',
+  },
+  {
+    key: 'activityBar.foreground',
+    surface: 'base',
+    alpha: 'opaque',
+    contrastHints: { mutedMin: 3.0 },
+    bgKey: 'activityBar.background',
   },
 
   // Aliases / legacy (пример): нет в текущей теме, но оставим как образец поля aliasOf

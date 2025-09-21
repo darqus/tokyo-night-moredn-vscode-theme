@@ -65,8 +65,12 @@ export const interfacePalette: InterfacePalette = {
   border: {
     default: mix(basePalette.black, basePalette.gray, 0.1),
     focus: withAlpha(basePalette.blue, 0.4),
-    // Нейтральное разделение, без смещения тона
-    separatorBackground: mix(basePalette.black, basePalette.gray, 0.3),
+    // Лёгкий OKLCH-тон для separator: чуть холоднее нейтрального серого
+    separatorBackground: oklchMix(
+      mix(basePalette.black, basePalette.gray, 0.3),
+      basePalette.blue,
+      0.05
+    ),
   },
 
   // Кнопки
