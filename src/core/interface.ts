@@ -99,6 +99,10 @@ export const interfacePalette: InterfacePalette = {
     link: {
       foreground: lighten(basePalette.cyan, 0.22),
     },
+    blockquote: {
+      background: mix(basePalette.black, basePalette.blue, 0.12),
+      border: withAlpha(basePalette.cyan, 0.35),
+    },
     terminal: {
       hoverHighlightBackground: withAlpha(basePalette.cyan, 0.22),
       ansiBlue: lighten(basePalette.cyan, 0.22),

@@ -344,6 +344,10 @@ const generateInterfaceColors = () => ({
   // Editor-only link color for consistency
   'editorLink.activeForeground': interfacePalette.derived.link.foreground,
 
+  // Text / Markdown
+  'textBlockQuote.background': interfacePalette.derived.blockquote.background,
+  'textBlockQuote.border': interfacePalette.derived.blockquote.border,
+
   // Scrollbar
   'scrollbar.shadow': interfacePalette.bg.overlay,
   'scrollbarSlider.background': interfacePalette.bg.hover,

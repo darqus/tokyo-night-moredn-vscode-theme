@@ -127,6 +127,10 @@ export interface InterfacePalette {
       background: Hex
       foreground: Hex
     }
+    blockquote: {
+      background: Hex
+      border: Hex
+    }
   }
   // Controls
   dropdown: {

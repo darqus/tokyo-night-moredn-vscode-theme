@@ -389,6 +389,8 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "testing.peekBorder": "#7aa2f766",
     "testing.peekHeaderBackground": "#24293b",
     "testing.runAction": "#9ece6a",
+    "textBlockQuote.background": "#262b3f",
+    "textBlockQuote.border": "#7dcfff59",
     "textLink.activeForeground": "#9adaff",
     "textLink.foreground": "#9adaff",
     "titleBar.activeBackground": "#1a1b26",

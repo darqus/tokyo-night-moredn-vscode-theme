@@ -214,6 +214,8 @@
     "textLink.foreground": "#9adaff",
     "textLink.activeForeground": "#9adaff",
     "editorLink.activeForeground": "#9adaff",
+    "textBlockQuote.background": "#262b3f",
+    "textBlockQuote.border": "#7dcfff59",
     "scrollbar.shadow": "#24293b",
     "scrollbarSlider.background": "#7aa2f714",
     "scrollbarSlider.hoverBackground": "#7aa2f71f",
