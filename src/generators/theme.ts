@@ -370,7 +370,7 @@ const generateInterfaceColors = () => ({
   // Extensions
   'extensionButton.prominentBackground': interfacePalette.state.info,
   'extensionButton.prominentForeground': interfacePalette.bg.base,
-  'extensionButton.prominentHoverBackground': interfacePalette.state.info,
+  'extensionButton.prominentHoverBackground': interfacePalette.state.infoHover,
   'extensionBadge.remoteBackground': interfacePalette.state.info,
   'extensionBadge.remoteForeground': interfacePalette.bg.base,
 

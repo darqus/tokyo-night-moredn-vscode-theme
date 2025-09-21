@@ -232,7 +232,7 @@
     "notificationsInfoIcon.foreground": "#7dcfff",
     "extensionButton.prominentBackground": "#7dcfff",
     "extensionButton.prominentForeground": "#1a1b26",
-    "extensionButton.prominentHoverBackground": "#7dcfff",
+    "extensionButton.prominentHoverBackground": "#7dcfffcc",
     "extensionBadge.remoteBackground": "#7dcfff",
     "extensionBadge.remoteForeground": "#1a1b26",
     "gitDecoration.addedResourceForeground": "#9ece6a",

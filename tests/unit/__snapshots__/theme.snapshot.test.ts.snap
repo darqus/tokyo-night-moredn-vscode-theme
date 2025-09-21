@@ -146,7 +146,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "extensionBadge.remoteForeground": "#1a1b26",
     "extensionButton.prominentBackground": "#7dcfff",
     "extensionButton.prominentForeground": "#1a1b26",
-    "extensionButton.prominentHoverBackground": "#7dcfff",
+    "extensionButton.prominentHoverBackground": "#7dcfffcc",
     "focusBorder": "#7aa2f766",
     "foreground": "#c0caf5",
     "gitDecoration.addedResourceForeground": "#9ece6a",
