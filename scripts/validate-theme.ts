@@ -94,6 +94,7 @@ function validateTheme(themePath: string): ValidationResult {
     'terminalCommandDecoration',
     'terminalOverviewRuler',
     'textLink',
+    'textBlockQuote',
     'scrollbar',
     'scrollbarSlider',
     'notifications',

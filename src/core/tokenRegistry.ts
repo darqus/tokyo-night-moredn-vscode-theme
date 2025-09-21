@@ -15,12 +15,22 @@ export type Surface =
   | 'editor'
   | 'quickInput'
 export type AlphaPolicy = 'opaque' | 'transparent' | 'either'
+export interface ContrastHints {
+  // advisory минимальные пороги для текста на поверхности
+  primaryMin?: number
+  mutedMin?: number
+  subtleMin?: number
+}
 
 export interface TokenMeta {
   key: string
   surface?: Surface
   alpha?: AlphaPolicy
   deprecated?: boolean
+  // если ключ является алиасом другого токена (для обратной совместимости)
+  aliasOf?: string
+  // рекомендованные пороги контраста (advisory)
+  contrastHints?: ContrastHints
 }
 
 // Минимальный набор чувствительных токенов + примеры групп
@@ -44,6 +54,48 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
     surface: 'terminal',
     alpha: 'transparent',
   },
+  // selection/focus/active семейство — допускаем прозрачность (лучше восприятие слоёв)
+  { key: 'editor.selectionBackground', surface: 'base', alpha: 'transparent' },
+  {
+    key: 'list.activeSelectionBackground',
+    surface: 'list',
+    alpha: 'transparent',
+  },
+  {
+    key: 'list.inactiveSelectionBackground',
+    surface: 'list',
+    alpha: 'transparent',
+  },
+  {
+    key: 'editor.inactiveSelectionBackground',
+    surface: 'base',
+    alpha: 'transparent',
+  },
+  { key: 'menubar.selectionBackground', surface: 'menu', alpha: 'transparent' },
+  { key: 'menu.selectionBackground', surface: 'menu', alpha: 'transparent' },
+  { key: 'scrollbarSlider.background', surface: 'base', alpha: 'transparent' },
+  {
+    key: 'scrollbarSlider.hoverBackground',
+    surface: 'base',
+    alpha: 'transparent',
+  },
+  {
+    key: 'scrollbarSlider.activeBackground',
+    surface: 'base',
+    alpha: 'transparent',
+  },
+  { key: 'minimapSlider.background', surface: 'base', alpha: 'transparent' },
+  {
+    key: 'minimapSlider.hoverBackground',
+    surface: 'base',
+    alpha: 'transparent',
+  },
+  {
+    key: 'minimapSlider.activeBackground',
+    surface: 'base',
+    alpha: 'transparent',
+  },
+
   // Matches and search in lists/editors should be non-opaque
   { key: 'list.filterMatchBackground', surface: 'list', alpha: 'transparent' },
   {
@@ -69,6 +121,23 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
     alpha: 'transparent',
   },
 
+  // Word/Range highlights: мягкие подложки — прозрачные
+  {
+    key: 'editor.wordHighlightBackground',
+    surface: 'base',
+    alpha: 'transparent',
+  },
+  {
+    key: 'editor.wordHighlightStrongBackground',
+    surface: 'base',
+    alpha: 'transparent',
+  },
+  {
+    key: 'editor.rangeHighlightBackground',
+    surface: 'base',
+    alpha: 'transparent',
+  },
+
   // Examples of opaque-allowed
   { key: 'editor.background', surface: 'base', alpha: 'opaque' },
   { key: 'panel.background', surface: 'panel', alpha: 'opaque' },
@@ -81,6 +150,32 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
     alpha: 'opaque',
   },
   { key: 'quickInput.background', surface: 'quickInput', alpha: 'opaque' },
+
+  // Text roles on overlay: задать advisory пороги контраста
+  {
+    key: 'editorHoverWidget.foreground',
+    surface: 'overlay',
+    alpha: 'opaque',
+    contrastHints: { primaryMin: 4.5, mutedMin: 3.0 },
+  },
+  {
+    key: 'editorSuggestWidgetStatus.foreground',
+    surface: 'overlay',
+    alpha: 'opaque',
+    contrastHints: { mutedMin: 3.0 },
+  },
+
+  // Aliases / legacy (пример): нет в текущей теме, но оставим как образец поля aliasOf
+  {
+    key: 'editorIndentGuide.background',
+    aliasOf: 'editorIndentGuide.background1',
+    deprecated: true,
+  },
+  {
+    key: 'editorIndentGuide.activeBackground',
+    aliasOf: 'editorIndentGuide.activeBackground1',
+    deprecated: true,
+  },
 ]
 
 // Простая проверка альфа-политики для hex (#RRGGBB[AA])

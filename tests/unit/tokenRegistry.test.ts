@@ -3,6 +3,7 @@ import {
   TOKEN_REGISTRY,
   validateTokenAlpha,
   hasToken,
+  isTransparentHex,
 } from '../../src/core/tokenRegistry'
 import { interfacePalette } from '../../src/core/interface'
 import { getContrastRatio } from '../../src/core/contrast'
@@ -39,5 +40,28 @@ describe('Token Registry validation', () => {
     )
     expect(primary).toBeGreaterThanOrEqual(4.5)
     expect(muted).toBeGreaterThanOrEqual(3.0)
+  })
+
+  it('should enforce transparency for selection/slider families where required', () => {
+    const { colors: bg } = generateTheme()
+    const keys = [
+      'editor.selectionBackground',
+      'editor.inactiveSelectionBackground',
+      'list.activeSelectionBackground',
+      'list.inactiveSelectionBackground',
+      'menubar.selectionBackground',
+      'menu.selectionBackground',
+      'scrollbarSlider.background',
+      'scrollbarSlider.hoverBackground',
+      'scrollbarSlider.activeBackground',
+      'minimapSlider.background',
+      'minimapSlider.hoverBackground',
+      'minimapSlider.activeBackground',
+    ]
+    keys.forEach((k) => {
+      if (hasToken(bg, k)) {
+        expect(isTransparentHex(bg[k])).toBeTruthy()
+      }
+    })
   })
 })
