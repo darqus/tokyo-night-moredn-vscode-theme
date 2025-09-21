@@ -447,7 +447,7 @@ const generateInterfaceColors = () => ({
   'breadcrumbPicker.background': interfacePalette.bg.elevated,
 
   // Widgets
-  'widget.border': interfacePalette.border.default,
+  'widget.border': interfacePalette.border.separatorBackground,
   // 'widget.foreground': удалено (запрещенное свойство),
 
   // Peek View Widget
@@ -470,7 +470,7 @@ const generateInterfaceColors = () => ({
   // Editor Widget
   'editorWidget.background': interfacePalette.bg.elevated,
   'editorWidget.foreground': interfacePalette.text.primary,
-  'editorWidget.border': interfacePalette.border.default,
+  'editorWidget.border': interfacePalette.border.separatorBackground,
   'editorWidget.resizeBorder': interfacePalette.border.focus,
 
   // Editor Suggest Widget

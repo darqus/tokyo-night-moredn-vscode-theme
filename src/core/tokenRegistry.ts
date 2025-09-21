@@ -253,6 +253,48 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
     contrastHints: { primaryMin: 4.5 },
     bgKey: 'panel.background',
   },
+  // PeekView title text
+  {
+    key: 'peekViewTitleLabel.foreground',
+    surface: 'overlay',
+    alpha: 'opaque',
+    contrastHints: { primaryMin: 4.5 },
+    bgKey: 'peekViewTitle.background',
+    notes: 'Title label should remain readable over overlay title background',
+  },
+  {
+    key: 'peekViewTitleDescription.foreground',
+    surface: 'overlay',
+    alpha: 'opaque',
+    contrastHints: { mutedMin: 3.0 },
+    bgKey: 'peekViewTitle.background',
+    notes: 'Description text can be muted but should stay >=3.0',
+  },
+  // SideBar section header
+  {
+    key: 'sideBarSectionHeader.foreground',
+    surface: 'base',
+    alpha: 'opaque',
+    contrastHints: { primaryMin: 4.0 },
+    bgKey: 'sideBarSectionHeader.background',
+    notes: 'Headers over elevated background should be clearly readable',
+  },
+  // Notifications header
+  {
+    key: 'notificationCenterHeader.foreground',
+    surface: 'overlay',
+    alpha: 'opaque',
+    contrastHints: { primaryMin: 4.5 },
+    bgKey: 'notificationCenterHeader.background',
+  },
+  // Terminal initial hint (placeholder-style)
+  {
+    key: 'terminal.initialHintForeground',
+    surface: 'terminal',
+    alpha: 'opaque',
+    contrastHints: { mutedMin: 3.0 },
+    bgKey: 'terminal.background',
+  },
   {
     key: 'breadcrumb.foreground',
     surface: 'base',
