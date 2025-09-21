@@ -8,7 +8,7 @@
     "focusBorder": "#7aa2f766",
     "errorForeground": "#f7768e",
     "selection.background": "#86afff33",
-    "widget.shadow": "#282d43",
+    "widget.shadow": "#282d43eb",
     "titleBar.activeBackground": "#1a1b26",
     "titleBar.activeForeground": "#c0caf5",
     "titleBar.inactiveBackground": "#1a1b26",

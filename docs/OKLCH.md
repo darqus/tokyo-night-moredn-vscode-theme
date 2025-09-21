@@ -52,3 +52,7 @@ Example CSS to reproduce the chips locally (optional):
 - Continue translating small groups (e.g., additional thin borders or overlay accents)
 - Add more advisory contrast hints in the token registry with brief notes
 - Iterate with small tests and minimal visual delta
+
+### Why cooler, slightly translucent overlay shadows?
+
+On dark backgrounds, a cooler (blue-leaning) shadow with a touch of translucency increases edge legibility without appearing heavy. It helps separate floating widgets from the base surface while keeping the overall atmosphere calm and modern.

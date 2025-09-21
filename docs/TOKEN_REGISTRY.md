@@ -48,7 +48,7 @@
 | quickInput.foreground | overlay | opaque |  |  | quickInput.background | primary≥4.5 |  |
 | menu.foreground | menu | opaque |  |  | menu.background | primary≥4.5 |  |
 | menu.selectionForeground | menu | opaque |  |  | menu.background | primary≥4.5 |  |
-| panelTitle.inactiveForeground | panel | opaque |  |  | panel.background | muted≥3 |  |
+| panelTitle.inactiveForeground | panel | opaque |  |  | panel.background | muted≥3 | Inactive panel title should retain minimum muted contrast |
 | panelTitle.activeForeground | panel | opaque |  |  | panel.background | primary≥4.5 | Panel title should meet AA when active |
 | peekViewTitleLabel.foreground | overlay | opaque |  |  | peekViewTitle.background | primary≥4.5 | Title label should remain readable over overlay title background |
 | peekViewTitleDescription.foreground | overlay | opaque |  |  | peekViewTitle.background | muted≥3 | Description text can be muted but should stay >=3.0 |

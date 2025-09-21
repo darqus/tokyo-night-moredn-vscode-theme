@@ -247,6 +247,7 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
     alpha: 'opaque',
     contrastHints: { mutedMin: 3.0 },
     bgKey: 'panel.background',
+    notes: 'Inactive panel title should retain minimum muted contrast',
   },
   {
     key: 'panelTitle.activeForeground',

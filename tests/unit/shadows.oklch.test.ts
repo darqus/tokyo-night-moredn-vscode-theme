@@ -9,4 +9,9 @@ describe('OKLCH shadow tones', () => {
       interfacePalette.derived.shadows.scrollbar
     )
   })
+
+  it('widget.shadow and scrollbar.shadow should differ after micro-adjustment', () => {
+    const c = generateTheme().colors
+    expect(c['widget.shadow']).not.toBe(c['scrollbar.shadow'])
+  })
 })
