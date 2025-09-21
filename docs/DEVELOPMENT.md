@@ -35,6 +35,11 @@ src/
 3. **Syntax Colors** (13 tokens) → `core/syntax.ts`
 4. **Theme Generation** → `generators/theme.ts`
 
+### Color Engine
+
+Используем централизованный фасад для цветовых операций: см. [COLOR_ENGINE.md](./COLOR_ENGINE.md) —
+в каких случаях применять OKLCH (перцептуальные операции) и sRGB (нейтральные/границы), а также как правильно работать с прозрачностью.
+
 ## Adding Colors
 
 ```typescript

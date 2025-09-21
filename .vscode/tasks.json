@@ -236,6 +236,13 @@
 			"command": "npm test --silent",
 			"isBackground": false,
 			"group": "build"
+		},
+		{
+			"label": "Run tests (extended rule + docs)",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"group": "build"
 		}
 	]
 }

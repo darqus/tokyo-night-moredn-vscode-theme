@@ -78,6 +78,7 @@ npm run test:coverage # Coverage report (expect ~100% / ~97% branches)
 - [Development](docs/DEVELOPMENT.md) - Build and contribute
 - [Colors](docs/COLORS.md) - Color palette reference
 - [Theme Analysis](docs/THEME_ANALYSIS.md) - Architecture deep dive
+- [Color Engine (sRGB vs OKLCH)](docs/COLOR_ENGINE.md) - Rules for color operations and transparency
 - [Release & Versioning](docs/RELEASE_VERSIONING.md) - Automated releases and version rules
 - [Contributing](docs/CONTRIBUTING.md) - Guidelines for contributing
 

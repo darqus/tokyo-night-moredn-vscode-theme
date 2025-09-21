@@ -60,6 +60,41 @@ describe('Foreground tokens must use textOn.* roles', () => {
         token: 'editorSuggestWidgetStatus.foreground',
         expected: interfacePalette.textOn.overlay.muted,
       },
+      // editor/terminal base
+      {
+        token: 'editor.foreground',
+        expected: interfacePalette.textOn.base.primary,
+      },
+      {
+        token: 'editorWhitespace.foreground',
+        expected: interfacePalette.textOn.base.subtle,
+      },
+      {
+        token: 'terminal.foreground',
+        expected: interfacePalette.textOn.base.primary,
+      },
+      {
+        token: 'terminal.initialHintForeground',
+        expected: interfacePalette.textOn.base.muted,
+      },
+      // command center and quick input
+      {
+        token: 'commandCenter.foreground',
+        expected: interfacePalette.textOn.base.muted,
+      },
+      {
+        token: 'commandCenter.activeForeground',
+        expected: interfacePalette.textOn.base.primary,
+      },
+      {
+        token: 'quickInput.foreground',
+        expected: interfacePalette.textOn.elevated.primary,
+      },
+      // inactive foreground on base
+      {
+        token: 'activityBar.inactiveForeground',
+        expected: interfacePalette.textOn.base.inactive,
+      },
     ]
 
     for (const c of cases) {
