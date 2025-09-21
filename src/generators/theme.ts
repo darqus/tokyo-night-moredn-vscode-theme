@@ -146,7 +146,7 @@ const generateInterfaceColors = () => ({
   'activityBarBadge.foreground': interfacePalette.text.inverse,
 
   // Side Bar
-  'sideBar.background': interfacePalette.bg.base,
+  'sideBar.background': interfacePalette.bg.darkenBase,
   'sideBar.foreground': interfacePalette.text.primary,
   'sideBar.border': interfacePalette.border.default,
   'sideBarTitle.foreground': interfacePalette.text.primary,
@@ -281,7 +281,7 @@ const generateInterfaceColors = () => ({
   'panelSectionHeader.border': interfacePalette.border.default,
 
   // Terminal
-  'terminal.background': interfacePalette.bg.base,
+  'terminal.background': interfacePalette.bg.darkenBase,
   'terminal.foreground': interfacePalette.text.primary,
   'terminal.selectionBackground': interfacePalette.bg.selection,
   // Omit selectionForeground to let VS Code auto-contrast without schema warnings

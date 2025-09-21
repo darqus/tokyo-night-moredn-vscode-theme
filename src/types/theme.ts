@@ -33,6 +33,7 @@ export interface SemanticTokenStyle {
 export interface InterfacePalette {
   bg: {
     base: Hex
+    darkenBase: Hex
     elevated: Hex
     overlay: Hex
     input: Hex

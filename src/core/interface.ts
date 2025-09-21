@@ -10,6 +10,7 @@ export const interfacePalette: InterfacePalette = {
   // Фоновые цвета
   bg: {
     base: basePalette.black,
+    darkenBase: darken(basePalette.black, 0.075),
     elevated: mix(basePalette.black, basePalette.blue, 0.06),
     overlay: mix(basePalette.black, basePalette.blue, 0.1),
     input: mix(basePalette.black, basePalette.blue, 0.04),
