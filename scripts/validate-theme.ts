@@ -31,6 +31,93 @@ const INVALID_VALUES = ['transparent', 'inherit', 'initial', 'unset']
 // Валидные цветовые форматы
 const COLOR_REGEX = /^(#[0-9a-fA-F]{6}([0-9a-fA-F]{2})?|rgba?\([^)]+\))$/
 
+// Набор известных допустимых ключей, чтобы отлавливать опечатки.
+// Список неполный, но включает проблемные зоны: toolbar и inlineChat.
+const KNOWN_KEYS_PREFIXES: string[] = [
+  // глобально допустимые префиксы, не будем перечислять все ключи VS Code
+  'foreground',
+  'descriptionForeground',
+  'disabledForeground',
+  'focusBorder',
+  'errorForeground',
+  'selection.background',
+  'widget.shadow',
+  'titleBar.',
+  'menubar.',
+  'menu.',
+  'commandCenter.',
+  'quickInput',
+  'editor',
+  'editorGroup',
+  'activityBar',
+  'activityBarBadge',
+  'sideBar',
+  'statusBar',
+  'statusBarItem',
+  'tab',
+  'list',
+  'tree.',
+  'input',
+  'inputOption',
+  'inputValidation',
+  'button',
+  'dropdown',
+  'badge',
+  'progressBar.',
+  'panel',
+  'panelTitle',
+  'panelSection',
+  'terminal',
+  'terminalCommandDecoration',
+  'terminalOverviewRuler',
+  'textLink',
+  'textBlockQuote',
+  'scrollbar',
+  'scrollbarSlider',
+  'notifications',
+  'notificationCenter',
+  'notificationCenterHeader',
+  'notificationToast',
+  'extensionButton',
+  'extensionBadge',
+  'gitDecoration',
+  'scmGraph',
+  'diffEditor',
+  'settings.',
+  'breadcrumb',
+  'breadcrumbPicker',
+  'widget.',
+  'peekView',
+  'editorWidget',
+  'editorSuggestWidget',
+  'editorHoverWidget',
+  'debugExceptionWidget',
+  'editorMarkerNavigation',
+  'merge.',
+  'editorOverviewRuler.',
+  'minimap',
+  'minimapSlider',
+  'minimapGutter',
+  'searchEditor',
+  'problems',
+  'charts',
+  'checkbox',
+  'toolbar', // важно оставить только допустимые toolbar.*
+  'icon.',
+  'keybindingLabel',
+  'welcomePage',
+  'walkThrough',
+  'debugToolBar',
+  'debugIcon',
+  'debugConsole',
+  'testing.',
+  'ports.',
+  // Inline Chat раздел (важные префиксы)
+  'inlineChat.',
+  'inlineChatInput.',
+  'inlineChatDiff.',
+]
+
 interface ValidationResult {
   deprecated: Array<{ property: string; replacement?: string }>
   invalidValues: Array<{ property: string; value: string }>
@@ -54,92 +141,7 @@ function validateTheme(themePath: string): ValidationResult {
     return result
   }
 
-  // Набор известных допустимых ключей, чтобы отлавливать опечатки.
-  // Список неполный, но включает проблемные зоны: toolbar и inlineChat.
-  const KNOWN_KEYS_PREFIXES = [
-    // глобально допустимые префиксы, не будем перечислять все ключи VS Code
-    'foreground',
-    'descriptionForeground',
-    'disabledForeground',
-    'focusBorder',
-    'errorForeground',
-    'selection.background',
-    'widget.shadow',
-    'titleBar.',
-    'menubar.',
-    'menu.',
-    'commandCenter.',
-    'quickInput',
-    'editor',
-    'editorGroup',
-    'activityBar',
-    'activityBarBadge',
-    'sideBar',
-    'statusBar',
-    'statusBarItem',
-    'tab',
-    'list',
-    'tree.',
-    'input',
-    'inputOption',
-    'inputValidation',
-    'button',
-    'dropdown',
-    'badge',
-    'progressBar.',
-    'panel',
-    'panelTitle',
-    'panelSection',
-    'terminal',
-    'terminalCommandDecoration',
-    'terminalOverviewRuler',
-    'textLink',
-    'textBlockQuote',
-    'scrollbar',
-    'scrollbarSlider',
-    'notifications',
-    'notificationCenter',
-    'notificationCenterHeader',
-    'notificationToast',
-    'extensionButton',
-    'extensionBadge',
-    'gitDecoration',
-    'scmGraph',
-    'diffEditor',
-    'settings.',
-    'breadcrumb',
-    'breadcrumbPicker',
-    'widget.',
-    'peekView',
-    'editorWidget',
-    'editorSuggestWidget',
-    'editorHoverWidget',
-    'debugExceptionWidget',
-    'editorMarkerNavigation',
-    'merge.',
-    'editorOverviewRuler.',
-    'minimap',
-    'minimapSlider',
-    'minimapGutter',
-    'searchEditor',
-    'problems',
-    'charts',
-    'checkbox',
-    'toolbar', // важно оставить только допустимые toolbar.*
-    'icon.',
-    'keybindingLabel',
-    'welcomePage',
-    'walkThrough',
-    'debugToolBar',
-    'debugIcon',
-    'debugConsole',
-    'testing.',
-    'ports.',
-    // Inline Chat раздел (важные префиксы)
-    'inlineChat.',
-    'inlineChatInput.',
-    'inlineChatDiff.',
-  ]
+  // KNOWN_KEYS_PREFIXES — в модульной области
 
   // Проверка каждого свойства
   for (const [property, value] of Object.entries(theme.colors)) {
@@ -262,8 +264,47 @@ function printReport(result: ValidationResult): void {
 
   if (result.unknownProperties.length > 0) {
     console.log('❓ Неизвестные ключи (возможны опечатки или устаревшие ID):')
+    const known = new Set<string>()
+    // собираем известные ключи из префиксов и популярных токенов
+    KNOWN_KEYS_PREFIXES.forEach((p) => known.add(p))
+    // Добавим часть специфических полных ключей, которые часто путают
+    ;[
+      'editorIndentGuide.background1',
+      'editorIndentGuide.activeBackground1',
+      'textBlockQuote.background',
+      'textBlockQuote.border',
+    ].forEach((k) => known.add(k))
+
+    const distance = (a: string, b: string) => {
+      const dp = Array.from({ length: a.length + 1 }, () =>
+        new Array<number>(b.length + 1).fill(0)
+      )
+      for (let i = 0; i <= a.length; i++) dp[i][0] = i
+      for (let j = 0; j <= b.length; j++) dp[0][j] = j
+      for (let i = 1; i <= a.length; i++) {
+        for (let j = 1; j <= b.length; j++) {
+          const cost = a[i - 1] === b[j - 1] ? 0 : 1
+          dp[i][j] = Math.min(
+            dp[i - 1][j] + 1,
+            dp[i][j - 1] + 1,
+            dp[i - 1][j - 1] + cost
+          )
+        }
+      }
+      return dp[a.length][b.length]
+    }
+
     result.unknownProperties.forEach((property) => {
-      console.log(`   • ${property}`)
+      // ищем ближайшие 3 подсказки
+      const suggestions = Array.from(known)
+        .map((k) => ({ k, d: distance(property, k) }))
+        .sort((x, y) => x.d - y.d)
+        .slice(0, 3)
+        .map((x) => x.k)
+      const hint = suggestions.length
+        ? `  → Возможно: ${suggestions.join(', ')}`
+        : ''
+      console.log(`   • ${property}${hint}`)
     })
     console.log()
   }

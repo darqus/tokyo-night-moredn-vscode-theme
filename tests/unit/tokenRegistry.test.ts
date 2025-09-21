@@ -7,6 +7,7 @@ import {
 } from '../../src/core/tokenRegistry'
 import { interfacePalette } from '../../src/core/interface'
 import { getContrastRatio } from '../../src/core/contrast'
+import { generateTheme as genTheme } from '../../src/generators/theme'
 
 describe('Token Registry validation', () => {
   it('should respect alpha policies for registered tokens', () => {
@@ -40,6 +41,28 @@ describe('Token Registry validation', () => {
     )
     expect(primary).toBeGreaterThanOrEqual(4.5)
     expect(muted).toBeGreaterThanOrEqual(3.0)
+  })
+
+  it('should satisfy contrastHints where provided (advisory)', () => {
+    const { colors } = genTheme()
+    for (const meta of TOKEN_REGISTRY) {
+      if (!meta.contrastHints || !meta.bgKey) continue
+      const fg = colors[meta.key]
+      const bg = colors[meta.bgKey]
+      if (!fg || !bg) continue
+      // используем только шестнадцатеричные без альфы
+      if (!fg.startsWith('#') || !bg.startsWith('#')) continue
+      if (fg.length !== 7 || bg.length !== 7) continue
+      const ratio = getContrastRatio(fg as `#${string}`, bg as `#${string}`)
+      const min = Math.max(
+        meta.contrastHints.primaryMin ?? 0,
+        meta.contrastHints.mutedMin ?? 0,
+        meta.contrastHints.subtleMin ?? 0
+      )
+      if (min > 0) {
+        expect(ratio).toBeGreaterThanOrEqual(min)
+      }
+    }
   })
 
   it('should enforce transparency for selection/slider families where required', () => {

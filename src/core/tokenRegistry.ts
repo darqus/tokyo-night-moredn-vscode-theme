@@ -31,6 +31,8 @@ export interface TokenMeta {
   aliasOf?: string
   // рекомендованные пороги контраста (advisory)
   contrastHints?: ContrastHints
+  // ключ фоновой поверхности, относительно которой измеряется контраст
+  bgKey?: string
 }
 
 // Минимальный набор чувствительных токенов + примеры групп
@@ -157,12 +159,65 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
     surface: 'overlay',
     alpha: 'opaque',
     contrastHints: { primaryMin: 4.5, mutedMin: 3.0 },
+    bgKey: 'editorHoverWidget.background',
   },
   {
     key: 'editorSuggestWidgetStatus.foreground',
     surface: 'overlay',
     alpha: 'opaque',
     contrastHints: { mutedMin: 3.0 },
+    bgKey: 'editorSuggestWidget.background',
+  },
+
+  // Base surface text
+  {
+    key: 'activityBar.inactiveForeground',
+    surface: 'base',
+    alpha: 'opaque',
+    contrastHints: { mutedMin: 3.0 },
+    bgKey: 'activityBar.background',
+  },
+  {
+    key: 'tab.unfocusedInactiveForeground',
+    surface: 'base',
+    alpha: 'opaque',
+    contrastHints: { mutedMin: 3.0 },
+    bgKey: 'tab.unfocusedInactiveBackground',
+  },
+  {
+    key: 'editorWidget.foreground',
+    surface: 'overlay',
+    alpha: 'opaque',
+    contrastHints: { primaryMin: 4.5 },
+    bgKey: 'editorWidget.background',
+  },
+  {
+    key: 'quickInput.foreground',
+    surface: 'overlay',
+    alpha: 'opaque',
+    contrastHints: { primaryMin: 4.5 },
+    bgKey: 'quickInput.background',
+  },
+  {
+    key: 'menu.foreground',
+    surface: 'menu',
+    alpha: 'opaque',
+    contrastHints: { primaryMin: 4.5 },
+    bgKey: 'menu.background',
+  },
+  {
+    key: 'breadcrumb.foreground',
+    surface: 'base',
+    alpha: 'opaque',
+    contrastHints: { mutedMin: 3.0 },
+    bgKey: 'breadcrumb.background',
+  },
+  {
+    key: 'statusBar.foreground',
+    surface: 'base',
+    alpha: 'opaque',
+    contrastHints: { mutedMin: 3.0 },
+    bgKey: 'statusBar.background',
   },
 
   // Aliases / legacy (пример): нет в текущей теме, но оставим как образец поля aliasOf

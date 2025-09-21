@@ -21,6 +21,7 @@ export const interfacePalette: InterfacePalette = {
     active: withAlpha(oklchLighten(basePalette.blue, 0.3), 0.12),
     selection: withAlpha(oklchLighten(basePalette.blue, 0.4), 0.2),
     // Специализированные hover цвета
+    // Сохраняем стабильный sRGB-mix для вспомогательных hover-градаций
     hoverSubtle: withAlpha(mix(basePalette.white, basePalette.gray, 0.4), 0.08),
     hoverMuted: withAlpha(mix(basePalette.white, basePalette.gray, 0.4), 0.12),
     hoverActive: withAlpha(mix(basePalette.white, basePalette.gray, 0.4), 0.15),
@@ -64,6 +65,7 @@ export const interfacePalette: InterfacePalette = {
   border: {
     default: mix(basePalette.black, basePalette.gray, 0.1),
     focus: withAlpha(basePalette.blue, 0.4),
+    // Нейтральное разделение, без смещения тона
     separatorBackground: mix(basePalette.black, basePalette.gray, 0.3),
   },
 
