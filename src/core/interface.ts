@@ -86,7 +86,8 @@ export const interfacePalette: InterfacePalette = {
     removedLineBackground: withAlpha(basePalette.red, 0.1),
   },
   minimap: {
-    findMatchHighlight: withAlpha(basePalette.yellow, 0.5),
+    // Balanced: slightly reduce prominence in minimap to lower noise
+    findMatchHighlight: withAlpha(basePalette.yellow, 0.4),
   },
   // Элементы управления
   dropdown: {
@@ -123,9 +124,10 @@ export const interfacePalette: InterfacePalette = {
       ),
     },
     findMatch: {
-      background: withAlpha(basePalette.yellow, 0.22),
-      border: withAlpha(basePalette.yellow, 0.7),
-      highlightBackground: withAlpha(basePalette.yellow, 0.14),
+      // Balanced profile: keep current active match, soften border, make other matches a bit more visible
+      background: withAlpha(basePalette.magenta, 0.22),
+      border: withAlpha(basePalette.magenta, 0.6),
+      highlightBackground: withAlpha(basePalette.magenta, 0.16),
     },
     inlineChat: {
       background: darken(basePalette.blue, 0.8),

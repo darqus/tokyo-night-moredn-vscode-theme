@@ -9,8 +9,8 @@ describe('Search highlight colors', () => {
     const c = theme.colors
 
     const current = withAlpha(basePalette.yellow, 0.22)
-    const border = withAlpha(basePalette.yellow, 0.7)
-    const other = withAlpha(basePalette.yellow, 0.14)
+    const border = withAlpha(basePalette.yellow, 0.6)
+    const other = withAlpha(basePalette.yellow, 0.16)
 
     expect(c['editor.findMatchBackground']).toBe(current)
     expect(c['editor.findMatchBorder']).toBe(border)
@@ -26,8 +26,8 @@ describe('Search highlight colors', () => {
     const c = theme.colors
 
     const current = withAlpha(basePalette.yellow, 0.22)
-    const border = withAlpha(basePalette.yellow, 0.7)
-    const other = withAlpha(basePalette.yellow, 0.14)
+    const border = withAlpha(basePalette.yellow, 0.6)
+    const other = withAlpha(basePalette.yellow, 0.16)
 
     expect(c['terminal.findMatchBackground']).toBe(current)
     expect(c['terminal.findMatchBorder']).toBe(border)
@@ -38,8 +38,8 @@ describe('Search highlight colors', () => {
     const theme = generateTheme()
     const c = theme.colors
 
-    const border = withAlpha(basePalette.yellow, 0.7)
-    const other = withAlpha(basePalette.yellow, 0.14)
+    const border = withAlpha(basePalette.yellow, 0.6)
+    const other = withAlpha(basePalette.yellow, 0.16)
 
     expect(c['list.filterMatchBackground']).toBe(other)
     expect(c['list.filterMatchBorder']).toBe(border)
@@ -49,8 +49,8 @@ describe('Search highlight colors', () => {
     const theme = generateTheme()
     const c = theme.colors
 
-    const border = withAlpha(basePalette.yellow, 0.7)
-    const other = withAlpha(basePalette.yellow, 0.14)
+    const border = withAlpha(basePalette.yellow, 0.6)
+    const other = withAlpha(basePalette.yellow, 0.16)
 
     expect(c['searchEditor.findMatchBackground']).toBe(other)
     expect(c['searchEditor.findMatchBorder']).toBe(border)
