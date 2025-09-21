@@ -56,11 +56,13 @@ export const interfacePalette: InterfacePalette = {
       separator: mix(basePalette.black, basePalette.gray, 0.1),
     },
     secondary: {
-      background: darken(basePalette.blue, 0.7),
+      // Нейтральный фон — совпадает с elevated для спокойного UI
+      background: mix(basePalette.black, basePalette.blue, 0.05),
       foreground: basePalette.white,
       // Делает наведение ощутимым, но остаётся холодным и ненавязчивым
       hoverBackground: withAlpha(basePalette.blue, 0.12),
-      border: basePalette.blue,
+      // Нейтральная граница — совпадает с border.default
+      border: mix(basePalette.black, basePalette.gray, 0.1),
     },
   },
 

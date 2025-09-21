@@ -368,7 +368,8 @@ const generateInterfaceColors = () => ({
 
   // Extensions
   'extensionButton.prominentBackground': interfacePalette.state.info,
-  'extensionButton.prominentForeground': interfacePalette.text.inverse,
+  // Use primary (white) foreground for maximum contrast on cyan background
+  'extensionButton.prominentForeground': interfacePalette.text.primary,
   'extensionButton.prominentHoverBackground': interfacePalette.state.infoHover,
   'extensionBadge.remoteBackground': interfacePalette.state.info,
   'extensionBadge.remoteForeground': interfacePalette.text.inverse,
