@@ -55,6 +55,7 @@ export interface InterfacePalette {
   border: {
     default: Hex
     focus: Hex
+    separatorBackground: Hex
   }
   button: {
     primary: {

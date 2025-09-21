@@ -82,7 +82,7 @@ const generateInterfaceColors = () => ({
   'menu.selectionForeground': interfacePalette.text.primary,
   'menu.selectionBackground': interfacePalette.bg.selection,
   'menu.selectionBorder': interfacePalette.border.focus,
-  'menu.separatorBackground': interfacePalette.border.default,
+  'menu.separatorBackground': interfacePalette.border.separatorBackground,
   'menu.border': interfacePalette.border.default,
 
   // Command Center & Quick Input (командная панель)

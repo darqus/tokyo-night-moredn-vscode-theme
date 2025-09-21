@@ -27,9 +27,9 @@ export const interfacePalette: InterfacePalette = {
   text: {
     primary: basePalette.white,
     inverse: basePalette.black,
-    muted: mix(basePalette.white, basePalette.gray, 0.4),
-    subtle: mix(basePalette.white, basePalette.gray, 0.6),
-    inactive: mix(basePalette.white, basePalette.gray, 0.8),
+    muted: mix(basePalette.white, basePalette.gray, 0.35),
+    subtle: mix(basePalette.white, basePalette.gray, 0.55),
+    inactive: mix(basePalette.white, basePalette.gray, 0.75),
     // Дополнительные приглушенные цвета для номеров строк
     lineNumber: mix(basePalette.black, basePalette.gray, 0.6),
     lineNumberActive: mix(basePalette.yellow, basePalette.gray, 0.7),
@@ -39,6 +39,7 @@ export const interfacePalette: InterfacePalette = {
   border: {
     default: mix(basePalette.black, basePalette.gray, 0.1),
     focus: withAlpha(basePalette.blue, 0.4),
+    separatorBackground: mix(basePalette.black, basePalette.gray, 0.3),
   },
 
   // Кнопки
