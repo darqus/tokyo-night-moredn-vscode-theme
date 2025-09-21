@@ -1,4 +1,4 @@
-# 🌃 Tokyo Night Modern
+# 🌆 Tokyo Night Modern
 
 > **Beautiful modern dark theme** for VS Code with carefully crafted colors and contemporary design.
 
@@ -13,13 +13,15 @@ A **Tokyo Night dark theme** featuring:
 - **Zero hardcoded colors** — centralized palette system
 - **Modern TypeScript architecture** with full test coverage
 
+## 🌎 Demo
+
+🔮 [TRY ONLINE](https://vscode.dev/theme/lod-inc.tokyo-night-modern) 🔮
+
 ## 🚀 Quick Start
 
 1. Open VS Code Extensions (`Ctrl+Shift+X`)
 2. Search "Tokyo Night Modern"
 3. Install and select **Tokyo Night Modern**
-
-[Try online](https://vscode.dev/theme/lod-inc.tokyo-night-modern)
 
 ## 🏗️ Architecture
 
@@ -65,19 +67,7 @@ npm run test:coverage # Coverage report (expect ~100% / ~97% branches)
 - [Colors](docs/COLORS.md) - Color palette reference
 - [Theme Analysis](docs/THEME_ANALYSIS.md) - Architecture deep dive
 - [Release & Versioning](docs/RELEASE_VERSIONING.md) - Automated releases and version rules
-
-## 🤝 Contributing
-
-1. Fork repository
-2. Create branch: `git checkout -b feat/feature-name`
-3. Make changes and test: `npm test`
-4. Submit PR
-
-See [CONTRIBUTING.md](docs/CONTRIBUTING.md) for details.
-
-## 📦 Release & Versioning
-
-See docs/RELEASE_VERSIONING.md for full details on the automated release flow, versioning rules, commands, and outputs.
+- [Contributing](docs/CONTRIBUTING.md) - Guidelines for contributing
 
 ## 📄 License
 
