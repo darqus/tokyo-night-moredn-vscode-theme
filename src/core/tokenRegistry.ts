@@ -107,7 +107,6 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
     surface: 'editor',
     alpha: 'transparent',
   },
-
   // Find/search highlights should be non-opaque
   {
     key: 'editor.findMatchHighlightBackground',
@@ -119,11 +118,7 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
     surface: 'terminal',
     alpha: 'transparent',
   },
-  {
-    key: 'searchEditor.findMatchBackground',
-    surface: 'base',
-    alpha: 'transparent',
-  },
+  // (duplicate removed) searchEditor.findMatchBackground already listed above
   // Peek View highlights should be non-opaque as well
   {
     key: 'peekViewEditor.matchHighlightBackground',

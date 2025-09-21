@@ -2,7 +2,9 @@
 
 import * as fs from 'fs'
 import * as path from 'path'
-import { TOKEN_REGISTRY } from '../src/core/tokenRegistry'
+import { TOKEN_REGISTRY, validateTokenAlpha } from '../src/core/tokenRegistry'
+import { getContrastRatioAware } from '../src/core/contrast'
+import type { Hex } from '../src/types/theme'
 
 // Устаревшие свойства VS Code
 const DEPRECATED_PROPERTIES = [
@@ -124,6 +126,19 @@ interface ValidationResult {
   invalidValues: Array<{ property: string; value: string }>
   invalidColors: Array<{ property: string; value: string }>
   unknownProperties: Array<string>
+  alphaPolicyViolations: Array<{ key: string; value: string; policy: string }>
+  contrastWarnings: Array<{
+    key: string
+    value: string
+    bgKey: string
+    bgValue: string
+    ratio: number
+    hint: string
+  }>
+  registryCoverage: {
+    missingInTheme: string[]
+    notInRegistry: string[]
+  }
 }
 
 function validateTheme(themePath: string): ValidationResult {
@@ -135,6 +150,9 @@ function validateTheme(themePath: string): ValidationResult {
     invalidValues: [],
     invalidColors: [],
     unknownProperties: [],
+    alphaPolicyViolations: [],
+    contrastWarnings: [],
+    registryCoverage: { missingInTheme: [], notInRegistry: [] },
   }
 
   if (!theme.colors) {
@@ -143,6 +161,17 @@ function validateTheme(themePath: string): ValidationResult {
   }
 
   // KNOWN_KEYS_PREFIXES — в модульной области
+
+  // Построим быстрый индекс реестра
+  const registryByKey = new Map(TOKEN_REGISTRY.map((m) => [m.key, m]))
+  // Проверка на дубликаты ключей в реестре
+  const uniqueCheck = new Set<string>()
+  for (const m of TOKEN_REGISTRY) {
+    if (uniqueCheck.has(m.key)) {
+      console.warn(`⚠️  Дубликат ключа в TOKEN_REGISTRY: ${m.key}`)
+    }
+    uniqueCheck.add(m.key)
+  }
 
   // Проверка каждого свойства
   for (const [property, value] of Object.entries(theme.colors)) {
@@ -197,6 +226,55 @@ function validateTheme(themePath: string): ValidationResult {
       !INVALID_VALUES.includes(stringValue)
     ) {
       result.invalidColors.push({ property, value: stringValue })
+    }
+
+    // Политика альфы по реестру
+    const meta = registryByKey.get(property)
+    if (meta && meta.alpha) {
+      const ok = validateTokenAlpha(property, stringValue, meta.alpha)
+      if (!ok) {
+        result.alphaPolicyViolations.push({
+          key: property,
+          value: stringValue,
+          policy: meta.alpha,
+        })
+      }
+    }
+  }
+
+  // Контраст-aware проверки по реестру (advisory)
+  for (const meta of TOKEN_REGISTRY) {
+    if (!meta.contrastHints || !meta.bgKey) continue
+    const fg = theme.colors[meta.key]
+    const bg = theme.colors[meta.bgKey]
+    if (!fg || !bg) continue
+    // Контраст считаем только для 6-hex фона
+    if (!/^#[0-9a-fA-F]{6}$/.test(String(bg))) continue
+    const ratio = getContrastRatioAware(fg, bg as Hex)
+    if (!isFinite(ratio)) continue
+    const { primaryMin, mutedMin, subtleMin } = meta.contrastHints
+    const min = Math.max(primaryMin ?? 0, mutedMin ?? 0, subtleMin ?? 0)
+    if (min > 0 && ratio < min) {
+      result.contrastWarnings.push({
+        key: meta.key,
+        value: fg as string,
+        bgKey: meta.bgKey,
+        bgValue: bg as string,
+        ratio,
+        hint: `ratio ${ratio.toFixed(2)} < min ${min}`,
+      })
+    }
+  }
+
+  // Покрытие реестром
+  for (const meta of TOKEN_REGISTRY) {
+    if (!Object.prototype.hasOwnProperty.call(theme.colors, meta.key)) {
+      result.registryCoverage.missingInTheme.push(meta.key)
+    }
+  }
+  for (const property of Object.keys(theme.colors)) {
+    if (!registryByKey.has(property)) {
+      result.registryCoverage.notInRegistry.push(property)
     }
   }
 
@@ -270,6 +348,50 @@ function printReport(result: ValidationResult): void {
     console.log()
   }
 
+  if (result.alphaPolicyViolations.length > 0) {
+    console.log('🫧 Нарушения политики альфы (по TOKEN_REGISTRY):')
+    result.alphaPolicyViolations.forEach(({ key, value, policy }) => {
+      console.log(`   • ${key}: value=${value} policy=${policy}`)
+    })
+    console.log()
+  }
+
+  if (result.contrastWarnings.length > 0) {
+    console.log(
+      '⚖️  Контраст ниже рекомендованного (advisory, с учетом альфы):'
+    )
+    result.contrastWarnings
+      .sort((a, b) => a.ratio - b.ratio)
+      .forEach(({ key, value, bgKey, bgValue, ratio, hint }) => {
+        console.log(
+          `   • ${key} vs ${bgKey}: fg=${value} bg=${bgValue} → ${ratio.toFixed(
+            2
+          )} (${hint})`
+        )
+      })
+    console.log()
+  }
+
+  if (
+    result.registryCoverage.missingInTheme.length > 0 ||
+    result.registryCoverage.notInRegistry.length > 0
+  ) {
+    console.log('🗂️  Покрытие реестром токенов:')
+    if (result.registryCoverage.missingInTheme.length > 0) {
+      console.log('   • Отсутствуют в теме:')
+      result.registryCoverage.missingInTheme.forEach((k) =>
+        console.log(`      - ${k}`)
+      )
+    }
+    if (result.registryCoverage.notInRegistry.length > 0) {
+      console.log('   • Нет в реестре (в теме присутствуют):')
+      result.registryCoverage.notInRegistry.forEach((k) =>
+        console.log(`      - ${k}`)
+      )
+    }
+    console.log()
+  }
+
   if (result.unknownProperties.length > 0) {
     console.log('❓ Неизвестные ключи (возможны опечатки или устаревшие ID):')
     const known = new Set<string>()
@@ -282,6 +404,8 @@ function printReport(result: ValidationResult): void {
       'textBlockQuote.background',
       'textBlockQuote.border',
     ].forEach((k) => known.add(k))
+    // Добавим ключи из реестра токенов как кандидаты
+    TOKEN_REGISTRY.forEach((m) => known.add(m.key))
 
     const distance = (a: string, b: string) => {
       const dp = Array.from({ length: a.length + 1 }, () =>
@@ -321,7 +445,8 @@ function printReport(result: ValidationResult): void {
     result.deprecated.length +
     result.invalidValues.length +
     result.invalidColors.length +
-    result.unknownProperties.length
+    result.unknownProperties.length +
+    result.alphaPolicyViolations.length
 
   if (totalIssues === 0) {
     console.log('✅ Проблем не найдено! Тема соответствует стандартам VS Code.')
@@ -331,6 +456,10 @@ function printReport(result: ValidationResult): void {
     console.log('   - Недопустимых значений:', result.invalidValues.length)
     console.log('   - Некорректных цветов:', result.invalidColors.length)
     console.log('   - Неизвестных ключей:', result.unknownProperties.length)
+    console.log(
+      '   - Политика альфы нарушена:',
+      result.alphaPolicyViolations.length
+    )
   }
 }
 
@@ -357,6 +486,9 @@ function main() {
       invalidValues: [],
       invalidColors: [],
       unknownProperties: result.unknownProperties,
+      alphaPolicyViolations: [],
+      contrastWarnings: [],
+      registryCoverage: { missingInTheme: [], notInRegistry: [] },
     }
     printReport(onlyUnknown)
     return
