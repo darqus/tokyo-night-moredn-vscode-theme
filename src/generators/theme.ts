@@ -139,7 +139,7 @@ const generateInterfaceColors = () => ({
   'activityBar.activeBorder': interfacePalette.state.info,
   'activityBar.activeBackground': interfacePalette.bg.hover,
   // Surface-aware: text on base surface
-  'activityBar.inactiveForeground': interfacePalette.textOn.base.subtle,
+  'activityBar.inactiveForeground': interfacePalette.textOn.base.inactive,
   'activityBar.border': interfacePalette.border.default,
   'activityBarBadge.background': interfacePalette.state.info,
   'activityBarBadge.foreground': interfacePalette.text.inverse,
