@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.14.33](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.14.32...v1.14.33) (2025-09-21)
+
+
+### Features
+
+* **interface:** add blockquote colors to interface palette ([b4214f3](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/b4214f3c463733634f6220a54074a42e46dba1a0))
+
 ### [1.14.32](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.14.29...v1.14.32) (2025-09-21)
 
 
