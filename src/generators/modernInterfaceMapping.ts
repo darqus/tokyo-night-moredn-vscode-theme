@@ -898,6 +898,17 @@ export const tokenConfig: ThemeTokenConfig = {
           description: 'Граница тулбара отладки',
         },
         {
+          token: 'debugExceptionWidget.background',
+          source: surface.background('overlay'),
+          description: 'Фон виджета исключений (холодный overlay)',
+        },
+        {
+          token: 'debugExceptionWidget.border',
+          source: computed((ip) => ip.border.separatorBackground),
+          description:
+            'Граница виджета исключений (аккуратный холодный сепаратор)',
+        },
+        {
           token: 'editor.stackFrameHighlightBackground',
           source: surface.background('hover'),
           description: 'Подсветка текущего stack frame (холодный тон)',
@@ -906,6 +917,33 @@ export const tokenConfig: ThemeTokenConfig = {
           token: 'editor.focusedStackFrameHighlightBackground',
           source: surface.background('selection'),
           description: 'Подсветка сфокусированного stack frame (чуть сильнее)',
+        },
+        // Debug breakpoint icons — используем холодные семантические тона
+        {
+          token: 'debugIcon.breakpointForeground',
+          source: computed((ip) => ip.state.error),
+          description:
+            'Цвет обычного брейкпоинта (error tone, хорошо читается)',
+        },
+        {
+          token: 'debugIcon.breakpointDisabledForeground',
+          source: computed((ip) => withAlpha(ip.state.error, 0.5)),
+          description: 'Цвет отключенного брейкпоинта (приглушенный)',
+        },
+        {
+          token: 'debugIcon.breakpointUnverifiedForeground',
+          source: computed((ip) => ip.state.warning),
+          description: 'Цвет непроверенного брейкпоинта (warning tone)',
+        },
+        {
+          token: 'debugIcon.breakpointCurrentStackframeForeground',
+          source: computed((ip) => ip.state.info),
+          description: 'Цвет брейкпоинта текущего стека (info/cold)',
+        },
+        {
+          token: 'debugIcon.breakpointStackframeForeground',
+          source: computed((ip) => withAlpha(ip.state.info, 0.7)),
+          description: 'Цвет брейкпоинта в стеке (чуть менее акцентный info)',
         },
       ],
     },

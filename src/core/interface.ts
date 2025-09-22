@@ -176,8 +176,13 @@ export const interfacePalette: InterfacePalette = {
       ansiGreen: basePalette.green,
       ansiYellow: basePalette.yellow,
       ansiMagenta: basePalette.magenta,
-      // Make non-bright white a softer near‑white to reduce glare
-      ansiWhite: mixPerceptual(basePalette.white, basePalette.black, 0.12),
+      // Make non-bright white a softer, cooler near‑white to reduce glare and warmth
+      // Step 1: add a subtle cool tint; Step 2: bring slightly down from pure white
+      ansiWhite: mixPerceptual(
+        mixPerceptual(basePalette.white, basePalette.blue, 0.06),
+        basePalette.black,
+        0.1
+      ),
       // Cooler hover with cyan->blue mix for terminal command/hover highlight
       hoverHighlightBackground: withAlpha(
         mix(basePalette.cyan, basePalette.blue, 0.35),

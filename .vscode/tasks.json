@@ -294,6 +294,26 @@
 			"type": "shell",
 			"command": "npm run build",
 			"group": "build"
+		},
+		{
+			"label": "Run unit tests",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Run tests to update snapshot",
+			"type": "shell",
+			"command": "npm test --silent -- -u",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Build theme JSON",
+			"type": "shell",
+			"command": "npm run build",
+			"group": "build"
 		}
 	]
 }
