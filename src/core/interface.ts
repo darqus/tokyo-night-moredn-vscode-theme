@@ -42,8 +42,10 @@ export const interfacePalette: InterfacePalette = {
     subtle: basePalette.textSubtle,
     inactive: mix(basePalette.white, basePalette.gray, 0.75),
     // Дополнительные приглушенные цвета для номеров строк
-    lineNumber: mix(basePalette.black, basePalette.gray, 0.6),
-    lineNumberActive: mix(basePalette.yellow, basePalette.gray, 0.7),
+    // Чуть темнее и нейтральнее для обычных номеров
+    lineNumber: mix(basePalette.black, basePalette.gray, 0.35),
+    // Активный номер — приглушённый холодный (серый с лёгким cyan)
+    lineNumberActive: mix(basePalette.cyan, basePalette.gray, 0.8),
   },
   // Текст на разных поверхностях (пока проксирует базовые роли, чтобы не менять визуал)
   textOn: {

@@ -90,13 +90,13 @@ export const tokenConfig: ThemeTokenConfig = {
         },
         {
           token: 'editorLineNumber.foreground',
-          source: surface.text('editor', 'subtle'),
-          description: 'Номера строк',
+          source: computed((ip) => ip.text.lineNumber),
+          description: 'Номера строк (приглушённые)',
         },
         {
           token: 'editorLineNumber.activeForeground',
-          source: surface.text('editor', 'muted'),
-          description: 'Номер активной строки',
+          source: computed((ip) => ip.text.lineNumberActive),
+          description: 'Номер активной строки (приглушённый холодный)',
         },
         {
           token: 'editorCursor.foreground',
