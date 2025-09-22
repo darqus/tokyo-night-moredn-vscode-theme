@@ -87,6 +87,10 @@ export type VSCodeColorToken =
   | 'input.foreground'
   | 'input.border'
   | 'input.placeholderForeground'
+  | 'dropdown.background'
+  | 'dropdown.foreground'
+  | 'dropdown.border'
+  | 'dropdown.listBackground'
 
   // Buttons
   | 'button.background'
@@ -305,6 +309,10 @@ export function getValidTokensList(): ValidTokens[] {
     'input.foreground',
     'input.border',
     'input.placeholderForeground',
+    'dropdown.background',
+    'dropdown.foreground',
+    'dropdown.border',
+    'dropdown.listBackground',
     'button.background',
     'button.foreground',
     'button.hoverBackground',

@@ -7,10 +7,19 @@ describe('Inline Chat and toolbar colors', () => {
   it('should set inline chat and toolbar hover colors using valid keys', () => {
     const c = generateTheme(loadEnvVars()).colors as Record<string, string>
 
-    // Toolbar: only documented hover/active keys
-    expect(c['toolbar.hoverBackground']).toBe(interfacePalette.bg.hover)
-    expect(c['toolbar.activeBackground']).toBe(interfacePalette.bg.selection)
-    expect(c['toolbar.hoverOutline']).toBe(interfacePalette.border.focus)
+    // Toolbar: only documented hover/active keys, cooled to state.info tones
+    expect(c['toolbar.hoverBackground']).toBe(
+      // withAlpha(info, 0.12)
+      `#${(interfacePalette.state.info as string).slice(1)}1f`
+    )
+    expect(c['toolbar.activeBackground']).toBe(
+      // withAlpha(info, 0.20)
+      `#${(interfacePalette.state.info as string).slice(1)}33`
+    )
+    expect(c['toolbar.hoverOutline']).toBe(
+      // withAlpha(info, 0.4)
+      `#${(interfacePalette.state.info as string).slice(1)}66`
+    )
 
     // Inline Chat: documented keys
     expect(c['inlineChat.background']).toBe(

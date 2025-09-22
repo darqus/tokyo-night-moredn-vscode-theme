@@ -131,13 +131,13 @@ export const tokenConfig: ThemeTokenConfig = {
         },
         {
           token: 'sideBarSectionHeader.background',
-          source: surface.background('elevated'),
-          description: 'Фон заголовков секций',
+          source: surface.background('overlay'),
+          description: 'Фон заголовков секций (более холодный overlay)',
         },
         {
           token: 'sideBarSectionHeader.foreground',
-          source: computed((ip) => ip.textOn.elevated.primary),
-          description: 'Текст заголовков секций',
+          source: computed((ip) => ip.textOn.overlay.primary),
+          description: 'Текст заголовков секций (поверх overlay)',
         },
       ],
     },
@@ -310,13 +310,13 @@ export const tokenConfig: ThemeTokenConfig = {
         },
         {
           token: 'panelSectionHeader.background',
-          source: surface.background('elevated'),
-          description: 'Фон заголовка секции панели',
+          source: surface.background('overlay'),
+          description: 'Фон заголовка секции панели (холодный overlay)',
         },
         {
           token: 'panelSectionHeader.foreground',
-          source: computed((ip) => ip.textOn.elevated.primary),
-          description: 'Текст заголовка секции панели',
+          source: computed((ip) => ip.textOn.overlay.primary),
+          description: 'Текст заголовка секции панели (поверх overlay)',
         },
         {
           token: 'panelTitle.activeForeground',
@@ -495,13 +495,13 @@ export const tokenConfig: ThemeTokenConfig = {
       tokens: [
         {
           token: 'menu.background',
-          source: surface.background('menu'),
-          description: 'Фон меню',
+          source: surface.background('overlay'),
+          description: 'Фон меню (холодный overlay)',
         },
         {
           token: 'menu.foreground',
-          source: computed((ip) => ip.textOn.elevated.primary),
-          description: 'Текст меню',
+          source: computed((ip) => ip.textOn.overlay.primary),
+          description: 'Текст меню (поверх overlay)',
         },
         {
           token: 'menu.selectionBackground',
@@ -510,13 +510,39 @@ export const tokenConfig: ThemeTokenConfig = {
         },
         {
           token: 'menu.border',
-          source: surface.border('menu'),
-          description: 'Граница меню',
+          source: surface.border('overlay'),
+          description: 'Граница меню (overlay)',
         },
         {
           token: 'menu.separatorBackground',
           source: computed((ip) => ip.border.separatorBackground),
           description: 'Фон разделителей в меню',
+        },
+      ],
+    },
+    {
+      name: 'Dropdown',
+      description: 'Выпадающие списки',
+      tokens: [
+        {
+          token: 'dropdown.background',
+          source: computed((ip) => ip.dropdown.background),
+          description: 'Фон выпадающего списка (overlay-совместимый)',
+        },
+        {
+          token: 'dropdown.foreground',
+          source: computed((ip) => ip.dropdown.foreground),
+          description: 'Текст выпадающего списка',
+        },
+        {
+          token: 'dropdown.border',
+          source: computed((ip) => ip.dropdown.border),
+          description: 'Граница выпадающего списка',
+        },
+        {
+          token: 'dropdown.listBackground',
+          source: computed((ip) => ip.dropdown.listBackground),
+          description: 'Фон списка внутри выпадающего меню',
         },
       ],
     },
@@ -863,18 +889,18 @@ export const tokenConfig: ThemeTokenConfig = {
       tokens: [
         {
           token: 'toolbar.hoverBackground',
-          source: computed((ip) => ip.bg.hover),
-          description: 'Фон hover элементов toolbar',
+          source: computed((ip) => withAlpha(ip.state.info, 0.12)),
+          description: 'Фон hover элементов toolbar (холодный cyan)',
         },
         {
           token: 'toolbar.activeBackground',
-          source: computed((ip) => ip.bg.selection),
-          description: 'Фон активных элементов toolbar',
+          source: computed((ip) => withAlpha(ip.state.info, 0.2)),
+          description: 'Фон активных элементов toolbar (усиленный холодный)',
         },
         {
           token: 'toolbar.hoverOutline',
-          source: computed((ip) => ip.border.focus),
-          description: 'Контур hover элементов toolbar',
+          source: computed((ip) => withAlpha(ip.state.info, 0.4)),
+          description: 'Контур hover элементов toolbar (холодный info)',
         },
       ],
     },
