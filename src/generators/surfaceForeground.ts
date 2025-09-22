@@ -1,5 +1,6 @@
 import type { InterfacePalette } from '../types/theme'
 import { getContrastRatioAware } from '../core/contrast'
+import { pickReadable } from './pickReadable'
 
 // Опциональная настройка интенсивности CodeLens через env
 // THEME_CODELENS_INTENSITY: 'auto' | 'primary' | 'muted' | 'subtle'
@@ -51,8 +52,11 @@ export const SURFACE_FOREGROUND_MAP: Record<
   'panelTitle.activeForeground': (ip) => ip.textOn.base.primary,
   'panelTitle.inactiveForeground': (ip) => ip.textOn.base.muted,
   'breadcrumb.foreground': (ip) => ip.textOn.base.muted,
-  'breadcrumb.focusForeground': (ip) => ip.textOn.base.primary,
+  'breadcrumb.focusForeground': (ip) =>
+    pickReadable(ip, 'base', 'muted', { mutedMin: 3.0 }),
   'breadcrumb.activeSelectionForeground': (ip) => ip.textOn.base.primary,
+  'breadcrumb.hoverForeground': (ip) =>
+    pickReadable(ip, 'base', 'muted', { mutedMin: 3.0 }),
   'peekViewResult.fileForeground': (ip) => ip.textOn.base.primary,
   'peekViewResult.lineForeground': (ip) => ip.textOn.base.muted,
   'peekViewResult.selectionForeground': (ip) => ip.textOn.base.primary,
