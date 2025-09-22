@@ -13,10 +13,8 @@ describe('Panel UI behavior (buttons/icons/links)', () => {
     )
   })
 
-  test('icons and links are aligned to cold link color', () => {
-    expect(mapping['icon.foreground']).toBe(
-      interfacePalette.derived.link.foreground
-    )
+  test('icons are subdued while links use cold link color', () => {
+    expect(mapping['icon.foreground']).toBe(interfacePalette.text.subtle)
     expect(mapping['textLink.foreground']).toBe(
       interfacePalette.derived.link.foreground
     )

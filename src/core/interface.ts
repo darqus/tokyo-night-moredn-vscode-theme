@@ -167,7 +167,7 @@ export const interfacePalette: InterfacePalette = {
   },
   derived: {
     link: {
-      foreground: basePalette.textPrimary,
+      foreground: basePalette.link,
     },
     blockquote: {
       background: basePalette.surfaceOverlay,
@@ -192,15 +192,15 @@ export const interfacePalette: InterfacePalette = {
         mix(basePalette.cyan, basePalette.blue, 0.35),
         0.24
       ),
-      ansiBlue: basePalette.blue,
-      ansiCyan: basePalette.cyan,
+      ansiBlue: basePalette.link,
+      ansiCyan: basePalette.link,
       ansiBrightBlack: lighten(basePalette.black, 0.4),
       ansiBrightRed: lighten(basePalette.red, 0.15),
       ansiBrightGreen: lighten(basePalette.green, 0.15),
       ansiBrightYellow: lighten(basePalette.yellow, 0.15),
-      ansiBrightBlue: basePalette.blue,
+      ansiBrightBlue: basePalette.link,
       ansiBrightMagenta: lighten(basePalette.magenta, 0.15),
-      ansiBrightCyan: basePalette.cyan,
+      ansiBrightCyan: basePalette.link,
       // Keep bright white truly white for maximum emphasis
       ansiBrightWhite: basePalette.white,
     },

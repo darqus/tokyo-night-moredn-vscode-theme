@@ -126,8 +126,8 @@ export const tokenConfig: ThemeTokenConfig = {
         },
         {
           token: 'icon.foreground',
-          source: computed((ip) => ip.derived.link.foreground),
-          description: 'Цвет иконок по умолчанию (холодный link)',
+          source: computed((ip) => ip.text.subtle),
+          description: 'Цвет иконок по умолчанию (приглушённый)',
         },
         {
           token: 'descriptionForeground',
