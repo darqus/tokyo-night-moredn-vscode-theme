@@ -10,6 +10,8 @@ import {
   SEMANTIC_TO_BASE_MAPPING,
   DEFAULT_CONTRAST_THRESHOLDS,
 } from '../../src/core/surfaces'
+import type { SurfaceSystem } from '../../src/core/surfaces'
+import type { Hex } from '../../src/types/theme'
 
 describe('Surface System', () => {
   test('should resolve semantic surfaces to base surfaces', () => {
@@ -54,5 +56,83 @@ describe('Surface System', () => {
       const resolved = resolveSurface(surface as any)
       expect(['base', 'elevated', 'overlay']).toContain(resolved)
     }
+  })
+
+  test('supportsTransparency and getContrastThresholds use base mapping', () => {
+    const dummyHex = '#000000' as Hex
+    const system: SurfaceSystem = {
+      base: {
+        name: 'base',
+        background: dummyHex,
+        foreground: {
+          primary: dummyHex,
+          muted: dummyHex,
+          subtle: dummyHex,
+          inactive: dummyHex,
+        },
+        border: dummyHex,
+        elevation: 0,
+        alphaPolicy: 'either',
+        contrastThresholds: DEFAULT_CONTRAST_THRESHOLDS,
+        accessibility: { wcagLevel: 'AA', minContrast: 4.5 },
+      },
+      elevated: {
+        name: 'elevated',
+        background: dummyHex,
+        foreground: {
+          primary: dummyHex,
+          muted: dummyHex,
+          subtle: dummyHex,
+          inactive: dummyHex,
+        },
+        border: dummyHex,
+        elevation: 1,
+        alphaPolicy: 'transparent',
+        contrastThresholds: DEFAULT_CONTRAST_THRESHOLDS,
+        accessibility: { wcagLevel: 'AA', minContrast: 4.5 },
+      },
+      overlay: {
+        name: 'overlay',
+        background: dummyHex,
+        foreground: {
+          primary: dummyHex,
+          muted: dummyHex,
+          subtle: dummyHex,
+          inactive: dummyHex,
+        },
+        border: dummyHex,
+        elevation: 2,
+        alphaPolicy: 'opaque',
+        contrastThresholds: DEFAULT_CONTRAST_THRESHOLDS,
+        accessibility: { wcagLevel: 'AA', minContrast: 4.5 },
+      },
+      input: {} as any,
+      selection: {} as any,
+      hover: {} as any,
+      focus: {} as any,
+      terminal: {} as any,
+      error: {} as any,
+      warning: {} as any,
+      success: {} as any,
+      info: {} as any,
+    }
+
+    // Interactive surfaces map to base
+    expect(supportsTransparency(system, 'hover')).toBe(true) // base → 'either'
+    // Semantic → elevated
+    expect(supportsTransparency(system, 'menu')).toBe(true) // elevated → 'transparent'
+    // Semantic → overlay
+    expect(supportsTransparency(system, 'notification')).toBe(false) // overlay → 'opaque'
+
+    // Thresholds should come from the resolved base
+    expect(getContrastThresholds(system, 'editor')).toBe(
+      system.base.contrastThresholds
+    )
+    expect(getContrastThresholds(system, 'panel')).toBe(
+      system.elevated.contrastThresholds
+    )
+    expect(getContrastThresholds(system, 'quickInput')).toBe(
+      system.overlay.contrastThresholds
+    )
   })
 })

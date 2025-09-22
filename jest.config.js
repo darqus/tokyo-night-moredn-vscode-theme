@@ -4,6 +4,7 @@ module.exports = {
   testMatch: ['**/tests/unit/**/*.test.ts'],
   collectCoverageFrom: [
     'src/**/*.ts',
+    '!src/generators/interfaceMapping.ts', // legacy mapping kept for reference; excluded from coverage
     '!src/types/**/*.ts',
     '!src/scripts/**/*.ts'
   ],
