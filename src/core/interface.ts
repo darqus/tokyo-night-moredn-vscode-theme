@@ -174,7 +174,8 @@ export const interfacePalette: InterfacePalette = {
       ansiGreen: basePalette.green,
       ansiYellow: basePalette.yellow,
       ansiMagenta: basePalette.magenta,
-      ansiWhite: basePalette.white,
+      // Make non-bright white a softer near‑white to reduce glare
+      ansiWhite: mixPerceptual(basePalette.white, basePalette.black, 0.12),
       // Cooler hover with cyan->blue mix for terminal command/hover highlight
       hoverHighlightBackground: withAlpha(
         mix(basePalette.cyan, basePalette.blue, 0.35),
@@ -189,7 +190,8 @@ export const interfacePalette: InterfacePalette = {
       ansiBrightBlue: basePalette.link,
       ansiBrightMagenta: lighten(basePalette.magenta, 0.15),
       ansiBrightCyan: basePalette.link,
-      ansiBrightWhite: lighten(basePalette.white, 0.1),
+      // Keep bright white truly white for maximum emphasis
+      ansiBrightWhite: basePalette.white,
     },
     overlays: {
       dropBackground: withAlpha(basePalette.surfaceOverlay, 0.2),

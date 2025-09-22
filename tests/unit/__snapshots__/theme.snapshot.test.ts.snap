@@ -160,7 +160,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "terminal.ansiGreen": "#9ece6a",
     "terminal.ansiMagenta": "#bb9af7",
     "terminal.ansiRed": "#f7768e",
-    "terminal.ansiWhite": "#ffffff",
+    "terminal.ansiWhite": "#e1e0de",
     "terminal.ansiYellow": "#e0af68",
     "terminal.background": "#181923",
     "terminal.border": "#202230",
