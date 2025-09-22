@@ -19,6 +19,27 @@ import { lighten, withAlpha } from '../core/utils'
 export const tokenConfig: ThemeTokenConfig = {
   groups: [
     {
+      name: 'Command Center',
+      description: 'Верхняя командная панель (рядом с заголовком)',
+      tokens: [
+        {
+          token: 'commandCenter.background',
+          source: surface.background('elevated'),
+          description: 'Фон командной панели',
+        },
+        {
+          token: 'commandCenter.activeBackground',
+          source: surface.background('hover'),
+          description: 'Фон активного/наведённого состояния командной панели',
+        },
+        {
+          token: 'commandCenter.border',
+          source: surface.border('elevated'),
+          description: 'Граница командной панели',
+        },
+      ],
+    },
+    {
       name: 'Diff Editor',
       description: 'Подсветка изменений (сравнение файлов)',
       tokens: [

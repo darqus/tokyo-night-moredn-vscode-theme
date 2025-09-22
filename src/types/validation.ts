@@ -15,6 +15,11 @@ export type VSCodeColorToken =
   | 'selection.background'
   | 'widget.shadow'
 
+  // Command Center
+  | 'commandCenter.background'
+  | 'commandCenter.activeBackground'
+  | 'commandCenter.border'
+
   // Editor
   | 'editor.background'
   | 'editor.foreground'
@@ -275,6 +280,9 @@ export function getValidTokensList(): ValidTokens[] {
     'errorForeground',
     'selection.background',
     'widget.shadow',
+    'commandCenter.background',
+    'commandCenter.activeBackground',
+    'commandCenter.border',
     'editor.background',
     'editor.foreground',
     'editor.selectionBackground',

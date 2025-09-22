@@ -2,10 +2,13 @@
   "name": "Tokyo Night Modern",
   "type": "dark",
   "colors": {
+    "commandCenter.background": "#1f2230",
+    "commandCenter.activeBackground": "#80a8fe14",
+    "commandCenter.border": "#202230",
     "diffEditor.insertedTextBackground": "#c3dfa51f",
-    "diffEditor.removedTextBackground": "#f581961f",
+    "diffEditor.removedTextBackground": "#f38da01f",
     "diffEditor.insertedLineBackground": "#c3dfa514",
-    "diffEditor.removedLineBackground": "#f5819614",
+    "diffEditor.removedLineBackground": "#f38da014",
     "diffEditor.diagonalFill": "#232739",
     "merge.border": "#202230",
     "merge.currentHeaderBackground": "#c3dfa51f",
@@ -15,11 +18,11 @@
     "merge.commonHeaderBackground": "#f8d8a81a",
     "merge.commonContentBackground": "#f8d8a80d",
     "foreground": "#c0caf5",
-    "icon.foreground": "#7aa2f7",
+    "icon.foreground": "#c0caf5",
     "descriptionForeground": "#c0caf5",
     "disabledForeground": "#c0caf5",
     "focusBorder": "#7aa2f766",
-    "errorForeground": "#f58196",
+    "errorForeground": "#f38da0",
     "selection.background": "#86afff33",
     "editor.background": "#1a1b26",
     "editor.foreground": "#c0caf5",
@@ -74,7 +77,7 @@
     "list.inactiveSelectionBackground": "#80a8fe14",
     "list.hoverBackground": "#80a8fe14",
     "list.focusBackground": "#86afff33",
-    "list.highlightForeground": "#7aa2f7",
+    "list.highlightForeground": "#c0caf5",
     "input.background": "#1f2230",
     "input.foreground": "#c0caf5",
     "input.border": "#202230",
@@ -109,7 +112,7 @@
     "terminal.border": "#202230",
     "terminal.hoverHighlightBackground": "#7cbffc3d",
     "terminal.ansiBlack": "#1a1b26",
-    "terminal.ansiRed": "#f58196",
+    "terminal.ansiRed": "#f38da0",
     "terminal.ansiGreen": "#c3dfa5",
     "terminal.ansiYellow": "#f8d8a8",
     "terminal.ansiBlue": "#29acf8",
@@ -117,7 +120,7 @@
     "terminal.ansiCyan": "#29acf8",
     "terminal.ansiWhite": "#dfe2db",
     "terminal.ansiBrightBlack": "#76767d",
-    "terminal.ansiBrightRed": "#f794a6",
+    "terminal.ansiBrightRed": "#f59eae",
     "terminal.ansiBrightGreen": "#cce4b3",
     "terminal.ansiBrightYellow": "#f9deb5",
     "terminal.ansiBrightBlue": "#29acf8",
@@ -126,10 +129,10 @@
     "terminal.ansiBrightWhite": "#ffffff",
     "terminalCommandDecoration.defaultBackground": "#7dcfff33",
     "terminalCommandDecoration.successBackground": "#c3dfa533",
-    "terminalCommandDecoration.errorBackground": "#f5819633",
-    "textLink.foreground": "#7aa2f7",
-    "textLink.activeForeground": "#7aa2f7",
-    "editorLink.activeForeground": "#7aa2f7",
+    "terminalCommandDecoration.errorBackground": "#f38da033",
+    "textLink.foreground": "#c0caf5",
+    "textLink.activeForeground": "#c0caf5",
+    "editorLink.activeForeground": "#c0caf5",
     "notifications.background": "#1f2230",
     "notifications.foreground": "#c0caf5",
     "notifications.border": "#202230",
@@ -171,8 +174,8 @@
     "debugExceptionWidget.border": "#30344c",
     "editor.stackFrameHighlightBackground": "#80a8fe14",
     "editor.focusedStackFrameHighlightBackground": "#86afff33",
-    "debugIcon.breakpointForeground": "#f58196",
-    "debugIcon.breakpointDisabledForeground": "#f5819680",
+    "debugIcon.breakpointForeground": "#f38da0",
+    "debugIcon.breakpointDisabledForeground": "#f38da080",
     "debugIcon.breakpointUnverifiedForeground": "#f8d8a8",
     "debugIcon.breakpointCurrentStackframeForeground": "#7dcfff",
     "debugIcon.breakpointStackframeForeground": "#7dcfffb3",
@@ -388,7 +391,7 @@
         "constant.language.boolean"
       ],
       "settings": {
-        "foreground": "#f58196"
+        "foreground": "#f38da0"
       }
     },
     {
@@ -398,7 +401,7 @@
         "constant.language.undefined"
       ],
       "settings": {
-        "foreground": "#a67090"
+        "foreground": "#a57695"
       }
     },
     {
@@ -644,7 +647,7 @@
         "entity.name.tag"
       ],
       "settings": {
-        "foreground": "#f58196"
+        "foreground": "#f38da0"
       }
     },
     {
@@ -734,7 +737,7 @@
         "invalid.illegal"
       ],
       "settings": {
-        "foreground": "#f58196"
+        "foreground": "#f38da0"
       }
     },
     {
@@ -780,7 +783,7 @@
       "foreground": "#c0caf5"
     },
     "variable.readonly": {
-      "foreground": "#f58196"
+      "foreground": "#f38da0"
     },
     "variable.defaultLibrary": {
       "foreground": "#77bee1"

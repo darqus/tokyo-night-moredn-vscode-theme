@@ -21,7 +21,7 @@ export const basePalette = {
   green: createHex('#c3dfa5'), // Строки
   yellow: createHex('#f8d8a8'), // Классы, константы
   orange: createHex('#fac09f'), // Числа (только)
-  red: createHex('#f58196'), // Ошибки (только)
+  red: createHex('#f38da0'), // Ошибки (только)
   magenta: createHex('#bb9af7'), // Атрибуты, теги
 
   // --- Понятные алиасы и частые константы (для читабельности) ---
@@ -58,7 +58,7 @@ export const basePalette = {
   success: createHex('#c3dfa5'), // = green
   warning: createHex('#f8d8a8'), // = yellow
   attention: createHex('#fac09f'), // = orange
-  danger: createHex('#f58196'), // = red
+  danger: createHex('#f38da0'), // = red
 } as const
 
 export type BaseColor = keyof typeof basePalette
