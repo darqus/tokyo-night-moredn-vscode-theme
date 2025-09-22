@@ -611,13 +611,13 @@ export const tokenConfig: ThemeTokenConfig = {
       tokens: [
         {
           token: 'menu.background',
-          source: surface.background('overlay'),
-          description: 'Фон меню (холодный overlay)',
+          source: surface.background('base'),
+          description: 'Фон меню (поверхность base из палитры)',
         },
         {
           token: 'menu.foreground',
-          source: computed((ip) => ip.textOn.overlay.primary),
-          description: 'Текст меню (поверх overlay)',
+          source: computed((ip) => ip.textOn.base.primary),
+          description: 'Текст меню (поверх base)',
         },
         {
           token: 'menu.selectionBackground',
@@ -626,8 +626,8 @@ export const tokenConfig: ThemeTokenConfig = {
         },
         {
           token: 'menu.border',
-          source: surface.border('overlay'),
-          description: 'Граница меню (overlay)',
+          source: surface.border('base'),
+          description: 'Граница меню (base)',
         },
         {
           token: 'menu.separatorBackground',
@@ -642,23 +642,23 @@ export const tokenConfig: ThemeTokenConfig = {
       tokens: [
         {
           token: 'dropdown.background',
-          source: computed((ip) => ip.dropdown.background),
-          description: 'Фон выпадающего списка (overlay-совместимый)',
+          source: surface.background('base'),
+          description: 'Фон выпадающего списка (поверхность base)',
         },
         {
           token: 'dropdown.foreground',
-          source: computed((ip) => ip.dropdown.foreground),
+          source: computed((ip) => ip.textOn.base.primary),
           description: 'Текст выпадающего списка',
         },
         {
           token: 'dropdown.border',
-          source: computed((ip) => ip.dropdown.border),
-          description: 'Граница выпадающего списка',
+          source: surface.border('base'),
+          description: 'Граница выпадающего списка (base)',
         },
         {
           token: 'dropdown.listBackground',
-          source: computed((ip) => ip.dropdown.listBackground),
-          description: 'Фон списка внутри выпадающего меню',
+          source: surface.background('base'),
+          description: 'Фон списка внутри выпадающего меню (base)',
         },
       ],
     },
