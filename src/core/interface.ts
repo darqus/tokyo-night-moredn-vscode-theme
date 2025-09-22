@@ -106,7 +106,7 @@ export const interfacePalette: InterfacePalette = {
 
   // Бейджи (единая сущность для всех badge.* токенов)
   badge: {
-    bg: basePalette.skyblue,
+    bg: basePalette.badgeBlue,
     fg: basePalette.textWhite,
   },
 

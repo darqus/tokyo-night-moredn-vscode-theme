@@ -17,8 +17,6 @@ export const basePalette = {
   teal: createHex('#73daca'), // Типы, свойства
   purple: createHex('#9d7cd8'), // Операторы, модификаторы
 
-  skyblue: createHex('#007acc'), // Бейджи
-
   // Акцентные теплые (минимум)
   green: createHex('#acc591'), // Строки
   yellow: createHex('#ddb880'), // Классы, константы
@@ -49,7 +47,9 @@ export const basePalette = {
   accentTeal: createHex('#73daca'), // = teal
   accentPurple: createHex('#9d7cd8'), // = purple
   link: createHex('#29acf8'), // используемый цвет ссылок
+
   badgeBlue: createHex('#007acc'), // = skyblue
+
   // CTA / Кнопки
   // Яркий синий для основной кнопки
   primaryButtonBlue: createHex('#007acc'),

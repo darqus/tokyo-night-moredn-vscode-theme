@@ -82,7 +82,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "extensionBadge.remoteForeground": "#ffffff",
     "focusBorder": "#7aa2f766",
     "foreground": "#c0caf5",
-  "icon.foreground": "#29acf8",
+    "icon.foreground": "#29acf8",
     "inlineChat.background": "#182031",
     "inlineChat.border": "#202230",
     "inlineChat.foreground": "#ffffff",
