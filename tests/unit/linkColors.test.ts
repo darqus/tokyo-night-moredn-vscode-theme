@@ -3,12 +3,12 @@ import { basePalette } from '../../src/core/palette'
 import { lighten, mix, withAlpha } from '../../src/core/utils'
 
 describe('Link colors and terminal hover', () => {
-  it('should use unified and brighter textLink colors', () => {
+  it('should use unified link color from palette', () => {
     const c = generateTheme(loadEnvVars()).colors
-    const bright = lighten(basePalette.cyan, 0.22)
-    expect(c['textLink.foreground']).toBe(bright)
-    expect(c['textLink.activeForeground']).toBe(bright)
-    expect(c['editorLink.activeForeground']).toBe(bright)
+    const link = basePalette.link
+    expect(c['textLink.foreground']).toBe(link)
+    expect(c['textLink.activeForeground']).toBe(link)
+    expect(c['editorLink.activeForeground']).toBe(link)
   })
 
   it('should have stronger terminal link hover background', () => {
@@ -23,10 +23,10 @@ describe('Link colors and terminal hover', () => {
 
   it('should align terminal ANSI blue/cyan with link color', () => {
     const c = generateTheme(loadEnvVars()).colors
-    const bright = lighten(basePalette.cyan, 0.22)
-    expect(c['terminal.ansiCyan']).toBe(bright)
-    expect(c['terminal.ansiBrightCyan']).toBe(bright)
-    expect(c['terminal.ansiBlue']).toBe(bright)
-    expect(c['terminal.ansiBrightBlue']).toBe(bright)
+    const link = basePalette.link
+    expect(c['terminal.ansiCyan']).toBe(link)
+    expect(c['terminal.ansiBrightCyan']).toBe(link)
+    expect(c['terminal.ansiBlue']).toBe(link)
+    expect(c['terminal.ansiBrightBlue']).toBe(link)
   })
 })

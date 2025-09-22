@@ -98,7 +98,7 @@ export const interfacePalette: InterfacePalette = {
       background: basePalette.surfacePanel,
       foreground: basePalette.textWhite,
       // Делает наведение ощутимым, но остаётся холодным и ненавязчивым
-      hoverBackground: withAlpha(basePalette.blue, 0.12),
+      hoverBackground: withAlpha(basePalette.cyan, 0.12),
       // Нейтральная граница — совпадает с border.default
       border: basePalette.borderThin,
     },

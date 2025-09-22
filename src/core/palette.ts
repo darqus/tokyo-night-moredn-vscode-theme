@@ -20,10 +20,10 @@ export const basePalette = {
   skyblue: createHex('#007acc'), // Бейджи
 
   // Акцентные теплые (минимум)
-  green: createHex('#9ece6a'), // Строки
-  yellow: createHex('#e0af68'), // Классы, константы
-  orange: createHex('#ff9e64'), // Числа (только)
-  red: createHex('#f7768e'), // Ошибки (только)
+  green: createHex('#acc591'), // Строки
+  yellow: createHex('#ddb880'), // Классы, константы
+  orange: createHex('#fdae80'), // Числа (только)
+  red: createHex('#f58196'), // Ошибки (только)
   magenta: createHex('#bb9af7'), // Атрибуты, теги
 
   // --- Понятные алиасы и частые константы (для читабельности) ---
@@ -48,17 +48,17 @@ export const basePalette = {
   infoCyan: createHex('#7dcfff'), // = cyan
   accentTeal: createHex('#73daca'), // = teal
   accentPurple: createHex('#9d7cd8'), // = purple
-  link: createHex('#9adaff'), // используемый цвет ссылок
+  link: createHex('#29acf8'), // используемый цвет ссылок
   badgeBlue: createHex('#007acc'), // = skyblue
   // CTA / Кнопки
   // Яркий синий для основной кнопки
   primaryButtonBlue: createHex('#007acc'),
 
   // Состояния (алисы на тёплые акценты)
-  success: createHex('#9ece6a'), // = green
-  warning: createHex('#e0af68'), // = yellow
-  attention: createHex('#ff9e64'), // = orange
-  danger: createHex('#f7768e'), // = red
+  success: createHex('#acc591'), // = green
+  warning: createHex('#ddb880'), // = yellow
+  attention: createHex('#fdae80'), // = orange
+  danger: createHex('#f58196'), // = red
 } as const
 
 export type BaseColor = keyof typeof basePalette
