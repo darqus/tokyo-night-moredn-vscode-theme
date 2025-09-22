@@ -84,10 +84,12 @@ export const interfacePalette: InterfacePalette = {
   // secondary — нейтральный фон (elevated), холодный hover, аккуратная граница
   button: {
     primary: {
-      background: darken(basePalette.blue, 0.7),
+      background: basePalette.primaryButtonBlue,
       foreground: basePalette.textWhite,
-      hoverBackground: darken(basePalette.blue, 0.6),
-      border: withAlpha(basePalette.blue, 0.6), // усиленная контрастность
+      // чуть светлее при hover для выразительности
+      hoverBackground: lightenPerceptual(basePalette.primaryButtonBlue, 0.08),
+      // нейтральная тонкая рамка для чёткости формы
+      border: basePalette.borderThin,
       // separator выравнен с border.default (нейтральный)
       separator: basePalette.borderThin,
     },

@@ -50,6 +50,9 @@ export const basePalette = {
   accentPurple: createHex('#9d7cd8'), // = purple
   link: createHex('#9adaff'), // используемый цвет ссылок
   badgeBlue: createHex('#007acc'), // = skyblue
+  // CTA / Кнопки
+  // Яркий синий для основной кнопки
+  primaryButtonBlue: createHex('#007acc'),
 
   // Состояния (алисы на тёплые акценты)
   success: createHex('#9ece6a'), // = green
