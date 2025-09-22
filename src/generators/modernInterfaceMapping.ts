@@ -25,17 +25,18 @@ export const tokenConfig: ThemeTokenConfig = {
       tokens: [
         {
           token: 'commandCenter.background',
-          source: surface.background('elevated'),
-          description: 'Фон командной панели',
+          source: surface.background('base'),
+          description: 'Фон командной панели (surfaceBase)',
         },
         {
           token: 'commandCenter.activeBackground',
-          source: surface.background('hover'),
-          description: 'Фон активного/наведённого состояния командной панели',
+          source: surface.background('overlay'),
+          description:
+            'Фон активного/наведённого состояния командной панели (surfaceOverlay)',
         },
         {
           token: 'commandCenter.border',
-          source: surface.border('elevated'),
+          source: surface.border('base'),
           description: 'Граница командной панели',
         },
       ],

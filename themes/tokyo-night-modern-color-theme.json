@@ -2,8 +2,8 @@
   "name": "Tokyo Night Modern",
   "type": "dark",
   "colors": {
-    "commandCenter.background": "#1f2230",
-    "commandCenter.activeBackground": "#80a8fe14",
+    "commandCenter.background": "#1a1b26",
+    "commandCenter.activeBackground": "#232739",
     "commandCenter.border": "#202230",
     "diffEditor.insertedTextBackground": "#b8d39b1f",
     "diffEditor.removedTextBackground": "#f38da01f",
