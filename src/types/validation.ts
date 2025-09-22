@@ -142,6 +142,9 @@ export type VSCodeColorToken =
   // Debug
   | 'debugConsole.background'
   | 'debugToolBar.background'
+  | 'debugToolBar.border'
+  | 'editor.stackFrameHighlightBackground'
+  | 'editor.focusedStackFrameHighlightBackground'
 
   // Links
   | 'textLink.foreground'
@@ -341,6 +344,9 @@ export function isValidToken(token: string): token is ValidTokens {
     'terminalCommandDecoration.errorBackground',
     'debugConsole.background',
     'debugToolBar.background',
+    'debugToolBar.border',
+    'editor.stackFrameHighlightBackground',
+    'editor.focusedStackFrameHighlightBackground',
     'textLink.foreground',
     'textLink.activeForeground',
     'editorLink.activeForeground',

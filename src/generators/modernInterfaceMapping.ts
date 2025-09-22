@@ -892,6 +892,21 @@ export const tokenConfig: ThemeTokenConfig = {
           source: surface.background('overlay'),
           description: 'Фон тулбара отладки',
         },
+        {
+          token: 'debugToolBar.border',
+          source: surface.border('overlay'),
+          description: 'Граница тулбара отладки',
+        },
+        {
+          token: 'editor.stackFrameHighlightBackground',
+          source: surface.background('hover'),
+          description: 'Подсветка текущего stack frame (холодный тон)',
+        },
+        {
+          token: 'editor.focusedStackFrameHighlightBackground',
+          source: surface.background('selection'),
+          description: 'Подсветка сфокусированного stack frame (чуть сильнее)',
+        },
       ],
     },
     {
