@@ -17,6 +17,8 @@ export const basePalette = {
   teal: createHex('#73daca'), // Типы, свойства
   purple: createHex('#9d7cd8'), // Операторы, модификаторы
 
+  skyblue: createHex('#007acc'), // Бейджи
+
   // Акцентные теплые (минимум)
   green: createHex('#9ece6a'), // Строки
   yellow: createHex('#e0af68'), // Классы, константы
