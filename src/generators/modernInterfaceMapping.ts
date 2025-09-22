@@ -11,6 +11,7 @@ import {
   type ThemeTokenConfig,
 } from './tokenDSL'
 import type { InterfacePalette } from '../types/theme'
+import type { ValidTokens } from '../types/validation'
 import { lighten, withAlpha } from '../core/utils'
 
 /**
@@ -907,6 +908,23 @@ export const tokenConfig: ThemeTokenConfig = {
       name: 'PeekView',
       description: 'Окно предпросмотра (Peek Definition)',
       tokens: [
+        {
+          token: 'peekViewEditor.background' as ValidTokens,
+          source: surface.background('panel'),
+          description:
+            'Фон редактора внутри PeekView (совпадает с фоном панели из палитры)',
+        },
+        {
+          token: 'peekViewResult.background' as ValidTokens,
+          source: surface.background('panel'),
+          description:
+            'Фон списка результатов PeekView (совпадает с фоном панели из палитры)',
+        },
+        {
+          token: 'peekViewTitle.background' as ValidTokens,
+          source: surface.background('overlay'),
+          description: 'Фон заголовка PeekView (слегка холодный overlay)',
+        },
         {
           token: 'peekViewEditor.matchHighlightBackground',
           source: computed(
