@@ -244,7 +244,7 @@ export interface ValidatedTokenMapping<T extends ValidTokens = ValidTokens> {
 export type ColorMapping = Record<ValidTokens, string>
 
 // Type guard for valid tokens
-export function isValidToken(token: string): token is ValidTokens {
+export function getValidTokensList(): ValidTokens[] {
   const validTokens: ValidTokens[] = [
     'foreground',
     'descriptionForeground',
@@ -371,7 +371,11 @@ export function isValidToken(token: string): token is ValidTokens {
     'editorWidget.background',
   ]
 
-  return validTokens.includes(token as ValidTokens)
+  return validTokens
+}
+
+export function isValidToken(token: string): token is ValidTokens {
+  return getValidTokensList().includes(token as ValidTokens)
 }
 
 // Type guard for valid surfaces
@@ -420,7 +424,10 @@ export function validateColorMapping(
   const warnings: string[] = []
 
   // Explicit denylist for tokens that are not part of VS Code schema
-  const forbiddenTokens = new Set<string>(['debugConsole.background'])
+  const forbiddenTokens = new Set<string>([
+    'debugConsole.background',
+    'breadcrumb.hoverForeground',
+  ])
 
   // Check for unknown tokens
   for (const token of Object.keys(mapping)) {
