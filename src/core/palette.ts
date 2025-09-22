@@ -25,7 +25,7 @@ export const basePalette = {
   magenta: createHex('#bb9af7'), // Атрибуты, теги
 
   // --- Понятные алиасы и частые константы (для читабельности) ---
-  // Текстовые роли (алисы к существующим цветам и распространённые значения)
+  // Текстовые роли (алиасы к существующим цветам и распространённые значения)
   textWhite: createHex('#ffffff'), // = white
   textPrimary: createHex('#c0caf5'), // Светлый текст
   textMuted: createHex('#c0caf5'), // часто используемое приглушённое
@@ -41,7 +41,7 @@ export const basePalette = {
   borderThin: createHex('#202230'),
   borderSeparator: createHex('#30344c'),
 
-  // Брэнд/ссылки/инфо (алисы на холодные акценты)
+  // Брэнд/ссылки/инфо (алиасы на холодные акценты)
   primaryBlue: createHex('#7aa2f7'), // = blue
   infoCyan: createHex('#7dcfff'), // = cyan
   accentTeal: createHex('#73daca'), // = teal
@@ -54,7 +54,7 @@ export const basePalette = {
   // Яркий синий для основной кнопки
   primaryButtonBlue: createHex('#007acc'),
 
-  // Состояния (алисы на тёплые акценты)
+  // Состояния (алиасы на тёплые акценты)
   success: createHex('#bcd89e'), // = green
   warning: createHex('#f8d8a8'), // = yellow
   attention: createHex('#fac09f'), // = orange
