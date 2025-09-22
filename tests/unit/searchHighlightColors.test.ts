@@ -1,10 +1,12 @@
-import { generateTheme } from '../../src/generators/theme'
+import { generateTheme, loadEnvVars } from '../../src/generators/theme'
+
+const generateTestTheme = () => generateTheme(loadEnvVars())
 import { withAlpha } from '../../src/core/utils'
 import { interfacePalette } from '../../src/core/interface'
 
 describe('Search highlight colors', () => {
   it('editor find highlight should use warm yellow scheme', () => {
-    const theme = generateTheme()
+    const theme = generateTheme(loadEnvVars())
     const c = theme.colors
 
     const current = interfacePalette.derived.findMatch.background
@@ -19,7 +21,7 @@ describe('Search highlight colors', () => {
   })
 
   it('terminal find highlight should mirror editor scheme', () => {
-    const theme = generateTheme()
+    const theme = generateTheme(loadEnvVars())
     const c = theme.colors
 
     const current = interfacePalette.derived.findMatch.background
@@ -32,7 +34,7 @@ describe('Search highlight colors', () => {
   })
 
   it('list filter matches should align with scheme', () => {
-    const theme = generateTheme()
+    const theme = generateTheme(loadEnvVars())
     const c = theme.colors
 
     const border = interfacePalette.derived.findMatch.border
@@ -43,7 +45,7 @@ describe('Search highlight colors', () => {
   })
 
   it('search editor matches should align with scheme', () => {
-    const theme = generateTheme()
+    const theme = generateTheme(loadEnvVars())
     const c = theme.colors
 
     const border = interfacePalette.derived.findMatch.border

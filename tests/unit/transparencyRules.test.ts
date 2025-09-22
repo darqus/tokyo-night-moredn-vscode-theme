@@ -1,4 +1,6 @@
-import { generateTheme } from '../../src/generators/theme'
+import { generateTheme, loadEnvVars } from '../../src/generators/theme'
+
+const generateTestTheme = () => generateTheme(loadEnvVars())
 
 const alphaOf = (hex: string): number => {
   // Accept #RRGGBB or #RRGGBBAA
@@ -10,7 +12,7 @@ const alphaOf = (hex: string): number => {
 
 describe('Transparency rules and schema safety', () => {
   it('dropBackground-like tokens must be transparent', () => {
-    const c = generateTheme().colors
+    const c = generateTestTheme().colors
     const keys = [
       'editorGroup.dropBackground',
       'list.dropBackground',
@@ -25,7 +27,7 @@ describe('Transparency rules and schema safety', () => {
   })
 
   it('find match backgrounds must not be opaque', () => {
-    const c = generateTheme().colors
+    const c = generateTheme(loadEnvVars()).colors
     const keys = [
       'editor.findMatchBackground',
       'editor.findMatchHighlightBackground',
@@ -46,7 +48,7 @@ describe('Transparency rules and schema safety', () => {
   })
 
   it('must not emit terminal.selectionForeground (let VS Code auto-contrast)', () => {
-    const c = generateTheme().colors as Record<string, string>
+    const c = generateTheme(loadEnvVars()).colors as Record<string, string>
     expect('terminal.selectionForeground' in c).toBe(false)
   })
 })

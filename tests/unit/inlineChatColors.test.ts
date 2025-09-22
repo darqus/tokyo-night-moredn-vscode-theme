@@ -1,11 +1,11 @@
-import { generateTheme } from '../../src/generators/theme'
+import { generateTheme, loadEnvVars } from '../../src/generators/theme'
 import { interfacePalette } from '../../src/core/interface'
 import { basePalette } from '../../src/core/palette'
 import { lighten } from '../../src/core/utils'
 
 describe('Inline Chat and toolbar colors', () => {
   it('should set inline chat and toolbar hover colors using valid keys', () => {
-    const c = generateTheme().colors as Record<string, string>
+    const c = generateTheme(loadEnvVars()).colors as Record<string, string>
 
     // Toolbar: only documented hover/active keys
     expect(c['toolbar.hoverBackground']).toBe(interfacePalette.bg.hover)

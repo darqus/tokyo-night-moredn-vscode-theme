@@ -1,14 +1,14 @@
-import { generateTheme } from '../../src/generators/theme'
+import { generateTheme, loadEnvVars } from '../../src/generators/theme'
 import { interfacePalette } from '../../src/core/interface'
 
 describe('Quick Input shadow guard', () => {
   it('should not define a dedicated quickInput.shadow token', () => {
-    const c = generateTheme().colors
+    const c = generateTheme(loadEnvVars()).colors
     expect(c['quickInput.shadow']).toBeUndefined()
   })
 
   it('should rely on global widget.shadow being present and translucent', () => {
-    const c = generateTheme().colors
+    const c = generateTheme(loadEnvVars()).colors
     // Global widget shadow must exist
     expect(c['widget.shadow']).toBeDefined()
     // The value should be 8-digit hex (with alpha)
@@ -18,7 +18,7 @@ describe('Quick Input shadow guard', () => {
   })
 
   it('should map Quick Input colors from interface palette surfaces', () => {
-    const c = generateTheme().colors
+    const c = generateTheme(loadEnvVars()).colors
     expect(c['quickInput.background']).toBe(interfacePalette.bg.elevated)
     expect(c['quickInput.foreground']).toBe(interfacePalette.text.primary)
     expect(c['quickInputTitle.background']).toBe(interfacePalette.bg.overlay)

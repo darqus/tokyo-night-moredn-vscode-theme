@@ -1,4 +1,4 @@
-import { generateTheme } from '../../src/generators/theme'
+import { generateTheme, loadEnvVars } from '../../src/generators/theme'
 
 /**
  * Snapshot-тест итоговой темы. Любые изменения палитры/токенов
@@ -7,7 +7,7 @@ import { generateTheme } from '../../src/generators/theme'
 
 describe('Theme snapshot', () => {
   it('should match the stable snapshot of the generated theme', () => {
-    const theme = generateTheme()
+    const theme = generateTheme(loadEnvVars())
 
     // Базовые инварианты
     expect(theme.name).toBe('Tokyo Night Modern')

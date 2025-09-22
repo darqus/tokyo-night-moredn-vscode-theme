@@ -227,3 +227,108 @@ export interface SyntaxPalette {
   invalid: Hex
   deprecated: Hex
 }
+
+// Расширенная синтаксическая палитра для современных языков
+export interface RichSyntaxPalette {
+  // Группы ключевых слов
+  keywords: {
+    control: Hex // if, for, while, switch, case
+    declaration: Hex // const, let, var, function
+    import: Hex // import, from, export, require
+    type: Hex // interface, type, class, extends
+    access: Hex // public, private, protected, static
+    async: Hex // async, await, Promise
+  }
+
+  // Типы значений и литералы
+  literals: {
+    string: Hex // "string", 'string', `template`
+    number: Hex // 123, 0xFF, 1.5
+    boolean: Hex // true, false
+    null: Hex // null, undefined, nil
+    regex: Hex // /pattern/flags
+    template: Hex // ${expression} в template strings
+  }
+
+  // Идентификаторы с контекстом
+  identifiers: {
+    variable: Hex // переменные
+    parameter: Hex // параметры функций
+    property: Hex // свойства объектов
+    method: Hex // методы объектов
+    function: Hex // функции
+    class: Hex // классы
+    interface: Hex // интерфейсы
+    enum: Hex // перечисления
+    namespace: Hex // namespace, module
+    label: Hex // метки для goto
+  }
+
+  // Типы данных
+  types: {
+    primitive: Hex // string, number, boolean
+    generic: Hex // T, K, V в <T>
+    union: Hex // | в union types
+    builtin: Hex // Array, Object, Date
+    custom: Hex // пользовательские типы
+  }
+
+  // Операторы с группировкой
+  operators: {
+    arithmetic: Hex // +, -, *, /
+    comparison: Hex // ==, !=, <, >
+    logical: Hex // &&, ||, !
+    assignment: Hex // =, +=, -=
+    bitwise: Hex // &, |, ^, ~
+    ternary: Hex // ? :
+    spread: Hex // ..., destructuring
+  }
+
+  // Современные возможности языков
+  modern: {
+    decorator: Hex // @Component, @Injectable
+    annotation: Hex // аннотации Java/C#
+    macro: Hex // макросы
+    attribute: Hex // атрибуты Rust/C++
+    pragma: Hex // #pragma, #include
+    directive: Hex // директивы препроцессора
+  }
+
+  // Разметка и документация
+  markup: {
+    tag: Hex // HTML теги
+    attribute: Hex // HTML атрибуты
+    heading: Hex // заголовки в Markdown
+    emphasis: Hex // *italic*, **bold**
+    link: Hex // ссылки
+    code: Hex // `code` блоки
+    quote: Hex // > цитаты
+  }
+
+  // Состояния и диагностика
+  states: {
+    error: Hex // ошибки
+    warning: Hex // предупреждения
+    info: Hex // информация
+    hint: Hex // подсказки
+    deprecated: Hex // устаревший код
+    unused: Hex // неиспользуемый код
+  }
+
+  // Комментарии с типизацией
+  comments: {
+    line: Hex // // комментарии
+    block: Hex // /* комментарии */
+    doc: Hex // /** JSDoc */
+    todo: Hex // TODO, FIXME
+    tag: Hex // @param, @returns в документации
+  }
+
+  // Специальные символы
+  punctuation: {
+    bracket: Hex // [], {}, ()
+    delimiter: Hex // ;, ,
+    accessor: Hex // ., ::
+    separator: Hex // разделители
+  }
+}

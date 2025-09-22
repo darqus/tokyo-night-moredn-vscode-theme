@@ -1,9 +1,9 @@
-import { generateTheme } from '../../src/generators/theme'
+import { generateTheme, loadEnvVars } from '../../src/generators/theme'
 import { interfacePalette } from '../../src/core/interface'
 
 describe('OKLCH separator border tone', () => {
   it('menu.separatorBackground and editorHoverWidget.border should use separatorBackground', () => {
-    const c = generateTheme().colors
+    const c = generateTheme(loadEnvVars()).colors
     expect(c['menu.separatorBackground']).toBe(
       interfacePalette.border.separatorBackground
     )

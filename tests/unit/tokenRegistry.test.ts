@@ -1,4 +1,4 @@
-import { generateTheme } from '../../src/generators/theme'
+import { generateTheme, loadEnvVars } from '../../src/generators/theme'
 import {
   TOKEN_REGISTRY,
   validateTokenAlpha,
@@ -7,11 +7,12 @@ import {
 } from '../../src/core/tokenRegistry'
 import { interfacePalette } from '../../src/core/interface'
 import { getContrastRatio } from '../../src/core/contrast'
-import { generateTheme as genTheme } from '../../src/generators/theme'
+
+const generateTestTheme = () => generateTheme(loadEnvVars())
 
 describe('Token Registry validation', () => {
   it('should respect alpha policies for registered tokens', () => {
-    const theme = generateTheme()
+    const theme = generateTestTheme()
     const colors = theme.colors
     for (const meta of TOKEN_REGISTRY) {
       const value = colors[meta.key]
@@ -24,7 +25,7 @@ describe('Token Registry validation', () => {
   })
 
   it('should include key overlay/quick input backgrounds (coverage)', () => {
-    const { colors } = generateTheme()
+    const { colors } = generateTestTheme()
     expect(hasToken(colors, 'editorHoverWidget.background')).toBe(true)
     expect(hasToken(colors, 'editorSuggestWidget.background')).toBe(true)
     expect(hasToken(colors, 'quickInput.background')).toBe(true)
@@ -44,7 +45,7 @@ describe('Token Registry validation', () => {
   })
 
   it('should satisfy contrastHints where provided (advisory)', () => {
-    const { colors } = genTheme()
+    const { colors } = generateTestTheme()
     for (const meta of TOKEN_REGISTRY) {
       if (!meta.contrastHints || !meta.bgKey) continue
       const fg = colors[meta.key]
@@ -66,7 +67,7 @@ describe('Token Registry validation', () => {
   })
 
   it('should enforce transparency for selection/slider families where required', () => {
-    const { colors: bg } = generateTheme()
+    const { colors: bg } = generateTestTheme()
     const keys = [
       'editor.selectionBackground',
       'editor.inactiveSelectionBackground',

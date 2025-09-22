@@ -1,8 +1,8 @@
-import { generateTheme } from '../../src/generators/theme'
+import { generateTheme, loadEnvVars } from '../../src/generators/theme'
 
 describe('Surface-aware foreground mapping', () => {
   it('should use textOn.base/elevated/overlay for respective surfaces', () => {
-    const theme = generateTheme()
+    const theme = generateTheme(loadEnvVars())
     const c = theme.colors
     // base surface
     expect(c['titleBar.activeForeground']).toBeDefined()

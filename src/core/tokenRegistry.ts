@@ -1,30 +1,25 @@
 /**
  * Реестр токенов VS Code с метаданными и валидатором.
+ * Использует унифицированную систему поверхностей.
  */
 
-export type Surface =
-  | 'base'
-  | 'elevated'
-  | 'overlay'
-  | 'terminal'
-  | 'panel'
-  | 'menu'
-  | 'list'
-  | 'statusBar'
-  | 'tabs'
-  | 'editor'
-  | 'quickInput'
-export type AlphaPolicy = 'opaque' | 'transparent' | 'either'
-export interface ContrastHints {
+import {
+  type SurfaceType,
+  type AlphaPolicy,
+  type ContrastThresholds,
+} from './surfaces'
+
+// Обратная совместимость
+export type Surface = SurfaceType
+export { type AlphaPolicy } from './surfaces'
+
+export interface ContrastHints extends Partial<ContrastThresholds> {
   // advisory минимальные пороги для текста на поверхности
-  primaryMin?: number
-  mutedMin?: number
-  subtleMin?: number
 }
 
 export interface TokenMeta {
   key: string
-  surface?: Surface
+  surface?: SurfaceType
   alpha?: AlphaPolicy
   deprecated?: boolean
   // если ключ является алиасом другого токена (для обратной совместимости)

@@ -1,10 +1,10 @@
-import { generateTheme } from '../../src/generators/theme'
+import { generateTheme, loadEnvVars } from '../../src/generators/theme'
 import { interfacePalette } from '../../src/core/interface'
 
 describe('Theme Components', () => {
   describe('Theme Generation', () => {
     it('should generate a valid theme', () => {
-      const theme = generateTheme()
+      const theme = generateTheme(loadEnvVars())
       expect(theme).toBeDefined()
       expect(theme.name).toBe('Tokyo Night Modern')
       expect(theme.type).toBe('dark')
@@ -13,7 +13,7 @@ describe('Theme Components', () => {
     })
 
     it('should have valid hex colors', () => {
-      const theme = generateTheme()
+      const theme = generateTheme(loadEnvVars())
       Object.values(theme.colors).forEach((color) => {
         if (typeof color === 'string') {
           expect(color).toMatch(/^#([0-9a-f]{6}|[0-9a-f]{8})$/i)
@@ -32,7 +32,7 @@ describe('Theme Components', () => {
     })
 
     it('should have valid color property names', () => {
-      const theme = generateTheme()
+      const theme = generateTheme(loadEnvVars())
       Object.keys(theme.colors).forEach((key) => {
         expect(key).toMatch(/^[a-zA-Z0-9.]+$/)
       })

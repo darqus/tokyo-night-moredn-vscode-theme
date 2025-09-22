@@ -1,11 +1,12 @@
 /**
- * Генератор финальной темы VS Code
+ * Генератор финальной темы VS Code с улучшенной архитектурой
  */
 import { interfacePalette } from '../core/interface'
 import { generateTokenColors, generateSemanticTokens } from './tokens'
 import { SURFACE_FOREGROUND_MAP } from './surfaceForeground'
+import { createTokens } from './modernInterfaceMapping'
+import { warmupColorCache } from '../core/colorEngine'
 import type { VSCodeTheme } from '../types/theme'
-import { colorMappings } from './interfaceMapping'
 
 // Тип для переменных окружения темы
 interface ThemeEnvVars {
@@ -53,14 +54,31 @@ export const loadEnvVars = (): ThemeEnvVars => {
 }
 
 /**
- * Генерация всех цветов интерфейса VS Code
+ * Генерация всех цветов интерфейса VS Code с использованием нового DSL
  */
 const generateInterfaceColors = () => {
-  const colors = colorMappings(interfacePalette)
+  // Прогрев кэша для производительности с базовыми цветами интерфейса
+  const baseColors = [
+    interfacePalette.bg.base,
+    interfacePalette.text.primary,
+    interfacePalette.text.muted,
+    interfacePalette.border.default,
+    interfacePalette.state.info,
+    interfacePalette.state.error,
+    interfacePalette.state.warning,
+    interfacePalette.state.success,
+  ]
+  warmupColorCache(baseColors)
 
-  // Применяем единый маппинг для surface-aware foreground-токенов
+  // Создаем цвета через новый декларативный DSL
+  const colors = createTokens(interfacePalette)
+
+  // Применяем единый маппинг для surface-aware foreground-токенов (legacy совместимость)
   for (const [key, resolver] of Object.entries(SURFACE_FOREGROUND_MAP)) {
-    colors[key] = resolver(interfacePalette)
+    // Только если токен не был определен через DSL
+    if (!(key in colors)) {
+      colors[key] = resolver(interfacePalette)
+    }
   }
 
   return colors

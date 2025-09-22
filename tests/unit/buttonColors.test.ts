@@ -1,9 +1,9 @@
-import { generateTheme } from '../../src/generators/theme'
+import { generateTheme, loadEnvVars } from '../../src/generators/theme'
 import { interfacePalette } from '../../src/core/interface'
 
 describe('Button color tokens', () => {
   it('should map primary button colors from interface palette', () => {
-    const theme = generateTheme()
+    const theme = generateTheme(loadEnvVars())
     const c = theme.colors
 
     expect(c['button.background']).toBe(
@@ -22,7 +22,7 @@ describe('Button color tokens', () => {
   })
 
   it('should map secondary button colors from interface palette', () => {
-    const theme = generateTheme()
+    const theme = generateTheme(loadEnvVars())
     const c = theme.colors
 
     expect(c['button.secondaryBackground']).toBe(

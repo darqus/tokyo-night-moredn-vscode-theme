@@ -1,10 +1,10 @@
-import { generateTheme } from '../../src/generators/theme'
+import { generateTheme, loadEnvVars } from '../../src/generators/theme'
 import { interfacePalette } from '../../src/core/interface'
 import { isTransparentHex } from '../../src/core/tokenRegistry'
 
 describe('OKLCH peekView highlight tones', () => {
   it('peekView match/selection should use OKLCH-based tones with transparency', () => {
-    const c = generateTheme().colors
+    const c = generateTheme(loadEnvVars()).colors
 
     const match = interfacePalette.derived.peekView.matchHighlightBackground
     const sel = interfacePalette.derived.peekView.selectionBackground
