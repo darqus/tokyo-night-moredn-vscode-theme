@@ -50,7 +50,8 @@ export const SURFACE_FOREGROUND_MAP: Record<
   'sideBar.foreground': (ip) => ip.textOn.base.primary,
   'sideBarTitle.foreground': (ip) => ip.textOn.base.primary,
   'panelTitle.activeForeground': (ip) => ip.textOn.base.primary,
-  'panelTitle.inactiveForeground': (ip) => ip.textOn.base.muted,
+  'panelTitle.inactiveForeground': (ip) =>
+    pickReadable(ip, 'base', 'muted', { mutedMin: 3.0 }),
   'breadcrumb.foreground': (ip) => ip.textOn.base.muted,
   'breadcrumb.focusForeground': (ip) =>
     pickReadable(ip, 'base', 'muted', { mutedMin: 3.0 }),
@@ -70,7 +71,8 @@ export const SURFACE_FOREGROUND_MAP: Record<
   'quickInput.foreground': (ip) => ip.textOn.elevated.primary,
   'quickInputList.focusForeground': (ip) => ip.textOn.elevated.primary,
   'sideBarSectionHeader.foreground': (ip) => ip.textOn.elevated.primary,
-  'statusBar.foreground': (ip) => ip.textOn.elevated.muted,
+  'statusBar.foreground': (ip) =>
+    pickReadable(ip, 'elevated', 'muted', { mutedMin: 3.0 }),
   'notifications.foreground': (ip) => ip.textOn.elevated.primary,
   'notificationCenterHeader.foreground': (ip) => ip.textOn.elevated.primary,
   'editorWidget.foreground': (ip) => ip.textOn.elevated.primary,
