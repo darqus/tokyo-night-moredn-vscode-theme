@@ -18,7 +18,7 @@ export const basePalette = {
   purple: createHex('#9d7cd8'), // Операторы, модификаторы
 
   // Акцентные теплые (минимум)
-  green: createHex('#c3dfa5'), // Строки
+  green: createHex('#b8d39b'), // Строки
   yellow: createHex('#f8d8a8'), // Классы, константы
   orange: createHex('#fac09f'), // Числа (только)
   red: createHex('#f38da0'), // Ошибки (только)
@@ -55,7 +55,7 @@ export const basePalette = {
   primaryButtonBlue: createHex('#007acc'),
 
   // Состояния (алисы на тёплые акценты)
-  success: createHex('#c3dfa5'), // = green
+  success: createHex('#bcd89e'), // = green
   warning: createHex('#f8d8a8'), // = yellow
   attention: createHex('#fac09f'), // = orange
   danger: createHex('#f38da0'), // = red
