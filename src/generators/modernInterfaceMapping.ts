@@ -334,7 +334,7 @@ export const tokenConfig: ThemeTokenConfig = {
       tokens: [
         {
           token: 'tab.activeBackground',
-          source: surface.background('elevated'),
+          source: surface.background('base'),
           description: 'Фон активной вкладки',
         },
         {
@@ -349,7 +349,7 @@ export const tokenConfig: ThemeTokenConfig = {
         },
         {
           token: 'tab.inactiveBackground',
-          source: surface.background('base'),
+          source: surface.background('elevated'),
           description: 'Фон неактивной вкладки',
         },
         {

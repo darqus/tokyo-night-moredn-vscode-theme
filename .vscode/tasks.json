@@ -402,6 +402,13 @@
 			"command": "npm run test:update",
 			"isBackground": false,
 			"group": "build"
+		},
+		{
+			"label": "Run unit tests",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"group": "build"
 		}
 	]
 }
