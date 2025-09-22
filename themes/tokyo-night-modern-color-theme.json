@@ -3,6 +3,7 @@
   "type": "dark",
   "colors": {
     "foreground": "#c0caf5",
+    "icon.foreground": "#29acf8",
     "descriptionForeground": "#c0caf5",
     "disabledForeground": "#c0caf5",
     "focusBorder": "#7aa2f766",
