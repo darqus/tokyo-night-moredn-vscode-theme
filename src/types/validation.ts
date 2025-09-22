@@ -31,6 +31,8 @@ export type VSCodeColorToken =
   | 'editorCursor.foreground'
   | 'editorIndentGuide.background1'
   | 'editorIndentGuide.activeBackground1'
+  | 'editorStickyScroll.background'
+  | 'editorStickyScrollHover.background'
 
   // Sidebar
   | 'sideBar.background'
@@ -293,6 +295,8 @@ export function getValidTokensList(): ValidTokens[] {
     'editorCursor.foreground',
     'editorIndentGuide.background1',
     'editorIndentGuide.activeBackground1',
+    'editorStickyScroll.background',
+    'editorStickyScrollHover.background',
     'sideBar.background',
     'sideBar.foreground',
     'sideBar.border',

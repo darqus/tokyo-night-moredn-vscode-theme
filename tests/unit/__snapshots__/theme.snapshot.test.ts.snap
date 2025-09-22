@@ -79,6 +79,8 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "editorLineNumber.activeForeground": "#5e75a1",
     "editorLineNumber.foreground": "#2f3349",
     "editorLink.activeForeground": "#29acf8",
+    "editorStickyScroll.background": "#1f2230",
+    "editorStickyScrollHover.background": "#80a8fe14",
     "editorSuggestWidget.background": "#232739",
     "editorSuggestWidget.foreground": "#c0caf5",
     "editorSuggestWidgetStatus.foreground": "#c5cffa",

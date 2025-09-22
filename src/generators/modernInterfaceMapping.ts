@@ -210,6 +210,19 @@ export const tokenConfig: ThemeTokenConfig = {
           source: computed((ip) => ip.border.focus),
           description: 'Активная направляющая отступа',
         },
+        // Sticky Scroll (заголовки, закреплённые при прокрутке)
+        {
+          token: 'editorStickyScroll.background',
+          source: surface.background('elevated'),
+          description:
+            'Фон sticky scroll панели (слегка приподнят над редактором)',
+        },
+        {
+          token: 'editorStickyScrollHover.background',
+          source: surface.background('hover'),
+          description:
+            'Hover/подсветка строки sticky scroll как у активной строки/hover тона',
+        },
       ],
     },
     {

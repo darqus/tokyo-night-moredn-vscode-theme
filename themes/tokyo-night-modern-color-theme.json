@@ -34,6 +34,8 @@
     "editorCursor.foreground": "#c0caf5",
     "editorIndentGuide.background1": "#202230",
     "editorIndentGuide.activeBackground1": "#7aa2f766",
+    "editorStickyScroll.background": "#1f2230",
+    "editorStickyScrollHover.background": "#80a8fe14",
     "sideBar.background": "#181923",
     "sideBar.foreground": "#c0caf5",
     "sideBar.border": "#202230",
