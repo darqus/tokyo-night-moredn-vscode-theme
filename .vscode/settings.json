@@ -40,7 +40,7 @@
       "source.fixAll.stylelint": "explicit"
     }
   },
-  "cSpell.words": ["autogrow", "firestore", "ref", "Stackframe"],
+  "cSpell.words": ["autogrow", "firestore", "ref", "Stackframe", "WCAG"],
   "markdownlint.config": {
     "MD032": true,
     "MD056": true
