@@ -56,8 +56,6 @@ export const SURFACE_FOREGROUND_MAP: Record<
   'breadcrumb.focusForeground': (ip) =>
     pickReadable(ip, 'base', 'muted', { mutedMin: 3.0 }),
   'breadcrumb.activeSelectionForeground': (ip) => ip.textOn.base.primary,
-  'breadcrumb.hoverForeground': (ip) =>
-    pickReadable(ip, 'base', 'muted', { mutedMin: 3.0 }),
   'peekViewResult.fileForeground': (ip) => ip.textOn.base.primary,
   'peekViewResult.lineForeground': (ip) => ip.textOn.base.muted,
   'peekViewResult.selectionForeground': (ip) => ip.textOn.base.primary,

@@ -334,13 +334,6 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
     notes: 'Focused breadcrumb uses adaptive muted→primary for readability',
   },
   {
-    key: 'breadcrumb.hoverForeground',
-    surface: 'base',
-    alpha: 'opaque',
-    contrastHints: { mutedMin: 3.0 },
-    bgKey: 'breadcrumb.background',
-  },
-  {
     key: 'inlineChat.border',
     surface: 'overlay',
     alpha: 'opaque',

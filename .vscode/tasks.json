@@ -264,6 +264,12 @@
 			"command": "npm test --silent",
 			"isBackground": false,
 			"group": "build"
+		},
+		{
+			"label": "Build theme JSON",
+			"type": "shell",
+			"command": "npm run build",
+			"group": "build"
 		}
 	]
 }

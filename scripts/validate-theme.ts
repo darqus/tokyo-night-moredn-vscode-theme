@@ -196,6 +196,26 @@ function validateTheme(themePath: string): ValidationResult {
       }
     }
 
+    // Строгая проверка для breadcrumb.* — VS Code не знает hoverForeground
+    // Разрешаем только: foreground, background, focusForeground, activeSelectionForeground
+    if (property.startsWith('breadcrumb.')) {
+      const allowed = new Set<
+        | 'foreground'
+        | 'background'
+        | 'focusForeground'
+        | 'activeSelectionForeground'
+      >([
+        'foreground',
+        'background',
+        'focusForeground',
+        'activeSelectionForeground',
+      ])
+      const key = property.split('.')[1] as any
+      if (!allowed.has(key)) {
+        result.unknownProperties.push(property)
+      }
+    }
+
     // Специальная строгая проверка для inlineChat.* (только базовые ключи)
     if (property.startsWith('inlineChat.')) {
       const allowed = new Set<
@@ -460,6 +480,15 @@ function printReport(result: ValidationResult): void {
       '   - Политика альфы нарушена:',
       result.alphaPolicyViolations.length
     )
+    // Критичным для CI считаем только неизвестные/некорректные ключи и цвета, а также нарушения альфа-политики
+    const criticalIssues =
+      result.unknownProperties.length +
+      result.invalidValues.length +
+      result.invalidColors.length +
+      result.alphaPolicyViolations.length
+    if (criticalIssues > 0) {
+      process.exitCode = 1
+    }
   }
 }
 

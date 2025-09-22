@@ -151,7 +151,6 @@
     "breadcrumb.foreground": "#9ba5cf",
     "breadcrumb.focusForeground": "#9ba5cf",
     "breadcrumb.activeSelectionForeground": "#c0caf5",
-    "breadcrumb.hoverForeground": "#9ba5cf",
     "peekViewResult.fileForeground": "#c0caf5",
     "peekViewResult.lineForeground": "#9ba5cf",
     "peekViewResult.selectionForeground": "#c0caf5",
