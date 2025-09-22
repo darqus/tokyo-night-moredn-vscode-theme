@@ -20,7 +20,7 @@ export const buildTheme = () => {
       fs.mkdirSync(themesDir, { recursive: true })
     }
 
-    const theme = generateTheme()
+    const theme = generateTheme(env)
     const themeJson = JSON.stringify(theme, null, 2) + '\n'
     fs.writeFileSync(themePath, themeJson, 'utf8')
 
