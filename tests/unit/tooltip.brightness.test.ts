@@ -6,8 +6,8 @@ import { getContrastRatioAware } from '../../src/core/contrast'
 describe('Tooltip (hover widget) brightness', () => {
   const mapping = colorMappings(interfacePalette)
 
-  test('editorHoverWidget.background is slightly lighter than overlay', () => {
-    const expected = lighten(interfacePalette.bg.overlay, 0.06)
+  test('editorHoverWidget.background uses overlay for maximum readability', () => {
+    const expected = interfacePalette.bg.overlay
     expect(mapping['editorHoverWidget.background']).toBe(expected)
   })
 

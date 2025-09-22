@@ -174,6 +174,7 @@ export type VSCodeColorToken =
   | 'panelSectionHeader.border'
   | 'menu.separatorBackground'
   | 'editorHoverWidget.border'
+  | 'editorHoverWidget.foreground'
   | 'icon.foreground'
 
   // Quick Input tokens
@@ -391,6 +392,7 @@ export function getValidTokensList(): ValidTokens[] {
     'notifications.foreground',
     'notifications.border',
     'editorHoverWidget.background',
+    'editorHoverWidget.foreground',
     'editorSuggestWidget.background',
     'quickInput.background',
     'editorWidget.background',

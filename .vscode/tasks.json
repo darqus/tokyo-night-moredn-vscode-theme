@@ -1,349 +1,407 @@
 {
-  "version": "2.0.0",
-  "tasks": [
-    {
-      "label": "Build theme JSON",
-      "type": "shell",
-      "command": "npm run build",
-      "problemMatcher": ["$tsc"]
-    },
-    {
-      "label": "Build theme JSON",
-      "type": "shell",
-      "command": "npm run build"
-    },
-    {
-      "label": "Build theme JSON",
-      "type": "shell",
-      "command": "npm run validate:all"
-    },
-    {
-      "label": "Build theme JSON",
-      "type": "shell",
-      "command": "npm run build"
-    },
-    {
-      "label": "Build theme JSON",
-      "type": "shell",
-      "command": "npm run validate:all"
-    },
-    {
-      "label": "Build theme JSON",
-      "type": "shell",
-      "command": "npm run build",
-      "problemMatcher": ["$tsc"],
-      "group": "build"
-    },
-    {
-      "label": "Build theme JSON",
-      "type": "shell",
-      "command": "npm run validate:all",
-      "problemMatcher": ["$tsc"],
-      "group": "build"
-    },
-    {
-      "label": "Build theme JSON",
-      "type": "shell",
-      "command": "npm run build",
-      "problemMatcher": ["$tsc"],
-      "group": "build"
-    },
-    {
-      "label": "Build theme JSON",
-      "type": "shell",
-      "command": "npm run build",
-      "problemMatcher": ["$tsc"],
-      "group": "build"
-    },
-    {
-      "label": "Build theme JSON",
-      "type": "shell",
-      "command": "npm run build",
-      "problemMatcher": ["$tsc"],
-      "group": "build"
-    },
-    {
-      "label": "Build theme JSON",
-      "type": "shell",
-      "command": "npm run build",
-      "problemMatcher": ["$tsc"],
-      "group": "build"
-    },
-    {
-      "label": "Build theme JSON",
-      "type": "shell",
-      "command": "npm run build",
-      "problemMatcher": ["$tsc"],
-      "group": "build"
-    },
-    {
-      "label": "Build theme JSON",
-      "type": "shell",
-      "command": "npm run build",
-      "problemMatcher": ["$tsc"],
-      "group": "build"
-    },
-    {
-      "label": "Run tests",
-      "type": "shell",
-      "command": "npm test --silent",
-      "isBackground": false,
-      "problemMatcher": ["$tsc", "$eslint-stylish"],
-      "group": "build"
-    },
-    {
-      "label": "Run tests",
-      "type": "shell",
-      "command": "npm test --silent",
-      "isBackground": false,
-      "problemMatcher": ["$tsc", "$eslint-stylish"],
-      "group": "build"
-    },
-    {
-      "label": "Run tests",
-      "type": "shell",
-      "command": "npm test --silent",
-      "isBackground": false,
-      "problemMatcher": ["$tsc", "$eslint-stylish"],
-      "group": "build"
-    },
-    {
-      "label": "Lint docs (optional)",
-      "type": "shell",
-      "command": "echo \"Skip markdown lint step; running tests only to verify code.\" && npm test --silent",
-      "isBackground": false,
-      "problemMatcher": ["$tsc"],
-      "group": "build"
-    },
-    {
-      "label": "Run tests",
-      "type": "shell",
-      "command": "npm test --silent",
-      "isBackground": false,
-      "problemMatcher": ["$tsc", "$eslint-stylish"],
-      "group": "build"
-    },
-    {
-      "label": "Run unit tests",
-      "type": "shell",
-      "command": "npm test --silent",
-      "isBackground": false,
-      "problemMatcher": ["$tsc", "$eslint-stylish"],
-      "group": "build"
-    },
-    {
-      "label": "Run tests after contrast additions",
-      "type": "shell",
-      "command": "npm test --silent",
-      "isBackground": false,
-      "problemMatcher": ["$tsc", "$eslint-stylish"],
-      "group": "build"
-    },
-    {
-      "label": "Run full tests after OKLCH and registry expansion",
-      "type": "shell",
-      "command": "npm test --silent",
-      "isBackground": false,
-      "problemMatcher": ["$tsc", "$eslint-stylish"],
-      "group": "build"
-    },
-    {
-      "label": "Run tests to update to new scheme expectations",
-      "type": "shell",
-      "command": "npm test --silent",
-      "isBackground": false,
-      "problemMatcher": ["$tsc", "$eslint-stylish"],
-      "group": "build"
-    },
-    {
-      "label": "Run tests after contrast additions",
-      "type": "shell",
-      "command": "npm test --silent",
-      "isBackground": false,
-      "problemMatcher": ["$eslint-stylish"],
-      "group": "build"
-    },
-    {
-      "label": "Run tests to update to new scheme expectations",
-      "type": "shell",
-      "command": "npm test --silent",
-      "isBackground": false,
-      "group": "build"
-    },
-    {
-      "label": "Run full tests after OKLCH and registry expansion",
-      "type": "shell",
-      "command": "npm test --silent",
-      "isBackground": false,
-      "group": "build"
-    },
-    {
-      "label": "Run unit tests",
-      "type": "shell",
-      "command": "npm test --silent",
-      "isBackground": false,
-      "group": "build"
-    },
-    {
-      "label": "Run unit tests (rule + docs link)",
-      "type": "shell",
-      "command": "npm test --silent",
-      "isBackground": false,
-      "group": "build"
-    },
-    {
-      "label": "Run tests (extended rule + docs)",
-      "type": "shell",
-      "command": "npm test --silent",
-      "isBackground": false,
-      "group": "build"
-    },
-    {
-      "label": "Run tests after foreground expansion",
-      "type": "shell",
-      "command": "npm test --silent",
-      "isBackground": false,
-      "group": "build"
-    },
-    {
-      "label": "Run tests to update snapshot",
-      "type": "shell",
-      "command": "npm test --silent -- -u",
-      "isBackground": false,
-      "group": "build"
-    },
-    {
-      "label": "Run tests after shared mapping sync",
-      "type": "shell",
-      "command": "npm test --silent",
-      "isBackground": false,
-      "group": "build"
-    },
-    {
-      "label": "Build theme JSON",
-      "type": "shell",
-      "command": "npm run build",
-      "group": "build"
-    },
-    {
-      "label": "Build theme JSON",
-      "type": "shell",
-      "command": "npm run build",
-      "group": "build"
-    },
-    {
-      "label": "Build theme JSON",
-      "type": "shell",
-      "command": "npm run build",
-      "group": "build"
-    },
-    {
-      "label": "Build theme JSON",
-      "type": "shell",
-      "command": "npm run build",
-      "group": "build"
-    },
-    {
-      "label": "Build theme JSON",
-      "type": "shell",
-      "command": "npm run build",
-      "group": "build"
-    },
-    {
-      "label": "Run unit tests",
-      "type": "shell",
-      "command": "npm test --silent",
-      "isBackground": false,
-      "group": "build"
-    },
-    {
-      "label": "Run tests to update snapshot",
-      "type": "shell",
-      "command": "npm test --silent -- -u",
-      "isBackground": false,
-      "group": "build"
-    },
-    {
-      "label": "Build theme JSON",
-      "type": "shell",
-      "command": "npm run build",
-      "group": "build"
-    },
-    {
-      "label": "Run unit tests (rule + docs link)",
-      "type": "shell",
-      "command": "npm test --silent",
-      "isBackground": false,
-      "group": "build"
-    },
-    {
-      "label": "Run tests to update snapshot",
-      "type": "shell",
-      "command": "npm test --silent -- -u",
-      "isBackground": false,
-      "group": "build"
-    },
-    {
-      "label": "Run tests (extended rule + docs)",
-      "type": "shell",
-      "command": "npm test --silent",
-      "isBackground": false,
-      "group": "build"
-    },
-    {
-      "label": "Run tests to update snapshot",
-      "type": "shell",
-      "command": "npm run test:update",
-      "isBackground": false,
-      "group": "build"
-    },
-    {
-      "label": "Build theme JSON",
-      "type": "shell",
-      "command": "npm run build",
-      "group": "build"
-    },
-    {
-      "label": "Run unit tests (rule + docs link)",
-      "type": "shell",
-      "command": "npm test --silent",
-      "isBackground": false,
-      "group": "build"
-    },
-    {
-      "label": "Run unit tests",
-      "type": "shell",
-      "command": "npm test --silent",
-      "isBackground": false,
-      "group": "build"
-    },
-    {
-      "label": "Run unit tests",
-      "type": "shell",
-      "command": "npm test --silent",
-      "isBackground": false,
-      "group": "build"
-    },
-    {
-      "label": "Run unit tests after foreground expansion",
-      "type": "shell",
-      "command": "npm test --silent",
-      "isBackground": false,
-      "group": "build"
-    },
-    {
-      "label": "Run tests (extended rule + docs)",
-      "type": "shell",
-      "command": "npm test --silent",
-      "isBackground": false,
-      "group": "build"
-    },
-    {
-      "label": "Run tests to update snapshot",
-      "type": "shell",
-      "command": "npm run test:update",
-      "isBackground": false,
-      "group": "build"
-    }
-  ]
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build theme JSON",
+			"type": "shell",
+			"command": "npm run build",
+			"problemMatcher": [
+				"$tsc"
+			]
+		},
+		{
+			"label": "Build theme JSON",
+			"type": "shell",
+			"command": "npm run build"
+		},
+		{
+			"label": "Build theme JSON",
+			"type": "shell",
+			"command": "npm run validate:all"
+		},
+		{
+			"label": "Build theme JSON",
+			"type": "shell",
+			"command": "npm run build"
+		},
+		{
+			"label": "Build theme JSON",
+			"type": "shell",
+			"command": "npm run validate:all"
+		},
+		{
+			"label": "Build theme JSON",
+			"type": "shell",
+			"command": "npm run build",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Build theme JSON",
+			"type": "shell",
+			"command": "npm run validate:all",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Build theme JSON",
+			"type": "shell",
+			"command": "npm run build",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Build theme JSON",
+			"type": "shell",
+			"command": "npm run build",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Build theme JSON",
+			"type": "shell",
+			"command": "npm run build",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Build theme JSON",
+			"type": "shell",
+			"command": "npm run build",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Build theme JSON",
+			"type": "shell",
+			"command": "npm run build",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Build theme JSON",
+			"type": "shell",
+			"command": "npm run build",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Run tests",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc",
+				"$eslint-stylish"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Run tests",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc",
+				"$eslint-stylish"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Run tests",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc",
+				"$eslint-stylish"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Lint docs (optional)",
+			"type": "shell",
+			"command": "echo \"Skip markdown lint step; running tests only to verify code.\" && npm test --silent",
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Run tests",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc",
+				"$eslint-stylish"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Run unit tests",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc",
+				"$eslint-stylish"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Run tests after contrast additions",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc",
+				"$eslint-stylish"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Run full tests after OKLCH and registry expansion",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc",
+				"$eslint-stylish"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Run tests to update to new scheme expectations",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc",
+				"$eslint-stylish"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Run tests after contrast additions",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"problemMatcher": [
+				"$eslint-stylish"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Run tests to update to new scheme expectations",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Run full tests after OKLCH and registry expansion",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Run unit tests",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Run unit tests (rule + docs link)",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Run tests (extended rule + docs)",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Run tests after foreground expansion",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Run tests to update snapshot",
+			"type": "shell",
+			"command": "npm test --silent -- -u",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Run tests after shared mapping sync",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Build theme JSON",
+			"type": "shell",
+			"command": "npm run build",
+			"group": "build"
+		},
+		{
+			"label": "Build theme JSON",
+			"type": "shell",
+			"command": "npm run build",
+			"group": "build"
+		},
+		{
+			"label": "Build theme JSON",
+			"type": "shell",
+			"command": "npm run build",
+			"group": "build"
+		},
+		{
+			"label": "Build theme JSON",
+			"type": "shell",
+			"command": "npm run build",
+			"group": "build"
+		},
+		{
+			"label": "Build theme JSON",
+			"type": "shell",
+			"command": "npm run build",
+			"group": "build"
+		},
+		{
+			"label": "Run unit tests",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Run tests to update snapshot",
+			"type": "shell",
+			"command": "npm test --silent -- -u",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Build theme JSON",
+			"type": "shell",
+			"command": "npm run build",
+			"group": "build"
+		},
+		{
+			"label": "Run unit tests (rule + docs link)",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Run tests to update snapshot",
+			"type": "shell",
+			"command": "npm test --silent -- -u",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Run tests (extended rule + docs)",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Run tests to update snapshot",
+			"type": "shell",
+			"command": "npm run test:update",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Build theme JSON",
+			"type": "shell",
+			"command": "npm run build",
+			"group": "build"
+		},
+		{
+			"label": "Run unit tests (rule + docs link)",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Run unit tests",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Run unit tests",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Run unit tests after foreground expansion",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Run tests (extended rule + docs)",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Run tests to update snapshot",
+			"type": "shell",
+			"command": "npm run test:update",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Run unit tests (hover widget tweak)",
+			"type": "shell",
+			"command": "npm test --silent"
+		},
+		{
+			"label": "Run tests to update snapshot after hover tweak",
+			"type": "shell",
+			"command": "npm run test:update",
+			"isBackground": false,
+			"group": "build"
+		}
+	]
 }
