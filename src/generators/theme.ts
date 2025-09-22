@@ -67,40 +67,40 @@ const generateInterfaceColors = () => {
 
     // Title Bar (главное меню)
     'titleBar.activeBackground': interfacePalette.bg.base,
-    'titleBar.activeForeground': interfacePalette.textOn.base.primary,
+    // foreground через SURFACE_FOREGROUND_MAP
     'titleBar.inactiveBackground': interfacePalette.bg.base,
-    'titleBar.inactiveForeground': interfacePalette.textOn.base.muted,
+    // foreground через SURFACE_FOREGROUND_MAP
     'titleBar.border': interfacePalette.border.default,
 
     // Menu Bar
-    'menubar.selectionForeground': interfacePalette.text.primary,
+    // foreground через SURFACE_FOREGROUND_MAP
     'menubar.selectionBackground': interfacePalette.bg.hover,
     'menubar.selectionBorder': interfacePalette.border.focus,
 
     // Menu (контекстное меню)
-    'menu.foreground': interfacePalette.textOn.elevated.primary,
+    // foreground через SURFACE_FOREGROUND_MAP
     'menu.background': interfacePalette.bg.elevated,
-    'menu.selectionForeground': interfacePalette.text.primary,
+    // foreground через SURFACE_FOREGROUND_MAP
     'menu.selectionBackground': interfacePalette.bg.selection,
     'menu.selectionBorder': interfacePalette.border.focus,
     'menu.separatorBackground': interfacePalette.border.separatorBackground,
     'menu.border': interfacePalette.border.default,
 
     // Command Center & Quick Input (командная панель)
-    'commandCenter.foreground': interfacePalette.textOn.base.muted,
-    'commandCenter.activeForeground': interfacePalette.textOn.base.primary,
+    // foreground через SURFACE_FOREGROUND_MAP
+    // foreground через SURFACE_FOREGROUND_MAP
     'commandCenter.background': interfacePalette.bg.base,
     'commandCenter.activeBackground': interfacePalette.bg.hover,
     'commandCenter.border': interfacePalette.border.default,
     'quickInput.background': interfacePalette.bg.elevated,
-    'quickInput.foreground': interfacePalette.textOn.elevated.primary,
+    // foreground через SURFACE_FOREGROUND_MAP
     'quickInputTitle.background': interfacePalette.bg.overlay,
     'quickInputList.focusBackground': interfacePalette.bg.selection,
-    'quickInputList.focusForeground': interfacePalette.text.primary,
+    // foreground через SURFACE_FOREGROUND_MAP
 
     // Редактор
     'editor.background': interfacePalette.bg.base,
-    'editor.foreground': interfacePalette.textOn.base.primary,
+    // foreground через SURFACE_FOREGROUND_MAP
     'editor.selectionBackground': interfacePalette.bg.selection,
     'editor.selectionForeground': interfacePalette.text.primary,
     'editor.inactiveSelectionBackground': interfacePalette.bg.hover,
@@ -110,7 +110,7 @@ const generateInterfaceColors = () => {
     'editor.findMatchBorder': interfacePalette.derived.findMatch.border,
     'editor.findMatchHighlightBackground':
       interfacePalette.derived.findMatch.highlightBackground,
-    'editor.findMatchForeground': interfacePalette.textOn.base.primary,
+    // foreground через SURFACE_FOREGROUND_MAP
     // Do not set findMatchHighlightForeground to avoid opaque overlay warnings
     'editor.wordHighlightBackground': interfacePalette.bg.hover,
     'editor.wordHighlightStrongBackground': interfacePalette.bg.selection,
@@ -119,7 +119,7 @@ const generateInterfaceColors = () => {
     'editorBracketMatch.background': interfacePalette.bg.hover,
     'editorBracketMatch.border': interfacePalette.border.focus,
     'editorCursor.foreground': interfacePalette.text.primary,
-    'editorWhitespace.foreground': interfacePalette.textOn.base.subtle,
+    // foreground через SURFACE_FOREGROUND_MAP
     'editorIndentGuide.background1': interfacePalette.border.default,
     'editorIndentGuide.activeBackground1': interfacePalette.border.focus,
     'editorLineNumber.foreground': interfacePalette.text.lineNumber,
@@ -137,27 +137,27 @@ const generateInterfaceColors = () => {
 
     // Activity Bar
     'activityBar.background': interfacePalette.bg.base,
-    'activityBar.foreground': interfacePalette.textOn.base.muted,
+    // foreground через SURFACE_FOREGROUND_MAP
     'activityBar.activeBorder': interfacePalette.state.info,
     'activityBar.activeBackground': interfacePalette.bg.hover,
     // Surface-aware: text on base surface
-    'activityBar.inactiveForeground': interfacePalette.textOn.base.inactive,
+    // foreground через SURFACE_FOREGROUND_MAP
     'activityBar.border': interfacePalette.border.default,
     'activityBarBadge.background': interfacePalette.state.info,
     'activityBarBadge.foreground': interfacePalette.text.inverse,
 
     // Side Bar
     'sideBar.background': interfacePalette.bg.darkenBase,
-    'sideBar.foreground': interfacePalette.textOn.base.primary,
+    // foreground через SURFACE_FOREGROUND_MAP
     'sideBar.border': interfacePalette.border.default,
-    'sideBarTitle.foreground': interfacePalette.textOn.base.primary,
+    // foreground через SURFACE_FOREGROUND_MAP
     'sideBarSectionHeader.background': interfacePalette.bg.elevated,
-    'sideBarSectionHeader.foreground': interfacePalette.textOn.elevated.primary,
+    // foreground через SURFACE_FOREGROUND_MAP
     'sideBarSectionHeader.border': interfacePalette.border.default,
 
     // Status Bar
     'statusBar.background': interfacePalette.bg.elevated,
-    'statusBar.foreground': interfacePalette.textOn.elevated.muted,
+    // foreground через SURFACE_FOREGROUND_MAP
     'statusBar.border': interfacePalette.border.default,
     'statusBar.noFolderBackground': interfacePalette.bg.base,
     'statusBar.debuggingBackground': interfacePalette.state.warning,
@@ -185,6 +185,7 @@ const generateInterfaceColors = () => {
 
     // Tabs
     'tab.activeBackground': interfacePalette.bg.elevated,
+    // оставляем: вне surface‑карты (tabs — специфично)
     'tab.activeForeground': interfacePalette.text.primary,
     // 'tab.activeBorder': удалено (transparent недопустим),
     'tab.activeBorderTop': interfacePalette.state.info,
@@ -192,6 +193,7 @@ const generateInterfaceColors = () => {
     'tab.inactiveForeground': interfacePalette.text.muted,
     'tab.border': interfacePalette.border.default,
     'tab.hoverBackground': interfacePalette.bg.hover,
+    // оставляем: вне surface‑карты (tabs — специфично)
     'tab.hoverForeground': interfacePalette.text.primary,
     // 'tab.hoverBorder': удалено (transparent недопустим),
     'tab.unfocusedActiveBackground': interfacePalette.bg.elevated,
@@ -203,12 +205,16 @@ const generateInterfaceColors = () => {
 
     // Lists
     'list.activeSelectionBackground': interfacePalette.bg.selection,
+    // оставляем: вне surface‑карты (list — семантическая роль)
     'list.activeSelectionForeground': interfacePalette.text.primary,
     'list.inactiveSelectionBackground': interfacePalette.bg.hover,
+    // оставляем: вне surface‑карты (list — семантическая роль)
     'list.inactiveSelectionForeground': interfacePalette.text.primary,
     'list.hoverBackground': interfacePalette.bg.hover,
+    // оставляем: вне surface‑карты (list — семантическая роль)
     'list.hoverForeground': interfacePalette.text.primary,
     'list.focusBackground': interfacePalette.bg.selection,
+    // оставляем: вне surface‑карты (list — семантическая роль)
     'list.focusForeground': interfacePalette.text.primary,
     // Should be transparent per VS Code theme color docs
     'list.dropBackground': interfacePalette.derived.overlays.dropBackground,
@@ -226,6 +232,7 @@ const generateInterfaceColors = () => {
 
     // Input
     'input.background': interfacePalette.bg.input,
+    // оставляем: вне surface‑карты (input — семантическая роль)
     'input.foreground': interfacePalette.text.primary,
     'input.border': interfacePalette.border.default,
     'input.placeholderForeground': interfacePalette.text.subtle,
@@ -436,7 +443,7 @@ const generateInterfaceColors = () => {
     'diffEditor.diagonalFill': interfacePalette.bg.overlay,
 
     // Settings
-    'settings.headerForeground': interfacePalette.text.primary,
+    // foreground через SURFACE_FOREGROUND_MAP
     'settings.modifiedItemIndicator': interfacePalette.state.info,
     'settings.dropdownBackground': interfacePalette.dropdown.background,
     'settings.dropdownForeground': interfacePalette.dropdown.foreground,
@@ -469,13 +476,13 @@ const generateInterfaceColors = () => {
     'peekViewEditor.matchHighlightBackground':
       interfacePalette.derived.peekView.matchHighlightBackground,
     'peekViewResult.background': interfacePalette.bg.base,
-    'peekViewResult.fileForeground': interfacePalette.textOn.base.primary,
-    'peekViewResult.lineForeground': interfacePalette.textOn.base.muted,
+    // foreground через SURFACE_FOREGROUND_MAP
+    // foreground через SURFACE_FOREGROUND_MAP
     'peekViewResult.matchHighlightBackground':
       interfacePalette.derived.peekView.matchHighlightBackground,
     'peekViewResult.selectionBackground':
       interfacePalette.derived.peekView.selectionBackground,
-    'peekViewResult.selectionForeground': interfacePalette.text.primary,
+    // foreground через SURFACE_FOREGROUND_MAP
     'peekViewTitle.background': interfacePalette.bg.overlay,
     'peekViewTitleDescription.foreground':
       interfacePalette.textOn.overlay.muted,
@@ -483,25 +490,26 @@ const generateInterfaceColors = () => {
 
     // Editor Widget
     'editorWidget.background': interfacePalette.bg.elevated,
-    'editorWidget.foreground': interfacePalette.textOn.elevated.primary,
+    // foreground через SURFACE_FOREGROUND_MAP
     'editorWidget.border': interfacePalette.border.separatorBackground,
     'editorWidget.resizeBorder': interfacePalette.border.focus,
 
     // Editor Suggest Widget
     'editorSuggestWidget.background': interfacePalette.bg.overlay,
     'editorSuggestWidget.border': interfacePalette.border.default,
-    'editorSuggestWidget.foreground': interfacePalette.textOn.overlay.primary,
+    // foreground через SURFACE_FOREGROUND_MAP
     'editorSuggestWidget.highlightForeground': interfacePalette.state.info,
     'editorSuggestWidget.selectedBackground': interfacePalette.bg.selection,
     'editorSuggestWidget.selectedForeground': interfacePalette.text.primary,
+    // оставляем: вне surface‑карты (семантическая роль selected)
     'editorSuggestWidget.selectedIconForeground': interfacePalette.text.primary,
     // Overlay widget, use overlay-muted for secondary text
-    'editorSuggestWidgetStatus.foreground':
-      interfacePalette.textOn.overlay.muted,
+    // foreground через SURFACE_FOREGROUND_MAP
 
     // Editor Hover Widget
     'editorHoverWidget.background': interfacePalette.bg.overlay,
     'editorHoverWidget.border': interfacePalette.border.separatorBackground,
+    // оставляем: вне surface‑карты (overlay текст покрыт в реестре/тестах)
     'editorHoverWidget.foreground': interfacePalette.textOn.overlay.primary,
     'editorHoverWidget.highlightForeground': interfacePalette.state.info,
     'editorHoverWidget.statusBarBackground': interfacePalette.bg.overlay,
@@ -594,7 +602,7 @@ const generateInterfaceColors = () => {
 
     // Keybinding
     'keybindingLabel.background': interfacePalette.bg.elevated,
-    'keybindingLabel.foreground': interfacePalette.text.primary,
+    // foreground через SURFACE_FOREGROUND_MAP
     'keybindingLabel.border': interfacePalette.border.default,
     'keybindingLabel.bottomBorder': interfacePalette.border.default,
 

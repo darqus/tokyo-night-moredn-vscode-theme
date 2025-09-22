@@ -1,4 +1,32 @@
 import type { InterfacePalette } from '../types/theme'
+import { getContrastRatioAware } from '../core/contrast'
+
+// Опциональная настройка интенсивности CodeLens через env
+// THEME_CODELENS_INTENSITY: 'auto' | 'primary' | 'muted' | 'subtle'
+const CODELENS_INTENSITY = (process.env.THEME_CODELENS_INTENSITY || 'auto')
+  .toString()
+  .toLowerCase() as 'auto' | 'primary' | 'muted' | 'subtle'
+
+// Автоподбор читаемости для CodeLens: пробуем muted над editor.bg (base),
+// если контраст < 4.0 — используем primary
+function resolveCodeLens(ip: InterfacePalette): string {
+  const bg = ip.bg.base
+  if (CODELENS_INTENSITY === 'primary') return ip.textOn.base.primary
+  if (CODELENS_INTENSITY === 'muted') {
+    // При прямом выборе muted не ломаем намерение, но если совсем плохо,
+    // делаем страховку на 3.0 (минимальный порог для muted)
+    const r = getContrastRatioAware(ip.textOn.base.muted, bg as any)
+    return r >= 3.0 ? ip.textOn.base.muted : ip.textOn.base.primary
+  }
+  if (CODELENS_INTENSITY === 'subtle') {
+    // subtle редко достигает норм, поэтому также страхуемся
+    const r = getContrastRatioAware(ip.textOn.base.subtle, bg as any)
+    return r >= 3.0 ? ip.textOn.base.subtle : ip.textOn.base.primary
+  }
+  // auto: предпочитаем muted, если достигает 4.0; иначе primary
+  const ratioMuted = getContrastRatioAware(ip.textOn.base.muted, bg as any)
+  return ratioMuted >= 4.0 ? ip.textOn.base.muted : ip.textOn.base.primary
+}
 
 // Единый список surface-aware foreground токенов → роль текста
 // Генератор использует его для присвоения значений, тест — для валидации.
@@ -15,7 +43,7 @@ export const SURFACE_FOREGROUND_MAP: Record<
   'editor.foreground': (ip) => ip.textOn.base.primary,
   'editor.findMatchForeground': (ip) => ip.textOn.base.primary,
   'editorWhitespace.foreground': (ip) => ip.textOn.base.subtle,
-  'editorCodeLens.foreground': (ip) => ip.textOn.base.primary,
+  'editorCodeLens.foreground': (ip) => resolveCodeLens(ip),
   'activityBar.foreground': (ip) => ip.textOn.base.muted,
   'activityBar.inactiveForeground': (ip) => ip.textOn.base.inactive,
   'sideBar.foreground': (ip) => ip.textOn.base.primary,
