@@ -105,6 +105,12 @@ export const interfacePalette: InterfacePalette = {
     },
   },
 
+  // Бейджи (единая сущность для всех badge.* токенов)
+  badge: {
+    bg: '#007acc',
+    fg: '#ffffff',
+  },
+
   // Состояния (семантические цвета)
   state: {
     info: basePalette.cyan,

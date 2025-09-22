@@ -88,6 +88,14 @@ export type VSCodeColorToken =
   | 'button.secondaryForeground'
   | 'button.secondaryHoverBackground'
 
+  // Badges
+  | 'badge.background'
+  | 'badge.foreground'
+  | 'activityBarBadge.background'
+  | 'activityBarBadge.foreground'
+  | 'extensionBadge.remoteBackground'
+  | 'extensionBadge.remoteForeground'
+
   // Menus
   | 'menu.background'
   | 'menu.foreground'
@@ -273,6 +281,12 @@ export function isValidToken(token: string): token is ValidTokens {
     'button.secondaryBackground',
     'button.secondaryForeground',
     'button.secondaryHoverBackground',
+    'badge.background',
+    'badge.foreground',
+    'activityBarBadge.background',
+    'activityBarBadge.foreground',
+    'extensionBadge.remoteBackground',
+    'extensionBadge.remoteForeground',
     'menu.background',
     'menu.foreground',
     'menu.selectionBackground',

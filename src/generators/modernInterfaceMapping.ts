@@ -397,6 +397,42 @@ export const tokenConfig: ThemeTokenConfig = {
       ],
     },
     {
+      name: 'Badges',
+      description: 'Бейджи и счетчики (Search, SCM, Activity Bar, Remote)',
+      tokens: [
+        {
+          token: 'badge.background',
+          source: computed((ip) => ip.badge.bg),
+          description: 'Фон бейджа (ярко-синий)',
+        },
+        {
+          token: 'badge.foreground',
+          source: computed((ip) => ip.badge.fg),
+          description: 'Текст бейджа (белый)',
+        },
+        {
+          token: 'activityBarBadge.background',
+          source: computed((ip) => ip.badge.bg),
+          description: 'Фон бейджа на Activity Bar',
+        },
+        {
+          token: 'activityBarBadge.foreground',
+          source: computed((ip) => ip.badge.fg),
+          description: 'Текст бейджа на Activity Bar',
+        },
+        {
+          token: 'extensionBadge.remoteBackground',
+          source: computed((ip) => ip.badge.bg),
+          description: 'Фон удаленного бейджа расширений',
+        },
+        {
+          token: 'extensionBadge.remoteForeground',
+          source: computed((ip) => ip.badge.fg),
+          description: 'Текст удаленного бейджа расширений',
+        },
+      ],
+    },
+    {
       name: 'Menus',
       description: 'Контекстные меню',
       tokens: [

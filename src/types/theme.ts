@@ -94,6 +94,11 @@ export interface InterfacePalette {
       border: Hex
     }
   }
+  // Badge colors
+  badge: {
+    bg: Hex
+    fg: Hex
+  }
   state: {
     info: Hex
     success: Hex
