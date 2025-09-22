@@ -248,6 +248,27 @@ export const tokenConfig: ThemeTokenConfig = {
       ],
     },
     {
+      name: 'Title Bar',
+      description: 'Верхняя панель окна VS Code',
+      tokens: [
+        {
+          token: 'titleBar.activeBackground',
+          source: surface.background('elevated'),
+          description: 'Фон заголовка окна (активное состояние)',
+        },
+        {
+          token: 'titleBar.inactiveBackground',
+          source: surface.background('elevated'),
+          description: 'Фон заголовка окна (неактивное состояние)',
+        },
+        {
+          token: 'titleBar.border',
+          source: surface.border('elevated'),
+          description: 'Граница под заголовком окна',
+        },
+      ],
+    },
+    {
       name: 'Editor Groups',
       description: 'Заголовки групп редакторов (фон под вкладками)',
       tokens: [
