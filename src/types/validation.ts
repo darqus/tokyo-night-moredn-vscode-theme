@@ -68,6 +68,8 @@ export type VSCodeColorToken =
   // Panels
   | 'panel.background'
   | 'panel.border'
+  | 'panelSectionHeader.background'
+  | 'panelSectionHeader.foreground'
   | 'panelTitle.activeForeground'
   | 'panelTitle.inactiveForeground'
   | 'panelTitle.activeBorder'
@@ -114,6 +116,7 @@ export type VSCodeColorToken =
   | 'terminal.background'
   | 'terminal.foreground'
   | 'terminal.selectionBackground'
+  | 'terminal.inactiveSelectionBackground'
   | 'terminal.border'
   | 'terminal.hoverHighlightBackground'
   | 'terminal.ansiBlack'
@@ -132,6 +135,13 @@ export type VSCodeColorToken =
   | 'terminal.ansiBrightMagenta'
   | 'terminal.ansiBrightCyan'
   | 'terminal.ansiBrightWhite'
+  | 'terminalCommandDecoration.defaultBackground'
+  | 'terminalCommandDecoration.successBackground'
+  | 'terminalCommandDecoration.errorBackground'
+
+  // Debug
+  | 'debugConsole.background'
+  | 'debugToolBar.background'
 
   // Links
   | 'textLink.foreground'
@@ -271,6 +281,8 @@ export function isValidToken(token: string): token is ValidTokens {
     'titleBar.border',
     'panel.background',
     'panel.border',
+    'panelSectionHeader.background',
+    'panelSectionHeader.foreground',
     'panelTitle.activeForeground',
     'panelTitle.inactiveForeground',
     'panelTitle.activeBorder',
@@ -305,6 +317,7 @@ export function isValidToken(token: string): token is ValidTokens {
     'terminal.background',
     'terminal.foreground',
     'terminal.selectionBackground',
+    'terminal.inactiveSelectionBackground',
     'terminal.border',
     'terminal.hoverHighlightBackground',
     'terminal.ansiBlack',
@@ -323,6 +336,11 @@ export function isValidToken(token: string): token is ValidTokens {
     'terminal.ansiBrightMagenta',
     'terminal.ansiBrightCyan',
     'terminal.ansiBrightWhite',
+    'terminalCommandDecoration.defaultBackground',
+    'terminalCommandDecoration.successBackground',
+    'terminalCommandDecoration.errorBackground',
+    'debugConsole.background',
+    'debugToolBar.background',
     'textLink.foreground',
     'textLink.activeForeground',
     'editorLink.activeForeground',

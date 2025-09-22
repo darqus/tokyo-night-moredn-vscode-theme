@@ -40,14 +40,6 @@
       "source.fixAll.stylelint": "explicit"
     }
   },
-  "cSpell.words": [
-    "autogrow",
-    "firestore",
-    "ref",
-    "skyblue",
-    "Stackframe",
-    "WCAG"
-  ],
   "markdownlint.config": {
     "MD032": true,
     "MD056": true

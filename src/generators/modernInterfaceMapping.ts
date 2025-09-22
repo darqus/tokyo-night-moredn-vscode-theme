@@ -11,7 +11,7 @@ import {
   type ThemeTokenConfig,
 } from './tokenDSL'
 import type { InterfacePalette } from '../types/theme'
-import { lighten } from '../core/utils'
+import { lighten, withAlpha } from '../core/utils'
 
 /**
  * Полная конфигурация токенов VS Code в декларативном стиле
@@ -309,6 +309,16 @@ export const tokenConfig: ThemeTokenConfig = {
           description: 'Граница панелей',
         },
         {
+          token: 'panelSectionHeader.background',
+          source: surface.background('elevated'),
+          description: 'Фон заголовка секции панели',
+        },
+        {
+          token: 'panelSectionHeader.foreground',
+          source: computed((ip) => ip.textOn.elevated.primary),
+          description: 'Текст заголовка секции панели',
+        },
+        {
           token: 'panelTitle.activeForeground',
           source: computed((ip) => ip.textOn.base.primary),
           description: 'Заголовок активной панели',
@@ -530,6 +540,11 @@ export const tokenConfig: ThemeTokenConfig = {
           description: 'Выделение в терминале',
         },
         {
+          token: 'terminal.inactiveSelectionBackground',
+          source: surface.background('hover'),
+          description: 'Неактивное выделение в терминале',
+        },
+        {
           token: 'terminal.border',
           source: surface.border('terminal'),
           description: 'Граница терминала',
@@ -620,6 +635,21 @@ export const tokenConfig: ThemeTokenConfig = {
           token: 'terminal.ansiBrightWhite',
           source: computed((ip) => ip.derived.terminal.ansiBrightWhite),
           description: 'ANSI яркий белый цвет',
+        },
+        {
+          token: 'terminalCommandDecoration.defaultBackground',
+          source: computed((ip) => withAlpha(ip.state.info, 0.2)),
+          description: 'Фон индикатора команды (по умолчанию) в терминале',
+        },
+        {
+          token: 'terminalCommandDecoration.successBackground',
+          source: computed((ip) => withAlpha(ip.state.success, 0.2)),
+          description: 'Фон индикатора успешной команды в терминале',
+        },
+        {
+          token: 'terminalCommandDecoration.errorBackground',
+          source: computed((ip) => withAlpha(ip.state.error, 0.2)),
+          description: 'Фон индикатора ошибки команды в терминале',
         },
       ],
     },
@@ -845,6 +875,22 @@ export const tokenConfig: ThemeTokenConfig = {
           token: 'toolbar.hoverOutline',
           source: computed((ip) => ip.border.focus),
           description: 'Контур hover элементов toolbar',
+        },
+      ],
+    },
+    {
+      name: 'Debug',
+      description: 'Отладка: консоль и тулбар',
+      tokens: [
+        {
+          token: 'debugConsole.background',
+          source: surface.background('panel'),
+          description: 'Фон консоли отладки',
+        },
+        {
+          token: 'debugToolBar.background',
+          source: surface.background('overlay'),
+          description: 'Фон тулбара отладки',
         },
       ],
     },
