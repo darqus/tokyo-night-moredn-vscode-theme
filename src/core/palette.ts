@@ -8,7 +8,8 @@ export const basePalette = {
   // Нейтральные
   black: createHex('#1a1b26'), // Самый темный фон
   gray: createHex('#565f89'), // Средний серый для комментариев
-  white: createHex('#c0caf5'), // Основной текст
+  light: createHex('#c0caf5'), // Светлый текст
+  white: createHex('#ffffff'), // Белый текст
 
   // Акцентные холодные (приоритет)
   blue: createHex('#7aa2f7'), // Функции, ключевые слова

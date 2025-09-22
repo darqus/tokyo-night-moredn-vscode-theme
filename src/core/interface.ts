@@ -28,19 +28,19 @@ export const interfacePalette: InterfacePalette = {
     selection: withAlpha(lightenPerceptual(basePalette.blue, 0.4), 0.2),
     // Специализированные hover цвета
     // Сохраняем стабильный sRGB-mix для вспомогательных hover-градаций
-    hoverSubtle: withAlpha(mix(basePalette.white, basePalette.gray, 0.4), 0.08),
-    hoverMuted: withAlpha(mix(basePalette.white, basePalette.gray, 0.4), 0.12),
-    hoverActive: withAlpha(mix(basePalette.white, basePalette.gray, 0.4), 0.15),
+    hoverSubtle: withAlpha(mix(basePalette.light, basePalette.gray, 0.4), 0.08),
+    hoverMuted: withAlpha(mix(basePalette.light, basePalette.gray, 0.4), 0.12),
+    hoverActive: withAlpha(mix(basePalette.light, basePalette.gray, 0.4), 0.15),
     // Специализированные цвета для поиска и выделения — вынесены в derived.findMatch
   },
 
   // Текстовые цвета
   text: {
-    primary: basePalette.white,
+    primary: basePalette.light,
     inverse: basePalette.black,
-    muted: mix(basePalette.white, basePalette.gray, 0.35),
-    subtle: mix(basePalette.white, basePalette.gray, 0.55),
-    inactive: mix(basePalette.white, basePalette.gray, 0.75),
+    muted: mix(basePalette.light, basePalette.gray, 0.35),
+    subtle: mix(basePalette.light, basePalette.gray, 0.55),
+    inactive: mix(basePalette.light, basePalette.gray, 0.75),
     // Дополнительные приглушенные цвета для номеров строк
     lineNumber: mix(basePalette.black, basePalette.gray, 0.6),
     lineNumberActive: mix(basePalette.yellow, basePalette.gray, 0.7),
@@ -48,25 +48,25 @@ export const interfacePalette: InterfacePalette = {
   // Текст на разных поверхностях (пока проксирует базовые роли, чтобы не менять визуал)
   textOn: {
     base: {
-      primary: basePalette.white,
-      muted: mix(basePalette.white, basePalette.gray, 0.35),
-      subtle: mix(basePalette.white, basePalette.gray, 0.55),
-      inactive: mix(basePalette.white, basePalette.gray, 0.75),
+      primary: basePalette.light,
+      muted: mix(basePalette.light, basePalette.gray, 0.35),
+      subtle: mix(basePalette.light, basePalette.gray, 0.55),
+      inactive: mix(basePalette.light, basePalette.gray, 0.75),
     },
     elevated: {
-      primary: basePalette.white,
-      muted: mix(basePalette.white, basePalette.gray, 0.35),
-      subtle: mix(basePalette.white, basePalette.gray, 0.55),
-      inactive: mix(basePalette.white, basePalette.gray, 0.75),
+      primary: basePalette.light,
+      muted: mix(basePalette.light, basePalette.gray, 0.35),
+      subtle: mix(basePalette.light, basePalette.gray, 0.55),
+      inactive: mix(basePalette.light, basePalette.gray, 0.75),
     },
     overlay: {
-      primary: basePalette.white,
+      primary: basePalette.light,
       muted: lightenPerceptual(
-        mix(basePalette.white, basePalette.gray, 0.35),
+        mix(basePalette.light, basePalette.gray, 0.35),
         0.15
       ),
-      subtle: mix(basePalette.white, basePalette.gray, 0.55),
-      inactive: mix(basePalette.white, basePalette.gray, 0.75),
+      subtle: mix(basePalette.light, basePalette.gray, 0.55),
+      inactive: mix(basePalette.light, basePalette.gray, 0.75),
     },
   },
 
@@ -88,7 +88,7 @@ export const interfacePalette: InterfacePalette = {
   button: {
     primary: {
       background: darken(basePalette.blue, 0.7),
-      foreground: basePalette.white,
+      foreground: basePalette.light,
       hoverBackground: darken(basePalette.blue, 0.6),
       border: withAlpha(basePalette.blue, 0.6), // усиленная контрастность
       // separator выравнен с border.default (нейтральный)
@@ -97,7 +97,7 @@ export const interfacePalette: InterfacePalette = {
     secondary: {
       // Нейтральный фон — совпадает с elevated для спокойного UI
       background: mix(basePalette.black, basePalette.blue, 0.05),
-      foreground: basePalette.white,
+      foreground: basePalette.light,
       // Делает наведение ощутимым, но остаётся холодным и ненавязчивым
       hoverBackground: withAlpha(basePalette.blue, 0.12),
       // Нейтральная граница — совпадает с border.default
@@ -141,7 +141,7 @@ export const interfacePalette: InterfacePalette = {
   // Элементы управления
   dropdown: {
     background: mix(basePalette.black, basePalette.blue, 0.06), // соответствует bg.elevated (#202333)
-    foreground: basePalette.white,
+    foreground: basePalette.light,
     border: mix(basePalette.black, basePalette.gray, 0.1), // соответствует border.default (#202230)
     listBackground: mix(basePalette.black, basePalette.blue, 0.06), // соответствует bg.elevated (#202333)
   },
@@ -177,7 +177,7 @@ export const interfacePalette: InterfacePalette = {
       ansiGreen: basePalette.green,
       ansiYellow: basePalette.yellow,
       ansiMagenta: basePalette.magenta,
-      ansiWhite: basePalette.white,
+      ansiWhite: basePalette.light,
       // Cooler hover with cyan->blue mix for terminal command/hover highlight
       hoverHighlightBackground: withAlpha(
         mix(basePalette.cyan, basePalette.blue, 0.35),
@@ -192,7 +192,7 @@ export const interfacePalette: InterfacePalette = {
       ansiBrightBlue: lighten(basePalette.cyan, 0.22),
       ansiBrightMagenta: lighten(basePalette.magenta, 0.15),
       ansiBrightCyan: lighten(basePalette.cyan, 0.22),
-      ansiBrightWhite: lighten(basePalette.white, 0.1),
+      ansiBrightWhite: lighten(basePalette.light, 0.1),
     },
     overlays: {
       dropBackground: withAlpha(
@@ -203,18 +203,18 @@ export const interfacePalette: InterfacePalette = {
     findMatch: {
       // Слегка уменьшаем хрому (C) и слегка повышаем L за счёт смешения с белым
       background: withAlpha(
-        mixPerceptual(basePalette.yellow, basePalette.white, 0.08),
+        mixPerceptual(basePalette.yellow, basePalette.light, 0.08),
         0.22
       ),
       border: withAlpha(basePalette.yellow, 0.6),
       highlightBackground: withAlpha(
-        mixPerceptual(basePalette.yellow, basePalette.white, 0.12),
+        mixPerceptual(basePalette.yellow, basePalette.light, 0.12),
         0.16
       ),
     },
     inlineChat: {
       background: darken(basePalette.blue, 0.8),
-      foreground: lighten(basePalette.white, 0.12),
+      foreground: lighten(basePalette.light, 0.12),
     },
     // Shadows: лёгкий OKLCH-сдвиг к более холодному оттенку для четкости
     shadows: {
@@ -255,7 +255,7 @@ export const interfacePalette: InterfacePalette = {
 
   // Charts palette used by charts.* tokens
   charts: {
-    foreground: basePalette.white,
+    foreground: basePalette.light,
     lines: mix(basePalette.black, basePalette.gray, 0.1),
     red: basePalette.red,
     blue: basePalette.blue,

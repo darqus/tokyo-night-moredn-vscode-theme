@@ -29,8 +29,8 @@ export const richSyntaxPalette: RichSyntaxPalette = {
 
   // Идентификаторы с контекстом
   identifiers: {
-    variable: basePalette.white, // переменные - нейтральный белый
-    parameter: mix(basePalette.white, basePalette.cyan, 0.3), // параметры - слегка голубой
+    variable: basePalette.light, // переменные - нейтральный белый
+    parameter: mix(basePalette.light, basePalette.cyan, 0.3), // параметры - слегка голубой
     property: basePalette.cyan, // свойства - голубой
     method: basePalette.blue, // методы - синий
     function: basePalette.blue, // функции - синий
@@ -38,13 +38,13 @@ export const richSyntaxPalette: RichSyntaxPalette = {
     interface: mix(basePalette.yellow, basePalette.cyan, 0.4), // интерфейсы - желто-голубой
     enum: mix(basePalette.yellow, basePalette.orange, 0.5), // перечисления - желто-оранжевый
     namespace: mix(basePalette.cyan, basePalette.purple, 0.3), // namespace - голубо-фиолетовый
-    label: mix(basePalette.magenta, basePalette.white, 0.6), // метки - розово-белый
+    label: mix(basePalette.magenta, basePalette.light, 0.6), // метки - розово-белый
   },
 
   // Типы данных
   types: {
     primitive: basePalette.teal, // string, number, boolean
-    generic: mix(basePalette.yellow, basePalette.white, 0.4), // <T> - светло-желтый
+    generic: mix(basePalette.yellow, basePalette.light, 0.4), // <T> - светло-желтый
     union: basePalette.purple, // | в union types
     builtin: mix(basePalette.teal, basePalette.blue, 0.5), // Array, Object - сине-бирюзовый
     custom: basePalette.yellow, // пользовательские типы
@@ -55,7 +55,7 @@ export const richSyntaxPalette: RichSyntaxPalette = {
     arithmetic: basePalette.purple, // +, -, *, /
     comparison: mix(basePalette.purple, basePalette.magenta, 0.5), // ==, !=, <, >
     logical: basePalette.magenta, // &&, ||, !
-    assignment: mix(basePalette.purple, basePalette.white, 0.3), // = - более нейтральный
+    assignment: mix(basePalette.purple, basePalette.light, 0.3), // = - более нейтральный
     bitwise: mix(basePalette.purple, basePalette.orange, 0.4), // &, |, ^ - оранжево-фиолетовый
     ternary: basePalette.cyan, // ? : - выделяющийся
     spread: mix(basePalette.cyan, basePalette.blue, 0.4), // ... - голубо-синий
@@ -79,7 +79,7 @@ export const richSyntaxPalette: RichSyntaxPalette = {
     emphasis: basePalette.yellow, // *italic*, **bold**
     link: basePalette.cyan, // ссылки
     code: mix(basePalette.green, basePalette.gray, 0.3), // `code` блоки
-    quote: mix(basePalette.gray, basePalette.white, 0.5), // > цитаты
+    quote: mix(basePalette.gray, basePalette.light, 0.5), // > цитаты
   },
 
   // Состояния и диагностика
@@ -88,7 +88,7 @@ export const richSyntaxPalette: RichSyntaxPalette = {
     warning: basePalette.orange, // предупреждения
     info: basePalette.blue, // информация
     hint: basePalette.cyan, // подсказки
-    deprecated: withAlpha(mix(basePalette.white, basePalette.gray, 0.7), 0.7), // устаревший код
+    deprecated: withAlpha(mix(basePalette.light, basePalette.gray, 0.7), 0.7), // устаревший код
     unused: withAlpha(basePalette.gray, 0.6), // неиспользуемый код
   },
 
@@ -103,10 +103,10 @@ export const richSyntaxPalette: RichSyntaxPalette = {
 
   // Специальные символы
   punctuation: {
-    bracket: basePalette.white, // [], {}, () - нейтральный
-    delimiter: mix(basePalette.white, basePalette.gray, 0.3), // ;, , - приглушенный
+    bracket: basePalette.light, // [], {}, () - нейтральный
+    delimiter: mix(basePalette.light, basePalette.gray, 0.3), // ;, , - приглушенный
     accessor: basePalette.cyan, // ., :: - выделяющийся
-    separator: mix(basePalette.white, basePalette.gray, 0.5), // разделители
+    separator: mix(basePalette.light, basePalette.gray, 0.5), // разделители
   },
 }
 

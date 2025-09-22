@@ -9,7 +9,7 @@ import {
 describe('colorEngine facade', () => {
   it('mixPerceptual should differ from mixSrgb for chromatic blends', () => {
     const a = basePalette.yellow
-    const b = basePalette.white
+    const b = basePalette.light
     const p = mixPerceptual(a, b, 0.1)
     const s = mixSrgb(a, b, 0.1)
     expect(p).not.toBe(s)
@@ -23,7 +23,7 @@ describe('colorEngine facade', () => {
   })
 
   it('withAlpha should append alpha channel correctly', () => {
-    const hex = basePalette.white
+    const hex = basePalette.light
     const withA = withAlpha(hex, 0.5)
     expect(/^#[0-9a-fA-F]{8}$/.test(withA)).toBe(true)
     expect(withA.toLowerCase().endsWith('80')).toBe(true)

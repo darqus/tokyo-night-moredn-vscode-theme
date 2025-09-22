@@ -17,7 +17,7 @@ describe('Inline Chat and toolbar colors', () => {
       interfacePalette.derived.inlineChat.background
     )
     // Foreground is slightly brightened to improve contrast on elevated bg
-    expect(c['inlineChat.foreground']).toBe(lighten(basePalette.white, 0.12))
+    expect(c['inlineChat.foreground']).toBe(lighten(basePalette.light, 0.12))
     expect(c['inlineChat.border']).toBe(interfacePalette.border.default)
 
     // Ensure we do not emit undocumented keys

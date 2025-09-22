@@ -127,7 +127,7 @@ hover: withAlpha(basePalette.blue, 0.08)
 
 ```typescript
 text: {
-  primary: basePalette.white,           // 100% яркость
+  primary: basePalette.light,           // 100% яркость
   muted: mix(white, gray, 0.4),         // 60% яркость
   subtle: mix(white, gray, 0.6),        // 40% яркость
   inactive: mix(white, gray, 0.8)       // 20% яркость
