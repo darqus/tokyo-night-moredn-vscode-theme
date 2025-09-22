@@ -38,8 +38,8 @@ export const interfacePalette: InterfacePalette = {
   text: {
     primary: basePalette.white,
     inverse: basePalette.black,
-    muted: mix(basePalette.white, basePalette.gray, 0.35),
-    subtle: mix(basePalette.white, basePalette.gray, 0.55),
+    muted: basePalette.textMuted,
+    subtle: basePalette.textSubtle,
     inactive: mix(basePalette.white, basePalette.gray, 0.75),
     // Дополнительные приглушенные цвета для номеров строк
     lineNumber: mix(basePalette.black, basePalette.gray, 0.6),
@@ -49,30 +49,27 @@ export const interfacePalette: InterfacePalette = {
   textOn: {
     base: {
       primary: basePalette.white,
-      muted: mix(basePalette.white, basePalette.gray, 0.35),
-      subtle: mix(basePalette.white, basePalette.gray, 0.55),
+      muted: basePalette.textMuted,
+      subtle: basePalette.textSubtle,
       inactive: mix(basePalette.white, basePalette.gray, 0.75),
     },
     elevated: {
       primary: basePalette.white,
-      muted: mix(basePalette.white, basePalette.gray, 0.35),
-      subtle: mix(basePalette.white, basePalette.gray, 0.55),
+      muted: basePalette.textMuted,
+      subtle: basePalette.textSubtle,
       inactive: mix(basePalette.white, basePalette.gray, 0.75),
     },
     overlay: {
       primary: basePalette.white,
-      muted: lightenPerceptual(
-        mix(basePalette.white, basePalette.gray, 0.35),
-        0.15
-      ),
-      subtle: mix(basePalette.white, basePalette.gray, 0.55),
+      muted: lightenPerceptual(basePalette.textMuted, 0.15),
+      subtle: basePalette.textSubtle,
       inactive: mix(basePalette.white, basePalette.gray, 0.75),
     },
   },
 
   // Границы
   border: {
-    default: mix(basePalette.black, basePalette.gray, 0.1),
+    default: basePalette.borderThin,
     focus: withAlpha(basePalette.blue, 0.4),
     // Лёгкий OKLCH-тон для separator: чуть холоднее нейтрального серого
     separatorBackground: mixPerceptual(
@@ -92,7 +89,7 @@ export const interfacePalette: InterfacePalette = {
       hoverBackground: darken(basePalette.blue, 0.6),
       border: withAlpha(basePalette.blue, 0.6), // усиленная контрастность
       // separator выравнен с border.default (нейтральный)
-      separator: mix(basePalette.black, basePalette.gray, 0.1),
+      separator: basePalette.borderThin,
     },
     secondary: {
       // Нейтральный фон — совпадает с elevated для спокойного UI
@@ -101,7 +98,7 @@ export const interfacePalette: InterfacePalette = {
       // Делает наведение ощутимым, но остаётся холодным и ненавязчивым
       hoverBackground: withAlpha(basePalette.blue, 0.12),
       // Нейтральная граница — совпадает с border.default
-      border: mix(basePalette.black, basePalette.gray, 0.1),
+      border: basePalette.borderThin,
     },
   },
 
@@ -142,7 +139,7 @@ export const interfacePalette: InterfacePalette = {
   dropdown: {
     background: mix(basePalette.black, basePalette.blue, 0.06), // соответствует bg.elevated (#202333)
     foreground: basePalette.white,
-    border: mix(basePalette.black, basePalette.gray, 0.1), // соответствует border.default (#202230)
+    border: basePalette.borderThin, // соответствует border.default (#202230)
     listBackground: mix(basePalette.black, basePalette.blue, 0.06), // соответствует bg.elevated (#202333)
   },
   // SCM Graph
@@ -164,7 +161,7 @@ export const interfacePalette: InterfacePalette = {
   },
   derived: {
     link: {
-      foreground: lighten(basePalette.cyan, 0.22),
+      foreground: basePalette.link,
     },
     blockquote: {
       background: mix(basePalette.black, basePalette.blue, 0.12),
@@ -183,15 +180,15 @@ export const interfacePalette: InterfacePalette = {
         mix(basePalette.cyan, basePalette.blue, 0.35),
         0.24
       ),
-      ansiBlue: lighten(basePalette.cyan, 0.22),
-      ansiCyan: lighten(basePalette.cyan, 0.22),
+      ansiBlue: basePalette.link,
+      ansiCyan: basePalette.link,
       ansiBrightBlack: lighten(basePalette.black, 0.4),
       ansiBrightRed: lighten(basePalette.red, 0.15),
       ansiBrightGreen: lighten(basePalette.green, 0.15),
       ansiBrightYellow: lighten(basePalette.yellow, 0.15),
-      ansiBrightBlue: lighten(basePalette.cyan, 0.22),
+      ansiBrightBlue: basePalette.link,
       ansiBrightMagenta: lighten(basePalette.magenta, 0.15),
-      ansiBrightCyan: lighten(basePalette.cyan, 0.22),
+      ansiBrightCyan: basePalette.link,
       ansiBrightWhite: lighten(basePalette.white, 0.1),
     },
     overlays: {
@@ -256,7 +253,7 @@ export const interfacePalette: InterfacePalette = {
   // Charts palette used by charts.* tokens
   charts: {
     foreground: basePalette.white,
-    lines: mix(basePalette.black, basePalette.gray, 0.1),
+    lines: basePalette.borderThin,
     red: basePalette.red,
     blue: basePalette.blue,
     yellow: basePalette.yellow,
