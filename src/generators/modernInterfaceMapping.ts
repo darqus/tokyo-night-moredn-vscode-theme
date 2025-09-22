@@ -248,6 +248,32 @@ export const tokenConfig: ThemeTokenConfig = {
       ],
     },
     {
+      name: 'Editor Groups',
+      description: 'Заголовки групп редакторов (фон под вкладками)',
+      tokens: [
+        {
+          token: 'editorGroupHeader.tabsBackground',
+          source: surface.background('elevated'),
+          description: 'Фон области заголовка с вкладками (под вкладками)',
+        },
+        {
+          token: 'editorGroupHeader.noTabsBackground',
+          source: surface.background('elevated'),
+          description: 'Фон заголовка, когда вкладок нет',
+        },
+        {
+          token: 'editorGroupHeader.tabsBorder',
+          source: surface.border('elevated'),
+          description: 'Граница области заголовка вкладок',
+        },
+        {
+          token: 'editorGroup.border',
+          source: surface.border('base'),
+          description: 'Граница между группами редактора',
+        },
+      ],
+    },
+    {
       name: 'Panels',
       description: 'Панели (Terminal, Problems, Output)',
       tokens: [

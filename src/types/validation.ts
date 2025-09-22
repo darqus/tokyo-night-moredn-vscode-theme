@@ -33,7 +33,10 @@ export type VSCodeColorToken =
   | 'sideBar.border'
   | 'sideBarSectionHeader.background'
   | 'sideBarSectionHeader.foreground'
-
+  | 'editorGroup.border'
+  | 'editorGroupHeader.noTabsBackground'
+  | 'editorGroupHeader.tabsBackground'
+  | 'editorGroupHeader.tabsBorder'
   // Activity Bar
   | 'activityBar.background'
   | 'activityBar.foreground'
