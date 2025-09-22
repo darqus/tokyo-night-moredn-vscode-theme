@@ -17,9 +17,9 @@ export const interfacePalette: InterfacePalette = {
   // Фоновые цвета
   bg: {
     base: basePalette.black,
-    darkenBase: darken(basePalette.black, 0.075),
-    elevated: mix(basePalette.black, basePalette.blue, 0.05),
-    overlay: mix(basePalette.black, basePalette.blue, 0.09),
+    darkenBase: basePalette.surfaceSidebar,
+    elevated: basePalette.surfacePanel,
+    overlay: basePalette.surfaceOverlay,
     input: mix(basePalette.black, basePalette.blue, 0.04),
     // OKLCH: лёгкая коррекция L для лучшей перцептуальной читаемости
     // amount 0.2 ~ +0.02 L, 0.3 ~ +0.03 L, 0.4 ~ +0.04 L
@@ -137,10 +137,10 @@ export const interfacePalette: InterfacePalette = {
   },
   // Элементы управления
   dropdown: {
-    background: mix(basePalette.black, basePalette.blue, 0.06), // соответствует bg.elevated (#202333)
+    background: basePalette.surfacePanel, // соответствует bg.elevated
     foreground: basePalette.textWhite,
-    border: basePalette.borderThin, // соответствует border.default (#202230)
-    listBackground: mix(basePalette.black, basePalette.blue, 0.06), // соответствует bg.elevated (#202333)
+    border: basePalette.borderThin, // соответствует border.default
+    listBackground: basePalette.surfacePanel, // соответствует bg.elevated
   },
   // SCM Graph
   scmGraph: {
