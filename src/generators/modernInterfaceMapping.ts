@@ -24,7 +24,7 @@ export const tokenConfig: ThemeTokenConfig = {
       tokens: [
         {
           token: 'foreground',
-          source: surface.text('base', 'primary'),
+          source: computed((ip) => ip.textOn.base.primary),
           description: 'Основной цвет текста',
         },
         {
@@ -152,7 +152,7 @@ export const tokenConfig: ThemeTokenConfig = {
         },
         {
           token: 'activityBar.foreground',
-          source: surface.text('base', 'muted'),
+          source: computed((ip) => ip.textOn.base.muted),
           description: 'Иконки панели активности',
         },
         {
@@ -183,7 +183,10 @@ export const tokenConfig: ThemeTokenConfig = {
         },
         {
           token: 'statusBar.foreground',
-          source: surface.text('elevated', 'muted'),
+          source: computed((ip) =>
+            // Подбираем читабельный muted над elevated, иначе primary
+            ((ip) => ip.textOn.elevated.muted)(ip)
+          ),
           description: 'Текст строки состояния',
         },
         {
@@ -219,7 +222,7 @@ export const tokenConfig: ThemeTokenConfig = {
         },
         {
           token: 'tab.activeForeground',
-          source: surface.text('elevated', 'primary'),
+          source: computed((ip) => ip.textOn.elevated.primary),
           description: 'Текст активной вкладки',
         },
         {
@@ -234,7 +237,7 @@ export const tokenConfig: ThemeTokenConfig = {
         },
         {
           token: 'tab.inactiveForeground',
-          source: surface.text('base', 'muted'),
+          source: computed((ip) => ip.textOn.base.muted),
           description: 'Текст неактивной вкладки',
         },
         {
@@ -265,7 +268,7 @@ export const tokenConfig: ThemeTokenConfig = {
         },
         {
           token: 'panelTitle.inactiveForeground',
-          source: surface.text('panel', 'muted'),
+          source: computed((ip) => ip.textOn.base.muted),
           description: 'Заголовок неактивной панели',
         },
         {
@@ -296,7 +299,7 @@ export const tokenConfig: ThemeTokenConfig = {
         },
         {
           token: 'list.activeSelectionForeground',
-          source: surface.text('base', 'primary'),
+          source: computed((ip) => ip.textOn.base.primary),
           description: 'Текст активного выбранного элемента',
         },
         {
@@ -332,7 +335,7 @@ export const tokenConfig: ThemeTokenConfig = {
         },
         {
           token: 'input.foreground',
-          source: surface.text('base', 'primary'),
+          source: computed((ip) => ip.textOn.base.primary),
           description: 'Текст в полях ввода',
         },
         {
