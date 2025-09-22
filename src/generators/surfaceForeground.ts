@@ -36,8 +36,8 @@ export const SURFACE_FOREGROUND_MAP: Record<
   (ip: InterfacePalette) => string
 > = {
   // Base
-  'titleBar.activeForeground': (ip) => ip.textOn.base.primary,
-  'titleBar.inactiveForeground': (ip) => ip.textOn.base.muted,
+  'titleBar.activeForeground': (ip) => ip.textOn.base.subtle,
+  'titleBar.inactiveForeground': (ip) => ip.textOn.base.inactive,
   'commandCenter.foreground': (ip) => ip.textOn.base.muted,
   'commandCenter.activeForeground': (ip) => ip.textOn.base.primary,
   'menubar.selectionForeground': (ip) => ip.textOn.base.primary,
