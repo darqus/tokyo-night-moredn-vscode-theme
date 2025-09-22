@@ -147,7 +147,6 @@
     "toolbar.hoverBackground": "#80a8fe14",
     "toolbar.activeBackground": "#86afff33",
     "toolbar.hoverOutline": "#7aa2f766",
-    "debugConsole.background": "#1f2230",
     "debugToolBar.background": "#232739",
     "debugToolBar.border": "#7aa2f766",
     "debugExceptionWidget.background": "#232739",

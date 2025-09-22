@@ -883,11 +883,6 @@ export const tokenConfig: ThemeTokenConfig = {
       description: 'Отладка: консоль и тулбар',
       tokens: [
         {
-          token: 'debugConsole.background',
-          source: surface.background('panel'),
-          description: 'Фон консоли отладки',
-        },
-        {
           token: 'debugToolBar.background',
           source: surface.background('overlay'),
           description: 'Фон тулбара отладки',

@@ -26,7 +26,6 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "checkbox.foreground": "#c0caf5",
     "commandCenter.activeForeground": "#c0caf5",
     "commandCenter.foreground": "#c0caf5",
-    "debugConsole.background": "#1f2230",
     "debugExceptionWidget.background": "#232739",
     "debugExceptionWidget.border": "#30344c",
     "debugIcon.breakpointCurrentStackframeForeground": "#7dcfff",

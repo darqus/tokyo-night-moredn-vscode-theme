@@ -140,7 +140,6 @@ export type VSCodeColorToken =
   | 'terminalCommandDecoration.errorBackground'
 
   // Debug
-  | 'debugConsole.background'
   | 'debugToolBar.background'
   | 'debugToolBar.border'
   | 'debugExceptionWidget.background'
@@ -349,7 +348,6 @@ export function isValidToken(token: string): token is ValidTokens {
     'terminalCommandDecoration.defaultBackground',
     'terminalCommandDecoration.successBackground',
     'terminalCommandDecoration.errorBackground',
-    'debugConsole.background',
     'debugToolBar.background',
     'debugToolBar.border',
     'debugExceptionWidget.background',
@@ -421,8 +419,15 @@ export function validateColorMapping(
   const errors: string[] = []
   const warnings: string[] = []
 
+  // Explicit denylist for tokens that are not part of VS Code schema
+  const forbiddenTokens = new Set<string>(['debugConsole.background'])
+
   // Check for unknown tokens
   for (const token of Object.keys(mapping)) {
+    if (forbiddenTokens.has(token)) {
+      errors.push(`Forbidden token (schema-invalid): ${token}`)
+      continue
+    }
     if (!isValidToken(token)) {
       warnings.push(`Unknown token: ${token}`)
     }

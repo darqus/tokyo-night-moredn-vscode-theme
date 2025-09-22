@@ -314,6 +314,40 @@
 			"type": "shell",
 			"command": "npm run build",
 			"group": "build"
+		},
+		{
+			"label": "Run unit tests (rule + docs link)",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Run tests to update snapshot",
+			"type": "shell",
+			"command": "npm test --silent -- -u",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Run tests (extended rule + docs)",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Run tests to update snapshot",
+			"type": "shell",
+			"command": "npm run test:update",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Build theme JSON",
+			"type": "shell",
+			"command": "npm run build",
+			"group": "build"
 		}
 	]
 }
