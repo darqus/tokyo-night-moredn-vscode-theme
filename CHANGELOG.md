@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.15.35](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.14.54...v1.15.35) (2025-09-22)
+
+
+### Features
+
+* **.vscode:** add task to run tests and update theme colors ([2e38d23](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/2e38d237b7f528ef13912c6f10539afa65cf4dae))
+* **accessibility:** improve contrast ratios for better readability ([ae5502d](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/ae5502da290e5793888941d42efa7eb2194a6bda))
+* add color token for editorCodeLens.foreground ([76c4dca](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/76c4dca04d934f8d25b73a7a16231601215244cc))
+* **breadcrumb:** improve focus and hover readability ([8034a4e](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/8034a4e3e03925a288bfaa12cf4aba5e8c4d2da4))
+* **contrast:** enhance text contrast against overlay background ([ea0338a](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/ea0338ad8ad4e4eb92138cb54ae189016fd2c750))
+* **core:** add OKLCH color utilities and enhance theme tokens ([c70ba64](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/c70ba64dd573186aaa520dff995c86b0d4d915e5))
+* **core:** add tokens for menu bar, panel section header, and CodeLens ([56c9901](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/56c9901934964119e6d12a73ecf3fd5e6da7620b))
+* **core:** implement caching for color operations and add surfaces system ([8697f9b](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/8697f9b64e2183a7c2c7caea7c2ab3210113b170))
+* **docs:** add token registry generator and update CI scripts ([9471d90](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/9471d9032cec8764262250849a9a53aae94256f6))
+* **shadow:** adjust widget shadow with cool tone and translucency ([2b552eb](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/2b552eb638d92663adb76c26fc542a1cc12c1504))
+* **terminal:** improve hover highlight color and visibility ([30b724f](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/30b724fc92d4c47fb4d057a726004c0cac77b4a7))
+* **theme:** add OKLCH-derived shadows and update swatches ([e7b6235](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/e7b6235aa8629aa5cebc8c40b4fedee33f0783ee))
+* **theme:** add shadow color definitions and update related tokens ([a025657](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/a025657cffa6f954fd6d3a9eeea5982d82dc494e))
+* **theme:** enhance contrast and border consistency ([e6f4052](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/e6f40528f458fcb2ab0f42c6b9d276e0ca45c50f))
+* **theme:** enhance editorCodeLens contrast and configurability ([a9f3fca](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/a9f3fca9611f2aa47692f3301dc8227b8d2dee19))
+* **theme:** enhance peek view and add accessibility improvements ([6dd660f](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/6dd660f514beb62919c09e7cbc75cd77aec80ba1))
+* **theme:** refactor color system and add contrast checks ([19b9986](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/19b998660d1bf76d2cb1582f39cd8887bef44419))
+* **theme:** standardize thin borders and enhance color contrast ([1d63ed5](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/1d63ed5b23fd8fb809b0f1fc2192f9aafcb3cb6c))
+
+
+### Bug Fixes
+
+* **theme:** update activityBar inactive foreground color ([6f222d2](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/6f222d249501066215e8a44850d4a16ba96d43bc))
+* update text color contrast to meet accessibility standards ([9de9fc6](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/9de9fc6bd06f1900ccefc2142c3bf7aa288c973a))
+* update text color mappings and adjust token sources ([86e7d39](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/86e7d39a43fcaa2c1092197ae13c4ef87b31fcf9))
+
 ### [1.14.54](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.14.52...v1.14.54) (2025-09-21)
 
 
