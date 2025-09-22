@@ -98,8 +98,8 @@ export const interfacePalette: InterfacePalette = {
     secondary: {
       // Нейтральный фон — совпадает с elevated для спокойного UI
       background: basePalette.surfacePanel,
-      // Холодный текст, выровненный с link-цветом темы
-      foreground: basePalette.link,
+      // Холодный текст, выровненный с textPrimary-цветом темы
+      foreground: basePalette.textPrimary,
       // Делает наведение ощутимым, но остаётся холодным и ненавязчивым
       hoverBackground: lightenPerceptual(basePalette.surfacePanel, 0.15),
       // Нейтральная граница — совпадает с border.default
@@ -192,15 +192,15 @@ export const interfacePalette: InterfacePalette = {
         mix(basePalette.cyan, basePalette.blue, 0.35),
         0.24
       ),
-      ansiBlue: basePalette.link,
-      ansiCyan: basePalette.link,
+      ansiBlue: basePalette.blue,
+      ansiCyan: basePalette.cyan,
       ansiBrightBlack: lighten(basePalette.black, 0.4),
       ansiBrightRed: lighten(basePalette.red, 0.15),
       ansiBrightGreen: lighten(basePalette.green, 0.15),
       ansiBrightYellow: lighten(basePalette.yellow, 0.15),
-      ansiBrightBlue: basePalette.link,
+      ansiBrightBlue: basePalette.blue,
       ansiBrightMagenta: lighten(basePalette.magenta, 0.15),
-      ansiBrightCyan: basePalette.link,
+      ansiBrightCyan: basePalette.cyan,
       // Keep bright white truly white for maximum emphasis
       ansiBrightWhite: basePalette.white,
     },
