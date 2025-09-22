@@ -843,9 +843,9 @@ export const tokenConfig: ThemeTokenConfig = {
       tokens: [
         {
           token: 'editorHoverWidget.background',
-          source: surface.background('overlay'),
+          source: surface.background('base'),
           description:
-            'Фон hover виджета (чистый overlay для максимальной читаемости)',
+            'Фон hover виджета (surfaceBase по запросу пользователя)',
         },
         {
           token: 'editorHoverWidget.border',
@@ -854,8 +854,8 @@ export const tokenConfig: ThemeTokenConfig = {
         },
         {
           token: 'editorHoverWidget.foreground',
-          source: computed((ip) => ip.textOn.overlay.primary),
-          description: 'Текст hover виджета (поверх overlay)',
+          source: computed((ip) => ip.textOn.base.primary),
+          description: 'Текст hover виджета (поверх base)',
         },
         {
           token: 'editorSuggestWidget.background',
