@@ -264,8 +264,8 @@ export const tokenConfig: ThemeTokenConfig = {
       tokens: [
         {
           token: 'activityBar.background',
-          source: surface.background('base'),
-          description: 'Фон панели активности',
+          source: surface.background('elevated'),
+          description: 'Фон панели активности (теперь hover)',
         },
         {
           token: 'activityBar.foreground',
@@ -284,8 +284,8 @@ export const tokenConfig: ThemeTokenConfig = {
         },
         {
           token: 'activityBar.activeBackground',
-          source: surface.background('hover'),
-          description: 'Фон активного элемента',
+          source: surface.background('base'),
+          description: 'Фон активного элемента (теперь base)',
         },
       ],
     },
