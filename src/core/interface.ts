@@ -117,12 +117,12 @@ export const interfacePalette: InterfacePalette = {
   state: {
     info: basePalette.cyan,
     success: basePalette.green,
-    warning: basePalette.yellow,
+    warning: basePalette.purple,
     error: basePalette.red,
     // Hover варианты для состояний
     infoHover: withAlpha(basePalette.cyan, 0.8),
     successHover: withAlpha(basePalette.green, 0.8),
-    warningHover: withAlpha(basePalette.yellow, 0.8),
+    warningHover: withAlpha(basePalette.purple, 0.8),
     errorHover: withAlpha(basePalette.red, 0.8),
   },
   git: {
