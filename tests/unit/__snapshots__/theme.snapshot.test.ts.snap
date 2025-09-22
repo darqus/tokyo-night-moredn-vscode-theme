@@ -32,20 +32,25 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "debugIcon.breakpointDisabledForeground": "#f5819680",
     "debugIcon.breakpointForeground": "#f58196",
     "debugIcon.breakpointStackframeForeground": "#7dcfffb3",
-    "debugIcon.breakpointUnverifiedForeground": "#ddb880",
+    "debugIcon.breakpointUnverifiedForeground": "#f8d8a8",
     "debugToolBar.background": "#232739",
     "debugToolBar.border": "#7aa2f766",
     "descriptionForeground": "#c0caf5",
+    "diffEditor.diagonalFill": "#232739",
+    "diffEditor.insertedLineBackground": "#c3dfa514",
+    "diffEditor.insertedTextBackground": "#c3dfa51f",
+    "diffEditor.removedLineBackground": "#f5819614",
+    "diffEditor.removedTextBackground": "#f581961f",
     "disabledForeground": "#c0caf5",
     "dropdown.background": "#1f2230",
     "dropdown.border": "#202230",
     "dropdown.foreground": "#ffffff",
     "dropdown.listBackground": "#1f2230",
     "editor.background": "#1a1b26",
-    "editor.findMatchBackground": "#dfbe8a38",
-    "editor.findMatchBorder": "#ddb88099",
+    "editor.findMatchBackground": "#f8dbaf38",
+    "editor.findMatchBorder": "#f8d8a899",
     "editor.findMatchForeground": "#c0caf5",
-    "editor.findMatchHighlightBackground": "#e0c18f29",
+    "editor.findMatchHighlightBackground": "#f8ddb229",
     "editor.focusedStackFrameHighlightBackground": "#86afff33",
     "editor.foreground": "#c0caf5",
     "editor.hoverHighlightBackground": "#80a8fe14",
@@ -94,8 +99,8 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "list.activeSelectionBackground": "#86afff33",
     "list.activeSelectionForeground": "#c0caf5",
     "list.dropBackground": "#23273933",
-    "list.filterMatchBackground": "#e0c18f29",
-    "list.filterMatchBorder": "#ddb88099",
+    "list.filterMatchBackground": "#f8ddb229",
+    "list.filterMatchBorder": "#f8d8a899",
     "list.focusBackground": "#86afff33",
     "list.highlightForeground": "#29acf8",
     "list.hoverBackground": "#80a8fe14",
@@ -107,6 +112,13 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "menu.selectionForeground": "#c0caf5",
     "menu.separatorBackground": "#30344c",
     "menubar.selectionForeground": "#c0caf5",
+    "merge.border": "#202230",
+    "merge.commonContentBackground": "#f8d8a80d",
+    "merge.commonHeaderBackground": "#f8d8a81a",
+    "merge.currentContentBackground": "#c3dfa50f",
+    "merge.currentHeaderBackground": "#c3dfa51f",
+    "merge.incomingContentBackground": "#7dcfff0f",
+    "merge.incomingHeaderBackground": "#7dcfff1f",
     "notificationCenterHeader.foreground": "#c0caf5",
     "notifications.background": "#1f2230",
     "notifications.border": "#202230",
@@ -138,8 +150,8 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "scrollbarSlider.activeBackground": "#86afff33",
     "scrollbarSlider.background": "#80a8fe14",
     "scrollbarSlider.hoverBackground": "#83acff1f",
-    "searchEditor.findMatchBackground": "#e0c18f29",
-    "searchEditor.findMatchBorder": "#ddb88099",
+    "searchEditor.findMatchBackground": "#f8ddb229",
+    "searchEditor.findMatchBorder": "#f8d8a899",
     "selection.background": "#86afff33",
     "settings.checkboxForeground": "#c0caf5",
     "settings.headerForeground": "#c0caf5",
@@ -168,23 +180,23 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "terminal.ansiBrightBlack": "#76767d",
     "terminal.ansiBrightBlue": "#29acf8",
     "terminal.ansiBrightCyan": "#29acf8",
-    "terminal.ansiBrightGreen": "#b8cea2",
+    "terminal.ansiBrightGreen": "#cce4b3",
     "terminal.ansiBrightMagenta": "#c5a9f8",
     "terminal.ansiBrightRed": "#f794a6",
     "terminal.ansiBrightWhite": "#ffffff",
-    "terminal.ansiBrightYellow": "#e2c393",
+    "terminal.ansiBrightYellow": "#f9deb5",
     "terminal.ansiCyan": "#29acf8",
-    "terminal.ansiGreen": "#acc591",
+    "terminal.ansiGreen": "#c3dfa5",
     "terminal.ansiMagenta": "#bb9af7",
     "terminal.ansiRed": "#f58196",
     "terminal.ansiWhite": "#dfe2db",
-    "terminal.ansiYellow": "#ddb880",
+    "terminal.ansiYellow": "#f8d8a8",
     "terminal.background": "#181923",
     "terminal.border": "#202230",
     "terminal.dropBackground": "#23273933",
-    "terminal.findMatchBackground": "#dfbe8a38",
-    "terminal.findMatchBorder": "#ddb88099",
-    "terminal.findMatchHighlightBackground": "#e0c18f29",
+    "terminal.findMatchBackground": "#f8dbaf38",
+    "terminal.findMatchBorder": "#f8d8a899",
+    "terminal.findMatchHighlightBackground": "#f8ddb229",
     "terminal.foreground": "#c0caf5",
     "terminal.hoverHighlightBackground": "#7cbffc3d",
     "terminal.inactiveSelectionBackground": "#80a8fe14",
@@ -192,7 +204,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "terminal.selectionBackground": "#86afff33",
     "terminalCommandDecoration.defaultBackground": "#7dcfff33",
     "terminalCommandDecoration.errorBackground": "#f5819633",
-    "terminalCommandDecoration.successBackground": "#acc59133",
+    "terminalCommandDecoration.successBackground": "#c3dfa533",
     "textLink.activeForeground": "#29acf8",
     "textLink.foreground": "#29acf8",
     "titleBar.activeBackground": "#1f2230",
@@ -209,13 +221,13 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
   "name": "Tokyo Night Modern",
   "semanticTokenColors": {
     "attribute": {
-      "foreground": "#e7b580",
+      "foreground": "#f9d1a5",
     },
     "class": {
-      "foreground": "#ddb880",
+      "foreground": "#f8d8a8",
     },
     "class.declaration": {
-      "foreground": "#ddb880",
+      "foreground": "#f8d8a8",
     },
     "class.defaultLibrary": {
       "foreground": "#77bee1",
@@ -225,14 +237,14 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
       "italic": true,
     },
     "decorator": {
-      "foreground": "#fdae80",
+      "foreground": "#fac09f",
     },
     "deprecated": {
       "foreground": "#767fa9b3",
       "strikethrough": true,
     },
     "enum": {
-      "foreground": "#edb380",
+      "foreground": "#f9cca4",
     },
     "enumMember": {
       "foreground": "#7dcfff",
@@ -247,13 +259,13 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
       "foreground": "#77bee1",
     },
     "interface": {
-      "foreground": "#b7c1b3",
+      "foreground": "#c7d4cb",
     },
     "keyword": {
       "foreground": "#bb9af7",
     },
     "macro": {
-      "foreground": "#99c9bd",
+      "foreground": "#a7d9c9",
     },
     "method": {
       "foreground": "#7aa2f7",
@@ -268,7 +280,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
       "foreground": "#87b6f3",
     },
     "number": {
-      "foreground": "#fdae80",
+      "foreground": "#fac09f",
     },
     "operator": {
       "foreground": "#9d7cd8",
@@ -289,16 +301,16 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
       "foreground": "#7dcfff",
     },
     "regexp": {
-      "foreground": "#bbc18c",
+      "foreground": "#d3dda6",
     },
     "string": {
-      "foreground": "#acc591",
+      "foreground": "#c3dfa5",
     },
     "type": {
-      "foreground": "#ddb880",
+      "foreground": "#f8d8a8",
     },
     "typeParameter": {
-      "foreground": "#d1bfaf",
+      "foreground": "#e2d2c7",
     },
     "unused": {
       "foreground": "#565f8999",
@@ -346,7 +358,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
       ],
       "settings": {
         "fontStyle": "italic",
-        "foreground": "#707e8b",
+        "foreground": "#778591",
       },
     },
     {
@@ -356,7 +368,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
       ],
       "settings": {
         "fontStyle": "bold",
-        "foreground": "#edb380",
+        "foreground": "#f9cca4",
       },
     },
     {
@@ -415,7 +427,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
         "keyword.implements",
       ],
       "settings": {
-        "foreground": "#ddb880",
+        "foreground": "#f8d8a8",
       },
     },
     {
@@ -448,7 +460,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
         "string.interpolated",
       ],
       "settings": {
-        "foreground": "#acc591",
+        "foreground": "#c3dfa5",
       },
     },
     {
@@ -458,7 +470,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
         "string.quasi",
       ],
       "settings": {
-        "foreground": "#99c9bd",
+        "foreground": "#a7d9c9",
       },
     },
     {
@@ -468,7 +480,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
         "punctuation.definition.template-expression",
       ],
       "settings": {
-        "foreground": "#99c9bd",
+        "foreground": "#a7d9c9",
       },
     },
     {
@@ -477,7 +489,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
         "constant.numeric",
       ],
       "settings": {
-        "foreground": "#fdae80",
+        "foreground": "#fac09f",
       },
     },
     {
@@ -505,7 +517,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
         "string.regexp",
       ],
       "settings": {
-        "foreground": "#bbc18c",
+        "foreground": "#d3dda6",
       },
     },
     {
@@ -565,7 +577,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
         "entity.name.type.class",
       ],
       "settings": {
-        "foreground": "#ddb880",
+        "foreground": "#f8d8a8",
       },
     },
     {
@@ -574,7 +586,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
         "entity.name.type.interface",
       ],
       "settings": {
-        "foreground": "#b7c1b3",
+        "foreground": "#c7d4cb",
       },
     },
     {
@@ -583,7 +595,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
         "entity.name.type.enum",
       ],
       "settings": {
-        "foreground": "#edb380",
+        "foreground": "#f9cca4",
       },
     },
     {
@@ -612,7 +624,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
         "entity.name.type.parameter",
       ],
       "settings": {
-        "foreground": "#d1bfaf",
+        "foreground": "#e2d2c7",
       },
     },
     {
@@ -639,7 +651,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
         "entity.name.type",
       ],
       "settings": {
-        "foreground": "#ddb880",
+        "foreground": "#f8d8a8",
       },
     },
     {
@@ -705,7 +717,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
         "punctuation.decorator",
       ],
       "settings": {
-        "foreground": "#fdae80",
+        "foreground": "#fac09f",
       },
     },
     {
@@ -714,7 +726,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
         "storage.type.annotation",
       ],
       "settings": {
-        "foreground": "#edb380",
+        "foreground": "#f9cca4",
       },
     },
     {
@@ -723,7 +735,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
         "entity.other.attribute-name.attribute",
       ],
       "settings": {
-        "foreground": "#e7b580",
+        "foreground": "#f9d1a5",
       },
     },
     {
@@ -772,7 +784,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
         "markup.bold",
       ],
       "settings": {
-        "foreground": "#ddb880",
+        "foreground": "#f8d8a8",
       },
     },
     {
@@ -792,7 +804,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
         "markup.fenced_code",
       ],
       "settings": {
-        "foreground": "#92a68f",
+        "foreground": "#a2b99d",
       },
     },
     {
@@ -860,7 +872,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
         "string",
       ],
       "settings": {
-        "foreground": "#acc591",
+        "foreground": "#c3dfa5",
       },
     },
     {

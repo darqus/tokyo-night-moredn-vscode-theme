@@ -130,10 +130,11 @@ export const interfacePalette: InterfacePalette = {
     stageDeletedResourceForeground: withAlpha(basePalette.red, 0.9),
   },
   diff: {
-    insertedTextBackground: withAlpha(basePalette.green, 0.15),
-    removedTextBackground: withAlpha(basePalette.red, 0.15),
-    insertedLineBackground: withAlpha(basePalette.green, 0.1),
-    removedLineBackground: withAlpha(basePalette.red, 0.1),
+    // Make diff backgrounds more subdued to avoid washing out comments
+    insertedTextBackground: withAlpha(basePalette.green, 0.12),
+    removedTextBackground: withAlpha(basePalette.red, 0.12),
+    insertedLineBackground: withAlpha(basePalette.green, 0.08),
+    removedLineBackground: withAlpha(basePalette.red, 0.08),
   },
   minimap: {
     // Balanced: slightly reduce prominence in minimap to lower noise

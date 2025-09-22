@@ -19,6 +19,82 @@ import { lighten, withAlpha } from '../core/utils'
 export const tokenConfig: ThemeTokenConfig = {
   groups: [
     {
+      name: 'Diff Editor',
+      description: 'Подсветка изменений (сравнение файлов)',
+      tokens: [
+        {
+          token: 'diffEditor.insertedTextBackground',
+          source: computed((ip) => ip.diff.insertedTextBackground),
+          description: 'Фон для добавленного текста (приглушённый)',
+        },
+        {
+          token: 'diffEditor.removedTextBackground',
+          source: computed((ip) => ip.diff.removedTextBackground),
+          description: 'Фон для удалённого текста (приглушённый)',
+        },
+        {
+          token: 'diffEditor.insertedLineBackground',
+          source: computed((ip) => ip.diff.insertedLineBackground),
+          description: 'Фон строки с добавлением (очень мягкий)',
+        },
+        {
+          token: 'diffEditor.removedLineBackground',
+          source: computed((ip) => ip.diff.removedLineBackground),
+          description: 'Фон строки с удалением (очень мягкий)',
+        },
+        {
+          token: 'diffEditor.diagonalFill',
+          source: surface.background('overlay'),
+          description: 'Диагональная заливка для скрытых областей',
+        },
+      ],
+    },
+    {
+      name: 'Merge Editor',
+      description: 'Цвета для режима слияния (merge editor)',
+      tokens: [
+        // VS Code merge.* tokens — используем мягкие подложки,
+        // чтобы текст, включая комментарии, оставался читаемым.
+        {
+          token: 'merge.border',
+          source: surface.border('base'),
+          description: 'Границы областей слияния',
+        },
+        {
+          token: 'merge.currentHeaderBackground',
+          source: computed((ip) => withAlpha(ip.state.success, 0.12)),
+          description: 'Фон заголовка текущих изменений (приглушённый зелёный)',
+        },
+        {
+          token: 'merge.currentContentBackground',
+          source: computed((ip) => withAlpha(ip.state.success, 0.06)),
+          description: 'Фон контента текущих изменений (очень мягкий зелёный)',
+        },
+        {
+          token: 'merge.incomingHeaderBackground',
+          source: computed((ip) => withAlpha(ip.state.info, 0.12)),
+          description:
+            'Фон заголовка входящих изменений (приглушённый сине-циан)',
+        },
+        {
+          token: 'merge.incomingContentBackground',
+          source: computed((ip) => withAlpha(ip.state.info, 0.06)),
+          description:
+            'Фон контента входящих изменений (очень мягкий сине-циан)',
+        },
+        {
+          token: 'merge.commonHeaderBackground',
+          source: computed((ip) => withAlpha(ip.state.warning, 0.1)),
+          description: 'Фон заголовка общей базы (слегка тёплый, приглушённый)',
+        },
+        {
+          token: 'merge.commonContentBackground',
+          source: computed((ip) => withAlpha(ip.state.warning, 0.05)),
+          description: 'Фон контента общей базы (очень мягкий)',
+        },
+      ],
+    },
+    {
       name: 'Base Colors',
       description: 'Основные цвета для всей темы',
       tokens: [

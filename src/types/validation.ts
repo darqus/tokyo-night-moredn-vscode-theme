@@ -197,6 +197,22 @@ export type VSCodeColorToken =
   | 'editor.wordHighlightStrongBackground'
   | 'editor.hoverHighlightBackground'
 
+  // Diff Editor
+  | 'diffEditor.insertedTextBackground'
+  | 'diffEditor.removedTextBackground'
+  | 'diffEditor.insertedLineBackground'
+  | 'diffEditor.removedLineBackground'
+  | 'diffEditor.diagonalFill'
+
+  // Merge Editor
+  | 'merge.border'
+  | 'merge.currentHeaderBackground'
+  | 'merge.currentContentBackground'
+  | 'merge.incomingHeaderBackground'
+  | 'merge.incomingContentBackground'
+  | 'merge.commonHeaderBackground'
+  | 'merge.commonContentBackground'
+
   // Toolbar tokens
   | 'toolbar.hoverBackground'
   | 'toolbar.activeBackground'
@@ -379,6 +395,18 @@ export function getValidTokensList(): ValidTokens[] {
     'quickInput.background',
     'editorWidget.background',
     'icon.foreground',
+    'diffEditor.insertedTextBackground',
+    'diffEditor.removedTextBackground',
+    'diffEditor.insertedLineBackground',
+    'diffEditor.removedLineBackground',
+    'diffEditor.diagonalFill',
+    'merge.border',
+    'merge.currentHeaderBackground',
+    'merge.currentContentBackground',
+    'merge.incomingHeaderBackground',
+    'merge.incomingContentBackground',
+    'merge.commonHeaderBackground',
+    'merge.commonContentBackground',
   ]
 
   return validTokens
