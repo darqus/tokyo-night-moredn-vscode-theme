@@ -808,8 +808,9 @@ export const tokenConfig: ThemeTokenConfig = {
       tokens: [
         {
           token: 'editorHoverWidget.background',
-          source: surface.background('overlay'),
-          description: 'Фон hover виджета',
+          source: computed((ip) => lighten(ip.bg.overlay, 0.06)),
+          description:
+            'Фон hover виджета (чуть светлее для лучшей читабельности)',
         },
         {
           token: 'editorHoverWidget.border',

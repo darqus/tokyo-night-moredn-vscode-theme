@@ -133,7 +133,7 @@
     "notifications.background": "#1f2230",
     "notifications.foreground": "#c0caf5",
     "notifications.border": "#202230",
-    "editorHoverWidget.background": "#232739",
+    "editorHoverWidget.background": "#303445",
     "editorHoverWidget.border": "#30344c",
     "editorSuggestWidget.background": "#232739",
     "quickInput.background": "#1f2230",

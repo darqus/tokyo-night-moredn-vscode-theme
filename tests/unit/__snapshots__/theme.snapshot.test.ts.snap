@@ -68,7 +68,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "editorGroupHeader.noTabsBackground": "#1f2230",
     "editorGroupHeader.tabsBackground": "#1f2230",
     "editorGroupHeader.tabsBorder": "#202230",
-    "editorHoverWidget.background": "#232739",
+    "editorHoverWidget.background": "#303445",
     "editorHoverWidget.border": "#30344c",
     "editorIndentGuide.activeBackground1": "#7aa2f766",
     "editorIndentGuide.background1": "#202230",
