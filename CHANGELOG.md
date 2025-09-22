@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.16.20](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.15.35...v1.16.20) (2025-09-22)
+
+
+### Features
+
+* add modern interface mapping for editor groups ([df66e4f](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/df66e4ffade3755cb747fcfa1f95c5eb46e79358))
+* add new editor debug tokens and update theme ([583c73e](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/583c73ed381537a54b389a4777bce1b1446ed03e))
+* add title bar color tokens ([b58bba5](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/b58bba52dfd593be2efc14a15bf96cae4765efb0))
+* **colors:** add CTA colors and update button styles ([9fdc9b1](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/9fdc9b1cd11511472d0f23a1fc49dc3815e87c06))
+* **core:** adjust non-bright white in terminal to reduce glare ([61ade4a](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/61ade4a1c57df31352fe2e6280eb3afa3dd5e5e6))
+* **theme:** add badge colors to interface palette and update related tokens ([dc3d210](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/dc3d21036b6a209965c2ced3322f5d639b94b56f))
+* **theme:** add new color tokens and update existing ones ([0c6c683](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/0c6c683e4e9512780f40fe4148edb11468bb4893))
+* **theme:** enhance terminal and debugging UI ([025da0f](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/025da0f670db2f5561c52cccd78cda9fa2342f64))
+
+
+### Bug Fixes
+
+* **theme:** adjust text colors for better contrast and visibility ([247df3a](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/247df3abe9042e3511d0fbcc0c7bca31d0880a15))
+
 ### [1.15.35](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.14.54...v1.15.35) (2025-09-22)
 
 
