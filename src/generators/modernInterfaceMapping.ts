@@ -401,12 +401,12 @@ export const tokenConfig: ThemeTokenConfig = {
         },
         {
           token: 'panelTitle.activeForeground',
-          source: computed((ip) => ip.textOn.base.primary),
+          source: computed((ip) => ip.textOn.elevated.primary),
           description: 'Заголовок активной панели',
         },
         {
           token: 'panelTitle.inactiveForeground',
-          source: computed((ip) => ip.textOn.base.muted),
+          source: computed((ip) => ip.textOn.elevated.muted),
           description: 'Заголовок неактивной панели',
         },
         {
