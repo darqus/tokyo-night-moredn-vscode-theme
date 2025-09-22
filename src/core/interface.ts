@@ -167,7 +167,7 @@ export const interfacePalette: InterfacePalette = {
   },
   derived: {
     link: {
-      foreground: basePalette.link,
+      foreground: basePalette.textPrimary,
     },
     blockquote: {
       background: basePalette.surfaceOverlay,
