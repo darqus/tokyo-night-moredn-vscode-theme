@@ -89,7 +89,7 @@ export const interfacePalette: InterfacePalette = {
       background: basePalette.primaryButtonBlue,
       foreground: basePalette.textWhite,
       // чуть светлее при hover для выразительности
-      hoverBackground: lightenPerceptual(basePalette.primaryButtonBlue, 0.08),
+      hoverBackground: lightenPerceptual(basePalette.primaryButtonBlue, 0.15),
       // нейтральная тонкая рамка для чёткости формы
       border: basePalette.borderThin,
       // separator выравнен с border.default (нейтральный)
@@ -98,9 +98,10 @@ export const interfacePalette: InterfacePalette = {
     secondary: {
       // Нейтральный фон — совпадает с elevated для спокойного UI
       background: basePalette.surfacePanel,
-      foreground: basePalette.textWhite,
+      // Холодный текст, выровненный с link-цветом темы
+      foreground: basePalette.link,
       // Делает наведение ощутимым, но остаётся холодным и ненавязчивым
-      hoverBackground: withAlpha(basePalette.cyan, 0.12),
+      hoverBackground: lightenPerceptual(basePalette.surfacePanel, 0.15),
       // Нейтральная граница — совпадает с border.default
       border: basePalette.borderThin,
     },
