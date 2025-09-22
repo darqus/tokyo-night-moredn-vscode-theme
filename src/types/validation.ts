@@ -168,6 +168,10 @@ export type VSCodeColorToken =
   | 'textLink.activeForeground'
   | 'editorLink.activeForeground'
 
+  // Markdown
+  | 'textBlockQuote.background'
+  | 'textBlockQuote.border'
+
   // PeekView tokens
   | 'peekViewEditor.matchHighlightBackground'
   | 'peekViewResult.matchHighlightBackground'
@@ -400,6 +404,8 @@ export function getValidTokensList(): ValidTokens[] {
     'textLink.foreground',
     'textLink.activeForeground',
     'editorLink.activeForeground',
+    'textBlockQuote.background',
+    'textBlockQuote.border',
     'notifications.background',
     'notifications.foreground',
     'notifications.border',

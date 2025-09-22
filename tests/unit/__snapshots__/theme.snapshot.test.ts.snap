@@ -214,6 +214,8 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "terminalCommandDecoration.defaultBackground": "#7dcfff33",
     "terminalCommandDecoration.errorBackground": "#f38da033",
     "terminalCommandDecoration.successBackground": "#b8d39b33",
+    "textBlockQuote.background": "#232739",
+    "textBlockQuote.border": "#7dcfff59",
     "textLink.activeForeground": "#29acf8",
     "textLink.foreground": "#29acf8",
     "titleBar.activeBackground": "#1f2230",

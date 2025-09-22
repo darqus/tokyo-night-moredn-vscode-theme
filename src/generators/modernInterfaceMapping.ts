@@ -339,8 +339,8 @@ export const tokenConfig: ThemeTokenConfig = {
         },
         {
           token: 'tab.activeForeground',
-          source: computed((ip) => ip.textOn.elevated.primary),
-          description: 'Текст активной вкладки',
+          source: computed((ip) => ip.textOn.base.primary),
+          description: 'Текст активной вкладки (поверх base фона)',
         },
         {
           token: 'tab.activeBorderTop',
@@ -354,13 +354,30 @@ export const tokenConfig: ThemeTokenConfig = {
         },
         {
           token: 'tab.inactiveForeground',
-          source: computed((ip) => ip.textOn.base.muted),
-          description: 'Текст неактивной вкладки',
+          source: computed((ip) => ip.textOn.elevated.muted),
+          description: 'Текст неактивной вкладки (поверх elevated фона)',
         },
         {
           token: 'tab.hoverBackground',
           source: surface.background('hover'),
           description: 'Фон вкладки при наведении',
+        },
+      ],
+    },
+    {
+      name: 'Markdown',
+      description: 'Markdown: блоки цитат',
+      tokens: [
+        {
+          token: 'textBlockQuote.background' as ValidTokens,
+          source: computed((ip) => ip.derived.blockquote.background),
+          description:
+            'Фон блоков цитат в markdown (surfaceOverlay из палитры)',
+        },
+        {
+          token: 'textBlockQuote.border' as ValidTokens,
+          source: computed((ip) => ip.derived.blockquote.border),
+          description: 'Граница блоков цитат в markdown',
         },
       ],
     },

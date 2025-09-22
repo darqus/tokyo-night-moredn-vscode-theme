@@ -58,6 +58,8 @@
     "tab.inactiveBackground": "#1f2230",
     "tab.inactiveForeground": "#c0caf5",
     "tab.hoverBackground": "#80a8fe14",
+    "textBlockQuote.background": "#232739",
+    "textBlockQuote.border": "#7dcfff59",
     "titleBar.activeBackground": "#1f2230",
     "titleBar.inactiveBackground": "#1f2230",
     "titleBar.border": "#202230",
