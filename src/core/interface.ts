@@ -36,7 +36,7 @@ export const interfacePalette: InterfacePalette = {
 
   // Текстовые цвета
   text: {
-    primary: basePalette.white,
+    primary: basePalette.textPrimary,
     inverse: basePalette.black,
     muted: basePalette.textMuted,
     subtle: basePalette.textSubtle,
@@ -48,19 +48,19 @@ export const interfacePalette: InterfacePalette = {
   // Текст на разных поверхностях (пока проксирует базовые роли, чтобы не менять визуал)
   textOn: {
     base: {
-      primary: basePalette.white,
+      primary: basePalette.textPrimary,
       muted: basePalette.textMuted,
       subtle: basePalette.textSubtle,
       inactive: mix(basePalette.white, basePalette.gray, 0.75),
     },
     elevated: {
-      primary: basePalette.white,
+      primary: basePalette.textPrimary,
       muted: basePalette.textMuted,
       subtle: basePalette.textSubtle,
       inactive: mix(basePalette.white, basePalette.gray, 0.75),
     },
     overlay: {
-      primary: basePalette.white,
+      primary: basePalette.textPrimary,
       muted: lightenPerceptual(basePalette.textMuted, 0.15),
       subtle: basePalette.textSubtle,
       inactive: mix(basePalette.white, basePalette.gray, 0.75),
@@ -85,7 +85,7 @@ export const interfacePalette: InterfacePalette = {
   button: {
     primary: {
       background: darken(basePalette.blue, 0.7),
-      foreground: basePalette.white,
+      foreground: basePalette.textWhite,
       hoverBackground: darken(basePalette.blue, 0.6),
       border: withAlpha(basePalette.blue, 0.6), // усиленная контрастность
       // separator выравнен с border.default (нейтральный)
@@ -94,7 +94,7 @@ export const interfacePalette: InterfacePalette = {
     secondary: {
       // Нейтральный фон — совпадает с elevated для спокойного UI
       background: mix(basePalette.black, basePalette.blue, 0.05),
-      foreground: basePalette.white,
+      foreground: basePalette.textWhite,
       // Делает наведение ощутимым, но остаётся холодным и ненавязчивым
       hoverBackground: withAlpha(basePalette.blue, 0.12),
       // Нейтральная граница — совпадает с border.default
@@ -105,7 +105,7 @@ export const interfacePalette: InterfacePalette = {
   // Бейджи (единая сущность для всех badge.* токенов)
   badge: {
     bg: basePalette.skyblue,
-    fg: basePalette.white,
+    fg: basePalette.textWhite,
   },
 
   // Состояния (семантические цвета)
@@ -138,7 +138,7 @@ export const interfacePalette: InterfacePalette = {
   // Элементы управления
   dropdown: {
     background: mix(basePalette.black, basePalette.blue, 0.06), // соответствует bg.elevated (#202333)
-    foreground: basePalette.white,
+    foreground: basePalette.textWhite,
     border: basePalette.borderThin, // соответствует border.default (#202230)
     listBackground: mix(basePalette.black, basePalette.blue, 0.06), // соответствует bg.elevated (#202333)
   },
@@ -211,7 +211,7 @@ export const interfacePalette: InterfacePalette = {
     },
     inlineChat: {
       background: darken(basePalette.blue, 0.8),
-      foreground: lighten(basePalette.white, 0.12),
+      foreground: lighten(basePalette.textWhite, 0.12),
     },
     // Shadows: лёгкий OKLCH-сдвиг к более холодному оттенку для четкости
     shadows: {
@@ -252,7 +252,7 @@ export const interfacePalette: InterfacePalette = {
 
   // Charts palette used by charts.* tokens
   charts: {
-    foreground: basePalette.white,
+    foreground: basePalette.textPrimary,
     lines: basePalette.borderThin,
     red: basePalette.red,
     blue: basePalette.blue,
