@@ -20,7 +20,7 @@ export const interfacePalette: InterfacePalette = {
     darkenBase: basePalette.surfaceSidebar,
     elevated: basePalette.surfacePanel,
     overlay: basePalette.surfaceOverlay,
-    input: mix(basePalette.black, basePalette.blue, 0.04),
+    input: basePalette.surfacePanel,
     // OKLCH: лёгкая коррекция L для лучшей перцептуальной читаемости
     // amount 0.2 ~ +0.02 L, 0.3 ~ +0.03 L, 0.4 ~ +0.04 L
     hover: withAlpha(lightenPerceptual(basePalette.blue, 0.2), 0.08),
@@ -93,7 +93,7 @@ export const interfacePalette: InterfacePalette = {
     },
     secondary: {
       // Нейтральный фон — совпадает с elevated для спокойного UI
-      background: mix(basePalette.black, basePalette.blue, 0.05),
+      background: basePalette.surfacePanel,
       foreground: basePalette.textWhite,
       // Делает наведение ощутимым, но остаётся холодным и ненавязчивым
       hoverBackground: withAlpha(basePalette.blue, 0.12),
@@ -164,7 +164,7 @@ export const interfacePalette: InterfacePalette = {
       foreground: basePalette.link,
     },
     blockquote: {
-      background: mix(basePalette.black, basePalette.blue, 0.12),
+      background: basePalette.surfaceOverlay,
       border: withAlpha(basePalette.cyan, 0.35),
     },
     terminal: {
@@ -192,10 +192,7 @@ export const interfacePalette: InterfacePalette = {
       ansiBrightWhite: lighten(basePalette.white, 0.1),
     },
     overlays: {
-      dropBackground: withAlpha(
-        mix(basePalette.black, basePalette.blue, 0.1),
-        0.2
-      ),
+      dropBackground: withAlpha(basePalette.surfaceOverlay, 0.2),
     },
     findMatch: {
       // Слегка уменьшаем хрому (C) и слегка повышаем L за счёт смешения с белым
@@ -217,16 +214,12 @@ export const interfacePalette: InterfacePalette = {
     shadows: {
       // widget: слегка более «холодная» тень + небольшая прозрачность
       widget: withAlpha(
-        mixPerceptual(
-          mix(basePalette.black, basePalette.blue, 0.09),
-          basePalette.blue,
-          0.06
-        ),
+        mixPerceptual(basePalette.surfaceOverlay, basePalette.blue, 0.06),
         0.9
       ),
       // scrollbar: на чуть-чуть мягче (меньше синего)
       scrollbar: mixPerceptual(
-        mix(basePalette.black, basePalette.blue, 0.09),
+        basePalette.surfaceOverlay,
         basePalette.blue,
         0.04
       ),
