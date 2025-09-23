@@ -6,7 +6,7 @@ describe('Panel UI behavior (buttons/icons/links)', () => {
 
   test('panel title uses elevated roles', () => {
     expect(mapping['panelTitle.activeForeground']).toBe(
-      interfacePalette.textOn.elevated.primary
+      interfacePalette.textOn.elevated.subtle
     )
     expect(mapping['panelTitle.inactiveForeground']).toBe(
       interfacePalette.textOn.elevated.muted

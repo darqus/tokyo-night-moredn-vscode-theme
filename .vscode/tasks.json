@@ -416,6 +416,41 @@
 			"command": "npm test --silent",
 			"isBackground": false,
 			"group": "build"
+		},
+		{
+			"label": "Run unit tests (panel titles subtle)",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Run unit tests (fix fg map)",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Update snapshot for panel subtle",
+			"type": "shell",
+			"command": "npm run test:update",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Run unit tests (fix panel roles)",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Run unit tests (foreground roles fix)",
+			"type": "shell",
+			"command": "npm test --silent",
+			"isBackground": false,
+			"group": "build"
 		}
 	]
 }

@@ -49,9 +49,8 @@ export const SURFACE_FOREGROUND_MAP: Record<
   'activityBar.inactiveForeground': (ip) => ip.textOn.base.inactive,
   'sideBar.foreground': (ip) => ip.textOn.base.primary,
   'sideBarTitle.foreground': (ip) => ip.textOn.base.primary,
-  'panelTitle.activeForeground': (ip) => ip.textOn.base.primary,
-  'panelTitle.inactiveForeground': (ip) =>
-    pickReadable(ip, 'base', 'muted', { mutedMin: 3.0 }),
+  'panelTitle.activeForeground': (ip) => ip.textOn.elevated.subtle,
+  'panelTitle.inactiveForeground': (ip) => ip.textOn.elevated.muted,
   'breadcrumb.foreground': (ip) => ip.textOn.base.muted,
   'breadcrumb.focusForeground': (ip) =>
     pickReadable(ip, 'base', 'muted', { mutedMin: 3.0 }),
@@ -61,10 +60,10 @@ export const SURFACE_FOREGROUND_MAP: Record<
   'peekViewResult.selectionForeground': (ip) => ip.textOn.base.primary,
   'terminal.foreground': (ip) => ip.textOn.base.primary,
   'terminal.initialHintForeground': (ip) => ip.textOn.base.muted,
-  'settings.headerForeground': (ip) => ip.textOn.base.primary,
+  'settings.headerForeground': (ip) => ip.textOn.base.subtle,
 
   // Elevated
-  'menu.foreground': (ip) => ip.textOn.elevated.primary,
+  'menu.foreground': (ip) => ip.textOn.base.primary,
   'menu.selectionForeground': (ip) => ip.textOn.elevated.primary,
   'quickInput.foreground': (ip) => ip.textOn.elevated.primary,
   'quickInputList.focusForeground': (ip) => ip.textOn.elevated.primary,
@@ -82,8 +81,8 @@ export const SURFACE_FOREGROUND_MAP: Record<
   'settings.numberInputForeground': (ip) => ip.textOn.elevated.primary,
 
   // Overlay
-  'editorSuggestWidget.foreground': (ip) => ip.textOn.overlay.primary,
+  'editorSuggestWidget.foreground': (ip) => ip.textOn.overlay.subtle,
   'editorSuggestWidgetStatus.foreground': (ip) => ip.textOn.overlay.muted,
   'peekViewTitleDescription.foreground': (ip) => ip.textOn.overlay.muted,
-  'peekViewTitleLabel.foreground': (ip) => ip.textOn.overlay.primary,
+  'peekViewTitleLabel.foreground': (ip) => ip.textOn.overlay.subtle,
 }

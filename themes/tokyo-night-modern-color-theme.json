@@ -71,7 +71,7 @@
     "panel.border": "#202230",
     "panelSectionHeader.background": "#232739",
     "panelSectionHeader.foreground": "#c0caf5",
-    "panelTitle.activeForeground": "#c0caf5",
+    "panelTitle.activeForeground": "#8b95be",
     "panelTitle.inactiveForeground": "#c0caf5",
     "panelTitle.activeBorder": "#7dcfff",
     "panelSection.border": "#30344c",
@@ -213,7 +213,7 @@
     "peekViewResult.lineForeground": "#c0caf5",
     "peekViewResult.selectionForeground": "#c0caf5",
     "terminal.initialHintForeground": "#c0caf5",
-    "settings.headerForeground": "#c0caf5",
+    "settings.headerForeground": "#8b95be",
     "menu.selectionForeground": "#c0caf5",
     "quickInputList.focusForeground": "#c0caf5",
     "notificationCenterHeader.foreground": "#c0caf5",
@@ -223,10 +223,10 @@
     "settings.checkboxForeground": "#c0caf5",
     "settings.textInputForeground": "#c0caf5",
     "settings.numberInputForeground": "#c0caf5",
-    "editorSuggestWidget.foreground": "#c0caf5",
+    "editorSuggestWidget.foreground": "#8b95be",
     "editorSuggestWidgetStatus.foreground": "#c5cffa",
     "peekViewTitleDescription.foreground": "#c5cffa",
-    "peekViewTitleLabel.foreground": "#c0caf5"
+    "peekViewTitleLabel.foreground": "#8b95be"
   },
   "tokenColors": [
     {

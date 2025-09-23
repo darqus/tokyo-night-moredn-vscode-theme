@@ -454,8 +454,8 @@ export const tokenConfig: ThemeTokenConfig = {
         },
         {
           token: 'panelTitle.activeForeground',
-          source: computed((ip) => ip.textOn.elevated.primary),
-          description: 'Заголовок активной панели',
+          source: computed((ip) => ip.textOn.elevated.subtle),
+          description: 'Заголовок активной панели (приглушённый subtle)',
         },
         {
           token: 'panelTitle.inactiveForeground',
