@@ -28,8 +28,8 @@ export const basePalette = {
   // Текстовые роли (алиасы к существующим цветам и распространённые значения)
   textWhite: createHex('#ffffff'), // = white
   textPrimary: createHex('#c0caf5'), // Светлый текст
-  textMuted: createHex('#c0caf5'), // часто используемое приглушённое
-  textSubtle: createHex('#8b95be'), // ещё более приглушённое
+  textMuted: createHex('#a1abd6'), // часто используемое приглушённое
+  textSubtle: createHex('#929bbe'), // ещё более приглушённое
 
   // Поверхности (часто встречающиеся фоновые значения в теме)
   surfaceBase: createHex('#1a1b26'), // = black
