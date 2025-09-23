@@ -434,7 +434,7 @@ export const tokenConfig: ThemeTokenConfig = {
       tokens: [
         {
           token: 'panel.background',
-          source: surface.background('panel'),
+          source: surface.background('base'),
           description: 'Фон панелей',
         },
         {
@@ -444,8 +444,8 @@ export const tokenConfig: ThemeTokenConfig = {
         },
         {
           token: 'panelSectionHeader.background',
-          source: surface.background('overlay'),
-          description: 'Фон заголовка секции панели (холодный overlay)',
+          source: surface.background('base'),
+          description: 'Фон заголовка секции панели (поверх base)',
         },
         {
           token: 'panelSectionHeader.foreground',
@@ -686,7 +686,7 @@ export const tokenConfig: ThemeTokenConfig = {
       tokens: [
         {
           token: 'terminal.background',
-          source: computed((ip) => ip.bg.darkenBase),
+          source: surface.background('terminal'),
           description: 'Фон терминала',
         },
         {
