@@ -27,9 +27,9 @@ export const basePalette = {
   // --- Понятные алиасы и частые константы (для читабельности) ---
   // Текстовые роли (алиасы к существующим цветам и распространённые значения)
   textWhite: createHex('#ffffff'), // = white
-  textPrimary: createHex('#c0caf5'), // Светлый текст
-  textMuted: createHex('#a1abd6'), // часто используемое приглушённое
-  textSubtle: createHex('#929bbe'), // ещё более приглушённое
+  textPrimary: createHex('#afb9e2'), // Светлый текст
+  textMuted: createHex('#99a3cc'), // часто используемое приглушённое
+  textSubtle: createHex('#8991b3'), // ещё более приглушённое
 
   // Поверхности (часто встречающиеся фоновые значения в теме)
   surfaceBase: createHex('#1a1b26'), // = black
