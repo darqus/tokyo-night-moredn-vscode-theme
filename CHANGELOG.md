@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.17.41](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.16.20...v1.17.41) (2025-09-23)
+
+
+### Features
+
+* **.vscode:** add new VSCode task and update tab background colors ([58bb515](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/58bb515052cf3c88572bea5a573fbec1067b82f2))
+* add missing PeekView token mappings and update theme ([c43e311](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/c43e311f87eec7caf14a9f4fcb7166182d2ee3e2))
+* change editor hover widget background to base ([5faf5ef](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/5faf5efcb0d049dce33b938714699be45c5055be))
+* **color-theme:** enhance hover widget readability and add foreground token ([8181ece](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/8181ece46e20c08cab5416d88760f859eb41bab0))
+* **core:** adjust editor line number colors ([28aeb8d](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/28aeb8d7d97224716d91b955ad5e31979cd82636))
+* **core:** change warning state color to purple ([8025418](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/8025418c91223e1a5ec379222acbb3c4a43d5bf8))
+* **core:** rename skyblue to badgeBlue for badge background color ([32978f1](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/32978f153bc715840f00f9a7e503a1bff1bd07c1))
+* **core:** update link and icon colors in theme ([922d7c0](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/922d7c036688c15f45d22484592bb7f2c5dda9d9)), closes [#c0caf5](https://github.com/darqus/tokyo-night-modern-vscode-theme/issues/c0caf5)
+* **core:** update link and icon colors to primaryBlue ([f2dd3c9](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/f2dd3c94397057e6e02af54e269f778c9cb67dc6))
+* **extensions:** add sticky scroll theming for TypeScript 5.2+ ([a5c8015](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/a5c8015d43d5de53d568a41f876e19ff47a84dff))
+* **theme:** add icon foreground color ([68c2cf6](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/68c2cf628a463e68818882aef93b3578f3d020a7))
+* **theme:** add Markdown blockquote styles and adjust tab colors ([fa0e0af](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/fa0e0afaf7fe0904bdc00bf3ba7c8c8bb0d29532))
+* **theme:** adjust panel title and editor suggest widget colors ([b463197](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/b463197559aa9654e4243cf6caa08aa30dc0ec63))
+* **theme:** lighten tooltip background for readability ([519926d](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/519926d498297e15e6a0ac312d8b01b17b61b253))
+* **titleBar:** adjust title bar foreground colors ([350f9a3](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/350f9a34529e299d3c40998d2a54dbab21963396))
+
+
+### Bug Fixes
+
+* adjust activity bar background and active background ([4810dec](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/4810deceebe63585e6d4d8f537d0753130b31904))
+* **panel:** update color mapping for panel titles and related UI elements ([4dc0b7d](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/4dc0b7d51441b8c362063e6d24b03d06bf067737))
+* **theme:** adjust menu and dropdown color mappings ([924efe8](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/924efe8c8a59232900aaca229968ce6299be948e))
+* **theme:** correct color mappings and improve contrast in interface palette ([7b420fe](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/7b420fe8d3639cf0d1041b221e879149997eb47a))
+
 ### [1.16.20](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.15.35...v1.16.20) (2025-09-22)
 
 
