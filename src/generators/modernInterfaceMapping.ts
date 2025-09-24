@@ -484,6 +484,17 @@ export const tokenConfig: ThemeTokenConfig = {
           source: computed((ip) => ip.state.info),
           description: 'Граница активного заголовка',
         },
+        // Panel title badges (чипы/счётчики рядом с заголовком)
+        {
+          token: 'panelTitleBadge.background',
+          source: computed((ip) => ip.badge.bg),
+          description: 'Фон бейджа в заголовке панели (холодный синий)',
+        },
+        {
+          token: 'panelTitleBadge.foreground',
+          source: computed((ip) => ip.badge.fg),
+          description: 'Текст бейджа в заголовке панели (белый)',
+        },
         {
           token: 'panelSection.border',
           source: computed((ip) => ip.border.separatorBackground),

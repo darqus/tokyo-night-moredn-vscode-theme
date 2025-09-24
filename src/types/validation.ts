@@ -83,6 +83,8 @@ export type VSCodeColorToken =
   | 'panelTitle.activeForeground'
   | 'panelTitle.inactiveForeground'
   | 'panelTitle.activeBorder'
+  | 'panelTitleBadge.background'
+  | 'panelTitleBadge.foreground'
 
   // Lists
   | 'list.activeSelectionBackground'
@@ -343,6 +345,8 @@ export function getValidTokensList(): ValidTokens[] {
     'panelTitle.activeForeground',
     'panelTitle.inactiveForeground',
     'panelTitle.activeBorder',
+    'panelTitleBadge.background',
+    'panelTitleBadge.foreground',
     'list.activeSelectionBackground',
     'list.activeSelectionForeground',
     'list.inactiveSelectionBackground',

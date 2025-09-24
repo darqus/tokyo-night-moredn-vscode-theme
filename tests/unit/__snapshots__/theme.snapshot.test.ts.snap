@@ -139,6 +139,8 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "panelTitle.activeBorder": "#7dcfff",
     "panelTitle.activeForeground": "#8991b3",
     "panelTitle.inactiveForeground": "#99a3cc",
+    "panelTitleBadge.background": "#007acc",
+    "panelTitleBadge.foreground": "#ffffff",
     "peekViewEditor.background": "#1f2230",
     "peekViewEditor.matchHighlightBackground": "#85aeff2e",
     "peekViewResult.background": "#1f2230",

@@ -77,6 +77,8 @@
     "panelTitle.activeForeground": "#8991b3",
     "panelTitle.inactiveForeground": "#99a3cc",
     "panelTitle.activeBorder": "#7dcfff",
+    "panelTitleBadge.background": "#007acc",
+    "panelTitleBadge.foreground": "#ffffff",
     "panelSection.border": "#30344c",
     "panelSectionHeader.border": "#30344c",
     "list.activeSelectionBackground": "#86afff33",
