@@ -218,6 +218,16 @@ export type VSCodeColorToken =
   | 'editor.wordHighlightStrongBackground'
   | 'editor.hoverHighlightBackground'
 
+  // Overview Ruler & Minimap
+  | 'editorOverviewRuler.findMatchForeground'
+  | 'editorOverviewRuler.rangeHighlightForeground'
+  | 'editorOverviewRuler.selectionHighlightForeground'
+  | 'editorOverviewRuler.wordHighlightForeground'
+  | 'editorOverviewRuler.wordHighlightStrongForeground'
+  | 'minimap.findMatchHighlight'
+  | 'minimap.selectionHighlight'
+  | 'terminalOverviewRuler.findMatchForeground'
+
   // Diff Editor
   | 'diffEditor.insertedTextBackground'
   | 'diffEditor.removedTextBackground'
@@ -432,6 +442,30 @@ export function getValidTokensList(): ValidTokens[] {
     'quickInput.background',
     'editorWidget.background',
     'icon.foreground',
+    // Search & highlight tokens
+    'list.filterMatchBackground',
+    'list.filterMatchBorder',
+    'searchEditor.findMatchBackground',
+    'searchEditor.findMatchBorder',
+    'editor.findMatchBackground',
+    'editor.findMatchBorder',
+    'editor.findMatchHighlightBackground',
+    'editor.findMatchForeground',
+    'terminal.findMatchBackground',
+    'terminal.findMatchBorder',
+    'terminal.findMatchHighlightBackground',
+    'editor.wordHighlightBackground',
+    'editor.wordHighlightStrongBackground',
+    'editor.hoverHighlightBackground',
+    // Overview Ruler & Minimap
+    'editorOverviewRuler.findMatchForeground',
+    'editorOverviewRuler.rangeHighlightForeground',
+    'editorOverviewRuler.selectionHighlightForeground',
+    'editorOverviewRuler.wordHighlightForeground',
+    'editorOverviewRuler.wordHighlightStrongForeground',
+    'minimap.findMatchHighlight',
+    'minimap.selectionHighlight',
+    'terminalOverviewRuler.findMatchForeground',
     'diffEditor.insertedTextBackground',
     'diffEditor.removedTextBackground',
     'diffEditor.insertedLineBackground',

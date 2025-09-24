@@ -1212,6 +1212,49 @@ export const tokenConfig: ThemeTokenConfig = {
       ],
     },
     {
+      name: 'Overview Ruler & Minimap',
+      description: 'Цвета индикаторов в overview ruler и миникарте',
+      tokens: [
+        // Overview ruler: найти/диапазоны/слова — используем холодные тона
+        {
+          token: 'editorOverviewRuler.findMatchForeground',
+          source: computed((ip) => ip.derived.findMatch.border),
+          description: 'Индикатор совпадений (find) в overview ruler — синий',
+        },
+        {
+          token: 'editorOverviewRuler.rangeHighlightForeground',
+          source: computed((ip) => withAlpha(ip.state.info, 0.8)),
+          description: 'Индикатор подсвеченных диапазонов',
+        },
+        {
+          token: 'editorOverviewRuler.selectionHighlightForeground',
+          source: computed((ip) => ip.bg.selection),
+          description: 'Индикатор выделений',
+        },
+        {
+          token: 'editorOverviewRuler.wordHighlightForeground',
+          source: computed((ip) => ip.bg.hover),
+          description: 'Индикатор подсветки слова',
+        },
+        {
+          token: 'editorOverviewRuler.wordHighlightStrongForeground',
+          source: computed((ip) => ip.bg.selection),
+          description: 'Индикатор сильной подсветки слова',
+        },
+        // Minimap
+        {
+          token: 'minimap.findMatchHighlight',
+          source: computed((ip) => ip.minimap.findMatchHighlight),
+          description: 'Подсветка совпадений в миникарте (синий)',
+        },
+        {
+          token: 'minimap.selectionHighlight',
+          source: computed((ip) => ip.bg.selection),
+          description: 'Подсветка выделений в миникарте',
+        },
+      ],
+    },
+    {
       name: 'Drop Backgrounds',
       description: 'Фоны при перетаскивании',
       tokens: [

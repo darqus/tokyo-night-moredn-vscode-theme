@@ -138,8 +138,8 @@ export const interfacePalette: InterfacePalette = {
     removedLineBackground: withAlpha(basePalette.red, 0.08),
   },
   minimap: {
-    // Balanced: slightly reduce prominence in minimap to lower noise
-    findMatchHighlight: withAlpha(basePalette.yellow, 0.4),
+    // Balanced: use cool link‑blue to align with links/highlights
+    findMatchHighlight: withAlpha(basePalette.link, 0.4),
   },
   // Элементы управления
   dropdown: {
