@@ -317,14 +317,32 @@ export const tokenConfig: ThemeTokenConfig = {
           description: 'Фон элемента при наведении',
         },
         {
+          token: 'statusBarItem.compactHoverBackground' as ValidTokens,
+          source: surface.background('hover'),
+          description:
+            'Единый цвет наведения для компактных групп (холодный, как общий hover)',
+        },
+        {
           token: 'statusBarItem.prominentBackground',
-          source: computed((ip) => ip.state.info),
-          description: 'Фон важных элементов',
+          source: computed((ip) => ip.button.primary.background),
+          description:
+            'Фон важных элементов (тёмно-голубой для лучшего контраста с белым текстом)',
         },
         {
           token: 'statusBarItem.prominentForeground',
-          source: computed((ip) => ip.text.inverse),
-          description: 'Текст важных элементов',
+          source: computed((ip) => ip.button.primary.foreground),
+          description: 'Текст важных элементов (белый для лучшего контраста)',
+        },
+        {
+          token: 'statusBarItem.prominentHoverBackground' as ValidTokens,
+          source: computed((ip) => lighten(ip.button.primary.background, 0.12)),
+          description:
+            'Фон важных элементов при наведении (чуть ярче основного синего, остаётся холодным)',
+        },
+        {
+          token: 'statusBarItem.prominentHoverForeground' as ValidTokens,
+          source: computed((ip) => ip.button.primary.foreground),
+          description: 'Текст важных элементов при наведении (сохраняем белый)',
         },
       ],
     },
