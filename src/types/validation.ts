@@ -356,7 +356,7 @@ export function getValidTokensList(): ValidTokens[] {
     'statusBar.foreground',
     'statusBar.border',
     'statusBarItem.hoverBackground',
-  'statusBarItem.hoverForeground',
+    'statusBarItem.hoverForeground',
     'statusBarItem.compactHoverBackground',
     'statusBarItem.prominentBackground',
     'statusBarItem.prominentForeground',
