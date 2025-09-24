@@ -19,10 +19,10 @@ export const basePalette = {
 
   // Акцентные теплые (минимум)
   green: createHex('#a7c785'), // Строки
-  yellow: createHex('#fde3bc'), // Классы, константы
-  orange: createHex('#f8ba97'), // Числа (только)
+  yellow: createHex('#f7de70'), // Классы, константы
+  orange: createHex('#f0ac74'), // Числа (только)
   red: createHex('#f38095'), // Ошибки (только)
-  magenta: createHex('#bb9af7'), // Атрибуты, теги
+  magenta: createHex('#b18af8'), // Атрибуты, теги
 
   // --- Понятные алиасы и частые константы (для читабельности) ---
   // Текстовые роли (алиасы к существующим цветам и распространённые значения)
@@ -56,8 +56,8 @@ export const basePalette = {
 
   // Состояния (алиасы на тёплые акценты)
   success: createHex('#a7c785'), // = green
-  warning: createHex('#fde3bc'), // = yellow
-  attention: createHex('#f8ba97'), // = orange
+  warning: createHex('#f7de70'), // = yellow
+  attention: createHex('#f0ac74'), // = orange
   danger: createHex('#f38095'), // = red
 } as const
 
