@@ -91,8 +91,8 @@ export const interfacePalette: InterfacePalette = {
       foreground: basePalette.textWhite,
       // чуть светлее при hover для выразительности
       hoverBackground: lightenPerceptual(basePalette.primaryButtonBlue, 0.15),
-      // нейтральная тонкая рамка для чёткости формы
-      border: basePalette.borderThin,
+      // активная/hover рамка — сплошной link без прозрачности
+      border: basePalette.link,
       // separator выравнен с border.default (нейтральный)
       separator: basePalette.borderThin,
     },

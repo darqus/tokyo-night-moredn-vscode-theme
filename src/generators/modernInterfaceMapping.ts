@@ -310,6 +310,31 @@ export const tokenConfig: ThemeTokenConfig = {
           source: surface.border('elevated'),
           description: 'Граница строки состояния',
         },
+        // Remote indicator — абсолютная паритетность с акцентами
+        {
+          token: 'statusBarItem.remoteBackground',
+          source: computed((ip) => ip.button.primary.background),
+          description:
+            'Фон индикатора удалённого подключения (тёмный синий, высокий контраст с текстом)',
+        },
+        {
+          token: 'statusBarItem.remoteForeground',
+          source: computed((ip) => ip.button.primary.foreground),
+          description:
+            'Текст/иконки индикатора удалённого подключения (контрастный, как у primary кнопки)',
+        },
+        {
+          token: 'statusBarItem.remoteHoverBackground',
+          source: computed((ip) => lighten(ip.button.primary.background, 0.12)),
+          description:
+            'Hover фон индикатора удалённого подключения (чуть ярче тёмного синего)',
+        },
+        {
+          token: 'statusBarItem.remoteHoverForeground',
+          source: computed((ip) => ip.button.primary.foreground),
+          description:
+            'Hover текст индикатора удалённого подключения (сохраняем контраст)',
+        },
         {
           token: 'statusBarItem.hoverBackground',
           source: surface.background('hover'),
@@ -378,6 +403,11 @@ export const tokenConfig: ThemeTokenConfig = {
           token: 'tab.hoverBackground',
           source: surface.background('hover'),
           description: 'Фон вкладки при наведении',
+        },
+        {
+          token: 'tab.hoverForeground',
+          source: computed((ip) => ip.textOn.base.primary),
+          description: 'Текст вкладки при наведении (primary над hover)',
         },
       ],
     },
@@ -527,14 +557,32 @@ export const tokenConfig: ThemeTokenConfig = {
           description: 'Фон неактивного выбранного элемента',
         },
         {
+          token: 'list.inactiveSelectionForeground',
+          source: computed((ip) => ip.textOn.base.primary),
+          description:
+            'Текст неактивного выбранного элемента (читабельный primary над hover)',
+        },
+        {
           token: 'list.hoverBackground',
           source: surface.background('hover'),
           description: 'Фон элемента при наведении',
         },
         {
+          token: 'list.hoverForeground',
+          source: computed((ip) => ip.textOn.base.primary),
+          description:
+            'Текст элемента при наведении (читабельный primary над hover)',
+        },
+        {
           token: 'list.focusBackground',
           source: surface.background('selection'),
           description: 'Фон элемента в фокусе',
+        },
+        {
+          token: 'list.focusForeground',
+          source: computed((ip) => ip.textOn.base.primary),
+          description:
+            'Текст элемента в фокусе (читабельный primary над selection)',
         },
         {
           token: 'list.highlightForeground',
@@ -561,6 +609,12 @@ export const tokenConfig: ThemeTokenConfig = {
           token: 'input.border',
           source: surface.border('base'),
           description: 'Граница полей ввода',
+        },
+        {
+          token: 'inputOption.activeBorder',
+          source: computed((ip) => ip.derived.link.foreground),
+          description:
+            'Активная граница опций ввода (toggle/checkbox/option) — сплошной link без прозрачности',
         },
         {
           token: 'input.placeholderForeground',
@@ -669,6 +723,34 @@ export const tokenConfig: ThemeTokenConfig = {
           token: 'menu.selectionBackground',
           source: surface.background('selection'),
           description: 'Фон выбранного элемента меню',
+        },
+        {
+          token: 'menu.selectionForeground',
+          source: computed((ip) => ip.textOn.base.primary),
+          description:
+            'Текст выбранного/наведённого элемента меню (читабельный primary)',
+        },
+        {
+          token: 'menu.selectionBorder',
+          source: computed((ip) => ip.derived.link.foreground),
+          description:
+            'Граница выбранного/наведённого пункта меню — сплошной link',
+        },
+        {
+          token: 'menubar.selectionBorder',
+          source: computed((ip) => ip.derived.link.foreground),
+          description: 'Граница выбранного пункта в панели меню — link',
+        },
+        {
+          token: 'menubar.selectionBackground',
+          source: surface.background('selection'),
+          description: 'Фон выбранного пункта в панели меню — единый selection',
+        },
+        {
+          token: 'menubar.selectionForeground',
+          source: computed((ip) => ip.textOn.base.primary),
+          description:
+            'Текст выбранного пункта в панели меню — primary для читабельности',
         },
         {
           token: 'menu.border',
@@ -896,7 +978,13 @@ export const tokenConfig: ThemeTokenConfig = {
         {
           token: 'editorHoverWidget.border',
           source: computed((ip) => ip.border.separatorBackground),
-          description: 'Граница hover виджета',
+          description: 'Граница hover виджета — аккуратный separatorBackground',
+        },
+        {
+          token: 'editorHoverWidget.highlightForeground',
+          source: computed((ip) => lighten(ip.derived.link.foreground, 0.12)),
+          description:
+            'Акцент внутри hover виджета (подсветка ссылок/акцентов) — ярче link',
         },
         {
           token: 'editorHoverWidget.foreground',
@@ -907,6 +995,31 @@ export const tokenConfig: ThemeTokenConfig = {
           token: 'editorSuggestWidget.background',
           source: surface.background('overlay'),
           description: 'Фон виджета автодополнения',
+        },
+        {
+          token: 'editorSuggestWidget.border',
+          source: computed((ip) => ip.border.separatorBackground),
+          description: 'Граница виджета автодополнения — separatorBackground',
+        },
+        {
+          token: 'editorSuggestWidget.highlightForeground',
+          source: computed((ip) => ip.derived.link.foreground),
+          description: 'Подсветка совпадений в suggest — link',
+        },
+        {
+          token: 'editorSuggestWidget.selectedBackground',
+          source: surface.background('selection'),
+          description: 'Фон выбранного элемента в suggest — единый selection',
+        },
+        {
+          token: 'editorSuggestWidget.selectedForeground',
+          source: computed((ip) => ip.text.primary),
+          description: 'Текст выбранного элемента в suggest',
+        },
+        {
+          token: 'editorSuggestWidget.selectedIconForeground',
+          source: computed((ip) => ip.text.primary),
+          description: 'Иконка выбранного элемента в suggest',
         },
         {
           token: 'quickInput.background',
@@ -921,7 +1034,7 @@ export const tokenConfig: ThemeTokenConfig = {
         {
           token: 'widget.border',
           source: computed((ip) => ip.border.separatorBackground),
-          description: 'Граница виджетов',
+          description: 'Граница виджетов — separatorBackground',
         },
         {
           token: 'widget.shadow',
@@ -931,7 +1044,7 @@ export const tokenConfig: ThemeTokenConfig = {
         {
           token: 'editorWidget.border',
           source: computed((ip) => ip.border.separatorBackground),
-          description: 'Граница виджетов редактора',
+          description: 'Граница editorWidget — separatorBackground',
         },
         {
           token: 'quickInput.foreground',
@@ -947,6 +1060,12 @@ export const tokenConfig: ThemeTokenConfig = {
           token: 'quickInputList.focusBackground',
           source: surface.background('selection'),
           description: 'Фон фокуса в списке быстрого ввода',
+        },
+        {
+          token: 'quickInputList.focusForeground',
+          source: computed((ip) => ip.textOn.elevated.primary),
+          description:
+            'Текст фокусного элемента в quick input (primary над elevated selection)',
         },
       ],
     },

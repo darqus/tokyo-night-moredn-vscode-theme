@@ -52,8 +52,7 @@ export const SURFACE_FOREGROUND_MAP: Record<
   'panelTitle.activeForeground': (ip) => ip.textOn.elevated.subtle,
   'panelTitle.inactiveForeground': (ip) => ip.textOn.elevated.muted,
   'breadcrumb.foreground': (ip) => ip.textOn.base.muted,
-  'breadcrumb.focusForeground': (ip) =>
-    pickReadable(ip, 'base', 'muted', { mutedMin: 3.0 }),
+  'breadcrumb.focusForeground': (ip) => ip.textOn.base.primary,
   'breadcrumb.activeSelectionForeground': (ip) => ip.textOn.base.primary,
   'peekViewResult.fileForeground': (ip) => ip.textOn.base.primary,
   'peekViewResult.lineForeground': (ip) => ip.textOn.base.muted,

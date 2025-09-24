@@ -61,6 +61,10 @@ export type VSCodeColorToken =
   | 'statusBarItem.prominentForeground'
   | 'statusBarItem.prominentHoverBackground'
   | 'statusBarItem.prominentHoverForeground'
+  | 'statusBarItem.remoteBackground'
+  | 'statusBarItem.remoteForeground'
+  | 'statusBarItem.remoteHoverBackground'
+  | 'statusBarItem.remoteHoverForeground'
 
   // Tabs
   | 'tab.activeBackground'
@@ -69,6 +73,7 @@ export type VSCodeColorToken =
   | 'tab.inactiveBackground'
   | 'tab.inactiveForeground'
   | 'tab.hoverBackground'
+  | 'tab.hoverForeground'
 
   // Title Bar
   | 'titleBar.activeBackground'
@@ -90,8 +95,11 @@ export type VSCodeColorToken =
   | 'list.activeSelectionBackground'
   | 'list.activeSelectionForeground'
   | 'list.inactiveSelectionBackground'
+  | 'list.inactiveSelectionForeground'
   | 'list.hoverBackground'
+  | 'list.hoverForeground'
   | 'list.focusBackground'
+  | 'list.focusForeground'
   | 'list.highlightForeground'
 
   // Input
@@ -99,6 +107,7 @@ export type VSCodeColorToken =
   | 'input.foreground'
   | 'input.border'
   | 'input.placeholderForeground'
+  | 'inputOption.activeBorder'
   | 'dropdown.background'
   | 'dropdown.foreground'
   | 'dropdown.border'
@@ -126,7 +135,12 @@ export type VSCodeColorToken =
   | 'menu.background'
   | 'menu.foreground'
   | 'menu.selectionBackground'
+  | 'menu.selectionForeground'
+  | 'menu.selectionBorder'
   | 'menu.border'
+  | 'menubar.selectionBorder'
+  | 'menubar.selectionBackground'
+  | 'menubar.selectionForeground'
 
   // Terminal
   | 'terminal.background'
@@ -201,6 +215,7 @@ export type VSCodeColorToken =
   | 'quickInput.foreground'
   | 'quickInputTitle.background'
   | 'quickInputList.focusBackground'
+  | 'quickInputList.focusForeground'
 
   // Search tokens
   | 'list.filterMatchBackground'
@@ -276,7 +291,13 @@ export type VSCodeColorToken =
 
   // Editor Widgets
   | 'editorHoverWidget.background'
+  | 'editorHoverWidget.highlightForeground'
   | 'editorSuggestWidget.background'
+  | 'editorSuggestWidget.border'
+  | 'editorSuggestWidget.highlightForeground'
+  | 'editorSuggestWidget.selectedBackground'
+  | 'editorSuggestWidget.selectedForeground'
+  | 'editorSuggestWidget.selectedIconForeground'
   | 'quickInput.background'
   | 'editorWidget.background'
 
@@ -339,12 +360,17 @@ export function getValidTokensList(): ValidTokens[] {
     'statusBarItem.prominentForeground',
     'statusBarItem.prominentHoverBackground',
     'statusBarItem.prominentHoverForeground',
+    'statusBarItem.remoteBackground',
+    'statusBarItem.remoteForeground',
+    'statusBarItem.remoteHoverBackground',
+    'statusBarItem.remoteHoverForeground',
     'tab.activeBackground',
     'tab.activeForeground',
     'tab.activeBorderTop',
     'tab.inactiveBackground',
     'tab.inactiveForeground',
     'tab.hoverBackground',
+    'tab.hoverForeground',
     'titleBar.activeBackground',
     'titleBar.inactiveBackground',
     'titleBar.border',
@@ -360,13 +386,17 @@ export function getValidTokensList(): ValidTokens[] {
     'list.activeSelectionBackground',
     'list.activeSelectionForeground',
     'list.inactiveSelectionBackground',
+    'list.inactiveSelectionForeground',
     'list.hoverBackground',
+    'list.hoverForeground',
     'list.focusBackground',
+    'list.focusForeground',
     'list.highlightForeground',
     'input.background',
     'input.foreground',
     'input.border',
     'input.placeholderForeground',
+    'inputOption.activeBorder',
     'dropdown.background',
     'dropdown.foreground',
     'dropdown.border',
@@ -388,7 +418,12 @@ export function getValidTokensList(): ValidTokens[] {
     'menu.background',
     'menu.foreground',
     'menu.selectionBackground',
+    'menu.selectionForeground',
+    'menu.selectionBorder',
     'menu.border',
+    'menubar.selectionBorder',
+    'menubar.selectionBackground',
+    'menubar.selectionForeground',
     'terminal.background',
     'terminal.foreground',
     'terminal.selectionBackground',
@@ -437,12 +472,21 @@ export function getValidTokensList(): ValidTokens[] {
     'notifications.foreground',
     'notifications.border',
     'editorHoverWidget.background',
+    'editorHoverWidget.highlightForeground',
     'editorHoverWidget.foreground',
     'editorSuggestWidget.background',
+    'editorSuggestWidget.border',
+    'editorSuggestWidget.highlightForeground',
+    'editorSuggestWidget.selectedBackground',
+    'editorSuggestWidget.selectedForeground',
+    'editorSuggestWidget.selectedIconForeground',
     'quickInput.background',
     'editorWidget.background',
     'icon.foreground',
     // Search & highlight tokens
+    'quickInputTitle.background',
+    'quickInputList.focusBackground',
+    'quickInputList.focusForeground',
     'list.filterMatchBackground',
     'list.filterMatchBorder',
     'searchEditor.findMatchBackground',
