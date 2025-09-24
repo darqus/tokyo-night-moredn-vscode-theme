@@ -208,14 +208,14 @@ export const interfacePalette: InterfacePalette = {
       dropBackground: withAlpha(basePalette.surfaceOverlay, 0.2),
     },
     findMatch: {
-      // Слегка уменьшаем хрому (C) и слегка повышаем L за счёт смешения с белым
-      background: withAlpha(
-        mixPerceptual(basePalette.yellow, basePalette.white, 0.08),
-        0.22
-      ),
-      border: withAlpha(basePalette.yellow, 0.6),
+      // Переключаем схему подсветки поиска на холодный «ссылочный» синий
+      // Лёгкое осветление link‑синего и прозрачность, чтобы не перекрывать контент
+      background: withAlpha(lightenPerceptual(basePalette.link, 0.2), 0.22),
+      // Полупрозрачная синяя граница для чёткости
+      border: withAlpha(basePalette.link, 0.6),
+      // Вариант подсветки для менее сильных совпадений — чуть светлее и прозрачнее
       highlightBackground: withAlpha(
-        mixPerceptual(basePalette.yellow, basePalette.white, 0.12),
+        lightenPerceptual(basePalette.link, 0.28),
         0.16
       ),
     },

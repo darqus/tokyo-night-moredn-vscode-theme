@@ -5,7 +5,7 @@ import { withAlpha } from '../../src/core/utils'
 import { interfacePalette } from '../../src/core/interface'
 
 describe('Search highlight colors', () => {
-  it('editor find highlight should use warm yellow scheme', () => {
+  it('editor find highlight should use cool blue scheme', () => {
     const theme = generateTheme(loadEnvVars())
     const c = theme.colors
 
