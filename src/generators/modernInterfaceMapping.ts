@@ -6,7 +6,6 @@
 import {
   createTokenMapping,
   surface,
-  palette,
   computed,
   type ThemeTokenConfig,
 } from './tokenDSL'
@@ -317,7 +316,7 @@ export const tokenConfig: ThemeTokenConfig = {
           description: 'Фон элемента при наведении',
         },
         {
-          token: 'statusBarItem.compactHoverBackground' as ValidTokens,
+          token: 'statusBarItem.compactHoverBackground',
           source: surface.background('hover'),
           description:
             'Единый цвет наведения для компактных групп (холодный, как общий hover)',
@@ -334,13 +333,13 @@ export const tokenConfig: ThemeTokenConfig = {
           description: 'Текст важных элементов (белый для лучшего контраста)',
         },
         {
-          token: 'statusBarItem.prominentHoverBackground' as ValidTokens,
+          token: 'statusBarItem.prominentHoverBackground',
           source: computed((ip) => lighten(ip.button.primary.background, 0.12)),
           description:
             'Фон важных элементов при наведении (чуть ярче основного синего, остаётся холодным)',
         },
         {
-          token: 'statusBarItem.prominentHoverForeground' as ValidTokens,
+          token: 'statusBarItem.prominentHoverForeground',
           source: computed((ip) => ip.button.primary.foreground),
           description: 'Текст важных элементов при наведении (сохраняем белый)',
         },
@@ -387,13 +386,13 @@ export const tokenConfig: ThemeTokenConfig = {
       description: 'Markdown: блоки цитат',
       tokens: [
         {
-          token: 'textBlockQuote.background' as ValidTokens,
+          token: 'textBlockQuote.background',
           source: computed((ip) => ip.derived.blockquote.background),
           description:
             'Фон блоков цитат в markdown (surfaceOverlay из палитры)',
         },
         {
-          token: 'textBlockQuote.border' as ValidTokens,
+          token: 'textBlockQuote.border',
           source: computed((ip) => ip.derived.blockquote.border),
           description: 'Граница блоков цитат в markdown',
         },
@@ -945,19 +944,19 @@ export const tokenConfig: ThemeTokenConfig = {
       description: 'Окно предпросмотра (Peek Definition)',
       tokens: [
         {
-          token: 'peekViewEditor.background' as ValidTokens,
+          token: 'peekViewEditor.background',
           source: surface.background('panel'),
           description:
             'Фон редактора внутри PeekView (совпадает с фоном панели из палитры)',
         },
         {
-          token: 'peekViewResult.background' as ValidTokens,
+          token: 'peekViewResult.background',
           source: surface.background('panel'),
           description:
             'Фон списка результатов PeekView (совпадает с фоном панели из палитры)',
         },
         {
-          token: 'peekViewTitle.background' as ValidTokens,
+          token: 'peekViewTitle.background',
           source: surface.background('overlay'),
           description: 'Фон заголовка PeekView (слегка холодный overlay)',
         },

@@ -56,8 +56,11 @@ export type VSCodeColorToken =
   | 'statusBar.foreground'
   | 'statusBar.border'
   | 'statusBarItem.hoverBackground'
+  | 'statusBarItem.compactHoverBackground'
   | 'statusBarItem.prominentBackground'
   | 'statusBarItem.prominentForeground'
+  | 'statusBarItem.prominentHoverBackground'
+  | 'statusBarItem.prominentHoverForeground'
 
   // Tabs
   | 'tab.activeBackground'
@@ -171,6 +174,10 @@ export type VSCodeColorToken =
   // Markdown
   | 'textBlockQuote.background'
   | 'textBlockQuote.border'
+  // PeekView extras used in mapping
+  | 'peekViewEditor.background'
+  | 'peekViewResult.background'
+  | 'peekViewTitle.background'
 
   // PeekView tokens
   | 'peekViewEditor.matchHighlightBackground'
@@ -315,8 +322,11 @@ export function getValidTokensList(): ValidTokens[] {
     'statusBar.foreground',
     'statusBar.border',
     'statusBarItem.hoverBackground',
+    'statusBarItem.compactHoverBackground',
     'statusBarItem.prominentBackground',
     'statusBarItem.prominentForeground',
+    'statusBarItem.prominentHoverBackground',
+    'statusBarItem.prominentHoverForeground',
     'tab.activeBackground',
     'tab.activeForeground',
     'tab.activeBorderTop',
@@ -406,6 +416,9 @@ export function getValidTokensList(): ValidTokens[] {
     'editorLink.activeForeground',
     'textBlockQuote.background',
     'textBlockQuote.border',
+    'peekViewEditor.background',
+    'peekViewResult.background',
+    'peekViewTitle.background',
     'notifications.background',
     'notifications.foreground',
     'notifications.border',
