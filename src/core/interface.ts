@@ -23,14 +23,15 @@ export const interfacePalette: InterfacePalette = {
     input: basePalette.surfacePanel,
     // OKLCH: лёгкая коррекция L для лучшей перцептуальной читаемости
     // amount 0.2 ~ +0.02 L, 0.3 ~ +0.03 L, 0.4 ~ +0.04 L
-    hover: withAlpha(lightenPerceptual(basePalette.blue, 0.2), 0.08),
-    active: withAlpha(lightenPerceptual(basePalette.blue, 0.3), 0.12),
-    selection: withAlpha(lightenPerceptual(basePalette.blue, 0.4), 0.2),
+    // Make hover/active/selection a bit brighter and slightly more opaque
+    hover: withAlpha(lightenPerceptual(basePalette.blue, 0.25), 0.12),
+    active: withAlpha(lightenPerceptual(basePalette.blue, 0.35), 0.16),
+    selection: withAlpha(lightenPerceptual(basePalette.blue, 0.45), 0.26),
     // Специализированные hover цвета
     // Сохраняем стабильный sRGB-mix для вспомогательных hover-градаций
-    hoverSubtle: withAlpha(mix(basePalette.white, basePalette.gray, 0.4), 0.08),
-    hoverMuted: withAlpha(mix(basePalette.white, basePalette.gray, 0.4), 0.12),
-    hoverActive: withAlpha(mix(basePalette.white, basePalette.gray, 0.4), 0.15),
+    hoverSubtle: withAlpha(mix(basePalette.white, basePalette.gray, 0.4), 0.1),
+    hoverMuted: withAlpha(mix(basePalette.white, basePalette.gray, 0.4), 0.15),
+    hoverActive: withAlpha(mix(basePalette.white, basePalette.gray, 0.4), 0.18),
     // Специализированные цвета для поиска и выделения — вынесены в derived.findMatch
   },
 

@@ -142,8 +142,8 @@ export const tokenConfig: ThemeTokenConfig = {
         },
         {
           token: 'focusBorder',
-          source: computed((ip) => ip.border.focus),
-          description: 'Граница фокуса',
+          source: '#00000000',
+          description: 'Граница фокуса (отключена — прозрачная)',
         },
         {
           token: 'errorForeground',
