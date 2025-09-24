@@ -18,10 +18,10 @@ export const basePalette = {
   purple: createHex('#9d7cd8'), // Операторы, модификаторы
 
   // Акцентные теплые (минимум)
-  green: createHex('#b8d39b'), // Строки
-  yellow: createHex('#f8d8a8'), // Классы, константы
-  orange: createHex('#fac09f'), // Числа (только)
-  red: createHex('#f38da0'), // Ошибки (только)
+  green: createHex('#a7c785'), // Строки
+  yellow: createHex('#fde3bc'), // Классы, константы
+  orange: createHex('#f8ba97'), // Числа (только)
+  red: createHex('#f38095'), // Ошибки (только)
   magenta: createHex('#bb9af7'), // Атрибуты, теги
 
   // --- Понятные алиасы и частые константы (для читабельности) ---
@@ -55,10 +55,10 @@ export const basePalette = {
   primaryButtonBlue: createHex('#007acc'),
 
   // Состояния (алиасы на тёплые акценты)
-  success: createHex('#bcd89e'), // = green
-  warning: createHex('#f8d8a8'), // = yellow
-  attention: createHex('#fac09f'), // = orange
-  danger: createHex('#f38da0'), // = red
+  success: createHex('#a7c785'), // = green
+  warning: createHex('#fde3bc'), // = yellow
+  attention: createHex('#f8ba97'), // = orange
+  danger: createHex('#f38095'), // = red
 } as const
 
 export type BaseColor = keyof typeof basePalette
