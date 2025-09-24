@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.18.19](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.17.42...v1.18.19) (2025-09-24)
+
+
+### Features
+
+* add statusBarItem.hoverForeground token ([7e78e62](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/7e78e62f47b431a4e4dec31a311d706feb82094d))
+* enhance statusBarItem colors and add compact hover effect ([d55ba92](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/d55ba9250bdc3025d678ef4ecfd26542fbb52de6))
+* **menu:** update selection background to transparent ([e7b1b22](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/e7b1b22c0b2be030557f1ed4e0032b62ee9da1a0)), closes [#00000000](https://github.com/darqus/tokyo-night-modern-vscode-theme/issues/00000000)
+* **static:** add tokyo night modern screenshot ([5e11f7d](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/5e11f7d742032a60bd99e63cdb53ddbf37c3e1e8))
+* **theme:** add overview ruler and minimap highlight colors ([ccd0410](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/ccd0410272717593edbfd21f2f6b4fa3a30bede5))
+* **theme:** add tokens for panel title badges ([1f86e7c](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/1f86e7cf6336559089939f116109fa179be8ce66))
+* **theme:** enhance visual consistency and accessibility ([cfde3a0](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/cfde3a089914ec8625707133258aa633208fcdc1))
+* **theme:** update search highlight colors to cool blue scheme ([2cd4422](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/2cd442271bbc44a89eb9fa4c0047b8c75e779493))
+
 ### [1.17.42](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.17.41...v1.17.42) (2025-09-23)
 
 ### [1.17.41](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.16.20...v1.17.41) (2025-09-23)
