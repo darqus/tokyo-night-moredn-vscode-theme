@@ -56,6 +56,7 @@ export type VSCodeColorToken =
   | 'statusBar.foreground'
   | 'statusBar.border'
   | 'statusBarItem.hoverBackground'
+  | 'statusBarItem.hoverForeground'
   | 'statusBarItem.compactHoverBackground'
   | 'statusBarItem.prominentBackground'
   | 'statusBarItem.prominentForeground'
@@ -355,6 +356,7 @@ export function getValidTokensList(): ValidTokens[] {
     'statusBar.foreground',
     'statusBar.border',
     'statusBarItem.hoverBackground',
+  'statusBarItem.hoverForeground',
     'statusBarItem.compactHoverBackground',
     'statusBarItem.prominentBackground',
     'statusBarItem.prominentForeground',

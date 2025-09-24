@@ -341,6 +341,12 @@ export const tokenConfig: ThemeTokenConfig = {
           description: 'Фон элемента при наведении',
         },
         {
+          token: 'statusBarItem.hoverForeground',
+          source: computed((ip) => ip.textOn.elevated.primary),
+          description:
+            'Текст/иконки элемента строки состояния при наведении (читабельный primary над hover)',
+        },
+        {
           token: 'statusBarItem.compactHoverBackground',
           source: surface.background('hover'),
           description:
