@@ -19,6 +19,9 @@ describe('Token Registry validation', () => {
       if (!value) continue // not all tokens must be present in theme
       if (meta.alpha) {
         const ok = validateTokenAlpha(meta.key, value, meta.alpha)
+        if (!ok) {
+          console.log(`Token validation failed for key: ${meta.key}, value: ${value}, policy: ${meta.alpha}`);
+        }
         expect(ok).toBe(true)
       }
     }

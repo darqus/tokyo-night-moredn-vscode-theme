@@ -727,8 +727,9 @@ export const tokenConfig: ThemeTokenConfig = {
         },
         {
           token: 'menu.selectionBackground',
-          source: surface.background('selection'),
-          description: 'Фон выбранного элемента меню',
+          source: '#00000000',
+          description:
+            'Фон выбранного элемента меню — прозрачный (выделение только рамкой)',
         },
         {
           token: 'menu.selectionForeground',
@@ -749,8 +750,9 @@ export const tokenConfig: ThemeTokenConfig = {
         },
         {
           token: 'menubar.selectionBackground',
-          source: surface.background('selection'),
-          description: 'Фон выбранного пункта в панели меню — единый selection',
+          source: '#00000000',
+          description:
+            'Фон выбранного пункта в панели меню — прозрачный (выделение только рамкой)',
         },
         {
           token: 'menubar.selectionForeground',
