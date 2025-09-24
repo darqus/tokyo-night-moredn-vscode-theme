@@ -9,17 +9,14 @@ describe('Inline Chat and toolbar colors', () => {
 
     // Toolbar: only documented hover/active keys, cooled to state.info tones
     expect(c['toolbar.hoverBackground']).toBe(
-      // withAlpha(info, 0.12)
-      `#${(interfacePalette.state.info as string).slice(1)}1f`
+      // withAlpha(info, 0.16)
+      `#${(interfacePalette.state.info as string).slice(1)}29`
     )
     expect(c['toolbar.activeBackground']).toBe(
       // withAlpha(info, 0.20)
       `#${(interfacePalette.state.info as string).slice(1)}33`
     )
-    expect(c['toolbar.hoverOutline']).toBe(
-      // withAlpha(info, 0.4)
-      `#${(interfacePalette.state.info as string).slice(1)}66`
-    )
+    expect(c['toolbar.hoverOutline']).toBe('#00000000')
 
     // Inline Chat: documented keys
     expect(c['inlineChat.background']).toBe(
