@@ -2,7 +2,7 @@
   "name": "tokyo-night-modern",
   "displayName": "Tokyo Night Modern",
   "description": "Beautiful modern dark theme for VS Code with carefully crafted colors and contemporary design",
-  "version": "1.18.19",
+  "version": "2.0.0",
   "author": "lod",
   "publisher": "lod-inc",
   "license": "MIT",
@@ -57,9 +57,6 @@
     "package": "npm run build && vsce package",
     "release": "ts-node scripts/release.ts",
     "release:dry": "ts-node scripts/release.ts --dry-run",
-    "release:patch": "ts-node scripts/release.ts --patch",
-    "release:minor": "ts-node scripts/release.ts --minor",
-    "release:major": "ts-node scripts/release.ts --major",
     "docs:colors": "ts-node scripts/generate-color-docs.ts"
   },
   "devDependencies": {

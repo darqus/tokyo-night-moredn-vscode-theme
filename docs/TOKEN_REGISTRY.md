@@ -1,6 +1,6 @@
 # Token Registry
 
-Автогенерируемая таблица соответствия VS Code color tokens → поверхность/политики/подсказки контраста.
+Auto‑generated mapping of VS Code color tokens → surface / opacity / contrast guidance / semantic notes.
 
 | Token | Surface | Alpha | Deprecated | Alias Of | BG Key | Contrast Hints | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- |

@@ -1,88 +1,83 @@
-# Архитектура цветовой системы
+# Color System Architecture
 
-Обновлено после упрощения (DSL-мэппинг, контроль числа токенов, депрекация legacy).
-Этот документ описывает слои цветовой системы темы, принципы проектирования и гарантии качества. Цель — обеспечить предсказуемость изменений, консистентность и доступность (контраст, прозрачности) во всём UI VS Code при минимуме дублирования.
+Updated after simplification (DSL mapping, stable token count guard, legacy removal in 2.0.0). This document describes the layered color model, design principles, and quality guarantees. Goal: predictable change surface, consistency and accessibility (contrast + transparency) with minimal duplication.
 
-## Слоистая модель
+## Layered Model
 
-- Базовая палитра (`src/core/palette.ts`)
+- Base Palette (`src/core/palette.ts`)
+  - Static neutral + accent colors.
+  - Only validated 6‑digit hex (`Hex` type), no operations.
 
-  - Набор статичных базовых цветов (нейтральные и акцентные).
-  - Только валидные hex (тип `Hex`), без операций.
+- Color Utilities (`src/core/utils.ts`)
+  - `mix`, `lighten`, `darken`, `withAlpha` (+ perceptual variants behind a flag).
+  - Cached; prefer usage inside the interface palette layer only.
 
-- Утилиты цвета (`src/core/utils.ts`)
+- Interface Palette (`src/core/interface.ts`)
+  - Single source of truth for UI roles.
+  - Groups:
+    - `bg` – surfaces (base, elevated, overlay, hover/active/selection, etc.)
+    - `text` – text roles (primary/inverse/muted/subtle/inactive, lineNumber*)
+    - `border` – default/focus/separatorBackground
+    - `button` – primary / secondary button set (bg/fg/hover/border/separator)
+    - `state` – semantic (info/success/warning/error + hover variants)
+    - `diff`, `git`, `minimap`, `dropdown`, `scmGraph` – specialized clusters
+    - `derived` – composite roles: `link`, `terminal`, `overlays.dropBackground`, `findMatch`, `inlineChat`, `blockquote`
+    - `charts` – dedicated chart palette (previously pulled raw base colors)
+  - Theme generation never imports `basePalette` directly—only roles.
 
-  - mix, lighten, darken, withAlpha — минимальная математика над цветами с кэшированием.
-  - Предпочтительно использовать их только внутри интерфейсной палитры.
+- Generators (`src/generators/`)
+  - `modernInterfaceMapping.ts` – declarative DSL (`tokenConfig`) + `createTokens()` – the ONLY mapping source UI → VS Code color tokens.
+  - (Legacy files removed in 2.0.0.)
+  - `theme.ts` – assembles final theme (interface colors via DSL + syntax/semantic tokens).
+  - `tokens.ts` – TextMate + semantic token colors derived from `syntaxPalette`.
+  - No direct `basePalette` imports outside `interface.ts` (enforced by test `generator.no-basepalette`).
 
-- Интерфейсная палитра (`src/core/interface.ts`)
+## Policies & Invariants
 
-  - Единый источник правды для всех ролей UI.
-  - Группы:
-    - `bg` — поверхности (base, elevated, overlay, hover/active/selection и т.д.).
-    - `text` — текстовые роли (primary/inverse/muted/subtle/inactive, lineNumber).
-    - `border` — границы (default/focus/separatorBackground).
-    - `button` — первичные/вторичные кнопки (bg/fg/hover/border/separator).
-    - `state` — семантические состояния (info/success/warning/error + hover).
-    - `diff`, `git`, `minimap`, `dropdown`, `scmGraph` — специализированные группы.
-    - `derived` — производные наборы для сложных зон: `link`, `terminal`, `overlays.dropBackground`, `findMatch`, `inlineChat`, `blockquote`.
-    - `charts` — палитра для `charts.*` токенов (ранее использовались прямые цвета из базы).
-  - Важно: генератор темы не использует `basePalette` напрямую — только роли отсюда.
+- Transparency: all `*dropBackground`, `*hoverHighlight`, `rangeHighlight`, `findMatchHighlight` remain semi‑transparent (covered by tests).
+- Contrast: key pairs (activity bar inactive, tabs unfocused inactive, buttons, primary overlays) have advisory thresholds (see `contrast.basic.test.ts`).
+- Link / Terminal coherence: `derived.link` aligns with terminal ANSI blue/cyan so links and paths don't look “dual‑toned”.
+- Layer isolation: color additions/changes flow only through the interface palette. Generators never stitch raw base colors.
 
-- Генераторы (`src/generators/`)
+## Why `charts` and ANSI moved into roles
 
-  - `modernInterfaceMapping.ts` — декларативный DSL (`tokenConfig`) + функция `createTokens()` — ЕДИНСТВЕННЫЙ источник мэппинга UI → VS Code color tokens.
-  - `interfaceMapping.ts` — LEGACY shim (реэкспорт DSL + предупреждение). Не изменять, будет удалён в мажорном релизе.
-  - `theme.ts` — сборка итоговой темы (интерфейсные цвета через DSL, затем текстовые/semantic токены).
-  - `tokens.ts` — синтаксические токены (TextMate/semantic) от `syntaxPalette`.
-  - Никаких прямых импортов `basePalette` вне `interface.ts` (проверяется тестом `generator.no-basepalette`).
+Previously `charts.*` and `terminal.ansi*` siphoned colors directly from `basePalette`, fragmenting responsibility. Now:
 
-## Политики и инварианты
+- `interfacePalette.charts` carries all chart colors.
+- `interfacePalette.derived.terminal` carries full ANSI + bright set.
+Centralization simplifies global tone/contrast adjustments.
 
-- Прозрачности (требующиеся VS Code): все `dropBackground`, `hoverHighlight`, `rangeHighlight`, `findMatchHighlight` — полупрозрачные. Покрыты тестами.
-- Контраст: для ключевых пар (activity bar/tab inactive, кнопки) поддерживаем минимальные пороги. См. `tests/unit/contrast.basic.test.ts`.
-- Единообразие ссылок и терминала: `derived.link` согласован с `derived.terminal` (ANSI синие/циановый), чтобы ссылки и пути в терминале не выглядели «двухтоновыми».
-- Изоляция слоёв: добавление/изменение цветов — через `interfacePalette`. Генератор не должен тянуть `basePalette`.
+## Quality Test Mesh
 
-## Почему добавлен раздел charts и базовые ANSI в derived.terminal
+1. Structural stability – snapshot of full theme + `theme.count.test.ts` (fails on accidental color token removal/addition).
+2. Schema + denylist validation – unified `forbidden.and.allowed.tokens.test.ts`.
+3. Transparency / alpha policies – `tokenRegistry.test.ts` + `transparencyRules.test.ts`.
+4. Contrast advisory – `contrast.basic` & `contrast.alphaAware` reduce regressions.
+5. Layer rule – `generator.no-basepalette` forbids raw base usage.
+6. Perceptual (OKLCH) targets – `shadows.oklch`, `border.*`, `peekView.*` ensure subtle correctness.
+7. Quiet CI – `QUIET=1 npm run build` or test setup suppresses noisy logs.
 
-- Ранее часть токенов (`charts.*`, `terminal.ansi*`) брала цвета прямо из `basePalette`, что ломало идею единого слоя ролей. Теперь:
-  - `interfacePalette.charts` содержит все цвета для диаграмм.
-  - `interfacePalette.derived.terminal` содержит как базовые ANSI (black/red/green/yellow/magenta/white), так и bright/смешанные оттенки.
-- Это упростит глобальные правки: изменение тона/глубины/контраста происходит централизованно.
+## Current Status / Improvements
 
-## Тестовый контур качества
+| Item | Status | Notes |
+|------|--------|-------|
+| TOKENS.md auto-generation | done | `npm run docs:tokens` from DSL |
+| Partial snapshots | done | 3 suites: core / lists_panels / terminal_widgets |
+| Legacy removal (`interfaceMapping`, `themeEngine`) | done (2.0.0) | Breaking change |
+| OKLCH default for mix/lighten/darken | staged flag | Enabled via `USE_PERCEPTUAL=1` env |
+| Diff script for CHANGELOG | done | `scripts/diff-theme.ts` |
+| Expanded perceptual checks | planned | Broader semi‑transparent sets |
 
-Ключевые принципы:
+## Making Changes
 
-1. **Стабильность структуры** — снапшот итоговой темы + отдельный тест `theme.count.test.ts` (фиксирует количество цветовых токенов). Любое непреднамеренное удаление токена приводит к падению теста.
-2. **Валидация схемы и denylist** — объединена в один тест `forbidden.and.allowed.tokens.test.ts`.
-3. **Политики прозрачности/альфы** — централизовано через `tokenRegistry.test.ts` + `transparencyRules.test.ts`.
-4. **Контраст (advisory)** — `contrast.basic` и `contrast.alphaAware` для предотвращения грубых регрессий.
-5. **Правило "слоёв"** — тест `generator.no-basepalette` не даёт утечь прямым импортам базы в генераторы.
-6. **Перцептуальные проверки (OKLCH)** — отдельные target-тесты на тени/бордеры (`shadows.oklch`, `border.*`, `peekView.*`).
-7. **Тихие логи в CI** — можно включить `QUIET=1 npm run build` или подавление логов в тестах (автоматически через setup).
+1. Add / adjust a role in `interfacePalette` (new subgroup if needed; derived logic → `derived`).
+2. Add VS Code token in `tokenConfig` (group in `modernInterfaceMapping.ts`) + meaningful `description` (docs generation).
+3. Run `npm test` – token count guard or alpha/forbidden tests will catch omissions.
+4. For intentional visual changes: update snapshot via `npm run test:update`.
+5. Manually spot‑check critical surfaces (menus, tabs, terminal, hover/selection) & contrast edge cases.
+6. CI noise‑free builds: `QUIET=1 npm run build`.
 
-## Роадмап улучшений
-
-| Задача | Статус | Комментарий |
-|--------|--------|-------------|
-| Token Registry таблица (doc) | planned | Автогенерация markdown из `tokenConfig` |
-| Полный переход на OKLCH для mix/lighten | planned | Точнее chroma, меньше выцветания голубых |
-| Частичные снапшоты (группы) | optional | Пока один основной снапшот + счётчик достаточно |
-| Удаление legacy файлов | next major | `interfaceMapping.ts`, потенциально `themeEngine.ts` |
-| Генерация docs из DSL | planned | Скрипт формирует таблицы по группам |
-
-## Как вносить изменения
-
-1. Добавьте/скорректируйте роль в `interfacePalette` (при необходимости — новую подгруппу). Для вычисляемых — обновите/добавьте в `derived`.
-2. Добавьте новый VS Code токен в `tokenConfig` (группа в `modernInterfaceMapping.ts`). Описание (`description`) помогает автогенерации docs.
-3. Запустите `npm test` — упадёт либо счётчик токенов (если забыли что-то), либо forbid/alpha проверки.
-4. При ожидаемом визуальном изменении — обновите снапшот: `npm run test:update`.
-5. Вручную проверьте критичные зоны (меню, вкладки, терминал, hover/selection). Инспектируйте контрастные роли, если добавили новые фоны.
-6. Для CI без шума используйте `QUIET=1 npm run build`.
-
-Такой подход снижает когнитивную нагрузку (единый DSL), защищает от регрессий (кол-во токенов + валидаторы) и облегчает эволюцию темы без «скрытых» путей.
+Result: low cognitive load (single DSL), guarded refactors (count + validators), fast evolution with explicit intent.
 
 ---
-**Legacy**: `interfaceMapping.ts` и `themeEngine.ts` не должны применяться в новых изменениях. Для внешних потребителей оставлен только совместимый реэкспорт. В мажорном релизе — удаление.
+**Legacy**: As of 2.0.0 deprecated files (`interfaceMapping.ts`, `themeEngine.ts` + related types) are removed. The DSL (`modernInterfaceMapping.ts`) is the sole mapping source.

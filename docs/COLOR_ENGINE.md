@@ -1,30 +1,36 @@
 # Color Engine (sRGB vs OKLCH)
 
-Этот проект использует централизованный фасад цветовых операций `src/core/colorEngine.ts`.
+Central facade coordinates color derivations. Two paths:
 
-Основные принципы (TL;DR):
+| Path | Use Cases | Rationale |
+|------|-----------|-----------|
+| OKLCH (perceptual) | hover / active / selection overlays, transparent highlights (findMatch, range/word, peekView), shadows | Maintains chroma/lightness predictably; reduces muddy desaturation |
+| sRGB (linear mix) | neutral mixes (grays), borders, simple lighten/darken with black/white | Faster, adequate for low‑chroma structural tones |
 
-- Используем OKLCH для перцептуально устойчивых операций:
-  - hover/active/selection тона
-  - прозрачные подсветки (findMatch, word/range highlight, peekView)
-  - тени (widget.shadow, scrollbar.shadow)
-- Используем sRGB для нейтральных/структурных операций:
-  - серые/нейтральные миксы, бордеры, базовые затемнения/осветления
-  - простые миксы с белым/чёрным для вспомогательных тонов
-- Прозрачность — только `withAlpha(hex6, alpha)` → hex8.
+Transparency always applied via `withAlpha(#rrggbb, alpha)` → `#rrggbbaa`.
 
-API фасада:
+## API
 
-- sRGB: `mixSrgb(a,b,t)`, `lightenSrgb(c, amt)`, `darkenSrgb(c, amt)`, `withAlpha(c, a)`
-- OKLCH: `mixPerceptual(a,b,t)`, `lightenPerceptual(c, amt)`, `darkenPerceptual(c, amt)`
+- sRGB: `mix(a,b,t)`, `lighten(c, amt)`, `darken(c, amt)` (fallback path)
+- Perceptual: `mixPerceptual(a,b,t)`, `lightenPerceptual(c, amt)`, `darkenPerceptual(c, amt)`
+- Runtime flag `USE_PERCEPTUAL=1` transparently routes default `mix/lighten/darken` to perceptual variants.
 
-Где применять:
+## Guidance
 
-- Интерфейсные состояния (hover/selection) и подсветки → OKLCH
-- Разделители/границы и нейтральные фоны → sRGB
-- Если сомневаетесь: см. `src/core/interface.ts` как эталон применения.
+- Use OKLCH for interactive emphasis & layered transparency.
+- Keep borders / separators on sRGB unless hue shift is desirable.
+- Review `src/core/interface.ts` for canonical role usage.
 
-Почему так:
+## Why OKLCH
 
-- OKLCH даёт более предсказуемые изменения светлоты/хромы: меньше «грязи» при полупрозрачных наложениях и подсветках.
-- sRGB проще и дешевле для строгих нейтральных тонов (границы/серые), где перцептуальная точность менее критична.
+OKLCH preserves hue and relative chroma changes when adjusting lightness; sRGB interpolation can flatten cool blues and cyans (critical in this palette). Perceptual blending keeps subtle differentiation between similar overlays without overshooting brightness.
+
+## Safety / Fallback
+
+Perceptual functions wrap conversion in guarded try/catch and fall back to sRGB if conversion fails or yields out‑of‑range values. Cache keys prevent redundant computations.
+
+## Future Work
+
+- Expand perceptual path as default (remove flag after stability window).
+- Add optional delta‑E assertions in advisory tests.
+- Provide a hue‑preserving darken variant for very high chroma accents if needed.

@@ -1,70 +1,70 @@
-# 🎨 Tokyo Night Modern - Анализ и Архитектура
+# 🎨 Tokyo Night Modern – Theme Analysis & Architecture
 
-## 📊 Обзор темы
+## 📊 Overview
 
-**Tokyo Night** - это темная тема для VS Code, вдохновленная неоновыми огнями ночного Токио. Тема построена на научном подходе к цветам с использованием 12 базовых цветов для генерации всех 366 цветов интерфейса.
+Tokyo Night Modern is a dark VS Code theme inspired by cool neon ambience. It uses a compact **12‑color base palette** that programmatically expands into **406 workbench colors** plus a lean syntax layer. Generation is deterministic, test‑guarded, and entirely driven by a single DSL mapping.
 
-### 🎯 Ключевые принципы
+### 🎯 Core Principles
 
-- **Минимализм**: 12 базовых цветов → 366 цветов интерфейса
-- **Научность**: HSL-пространство, математическое смешивание цветов
-- **Читаемость**: WCAG-совместимые контрасты
-- **Консистентность**: Единая система генерации цветов
+- **Minimal Input → Rich Output**: 12 base colors → 406 role colors
+- **Deterministic**: Functional generation; no ad‑hoc JSON tweaking
+- **Accessible by Design**: Advisory WCAG AA/AAA contrast targets
+- **Consistent**: Role & surface abstractions prevent drift
+- **Maintainable**: Snapshot segmentation + token count locks
 
-## 🌈 Цветовая палитра
+## 🌈 Base Palette
 
-### Базовые цвета (12)
+### Base Colors (12)
 
 ```typescript
-// Нейтральные (основа)
-black: '#1a1b26'    // Фон
-gray:  '#565f89'    // Комментарии
-white: '#c0caf5'    // Текст
+// Neutrals (structural)
+black:  '#1a1b26' // Base background
+gray:   '#565f89' // Comments / subtle UI
+white:  '#c0caf5' // Primary foreground
 
-// Холодные акценты (приоритет)
-blue:   '#7aa2f7'   // Функции, ключевые слова
-cyan:   '#7dcfff'   // Переменные, импорты
-teal:   '#73daca'   // Типы, свойства
-purple: '#9d7cd8'   // Операторы, модификаторы
+// Cool accents (structural priority)
+blue:   '#7aa2f7' // Functions / calls
+cyan:   '#7dcfff' // Variables / imports
+teal:   '#73daca' // Types / interfaces
+purple: '#9d7cd8' // Operators / modifiers
 
-// Теплые акценты (семантика)
-green:  '#9ece6a'   // Строки
-yellow: '#e0af68'   // Классы, константы
-orange: '#ff9e64'   // Числа
-red:    '#f7768e'   // Ошибки
-magenta:'#bb9af7'   // Атрибуты, теги
+// Warm accents (semantic emphasis)
+green:  '#9ece6a' // Strings / content
+yellow: '#e0af68' // Classes / important
+orange: '#ff9e64' // Numbers / constants
+red:    '#f7768e' // Errors / removals
+magenta:'#bb9af7' // Attributes / meta
 ```
 
-### Цветовая семантика
+### Semantic Associations
 
-| Цвет | Назначение | Психология |
-|------|------------|------------|
-| **Blue** | Функции, методы | Надежность, логика |
-| **Cyan** | Переменные, данные | Свежесть, ясность |
-| **Teal** | Типы, интерфейсы | Структура, порядок |
-| **Purple** | Операторы | Магия, трансформация |
-| **Green** | Строки, текст | Рост, содержание |
-| **Yellow** | Классы, важное | Внимание, энергия |
-| **Orange** | Числа | Точность, значения |
-| **Red** | Ошибки, теги | Опасность, важность |
-| **Magenta** | Атрибуты | Декорация, свойства |
+| Color | Usage | Feel |
+|-------|-------|------|
+| **Blue** | Functions / calls | Stable logic |
+| **Cyan** | Variables / imports | Clear / fresh |
+| **Teal** | Types / structure | Order |
+| **Purple** | Operators / flow | Transform |
+| **Green** | Strings / literals | Content / organic |
+| **Yellow** | Classes / emphasis | Attention |
+| **Orange** | Numbers / metrics | Precision |
+| **Red** | Errors / danger | Urgency |
+| **Magenta** | Attributes / meta | Accent / decorative |
 
-## 🏗️ Архитектура генерации
+## 🏗️ Generation Architecture
 
-> См. также: [Color Engine — sRGB vs OKLCH](./COLOR_ENGINE.md) для правил выбора цветового пространства и применения прозрачности.
+See also: [COLOR_ENGINE.md](./COLOR_ENGINE.md) for sRGB vs OKLCH and perceptual mix fallback rules.
 
-### 1. Базовая палитра (`core/palette.ts`)
+### 1. Base Palette (`core/palette.ts`)
 
 ```typescript
 export const basePalette = {
-  // 12 тщательно подобранных цветов
   black: '#1a1b26',
-  blue: '#7aa2f7',
-  // ...
+  blue:  '#7aa2f7',
+  // ... remaining curated 12
 }
 ```
 
-### 2. Интерфейсная палитра (`core/interface.ts`)
+### 2. Interface Palette (`core/interface.ts`)
 
 ```typescript
 export const interfacePalette = {
@@ -72,88 +72,74 @@ export const interfacePalette = {
     base: basePalette.black,
     elevated: mix(basePalette.black, basePalette.blue, 0.06),
     hover: withAlpha(basePalette.blue, 0.08),
-    // Автогенерация всех фоновых цветов
+    // Additional derived surfaces etc.
   }
 }
 ```
 
-### 3. Синтаксическая палитра (`core/syntax.ts`)
+### 3. Syntax Palette (`core/syntax.ts`)
 
 ```typescript
 export const syntaxPalette = {
-  keyword: basePalette.magenta,
-  string: basePalette.green,
+  keyword:  basePalette.magenta,
+  string:   basePalette.green,
   function: basePalette.blue,
-  // Прямой маппинг токенов на цвета
+  // Direct 1:1 token to color mapping
 }
 ```
 
-### 4. Генерация темы (`generators/theme.ts`)
+### 4. Theme Assembly (`generators/theme.ts`)
 
 ```typescript
 export const generateTheme = (): VSCodeTheme => ({
-  name: 'Tokyo Night Dark',
-  colors: generateInterfaceColors(),    // 366 цветов
-  tokenColors: generateTokenColors(),   // 13 токенов
+  name: 'Tokyo Night Modern',
+  colors: generateInterfaceColors(),      // 406 workbench colors
+  tokenColors: generateTokenColors(),     // 13 classic TextMate scopes
   semanticTokenColors: generateSemanticTokens()
 })
 ```
 
-## 🎨 Цветовые техники
+## 🎨 Color Techniques
 
-### Смешивание цветов
+### Mixing
 
 ```typescript
-// Создание промежуточных оттенков
-elevated: mix(basePalette.black, basePalette.blue, 0.06)
-// black + 6% blue = темно-синий фон
+// Controlled neutral lift
+elevated = mix(basePalette.black, basePalette.blue, 0.06)
 ```
 
-### Прозрачность
+### Transparency
 
 ```typescript
-// Создание hover-эффектов
-hover: withAlpha(basePalette.blue, 0.08)
-// blue с 8% прозрачностью
+hover = withAlpha(basePalette.blue, 0.08) // 8% accent veil
 ```
 
-### Подсветка результатов поиска
+### Search Highlight Strategy
 
-- Текущий матч: тёплый жёлтый фон с прозрачностью `withAlpha(yellow, 0.22)` и контрастной рамкой `withAlpha(yellow, 0.7)`
-- Другие совпадения: более мягкий фон `withAlpha(yellow, 0.14)`
-- Текст поверх подсветки: ОПАКОВЫЙ (без прозрачности) основной цвет текста для максимальной читаемости
+- Current match: `withAlpha(yellow, 0.22)` + border `withAlpha(yellow, 0.7)`
+- Other matches: `withAlpha(yellow, 0.14)`
+- Foreground text: always opaque white for readability
 
-### Градации яркости
+### Text Brightness Scaling
 
 ```typescript
-text: {
-  primary: basePalette.light,           // 100% яркость
-  muted: mix(white, gray, 0.4),         // 60% яркость
-  subtle: mix(white, gray, 0.6),        // 40% яркость
-  inactive: mix(white, gray, 0.8)       // 20% яркость
+text = {
+  primary: white,
+  muted:   mix(white, gray, 0.4),
+  subtle:  mix(white, gray, 0.6),
+  inactive:mix(white, gray, 0.8)
 }
 ```
 
-## 📝 Подсветка синтаксиса
+## 📝 Syntax Highlighting
 
-### Приоритеты цветов
+### Priority Layers
 
-1. **Высокий приоритет** (яркие цвета)
-   - Ключевые слова: `magenta`
-   - Строки: `green`
-   - Функции: `blue`
+1. **High** – keywords (magenta), strings (green), functions (blue)
+2. **Medium** – variables (cyan), classes (yellow), types (teal)
+3. **Low** – comments (gray), punctuation (white), operators (purple)
 
-2. **Средний приоритет** (умеренные цвета)
-   - Переменные: `cyan`
-   - Классы: `yellow`
-   - Типы: `teal`
-
-3. **Низкий приоритет** (приглушенные цвета)
-   - Комментарии: `gray`
-   - Пунктуация: `white`
-   - Операторы: `purple`
-
-### Семантические токены
+### Semantic Tokens (Excerpt)
 
 ```json
 {
@@ -168,99 +154,79 @@ text: {
 }
 ```
 
-## 🔬 Научный подход
+## 🔬 Design Notes
 
-### HSL цветовое пространство
+### Color Spaces
 
-- **Hue (Оттенок)**: Основной цвет на цветовом круге
-- **Saturation (Насыщенность)**: Интенсивность цвета
-- **Lightness (Яркость)**: Светлота цвета
+Foundational operations historically operate in HSL (predictable interpolation). Perceptual adjustments (when `USE_PERCEPTUAL=1`) leverage OKLCH for neutral‐preserving mixing.
 
-### Контрастность (WCAG)
+### Contrast Targets (Advisory)
 
-- **AA уровень**: Минимум 4.5:1 для обычного текста
-- **AAA уровень**: Минимум 7:1 для важного текста
-- **Крупный текст**: Минимум 3:1
+AA (~4.5:1) aimed for all primary text; AAA (~7:1) sought on critical surfaces; large / inactive text may relax slightly while staying comfortably legible.
 
-### Цветовая гармония
+### Harmony Sets
 
-- **Аналогичные цвета**: blue → cyan → teal
-- **Комплементарные**: blue ↔ orange
-- **Триадные**: red → green → blue
+Analogous (blue→cyan→teal), complementary (blue↔orange), triadic (red→green→blue) relationships inform accent balance.
 
-## 🎯 Рекомендации по улучшению
+## 🎯 Improvement Ideas
 
-### 1. Исправить проблемы безопасности
+### 1. Input Validation
 
 ```typescript
-// Добавить валидацию hex цветов
-const validateHex = (hex: string): boolean => {
-  return /^#[0-9a-f]{6}$/i.test(hex)
-}
-
-// Добавить проверку диапазонов
-const clamp = (value: number, min: number, max: number): number => {
-  return Math.max(min, Math.min(max, value))
-}
+const validateHex = (hex: string): boolean => /^#[0-9a-f]{6}$/i.test(hex)
+const clamp = (v: number, min: number, max: number) => Math.max(min, Math.min(max, v))
 ```
 
-### 2. Улучшить типизацию
+### 2. Stricter Typing
 
 ```typescript
-// Более строгий тип для hex цветов
-type HexColor = `#${string}` & { __brand: 'hex' }
-
-// Валидация на уровне типов
+type HexColor = `#${string}` & { readonly __brand: unique symbol }
 const createHex = (hex: string): HexColor => {
-  if (!validateHex(hex)) throw new Error(`Invalid hex: ${hex}`)
+  if (!validateHex(hex)) throw new Error('Invalid hex: ' + hex)
   return hex as HexColor
 }
 ```
 
-### 3. Добавить обработку ошибок
+### 3. Robust Build Error Handling
 
 ```typescript
 export const buildTheme = () => {
   try {
-    console.log('🏗️  Сборка Tokyo Night темы...')
     const theme = generateTheme()
-    const themeJson = JSON.stringify(theme, null, 2) + '\n'
-    fs.writeFileSync(themePath, themeJson, 'utf8')
-    console.log(`✅ Тема создана: ${themePath}`)
-  } catch (error) {
-    console.error('❌ Ошибка сборки:', error)
+    fs.writeFileSync(themePath, JSON.stringify(theme, null, 2) + '\n', 'utf8')
+  } catch (e) {
+    console.error('Build failed:', e)
     process.exit(1)
   }
 }
 ```
 
-### 4. Разделить цвета для лучшей читаемости
+### 4. Differentiate Numeric vs Constant
 
 ```typescript
-// Различные цвета для number и constant
 export const syntaxPalette = {
-  number: basePalette.orange,     // Числа
-  constant: basePalette.yellow,   // Константы (true, false, null)
+  number: basePalette.orange,
+  constant: basePalette.yellow,
 }
 ```
 
-## 📈 Метрики качества
+## 📈 Quality Metrics (Illustrative)
 
-| Метрика | Значение | Статус |
-|---------|----------|--------|
-| **Базовых цветов** | 12 | ✅ Оптимально |
-| **Генерируемых цветов** | 366 | ✅ Полное покрытие |
-| **Токенов синтаксиса** | 13 | ✅ Достаточно |
-| **Контрастность** | WCAG AA+ | ✅ Доступно |
-| **Время сборки** | ~0.6s | ✅ Быстро |
-| **Размер темы** | 24KB | ✅ Компактно |
+| Metric | Value | Status |
+|--------|-------|--------|
+| Base colors | 12 | ✅ |
+| Workbench colors | 406 | ✅ |
+| Syntax tokens | 13 | ✅ |
+| Contrast (primary text) | ~AA / AAA | ✅ |
+| Build time | ~0.7–1.0s | ✅ |
+| Theme size | ~24KB | ✅ |
 
-## 🎨 Визуальные примеры
+## 🎨 Examples
 
-### Код JavaScript
+### JavaScript Sample
 
 ```javascript
-// Комментарий - серый (#565f89)
+// Comment - gray (#565f89)
 const userName = 'Tokyo'        // const: magenta, string: green
 function greetUser(name) {      // function: blue, parameter: cyan
   return `Hello, ${name}!`      // template: green, interpolation: cyan
@@ -275,22 +241,22 @@ class User {                    // class: yellow
 }
 ```
 
-### Интерфейс VS Code
+### VS Code Surfaces
 
-- **Фон редактора**: `#1a1b26` (черный)
-- **Активная вкладка**: `#202333` (темно-синий)
-- **Hover эффект**: `#7aa2f714` (синий с прозрачностью)
-- **Выделение**: `#7aa2f733` (синий с прозрачностью)
-- **Границы**: `#32364e` (серо-синий)
+- **Editor background**: `#1a1b26`
+- **Active tab**: `#202333`
+- **Hover veil**: `#7aa2f714`
+- **Selection**: `#7aa2f733`
+- **Thin borders**: `#32364e`
 
-## 🚀 Заключение
+## 🚀 Summary
 
-Tokyo Night Modern демонстрирует современный подход к созданию цветовых схем:
+The theme emphasizes:
 
-1. **Научность**: Математическое смешивание цветов
-2. **Минимализм**: 12 цветов → 366 цветов
-3. **Консистентность**: Единая система генерации
-4. **Читаемость**: WCAG-совместимые контрасты
-5. **Эстетика**: Вдохновение неоновыми огнями Токио
+1. **Minimal Inputs** – Small curated base set
+2. **Deterministic Generation** – DSL + guarded transforms
+3. **Consistency** – Role abstraction over manual overrides
+4. **Readability** – Balanced chroma + advisory contrast
+5. **Maintainability** – Partial snapshots & token count guard
 
-Тема идеально подходит для длительной работы с кодом, обеспечивая комфорт для глаз и отличную читаемость синтаксиса.
+Optimized for long coding sessions: calm, legible, low‑distraction.

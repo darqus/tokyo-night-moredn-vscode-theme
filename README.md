@@ -1,35 +1,35 @@
 # 🌆 Tokyo Night Modern
 
-> **Beautiful modern dark theme** for VS Code with carefully crafted colors and contemporary design.
+> A modern, meticulously balanced dark theme for VS Code — minimal base palette, declarative DSL mapping, full test guardrails.
 
 ![Tokyo Night Modern](static/ss_tokyo_night_modern.png)
 
 ## 🎨 Overview
 
-A **Tokyo Night dark theme** featuring:
-
-- **12 base colors** → **406 workbench UI colors** (programmatically generated)
-- **WCAG compliant** contrast ratios for accessibility
-- **Zero hardcoded colors** — centralized palette system
-- **Modern TypeScript architecture** with full test coverage
+- **12 base colors** → **406 workbench UI colors** (DSL‑generated)
+- WCAG‑aware contrast targets (advisory tests)
+- Zero hardcoded workbench colors – role‑driven interface layer
+- Declarative token DSL (`modernInterfaceMapping.ts`)
+- Partial snapshots for focused diffs
+- Full unit + structural validation (token count guard, forbidden list, alpha policies)
 
 ---
 
-### 🌎 Demo
+### 🌎 Live Preview
 
-🔮 [TRY ONLINE](https://vscode.dev/theme/lod-inc.tokyo-night-modern) 🔮
+🔮 [Open in vscode.dev](https://vscode.dev/theme/lod-inc.tokyo-night-modern)
 
 ---
 
 ### 🚀 Quick Start
 
 1. Open VS Code Extensions (`Ctrl+Shift+X`)
-2. Search "Tokyo Night Modern"
-3. Install and select **Tokyo Night Modern**
+2. Search “Tokyo Night Modern”
+3. Install & select **Tokyo Night Modern**
 
 ---
 
-### 🏗️ Architecture
+### 🏗️ Architecture (DSL 2.0)
 
 ```text
 12 base colors → 406 workbench colors → 13 syntax tokens
@@ -37,10 +37,12 @@ A **Tokyo Night dark theme** featuring:
 
 ```text
 src/
-├── core/           # Base palette + color utilities
-├── generators/     # Theme generation logic
-├── types/          # TypeScript definitions
-└── build.ts        # Main build script
+├── core/           # Base palette, interface roles, utilities
+├── generators/     # DSL + theme builder + token assembly
+├── types/          # Theme & palette types
+└── build.ts        # Build entry point
+
+Legacy engine + manual mapping removed in 2.0.0 (DSL is authoritative).
 ```
 
 ---
@@ -51,22 +53,23 @@ src/
 git clone https://github.com/darqus/tokyo-night-modern-vscode-theme.git
 cd tokyo-night-modern-vscode-theme
 npm install
-npm run build         # Build theme (~0.7–1.0s)
-npm test              # Run unit tests (49+ tests)
-npm run validate:all  # Validate theme schema + run tests
-npm run test:coverage # Coverage report (expect ~100% / ~97% branches)
+npm run build         # Build theme
+npm test              # Run test suite (unit + snapshots)
+npm run validate:all  # Validate + tests
+npm run docs:tokens   # Generate docs/TOKENS.md from DSL
+npm run test:coverage # Coverage report
 ```
 
 ---
 
-### 📊 Metrics
+### 📊 Metrics (Guarded)
 
 | Metric | Value | Status |
 |--------|-------|--------|
 | **Base colors** | 12 | ✅ |
 | **Workbench colors** | 406 | ✅ |
 | **Syntax tokens** | 13 | ✅ |
-| **Tests** | 49 | ✅ |
+| **Tests** | 130 | ✅ |
 | **Build time** | ~0.7–1.0s | ✅ |
 | **Hardcoded colors** | 0 | ✅ |
 
@@ -78,6 +81,7 @@ npm run test:coverage # Coverage report (expect ~100% / ~97% branches)
 - [Development](docs/DEVELOPMENT.md) - Build and contribute
 - [Colors](docs/COLORS.md) - Color palette reference
 - [Theme Analysis](docs/THEME_ANALYSIS.md) - Architecture deep dive
+- [Tokens](docs/TOKENS.md) - Auto‑generated token table (DSL)
 - [Color Engine (sRGB vs OKLCH)](docs/COLOR_ENGINE.md) - Rules for color operations and transparency
 - [Release & Versioning](docs/RELEASE_VERSIONING.md) - Automated releases and version rules
 - [Contributing](docs/CONTRIBUTING.md) - Guidelines for contributing
@@ -90,10 +94,16 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-### 🌆 Tokyo Night Modern theme
+### 🔥 2.0.0 Breaking Changes
 
-Crafted with ❤️ for developers
+- Removed legacy files: `interfaceMapping.ts`, `themeEngine.ts`, related types
+- Migration: import `createTokens` from `modernInterfaceMapping.ts`
+- Added partial snapshots (core / lists_panels / terminal_widgets)
+- Added token documentation generator (`docs:tokens`)
 
-⭐ [GitHub](https://github.com/darqus/tokyo-night-modern-vscode-theme)
+### 🌆 Tokyo Night Modern
 
-📦 [Marketplace](https://marketplace.visualstudio.com/items?itemName=lod-inc.tokyo-night-modern)
+Crafted with ❤️ for long coding sessions.
+
+⭐ GitHub: <https://github.com/darqus/tokyo-night-modern-vscode-theme>
+📦 Marketplace: <https://marketplace.visualstudio.com/items?itemName=lod-inc.tokyo-night-modern>

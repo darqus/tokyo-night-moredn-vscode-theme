@@ -2,8 +2,45 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [1.18.19](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.17.42...v1.18.19) (2025-09-24)
+## [2.0.0](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.18.19...v2.0.0) (2025-09-25)
 
+### ⚠️ BREAKING CHANGES
+
+* Полностью удалены legacy-файлы: `src/generators/interfaceMapping.ts`, `src/core/themeEngine.ts`, `src/types/themeEngine.ts`.
+* Единственным источником маппинга токенов теперь является `modernInterfaceMapping.ts` (DSL).
+* Любые внешние импорты из перечисленных legacy-файлов больше не работают — требуется перейти на DSL API (`createTokens` / `colorMappings` из `modernInterfaceMapping`).
+
+### Изменения
+
+* Удаление устаревшего движка ThemeEngine и связанных типов.
+* Удаление shim-файла `interfaceMapping.ts` (ранее выводил предупреждение).
+* Мажорный bump версии до 2.0.0 для фиксации границы совместимости.
+* Добавлены частичные снапшоты (`core`, `lists_panels`, `terminal_widgets`) для более точечных диффов.
+* Генерация документации по токенам автоматизирована (`docs:tokens`).
+
+### Миграция
+
+1. Замените импорт
+ `import { colorMappings } from './generators/interfaceMapping'` → `import { createTokens as colorMappings } from './generators/modernInterfaceMapping'`.
+2. Если использовались типы ThemeEngine / ThemePlugin — перенесите логику напрямую в слой генерации темы или используйте собственную обёртку.
+3. Обновите скрипты: убедитесь, что не осталось ссылок на удалённые файлы.
+
+### Причина изменения
+
+Старый движок создавал путаницу, дублировал ответственность и замедлял внедрение новых токенов. DSL предоставляет:
+
+* Декларативность и прозрачность.
+* Единый источник правды для генерации и документации.
+* Простую валидацию и подсчёт стабильного количества токенов.
+
+### Верификация
+
+* Все тесты пройдены после удаления (см. частичные снапшоты и счётчик токенов).
+* Количество color tokens остаётся стабильным (guard тест не изменён).
+
+---
+
+### [1.18.19](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.17.42...v1.18.19) (2025-09-24)
 
 ### Features
 
@@ -19,7 +56,6 @@ All notable changes to this project will be documented in this file. See [standa
 ### [1.17.42](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.17.41...v1.17.42) (2025-09-23)
 
 ### [1.17.41](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.16.20...v1.17.41) (2025-09-23)
-
 
 ### Features
 
@@ -39,7 +75,6 @@ All notable changes to this project will be documented in this file. See [standa
 * **theme:** lighten tooltip background for readability ([519926d](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/519926d498297e15e6a0ac312d8b01b17b61b253))
 * **titleBar:** adjust title bar foreground colors ([350f9a3](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/350f9a34529e299d3c40998d2a54dbab21963396))
 
-
 ### Bug Fixes
 
 * adjust activity bar background and active background ([4810dec](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/4810deceebe63585e6d4d8f537d0753130b31904))
@@ -48,7 +83,6 @@ All notable changes to this project will be documented in this file. See [standa
 * **theme:** correct color mappings and improve contrast in interface palette ([7b420fe](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/7b420fe8d3639cf0d1041b221e879149997eb47a))
 
 ### [1.16.20](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.15.35...v1.16.20) (2025-09-22)
-
 
 ### Features
 
@@ -61,13 +95,11 @@ All notable changes to this project will be documented in this file. See [standa
 * **theme:** add new color tokens and update existing ones ([0c6c683](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/0c6c683e4e9512780f40fe4148edb11468bb4893))
 * **theme:** enhance terminal and debugging UI ([025da0f](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/025da0f670db2f5561c52cccd78cda9fa2342f64))
 
-
 ### Bug Fixes
 
 * **theme:** adjust text colors for better contrast and visibility ([247df3a](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/247df3abe9042e3511d0fbcc0c7bca31d0880a15))
 
 ### [1.15.35](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.14.54...v1.15.35) (2025-09-22)
-
 
 ### Features
 
@@ -90,7 +122,6 @@ All notable changes to this project will be documented in this file. See [standa
 * **theme:** refactor color system and add contrast checks ([19b9986](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/19b998660d1bf76d2cb1582f39cd8887bef44419))
 * **theme:** standardize thin borders and enhance color contrast ([1d63ed5](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/1d63ed5b23fd8fb809b0f1fc2192f9aafcb3cb6c))
 
-
 ### Bug Fixes
 
 * **theme:** update activityBar inactive foreground color ([6f222d2](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/6f222d249501066215e8a44850d4a16ba96d43bc))
@@ -99,13 +130,11 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [1.14.54](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.14.52...v1.14.54) (2025-09-21)
 
-
 ### Bug Fixes
 
 * **theme:** remove editor.findMatchHighlightForeground to avoid warnings ([084be1a](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/084be1a33ba606fccdedd159cf61311f28d9ee63))
 
 ### [1.14.52](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.14.33...v1.14.52) (2025-09-21)
-
 
 ### Features
 
@@ -114,20 +143,17 @@ All notable changes to this project will be documented in this file. See [standa
 * **theme:** enhance SCM graph colors and adjust find match highlighting ([666870f](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/666870ff90a96a15e6a7d73444a0a27792387208))
 * **theme:** update theme description for enhanced marketing ([3bb436a](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/3bb436acdfb740eb66d94dea390de673ce330566))
 
-
 ### Bug Fixes
 
 * **theme:** update extensionButton prominent hover background color ([5c883e8](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/5c883e84420912d89437d38b8fa10363fec9386f))
 
 ### [1.14.33](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.14.32...v1.14.33) (2025-09-21)
 
-
 ### Features
 
 * **interface:** add blockquote colors to interface palette ([b4214f3](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/b4214f3c463733634f6220a54074a42e46dba1a0))
 
 ### [1.14.32](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.14.29...v1.14.32) (2025-09-21)
-
 
 ### Features
 
@@ -137,7 +163,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [1.14.29](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.14.23...v1.14.29) (2025-09-20)
 
-
 ### Features
 
 * **docs:** add release versioning information and update README metrics ([acf7fa8](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/acf7fa83065ed3660df5a7b3f5ec51c5a0f82485))
@@ -145,13 +170,11 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [1.14.23](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.14.22...v1.14.23) (2025-09-20)
 
-
 ### Features
 
 * **release:** incorporate commit count into version bump ([c146ac4](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/c146ac4d05ea3733372513e83d3b981e9c516a81))
 
 ### [1.14.22](https://github.com/darqus/tokyo-night-modern-vscode-theme/compare/v1.14.21...v1.14.22) (2025-09-20)
-
 
 ### Features
 
@@ -160,7 +183,6 @@ All notable changes to this project will be documented in this file. See [standa
 * **theme:** improve secondary button appearance with cooler outline ([1600237](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/160023764a9d81b2aafaafb71dd875efa508fd18))
 * **theme:** unify terminal blue and cyan ANSI colors with link color ([c995844](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/c99584410ccd2783c6923cf645b1adcc963fadda))
 * **theme:** update Tokyo Night Modern theme colors ([8ddcda1](https://github.com/darqus/tokyo-night-modern-vscode-theme/commit/8ddcda18516afb4ed6957f33bd206212a358913d))
-
 
 ### Bug Fixes
 

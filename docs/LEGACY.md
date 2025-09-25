@@ -1,40 +1,42 @@
-# Legacy Components
+# Legacy Components (2.0.0 Reference)
 
-Ниже перечислены элементы, находящиеся в режиме совместимости и планируемые к удалению в следующем мажорном релизе.
+As of 2.0.0 all previously deprecated files are removed. This document remains for historical reference and migration help.
 
-## Файлы
+## Removed Files
 
-| Файл | Статус | Причина депрекации | Заменён на |
-|------|--------|--------------------|------------|
-| `src/generators/interfaceMapping.ts` | deprecated (shim) | Дублировал логику мэппинга вручную | `modernInterfaceMapping.ts` (DSL) |
-| `src/core/themeEngine.ts` | legacy / unused | Избыточная абстракция (плагины, фабрика) не используемая сборкой | Прямой `generateTheme` + DSL |
+| File | Status | Deprecation Reason | Replacement |
+|------|--------|--------------------|-------------|
+| `src/generators/interfaceMapping.ts` | removed in 2.0.0 | Manual duplicate mapping logic | `modernInterfaceMapping.ts` (DSL) |
+| `src/core/themeEngine.ts` | removed in 2.0.0 | Unused abstraction (plugins/factory) | Direct `generateTheme` + DSL |
+| `src/types/themeEngine.ts` | removed in 2.0.0 | Types only served removed engine | Native theme types (`VSCodeTheme`) |
 
-## Политика
+## Policy (Post 2.0.0)
 
-- Новые PR не должны модифицировать legacy-файлы.
-- После стабилизации DSL и docs — удаление в версии `2.x` (или первой следующей major).
-- При необходимости временной обратной совместимости для внешних импортов: оставить предупреждение + реэкспорт.
+- Legacy artifacts must not reappear.
+- DSL (`modernInterfaceMapping.ts`) is the sole mapping layer.
+- No backward shims; imports must be updated.
 
-## Миграция
+## Migration (1.x → 2.0.0)
 
-Если кто-то подключал `colorMappings` из `interfaceMapping.ts` напрямую:
+If you imported `colorMappings` from the legacy file:
 
 ```ts
-// Старый способ (устарел)
+// Old (removed)
 import { colorMappings } from '.../interfaceMapping'
 
-// Новый способ
+// New
 import { createTokens } from '.../modernInterfaceMapping'
 const colors = createTokens(interfacePalette)
 ```
 
-## Признаки к удалению
+## Removal Criteria
 
-- Отсутствие обращений в репозитории (поиск по коду) > 1 релиз.
-- Не фигурирует в официальной документации.
+- No internal references for > 1 minor iteration.
+- No demonstrated plugin extension need.
+- DSL clarity + tests fully covered previous logic.
 
-## Что дальше
+## Roadmap After Removal
 
-1. Генерация таблиц токенов из DSL → docs.
-2. Модульное получение partial-групп (для будущего theming tooling).
-3. Мажорный релиз без legacy.
+1. Expand OKLCH operations default (env‑flagged → stable).
+2. Enhance diff script (group / hue deltas).
+3. Broaden perceptual tests for layered semi‑transparent overlays.
