@@ -4,6 +4,18 @@
 
 export type Hex = `#${string}`
 
+export interface RGB {
+  r: number
+  g: number
+  b: number
+}
+
+export interface OKLCH {
+  l: number
+  c: number
+  h: number
+}
+
 export interface VSCodeTheme {
   name: string
   type: 'dark' | 'light'
