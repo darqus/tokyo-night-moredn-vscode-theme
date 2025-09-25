@@ -6,7 +6,7 @@ exports[`Theme partial snapshot: core surfaces should match core surface tokens 
   "activityBar.activeBorder": "#7dcfff",
   "activityBar.background": "#1f2230",
   "activityBar.foreground": "#99a3cc",
-  "activityBar.inactiveForeground": "#8087a7",
+  "activityBar.inactiveForeground": "#909abe",
   "activityBarBadge.background": "#007acc",
   "activityBarBadge.foreground": "#ffffff",
   "descriptionForeground": "#99a3cc",
@@ -67,6 +67,6 @@ exports[`Theme partial snapshot: core surfaces should match core surface tokens 
   "titleBar.activeForeground": "#8991b3",
   "titleBar.border": "#202230",
   "titleBar.inactiveBackground": "#1f2230",
-  "titleBar.inactiveForeground": "#8087a7",
+  "titleBar.inactiveForeground": "#909abe",
 }
 `;
