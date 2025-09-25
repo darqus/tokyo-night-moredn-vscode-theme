@@ -53,6 +53,7 @@
     "test:watch": "jest tests/unit --watch",
     "test:coverage": "jest tests/unit --coverage",
     "docs:registry": "ts-node scripts/generate-token-registry-doc.ts",
+    "docs:tokens": "ts-node scripts/generate-token-docs.ts",
     "package": "npm run build && vsce package",
     "release": "ts-node scripts/release.ts",
     "release:dry": "ts-node scripts/release.ts --dry-run",
