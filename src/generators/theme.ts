@@ -7,6 +7,8 @@ import { SURFACE_FOREGROUND_MAP } from './surfaceForeground'
 import { createTokens } from './modernInterfaceMapping'
 import { warmupColorCache } from '../core/colorEngine'
 import type { VSCodeTheme } from '../types/theme'
+import { readFileSync } from 'fs'
+import { join } from 'path'
 
 // Тип для переменных окружения темы
 interface ThemeEnvVars {
@@ -28,27 +30,24 @@ interface ThemeEnvVars {
 // Загрузка переменных окружения
 export const loadEnvVars = (): ThemeEnvVars => {
   const env = process.env
+  const pkgPath = join(process.cwd(), 'package.json')
+  const pkg = JSON.parse(readFileSync(pkgPath, 'utf-8'))
   const themeType = env.THEME_TYPE || 'dark'
 
   return {
-    THEME_NAME: env.THEME_NAME || 'tokyo-night-modern',
-    THEME_DISPLAY_NAME: env.THEME_DISPLAY_NAME || 'Tokyo Night Modern',
-    THEME_DESCRIPTION:
-      env.THEME_DESCRIPTION ||
-      'Beautiful modern dark theme for VS Code with carefully crafted colors and contemporary design',
-    THEME_VERSION: env.THEME_VERSION || '1.18.19',
-    THEME_AUTHOR: env.THEME_AUTHOR || 'lod',
-    THEME_PUBLISHER: env.THEME_PUBLISHER || 'lod-inc',
-    THEME_LICENSE: env.THEME_LICENSE || 'MIT',
-    THEME_REPOSITORY_URL:
-      env.THEME_REPOSITORY_URL ||
-      'https://github.com/darqus/tokyo-night-modern-vscode-theme',
-    THEME_BUGS_URL:
-      env.THEME_BUGS_URL ||
-      'https://github.com/darqus/tokyo-night-modern-vscode-theme/issues',
-    THEME_CATEGORIES: env.THEME_CATEGORIES || 'Themes',
-    THEME_KEYWORDS: env.THEME_KEYWORDS || 'theme,tokyo,night,dark',
-    THEME_FILENAME: env.THEME_FILENAME || 'tokyo-night-modern-color-theme',
+    THEME_NAME: env.THEME_NAME || pkg.name,
+    THEME_DISPLAY_NAME: env.THEME_DISPLAY_NAME || pkg.displayName,
+    THEME_DESCRIPTION: env.THEME_DESCRIPTION || pkg.description,
+    THEME_VERSION: env.THEME_VERSION || pkg.version,
+    THEME_AUTHOR: env.THEME_AUTHOR || pkg.author,
+    THEME_PUBLISHER: env.THEME_PUBLISHER || pkg.publisher,
+    THEME_LICENSE: env.THEME_LICENSE || pkg.license,
+    THEME_REPOSITORY_URL: env.THEME_REPOSITORY_URL || pkg.repository?.url,
+    THEME_BUGS_URL: env.THEME_BUGS_URL || pkg.bugs?.url,
+    THEME_CATEGORIES: env.THEME_CATEGORIES || (pkg.categories || []).join(','),
+    THEME_KEYWORDS: env.THEME_KEYWORDS || (pkg.keywords || []).join(','),
+    THEME_FILENAME:
+      env.THEME_FILENAME || 'tokyo-night-modern-color-theme',
     THEME_TYPE: themeType === 'light' ? 'light' : 'dark',
   }
 }
