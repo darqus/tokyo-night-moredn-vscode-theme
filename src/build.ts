@@ -11,9 +11,14 @@ const themePath = path.join(root, 'themes', `${env.THEME_FILENAME}.json`)
 
 export const buildTheme = () => {
   try {
-    console.log('🏗️  Сборка темы...')
-    console.log(`📝 Название: ${env.THEME_DISPLAY_NAME}`)
-    console.log(`🎨 Тип: ${env.THEME_TYPE}`)
+    const quiet = process.env.QUIET === '1'
+    const log = (...args: any[]) => {
+      if (!quiet) console.log(...args)
+    }
+
+    log('🏗️  Сборка темы...')
+    log(`📝 Название: ${env.THEME_DISPLAY_NAME}`)
+    log(`🎨 Тип: ${env.THEME_TYPE}`)
 
     const themesDir = path.dirname(themePath)
     if (!fs.existsSync(themesDir)) {
@@ -24,8 +29,8 @@ export const buildTheme = () => {
     const themeJson = JSON.stringify(theme, null, 2) + '\n'
     fs.writeFileSync(themePath, themeJson, 'utf8')
 
-    console.log(`✅ Тема создана: ${themePath}`)
-    console.log(
+    log(`✅ Тема создана: ${themePath}`)
+    log(
       `📊 Цветов: ${Object.keys(theme.colors).length}, Токенов: ${
         theme.tokenColors.length
       }`

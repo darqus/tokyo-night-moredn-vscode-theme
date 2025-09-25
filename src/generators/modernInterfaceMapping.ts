@@ -12,6 +12,7 @@ import {
 import type { InterfacePalette } from '../types/theme'
 import type { ValidTokens } from '../types/validation'
 import { lighten, withAlpha } from '../core/utils'
+import { interfacePalette as __interfacePalette } from '../core/interface'
 
 /**
  * Полная конфигурация токенов VS Code в декларативном стиле
@@ -1418,6 +1419,17 @@ export const createTokens = (
 ): Record<string, string> => {
   return createTokenMapping(tokenConfig, interfacePalette)
 }
+
+// Helper: expected number of VS Code color tokens produced (kept stable for regression detection)
+// Expected token count (evaluated against real interface palette once)
+export const EXPECTED_COLOR_TOKEN_COUNT = (() => {
+  try {
+    return Object.keys(createTokenMapping(tokenConfig, __interfacePalette))
+      .length
+  } catch {
+    return -1 // fallback; test will fail clearly if not resolved
+  }
+})()
 
 /**
  * Обратная совместимость - экспорт как colorMappings

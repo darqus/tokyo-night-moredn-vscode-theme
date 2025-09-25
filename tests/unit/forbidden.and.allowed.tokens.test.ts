@@ -14,6 +14,8 @@ describe('Allowed/Forbidden tokens enforcement', () => {
       e.includes('Forbidden token')
     )
     expect(denyErrors).toEqual([])
+    // Critical guard merged from schema.forbidden.tokens.test.ts
+    expect(colors['debugConsole.background']).toBeUndefined()
     // We don't enforce zero-warnings here because the valid token list in code may be a curated subset.
   })
 

@@ -1,8 +1,31 @@
 /**
- * @fileoverview
- * Семантические сопоставления цветов интерфейса VS Code.
- * Группирует токены по компонентам для улучшения модульности и удобства сопровождения.
+ * LEGACY FILE (deprecated)
+ * -------------------------------------------------------------
+ * Этот файл сохранён для обратной совместимости. Основной источник
+ * маппинга теперь: `modernInterfaceMapping.ts` (DSL декларативный).
+ * Новые правки В МАППИНГ ВНОСИТЬ НЕ НУЖНО сюда.
+ * Оставлен минимальный экспорт/типизация, чтобы не ломать возможные
+ * внешние импорты. В ближайшем мажорном релизе файл будет удалён.
  */
+
+// Lightweight one-time warning
+let __warned = false
+function legacyWarn() {
+  if (!__warned && process.env.SUPPRESS_LEGACY_WARNING !== '1') {
+    __warned = true
+    // eslint-disable-next-line no-console
+    console.warn(
+      '[interfaceMapping.ts] deprecated: use modernInterfaceMapping.ts'
+    )
+  }
+}
+
+legacyWarn()
+
+// Re-export minimal API surface from modern mapping
+export { createTokens as colorMappings } from './modernInterfaceMapping'
+
+// ---- Below: retained original types for compatibility (trimmed) ----
 
 import { InterfacePalette } from '../types'
 
@@ -913,47 +936,4 @@ const welcomePageColors = (p: InterfacePalette): Partial<ColorMapping> => ({
   'walkThrough.embeddedEditorBackground': p.bg.elevated,
 })
 
-export const colorMappings = (
-  palette: InterfacePalette
-): Record<string, string> => ({
-  ...baseColors(palette),
-  ...titleBarColors(palette),
-  ...menuColors(palette),
-  ...commandCenterColors(palette),
-  ...editorColors(palette),
-  ...editorGroupColors(palette),
-  ...activityBarColors(palette),
-  ...sideBarColors(palette),
-  ...statusBarColors(palette),
-  ...tabColors(palette),
-  ...listColors(palette),
-  ...inputColors(palette),
-  ...buttonColors(palette),
-  ...dropdownColors(palette),
-  ...badgeAndProgressBarColors(palette),
-  ...panelColors(palette),
-  ...terminalColors(palette),
-  ...linkAndQuoteColors(palette),
-  ...scrollbarColors(palette),
-  ...notificationColors(palette),
-  ...extensionColors(palette),
-  ...gitColors(palette),
-  ...scmGraphColors(palette),
-  ...diffEditorColors(palette),
-  ...settingsColors(palette),
-  ...breadcrumbColors(palette),
-  ...widgetColors(palette),
-  ...peekViewColors(palette),
-  ...editorWidgetColors(palette),
-  ...editorSuggestWidgetColors(palette),
-  ...editorHoverWidgetColors(palette),
-  ...debugColors(palette),
-  ...testingColors(palette),
-  ...mergeAndMinimapColors(palette),
-  ...searchEditorAndProblemsColors(palette),
-  ...chartsAndPortsColors(palette),
-  ...checkboxAndToolbarColors(palette),
-  ...inlineChatColors(palette),
-  ...iconAndKeybindingColors(palette),
-  ...welcomePageColors(palette),
-})
+// (legacy colorMappings implementation removed; using DSL re-export)
