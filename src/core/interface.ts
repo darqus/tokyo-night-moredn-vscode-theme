@@ -24,7 +24,7 @@ export const interfacePalette: InterfacePalette = {
     // OKLCH: легкая коррекция L для лучшей перцептуальной читаемости
     // amount 0.2 ~ +0.02 L, 0.3 ~ +0.03 L, 0.4 ~ +0.04 L
     // Make hover/active/selection a bit brighter and slightly more opaque
-    hover: withAlpha(lightenPerceptual(basePalette.blue, 0.25), 0.12),
+    hover: withAlpha(lightenPerceptual(basePalette.gray, 0.25), 0.12),
     active: withAlpha(lightenPerceptual(basePalette.blue, 0.35), 0.16),
     selection: withAlpha(lightenPerceptual(basePalette.blue, 0.45), 0.26),
     // Специализированные hover цвета
@@ -211,7 +211,10 @@ export const interfacePalette: InterfacePalette = {
     findMatch: {
       // Переключаем схему подсветки поиска на холодный «ссылочный» синий
       // Легкое осветление link‑синего и прозрачность, чтобы не перекрывать контент
-      background: withAlpha(lightenPerceptual(basePalette.linkDefault, 0.2), 0.22),
+      background: withAlpha(
+        lightenPerceptual(basePalette.linkDefault, 0.2),
+        0.22
+      ),
       // Полупрозрачная синяя граница для четкости
       border: withAlpha(basePalette.linkDefault, 0.6),
       // Вариант подсветки для менее сильных совпадений — чуть светлее и прозрачнее
@@ -232,11 +235,7 @@ export const interfacePalette: InterfacePalette = {
         0.9
       ),
       // scrollbar: на чуть-чуть мягче (меньше синего)
-      scrollbar: mixPerceptual(
-        basePalette.bgOverlay,
-        basePalette.blue,
-        0.04
-      ),
+      scrollbar: mixPerceptual(basePalette.bgOverlay, basePalette.blue, 0.04),
     },
     // Peek View: использовать те же холодные OKLCH‑тоны, что и selection,
     // но с очень малым ΔL/ΔC для match highlight, чтобы он чуть отличался от selection
