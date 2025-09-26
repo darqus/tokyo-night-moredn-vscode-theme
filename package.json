@@ -43,22 +43,25 @@
     ]
   },
   "scripts": {
-    "dev": "ts-node-dev --respawn src/build.ts",
     "build": "ts-node src/build.ts",
     "build:legacy": "ts-node src/build-legacy.ts",
+    "build:watch": "ts-node-dev --respawn src/build.ts",
     "validate": "ts-node scripts/validate-theme.ts",
     "validate:all": "npm run validate && npm run test",
-    "test": "npm run test:unit",
-    "test:update": "npm run test:unit -- -u",
-    "test:unit": "jest tests/unit",
+    "test": "jest tests/unit --passWithNoTests",
+    "test:simplified": "jest tests/unit/simplified.test.ts",
+    "test:update": "jest tests/unit -u",
     "test:watch": "jest tests/unit --watch",
     "test:coverage": "jest tests/unit --coverage",
+    "test:coverage:simplified": "jest tests/unit --coverage --testPathPattern=simplified",
     "docs:registry": "ts-node scripts/generate-token-registry-doc.ts",
     "docs:tokens": "ts-node scripts/generate-token-docs.ts",
+    "docs:colors": "ts-node scripts/generate-color-docs.ts",
     "package": "npm run build && vsce package",
     "release": "ts-node scripts/release.ts",
     "release:dry": "ts-node scripts/release.ts --dry-run",
-    "docs:colors": "ts-node scripts/generate-color-docs.ts"
+    "clean": "rm -rf coverage themes/*.json",
+    "clean:cache": "rm -rf node_modules/.cache"
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",

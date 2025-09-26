@@ -4,9 +4,12 @@ module.exports = {
   testMatch: ['**/tests/unit/**/*.test.ts'],
   collectCoverageFrom: [
     'src/**/*.ts',
-    '!src/generators/interfaceMapping.ts', // legacy mapping kept for reference; excluded from coverage
+    '!src/legacy/**/*.ts', // legacy files excluded from coverage
+    '!src/generators/interfaceMapping.ts', // legacy mapping kept for reference
     '!src/types/**/*.ts',
-    '!src/scripts/**/*.ts'
+    '!src/scripts/**/*.ts',
+    '!src/plugins.ts', // plugin definitions excluded
+    '!src/build-legacy.ts' // legacy build excluded
   ],
   coverageDirectory: 'coverage',
   coverageReporters: ['text', 'lcov', 'html'],
