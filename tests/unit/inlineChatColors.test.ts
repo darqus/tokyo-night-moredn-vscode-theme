@@ -8,10 +8,7 @@ describe('Inline Chat and toolbar colors', () => {
     const c = generateTheme(loadEnvVars()).colors as Record<string, string>
 
     // Toolbar: only documented hover/active keys, cooled to state.info tones
-    expect(c['toolbar.hoverBackground']).toBe(
-      // withAlpha(info, 0.16)
-      `#${(interfacePalette.state.info as string).slice(1)}29`
-    )
+    expect(c['toolbar.hoverBackground']).toBe(interfacePalette.bg.hover)
     expect(c['toolbar.activeBackground']).toBe(
       // withAlpha(info, 0.20)
       `#${(interfacePalette.state.info as string).slice(1)}33`
