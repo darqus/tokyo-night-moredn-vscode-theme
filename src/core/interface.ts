@@ -139,8 +139,8 @@ export const interfacePalette: InterfacePalette = {
     removedLineBackground: withAlpha(basePalette.stateError, 0.08),
   },
   minimap: {
-    // Balanced: use cool link‑blue to align with links/highlights
-    findMatchHighlight: withAlpha(basePalette.linkDefault, 0.4),
+    // Используем розовый/пурпурный цвет для согласованности с поиском в панелях
+    findMatchHighlight: withAlpha(basePalette.magenta, 0.4),
   },
   // Элементы управления
   dropdown: {
@@ -209,17 +209,17 @@ export const interfacePalette: InterfacePalette = {
       dropBackground: withAlpha(basePalette.bgOverlay, 0.2),
     },
     findMatch: {
-      // Переключаем схему подсветки поиска на холодный «ссылочный» синий
-      // Легкое осветление link‑синего и прозрачность, чтобы не перекрывать контент
+      // Переключаем схему подсветки поиска на розовый/пурпурный для лучшей видимости
+      // Легкое осветление пурпурного и прозрачность, чтобы не перекрывать контент
       background: withAlpha(
-        lightenPerceptual(basePalette.linkDefault, 0.2),
+        lightenPerceptual(basePalette.magenta, 0.2),
         0.22
       ),
-      // Полупрозрачная синяя граница для четкости
-      border: withAlpha(basePalette.linkDefault, 0.6),
+      // Полупрозрачная розовая граница для четкости
+      border: withAlpha(basePalette.magenta, 0.6),
       // Вариант подсветки для менее сильных совпадений — чуть светлее и прозрачнее
       highlightBackground: withAlpha(
-        lightenPerceptual(basePalette.linkDefault, 0.28),
+        lightenPerceptual(basePalette.magenta, 0.28),
         0.16
       ),
     },
