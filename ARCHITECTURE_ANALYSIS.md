@@ -155,6 +155,7 @@ export class CacheManager implements ICacheManager {
 - **Нарушение принципа единой ответственности** в `interfacePalette`
 - **Смешение абстракций** - базовые цвета и производные в одном месте
 - **Отсутствие стратегии миграции** для устаревших токенов
+- **Неоптимальная структура палитры** - избыточные алиасы и дубликаты
 
 #### Последствия
 
@@ -176,14 +177,49 @@ derived: {
 2. **Реализован `TokenDSL`** - декларативное описание токенов
 3. **Добавлен `SurfaceManager`** - управление поверхностями и их свойствами
 4. **Улучшена модульность** - разделение на независимые компоненты
+5. **Улучшена структура палитры** - устранены дубликаты и улучшено именование
 
 ```typescript
 // Новая архитектура с четким разделением ответственности
 export interface IBasePalette {
-  primary: Hex
-  secondary: Hex
-  accent: Hex
-  // ... базовые цвета
+  // Базовые цвета
+  black: Hex
+  gray: Hex
+  light: Hex
+  white: Hex
+  blue: Hex
+  cyan: Hex
+  teal: Hex
+  purple: Hex
+  green: Hex
+  yellow: Hex
+  orange: Hex
+  red: Hex
+  magenta: Hex
+  
+  // Поверхности
+  bgPrimary: Hex
+  bgSecondary: Hex
+  bgTertiary: Hex
+  bgOverlay: Hex
+  
+  // Текстовые роли
+  textDefault: Hex
+  textSecondary: Hex
+  textMuted: Hex
+  textSubtle: Hex
+  textInverse: Hex
+  
+  // Другие элементы
+  borderDefault: Hex
+  buttonPrimary: Hex
+  linkDefault: Hex
+  
+  // Состояния
+  stateSuccess: Hex
+  stateWarning: Hex
+  stateError: Hex
+  stateInfo: Hex
 }
 
 export interface IInterfacePalette {
@@ -455,15 +491,15 @@ const tokyoNightConfig: ThemeConfig = {
   surfaces: [
     {
       name: 'editor',
-      background: 'bgBase',
-      foreground: 'textPrimary',
+      background: 'bgPrimary',
+      foreground: 'textDefault',
       // ...
     }
   ],
   tokens: [
     {
       name: 'editor.background',
-      source: 'bgBase',
+      source: 'bgPrimary',
       description: 'Background color of the editor',
     }
   ],
@@ -632,6 +668,7 @@ class ExtensionManager {
 - **Реализован `TokenDSL`** (`src/generators/tokenDSL.ts`) - декларативное описание токенов
 - **Добавлен `SurfaceManager`** (`src/core/surfaces.ts`) - управление поверхностями и их свойствами
 - **Улучшена модульность** - разделение на независимые компоненты
+- **Улучшена структура палитры** - устранены дубликаты и улучшено семантическое именование
 
 #### 4. **Реализована расширяемость**
 
@@ -747,6 +784,7 @@ class ExtensionManager {
 - **Реализован `TokenDSL`** (`src/generators/tokenDSL.ts`) - декларативное описание токенов
 - **Добавлен `SurfaceManager`** (`src/core/surfaces.ts`) - управление поверхностями и их свойствами
 - **Улучшена модульность** - разделение на независимые компоненты
+- **Улучшена структура палитры** - устранены дубликаты и улучшено семантическое именование
 
 #### 4. **Реализована расширяемость**
 

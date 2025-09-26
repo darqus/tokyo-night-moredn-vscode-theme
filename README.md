@@ -45,6 +45,16 @@ src/
 Legacy engine + manual mapping removed in 2.0.0 (DSL is authoritative).
 ```
 
+### 🎨 Palette Structure
+
+The color palette follows a semantic naming convention for improved clarity:
+
+- **Base colors**: `black`, `gray`, `light`, `white`, `blue`, `cyan`, `teal`, `purple`, `green`, `yellow`, `orange`, `red`, `magenta`
+- **Surface colors**: `bgPrimary`, `bgSecondary`, `bgTertiary`, `bgOverlay`
+- **Text colors**: `textDefault`, `textSecondary`, `textMuted`, `textSubtle`, `textInverse`
+- **State colors**: `stateSuccess`, `stateWarning`, `stateError`, `stateInfo`
+- **UI elements**: `buttonPrimary`, `borderDefault`, `linkDefault`
+
 ---
 
 ### 🛠️ Development

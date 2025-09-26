@@ -19,8 +19,9 @@ Tokyo Night Modern is a dark VS Code theme inspired by cool neon ambience. It us
 ```typescript
 // Neutrals (structural)
 black:  '#1a1b26' // Base background
-gray:   '#565f89' // Comments / subtle UI
+gray:   '#6b78a8' // Comments / subtle UI
 white:  '#c0caf5' // Primary foreground
+light:  '#c0caf5' // Light text tier / punctuation
 
 // Cool accents (structural priority)
 blue:   '#7aa2f7' // Functions / calls
@@ -29,11 +30,11 @@ teal:   '#73daca' // Types / interfaces
 purple: '#9d7cd8' // Operators / modifiers
 
 // Warm accents (semantic emphasis)
-green:  '#9ece6a' // Strings / content
-yellow: '#e0af68' // Classes / important
-orange: '#ff9e64' // Numbers / constants
-red:    '#f7768e' // Errors / removals
-magenta:'#bb9af7' // Attributes / meta
+green:  '#a7c785' // Strings / content
+yellow: '#f7de70' // Classes / important
+orange: '#f0ac74' // Numbers / constants
+red:    '#f38095' // Errors / removals
+magenta:'#b18af8' // Attributes / meta
 ```
 
 ### Semantic Associations
@@ -144,9 +145,9 @@ text = {
 ```json
 {
   "variable": { "foreground": "#7dcfff" },
-  "variable.readonly": { "foreground": "#ff9e64" },
+  "variable.readonly": { "foreground": "#f0ac74" },
   "function": { "foreground": "#7aa2f7" },
-  "class": { "foreground": "#e0af68" },
+  "class": { "foreground": "#f7de70" },
   "deprecated": {
     "foreground": "#767fa9",
     "strikethrough": true
@@ -210,6 +211,51 @@ export const syntaxPalette = {
 }
 ```
 
+### 5. Improved Palette Structure
+
+```typescript
+// Current palette structure with semantic naming:
+export const basePalette = {
+  // Base colors (original hues)
+  black: '#1a1b26',
+  gray: '#6b78a8',
+  light: '#c0caf5',
+  white: '#ffffff',
+  blue: '#7aa2f7',
+  cyan: '#7dcfff',
+  teal: '#73daca',
+  purple: '#9d7cd8',
+  green: '#a7c785',
+  yellow: '#f7de70',
+  orange: '#f0ac74',
+  red: '#f38095',
+  magenta: '#b18af8',
+  
+  // Surface colors
+  bgPrimary: '#1a1b26',
+  bgSecondary: '#181923',
+  bgTertiary: '#1f2230',
+  bgOverlay: '#232739',
+  
+  // Text colors
+  textDefault: '#afb9e2',
+  textSecondary: '#99a3cc',
+  textMuted: '#8991b3',
+  textInverse: '#1a1b26',
+  
+  // UI elements
+  borderDefault: '#202230',
+  buttonPrimary: '#007acc',
+  linkDefault: '#29acf8',
+  
+  // States
+  stateSuccess: '#a7c785',
+  stateWarning: '#f7de70',
+  stateError: '#f38095',
+  stateInfo: '#7dcfff',
+}
+```
+
 ## 📈 Quality Metrics (Illustrative)
 
 | Metric | Value | Status |
@@ -226,7 +272,7 @@ export const syntaxPalette = {
 ### JavaScript Sample
 
 ```javascript
-// Comment - gray (#565f89)
+// Comment - gray (#6b78a8)
 const userName = 'Tokyo'        // const: magenta, string: green
 function greetUser(name) {      // function: blue, parameter: cyan
   return `Hello, ${name}!`      // template: green, interpolation: cyan
@@ -247,7 +293,7 @@ class User {                    // class: yellow
 - **Active tab**: `#202333`
 - **Hover veil**: `#7aa2f714`
 - **Selection**: `#7aa2f733`
-- **Thin borders**: `#32364e`
+- **Thin borders**: `#202230`
 
 ## 🚀 Summary
 
