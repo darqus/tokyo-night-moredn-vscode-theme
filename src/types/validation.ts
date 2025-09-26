@@ -46,12 +46,21 @@ export type VSCodeColorToken =
   | 'editorGroupHeader.noTabsBackground'
   | 'editorGroupHeader.tabsBackground'
   | 'editorGroupHeader.tabsBorder'
+  | 'editorGroup.emptyBackground'
+  | 'editorGroup.focusedEmptyBorder'
   // Activity Bar
   | 'activityBar.background'
   | 'activityBar.foreground'
   | 'activityBar.inactiveForeground'
   | 'activityBar.activeBorder'
   | 'activityBar.activeBackground'
+  | 'activityBar.activeFocusBorder'
+  | 'activityBar.border'
+  | 'activityBar.dropBorder'
+  | 'activityWarningBadge.background'
+  | 'activityWarningBadge.foreground'
+  | 'activityErrorBadge.background'
+  | 'activityErrorBadge.foreground'
 
   // Status Bar
   | 'statusBar.background'
@@ -68,6 +77,17 @@ export type VSCodeColorToken =
   | 'statusBarItem.remoteForeground'
   | 'statusBarItem.remoteHoverBackground'
   | 'statusBarItem.remoteHoverForeground'
+  | 'statusBarItem.activeBackground'
+  | 'statusBarItem.focusBorder'
+  | 'statusBar.focusBorder'
+  | 'statusBarItem.errorBackground'
+  | 'statusBarItem.errorForeground'
+  | 'statusBarItem.errorHoverBackground'
+  | 'statusBarItem.errorHoverForeground'
+  | 'statusBarItem.warningBackground'
+  | 'statusBarItem.warningForeground'
+  | 'statusBarItem.warningHoverBackground'
+  | 'statusBarItem.warningHoverForeground'
 
   // Tabs
   | 'tab.activeBackground'
@@ -77,6 +97,11 @@ export type VSCodeColorToken =
   | 'tab.inactiveForeground'
   | 'tab.hoverBackground'
   | 'tab.hoverForeground'
+  | 'tab.border'
+  | 'tab.lastPinnedBorder'
+  | 'tab.unfocusedActiveBackground'
+  | 'tab.unfocusedActiveForeground'
+  | 'tab.unfocusedInactiveForeground'
 
   // Title Bar
   | 'titleBar.activeBackground'
@@ -93,6 +118,8 @@ export type VSCodeColorToken =
   | 'panelTitle.activeForeground'
   | 'panelTitle.inactiveForeground'
   | 'panelTitle.activeBorder'
+  | 'panelTitle.border'
+  | 'panel.dropBorder'
   | 'panelTitleBadge.background'
   | 'panelTitleBadge.foreground'
 
@@ -359,6 +386,13 @@ export function getValidTokensList(): ValidTokens[] {
     'activityBar.inactiveForeground',
     'activityBar.activeBorder',
     'activityBar.activeBackground',
+    'activityBar.activeFocusBorder',
+    'activityBar.border',
+    'activityBar.dropBorder',
+    'activityWarningBadge.background',
+    'activityWarningBadge.foreground',
+    'activityErrorBadge.background',
+    'activityErrorBadge.foreground',
     'statusBar.background',
     'statusBar.foreground',
     'statusBar.border',
@@ -373,6 +407,17 @@ export function getValidTokensList(): ValidTokens[] {
     'statusBarItem.remoteForeground',
     'statusBarItem.remoteHoverBackground',
     'statusBarItem.remoteHoverForeground',
+    'statusBarItem.activeBackground',
+    'statusBarItem.focusBorder',
+    'statusBar.focusBorder',
+    'statusBarItem.errorBackground',
+    'statusBarItem.errorForeground',
+    'statusBarItem.errorHoverBackground',
+    'statusBarItem.errorHoverForeground',
+    'statusBarItem.warningBackground',
+    'statusBarItem.warningForeground',
+    'statusBarItem.warningHoverBackground',
+    'statusBarItem.warningHoverForeground',
     'tab.activeBackground',
     'tab.activeForeground',
     'tab.activeBorderTop',
@@ -380,6 +425,11 @@ export function getValidTokensList(): ValidTokens[] {
     'tab.inactiveForeground',
     'tab.hoverBackground',
     'tab.hoverForeground',
+    'tab.border',
+    'tab.lastPinnedBorder',
+    'tab.unfocusedActiveBackground',
+    'tab.unfocusedActiveForeground',
+    'tab.unfocusedInactiveForeground',
     'titleBar.activeBackground',
     'titleBar.activeForeground',
     'titleBar.inactiveBackground',
@@ -392,6 +442,8 @@ export function getValidTokensList(): ValidTokens[] {
     'panelTitle.activeForeground',
     'panelTitle.inactiveForeground',
     'panelTitle.activeBorder',
+    'panelTitle.border',
+    'panel.dropBorder',
     'panelTitleBadge.background',
     'panelTitleBadge.foreground',
     'list.activeSelectionBackground',

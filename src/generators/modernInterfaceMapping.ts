@@ -275,7 +275,7 @@ export const tokenConfig: ThemeTokenConfig = {
         {
           token: 'activityBar.background',
           source: surface.background('elevated'),
-          description: 'Фон панели активности (теперь hover)',
+          description: 'Фон панели активности',
         },
         {
           token: 'activityBar.foreground',
@@ -295,7 +295,22 @@ export const tokenConfig: ThemeTokenConfig = {
         {
           token: 'activityBar.activeBackground',
           source: surface.background('base'),
-          description: 'Фон активного элемента (теперь base)',
+          description: 'Фон активного элемента (полупрозрачный синий)',
+        },
+        {
+          token: 'activityBar.activeFocusBorder',
+          source: computed((ip) => ip.border.focus),
+          description: 'Граница фокуса активного элемента',
+        },
+        {
+          token: 'activityBar.border',
+          source: surface.border('base'),
+          description: 'Граница панели активности',
+        },
+        {
+          token: 'activityBar.dropBorder',
+          source: computed((ip) => ip.state.info),
+          description: 'Граница при перетаскивании',
         },
       ],
     },
@@ -364,6 +379,21 @@ export const tokenConfig: ThemeTokenConfig = {
             'Единый цвет наведения для компактных групп (холодный, как общий hover)',
         },
         {
+          token: 'statusBarItem.activeBackground',
+          source: computed((ip) => withAlpha(ip.state.info, 0.2)),
+          description: 'Фон активного элемента строки состояния',
+        },
+        {
+          token: 'statusBarItem.focusBorder',
+          source: computed((ip) => ip.border.focus),
+          description: 'Граница фокуса элемента строки состояния',
+        },
+        {
+          token: 'statusBar.focusBorder',
+          source: computed((ip) => ip.border.focus),
+          description: 'Граница фокуса строки состояния',
+        },
+        {
           token: 'statusBarItem.prominentBackground',
           source: computed((ip) => ip.button.primary.background),
           description:
@@ -425,6 +455,31 @@ export const tokenConfig: ThemeTokenConfig = {
           token: 'tab.hoverForeground',
           source: computed((ip) => ip.textOn.base.primary),
           description: 'Текст вкладки при наведении (primary над hover)',
+        },
+        {
+          token: 'tab.border',
+          source: surface.border('base'),
+          description: 'Граница вкладок',
+        },
+        {
+          token: 'tab.lastPinnedBorder',
+          source: computed((ip) => ip.border.separatorBackground),
+          description: 'Граница после последней закрепленной вкладки',
+        },
+        {
+          token: 'tab.unfocusedActiveBackground',
+          source: computed((ip) => withAlpha(ip.bg.base, 0.8)),
+          description: 'Фон активной вкладки в неактивной группе',
+        },
+        {
+          token: 'tab.unfocusedActiveForeground',
+          source: computed((ip) => withAlpha(ip.textOn.base.primary, 0.8)),
+          description: 'Текст активной вкладки в неактивной группе',
+        },
+        {
+          token: 'tab.unfocusedInactiveForeground',
+          source: computed((ip) => withAlpha(ip.textOn.elevated.muted, 0.6)),
+          description: 'Текст неактивной вкладки в неактивной группе',
         },
       ],
     },
@@ -500,6 +555,16 @@ export const tokenConfig: ThemeTokenConfig = {
           source: surface.border('base'),
           description: 'Граница между группами редактора',
         },
+        {
+          token: 'editorGroup.emptyBackground',
+          source: surface.background('base'),
+          description: 'Фон пустой группы редактора',
+        },
+        {
+          token: 'editorGroup.focusedEmptyBorder',
+          source: computed((ip) => ip.border.focus),
+          description: 'Граница пустой группы в фокусе',
+        },
       ],
     },
     {
@@ -528,18 +593,28 @@ export const tokenConfig: ThemeTokenConfig = {
         },
         {
           token: 'panelTitle.activeForeground',
-          source: computed((ip) => ip.textOn.elevated.subtle),
-          description: 'Заголовок активной панели (приглушённый subtle)',
+          source: computed((ip) => ip.textOn.base.primary),
+          description: 'Заголовок активной панели (яркий)',
         },
         {
           token: 'panelTitle.inactiveForeground',
-          source: computed((ip) => ip.textOn.elevated.muted),
+          source: computed((ip) => ip.textOn.base.muted),
           description: 'Заголовок неактивной панели',
         },
         {
           token: 'panelTitle.activeBorder',
           source: computed((ip) => ip.state.info),
           description: 'Граница активного заголовка',
+        },
+        {
+          token: 'panelTitle.border',
+          source: surface.border('base'),
+          description: 'Граница заголовков панели',
+        },
+        {
+          token: 'panel.dropBorder',
+          source: computed((ip) => ip.state.info),
+          description: 'Граница при перетаскивании в панель',
         },
         // Panel title badges (чипы/счётчики рядом с заголовком)
         {
@@ -719,6 +794,26 @@ export const tokenConfig: ThemeTokenConfig = {
           token: 'activityBarBadge.foreground',
           source: computed((ip) => ip.badge.fg),
           description: 'Текст бейджа на Activity Bar',
+        },
+        {
+          token: 'activityWarningBadge.background',
+          source: computed((ip) => ip.state.warning),
+          description: 'Фон предупреждающего бейджа',
+        },
+        {
+          token: 'activityWarningBadge.foreground',
+          source: computed((ip) => ip.bg.base),
+          description: 'Текст предупреждающего бейджа',
+        },
+        {
+          token: 'activityErrorBadge.background',
+          source: computed((ip) => ip.state.error),
+          description: 'Фон бейджа ошибки',
+        },
+        {
+          token: 'activityErrorBadge.foreground',
+          source: computed((ip) => ip.text.inverse),
+          description: 'Текст бейджа ошибки',
         },
         {
           token: 'extensionBadge.remoteBackground',
