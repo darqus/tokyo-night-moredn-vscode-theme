@@ -225,6 +225,16 @@ export const tokenConfig: ThemeTokenConfig = {
           description:
             'Hover/подсветка строки sticky scroll как у активной строки/hover тона',
         },
+        {
+          token: 'editor.placeholder.foreground',
+          source: surface.text('base', 'subtle'),
+          description: 'Цвет текста placeholder в редакторе',
+        },
+        {
+          token: 'editor.foldPlaceholderForeground',
+          source: surface.text('base', 'muted'),
+          description: 'Цвет placeholder свернутого кода (многоточие)',
+        },
       ],
     },
     {
@@ -636,7 +646,7 @@ export const tokenConfig: ThemeTokenConfig = {
         {
           token: 'input.placeholderForeground',
           source: surface.text('base', 'subtle'),
-          description: 'Текст placeholder',
+          description: 'Текст placeholder в полях ввода',
         },
       ],
     },
@@ -1309,6 +1319,11 @@ export const tokenConfig: ThemeTokenConfig = {
           token: 'inlineChat.border',
           source: computed((ip) => ip.border.default),
           description: 'Граница встроенного чата',
+        },
+        {
+          token: 'inlineChatInput.placeholderForeground',
+          source: surface.text('base', 'subtle'),
+          description: 'Цвет placeholder в поле ввода inline chat',
         },
       ],
     },

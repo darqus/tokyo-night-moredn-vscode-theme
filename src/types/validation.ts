@@ -33,6 +33,8 @@ export type VSCodeColorToken =
   | 'editorIndentGuide.activeBackground1'
   | 'editorStickyScroll.background'
   | 'editorStickyScrollHover.background'
+  | 'editor.placeholder.foreground'
+  | 'editor.foldPlaceholderForeground'
 
   // Sidebar
   | 'sideBar.background'
@@ -271,6 +273,7 @@ export type VSCodeColorToken =
   | 'inlineChat.background'
   | 'inlineChat.foreground'
   | 'inlineChat.border'
+  | 'inlineChatInput.placeholderForeground'
 
   // Scrollbar tokens
   | 'scrollbar.shadow'
@@ -344,6 +347,8 @@ export function getValidTokensList(): ValidTokens[] {
     'editorIndentGuide.activeBackground1',
     'editorStickyScroll.background',
     'editorStickyScrollHover.background',
+    'editor.placeholder.foreground',
+    'editor.foldPlaceholderForeground',
     'sideBar.background',
     'sideBar.foreground',
     'sideBar.border',
