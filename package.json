@@ -45,8 +45,7 @@
   "scripts": {
     "build": "ts-node src/build.ts",
     "build:watch": "ts-node-dev --respawn src/build.ts",
-    "validate": "ts-node scripts/validate-theme.ts",
-    "validate:all": "npm run validate && npm run test",
+
     "test": "jest tests/unit --passWithNoTests",
     "test:update": "jest tests/unit -u",
     "test:watch": "jest tests/unit --watch",
