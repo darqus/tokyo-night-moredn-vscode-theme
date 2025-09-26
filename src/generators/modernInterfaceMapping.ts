@@ -1309,6 +1309,16 @@ export const tokenConfig: ThemeTokenConfig = {
           source: computed((ip) => ip.bg.hover),
           description: 'Фон подсветки при hover',
         },
+        {
+          token: 'editor.selectionHighlightBackground',
+          source: computed((ip) => ip.derived.findMatch.highlightBackground),
+          description: 'Фон подсветки выделенного текста',
+        },
+        {
+          token: 'editor.selectionHighlightBorder',
+          source: computed((ip) => ip.derived.findMatch.border),
+          description: 'Граница подсветки выделенного текста',
+        },
       ],
     },
     {
@@ -1463,21 +1473,21 @@ export const tokenConfig: ThemeTokenConfig = {
       name: 'Overview Ruler & Minimap',
       description: 'Цвета индикаторов в overview ruler и миникарте',
       tokens: [
-        // Overview ruler: найти/диапазоны/слова — используем холодные тона
+        // Overview ruler: найти/диапазоны/слова — используем контрастные цвета
         {
           token: 'editorOverviewRuler.findMatchForeground',
           source: computed((ip) => ip.derived.findMatch.border),
-          description: 'Индикатор совпадений (find) в overview ruler — синий',
+          description: 'Индикатор совпадений (find) в overview ruler',
+        },
+        {
+          token: 'editorOverviewRuler.selectionHighlightForeground',
+          source: computed((ip) => ip.derived.findMatch.border),
+          description: 'Индикатор подсветки выделения в overview ruler',
         },
         {
           token: 'editorOverviewRuler.rangeHighlightForeground',
           source: computed((ip) => withAlpha(ip.state.info, 0.8)),
           description: 'Индикатор подсвеченных диапазонов',
-        },
-        {
-          token: 'editorOverviewRuler.selectionHighlightForeground',
-          source: computed((ip) => ip.bg.selection),
-          description: 'Индикатор выделений',
         },
         {
           token: 'editorOverviewRuler.wordHighlightForeground',

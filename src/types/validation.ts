@@ -264,6 +264,8 @@ export type VSCodeColorToken =
   | 'editor.wordHighlightBackground'
   | 'editor.wordHighlightStrongBackground'
   | 'editor.hoverHighlightBackground'
+  | 'editor.selectionHighlightBackground'
+  | 'editor.selectionHighlightBorder'
 
   // Overview Ruler & Minimap
   | 'editorOverviewRuler.findMatchForeground'

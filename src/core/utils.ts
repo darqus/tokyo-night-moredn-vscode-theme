@@ -8,7 +8,7 @@ type Hex = `#${string}`
  * Валидация hex цвета
  */
 const validateHex = (hex: string): boolean => {
-  return /^#[0-9a-f]{6}$/i.test(hex)
+  return /^#[0-9a-f]{6}([0-9a-f]{2})?$/i.test(hex)
 }
 
 /**

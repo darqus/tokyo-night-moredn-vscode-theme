@@ -4,12 +4,12 @@ import { interfacePalette } from '../../src/core/interface'
 describe('Panel UI behavior (buttons/icons/links)', () => {
   const mapping = colorMappings(interfacePalette)
 
-  test('panel title uses elevated roles', () => {
+  test('panel title uses base roles', () => {
     expect(mapping['panelTitle.activeForeground']).toBe(
-      interfacePalette.textOn.elevated.subtle
+      interfacePalette.textOn.base.primary
     )
     expect(mapping['panelTitle.inactiveForeground']).toBe(
-      interfacePalette.textOn.elevated.muted
+      interfacePalette.textOn.base.muted
     )
   })
 
