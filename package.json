@@ -52,7 +52,7 @@
     "test:update": "jest tests/unit -u",
     "test:watch": "jest tests/unit --watch",
     "test:coverage": "jest tests/unit --coverage",
-    "test:coverage:simplified": "jest tests/unit --coverage --testPathPattern=simplified",
+    "test:coverage:simplified": "jest tests/unit --coverage --testPathPatterns=simplified",
     "docs:registry": "ts-node scripts/generate-token-registry-doc.ts",
     "docs:tokens": "ts-node scripts/generate-token-docs.ts",
     "docs:colors": "ts-node scripts/generate-color-docs.ts",
