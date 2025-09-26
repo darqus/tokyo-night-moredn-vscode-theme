@@ -7,6 +7,7 @@ import { SURFACE_FOREGROUND_MAP } from './surfaceForeground'
 import { createTokens } from './modernInterfaceMapping'
 import { warmupColorCache } from '../core/colorEngine'
 import type { VSCodeTheme } from '../types/theme'
+import type { IPaletteManager } from '../core/interfaces/IPaletteManager'
 import { readFileSync } from 'fs'
 import { join } from 'path'
 
@@ -55,28 +56,31 @@ export const loadEnvVars = (): ThemeEnvVars => {
 /**
  * Генерация всех цветов интерфейса VS Code с использованием нового DSL
  */
-const generateInterfaceColors = () => {
+const generateInterfaceColors = (paletteManager: IPaletteManager) => {
+  // Получаем текущую интерфейсную палитру из менеджера
+  const currentInterfacePalette = paletteManager.getInterfacePalette()
+  
   // Прогрев кэша для производительности с базовыми цветами интерфейса
   const baseColors = [
-    interfacePalette.bg.base,
-    interfacePalette.text.primary,
-    interfacePalette.text.muted,
-    interfacePalette.border.default,
-    interfacePalette.state.info,
-    interfacePalette.state.error,
-    interfacePalette.state.warning,
-    interfacePalette.state.success,
+    currentInterfacePalette.bg.base,
+    currentInterfacePalette.text.primary,
+    currentInterfacePalette.text.muted,
+    currentInterfacePalette.border.default,
+    currentInterfacePalette.state.info,
+    currentInterfacePalette.state.error,
+    currentInterfacePalette.state.warning,
+    currentInterfacePalette.state.success,
   ]
   warmupColorCache(baseColors)
 
   // Создаем цвета через новый декларативный DSL
-  const colors = createTokens(interfacePalette)
+  const colors = createTokens(currentInterfacePalette)
 
   // Применяем единый маппинг для surface-aware foreground-токенов (legacy совместимость)
   for (const [key, resolver] of Object.entries(SURFACE_FOREGROUND_MAP)) {
     // Только если токен не был определен через DSL
     if (!(key in colors)) {
-      colors[key] = resolver(interfacePalette)
+      colors[key] = resolver(currentInterfacePalette)
     }
   }
 
@@ -86,11 +90,29 @@ const generateInterfaceColors = () => {
 /**
  * Генерация финальной темы
  */
-export const generateTheme = (config: ThemeEnvVars): VSCodeTheme => {
+export const generateTheme = (config: ThemeEnvVars, paletteManager?: IPaletteManager): VSCodeTheme => {
+  // Если палитра не передана, используем стандартную
+  const interfaceColors = paletteManager 
+    ? generateInterfaceColors(paletteManager)
+    : generateInterfaceColors(new (class implements IPaletteManager {
+        getInterfacePalette() { return interfacePalette }
+        getSyntaxPalette() { return { } as any }
+        getRichSyntaxPalette() { return { } as any }
+        updateInterfacePalette() {}
+        updateSyntaxPalette() {}
+        updateRichSyntaxPalette() {}
+        validatePalette() { return true }
+        getValidationErrors() { return [] }
+        exportPalette() { return '' }
+        importPalette() { return false }
+        generateDerivedColors() {}
+        optimizeForAccessibility() {}
+      })())
+      
   return {
     name: config.THEME_DISPLAY_NAME,
     type: config.THEME_TYPE,
-    colors: generateInterfaceColors(),
+    colors: interfaceColors,
     tokenColors: generateTokenColors(),
     semanticTokenColors: generateSemanticTokens(),
   }

@@ -457,7 +457,7 @@ export const TOKEN_REGISTRY: TokenMeta[] = [
   },
 ]
 
-// Простая проверка альфа-политики для hex (#RRGGBB[AA])
+// Простая проверка альфа-политии для hex (#RRGGBB[AA])
 export const isTransparentHex = (hex: string) =>
   /^#?[0-9a-fA-F]{8}$/.test(hex) && !hex.toLowerCase().endsWith('ff')
 export const isOpaqueHex = (hex: string) =>
@@ -479,3 +479,10 @@ export const hasToken = (
   colors: Record<string, string>,
   key: string
 ): boolean => Object.prototype.hasOwnProperty.call(colors, key)
+
+// Интерфейс для токен реестра
+export interface ITokenRegistry {
+  getRegistry(): TokenMeta[]
+  validateToken(key: string, value: string): boolean
+  getTokenMeta(key: string): TokenMeta | undefined
+}
