@@ -450,6 +450,16 @@ export const tokenConfig: ThemeTokenConfig = {
           description: 'Фон заголовка окна (неактивное состояние)',
         },
         {
+          token: 'titleBar.activeForeground',
+          source: computed((ip) => ip.textOn.elevated.primary),
+          description: 'Текст заголовка окна (активное состояние)',
+        },
+        {
+          token: 'titleBar.inactiveForeground',
+          source: computed((ip) => ip.textOn.elevated.muted),
+          description: 'Текст заголовка окна (неактивное состояние)',
+        },
+        {
           token: 'titleBar.border',
           source: surface.border('elevated'),
           description: 'Граница под заголовком окна',

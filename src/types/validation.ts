@@ -78,7 +78,9 @@ export type VSCodeColorToken =
 
   // Title Bar
   | 'titleBar.activeBackground'
+  | 'titleBar.activeForeground'
   | 'titleBar.inactiveBackground'
+  | 'titleBar.inactiveForeground'
   | 'titleBar.border'
 
   // Panels
@@ -374,7 +376,9 @@ export function getValidTokensList(): ValidTokens[] {
     'tab.hoverBackground',
     'tab.hoverForeground',
     'titleBar.activeBackground',
+    'titleBar.activeForeground',
     'titleBar.inactiveBackground',
+    'titleBar.inactiveForeground',
     'titleBar.border',
     'panel.background',
     'panel.border',

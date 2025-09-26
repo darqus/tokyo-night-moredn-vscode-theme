@@ -71,6 +71,8 @@
     "textBlockQuote.border": "#7dcfff59",
     "titleBar.activeBackground": "#1f2230",
     "titleBar.inactiveBackground": "#1f2230",
+    "titleBar.activeForeground": "#afb9e2",
+    "titleBar.inactiveForeground": "#99a3cc",
     "titleBar.border": "#202230",
     "editorGroupHeader.tabsBackground": "#1f2230",
     "editorGroupHeader.noTabsBackground": "#1f2230",
