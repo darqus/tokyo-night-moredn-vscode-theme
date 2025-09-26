@@ -2,7 +2,6 @@
  * Генератор токенов подсветки синтаксиса
  * Поддержка как legacy syntax palette, так и новой расширенной палитры
  */
-import { syntaxPalette } from '../core/syntax'
 import { richSyntaxPalette, legacySyntaxMapping } from '../core/richSyntax'
 import type { TokenColor, SemanticTokenStyle } from '../types/theme'
 

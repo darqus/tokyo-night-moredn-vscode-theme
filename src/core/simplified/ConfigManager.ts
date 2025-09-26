@@ -21,9 +21,9 @@ export class ConfigManager {
         name: 'tokyo-night-modern',
         displayName: 'Tokyo Night Modern',
         type: 'dark',
-        version: '2.0.6'
+        version: '2.0.6',
       },
-      palette: this.createDefaultPalette()
+      palette: this.createDefaultPalette(),
     }
   }
 
@@ -33,26 +33,26 @@ export class ConfigManager {
         base: basePalette.bgPrimary,
         elevated: basePalette.bgTertiary,
         overlay: basePalette.bgOverlay,
-        hover: '#2a2b3d',
-        selection: '#364a82'
+        hover: basePalette.bgHover,
+        selection: basePalette.bgSelection,
       },
       text: {
         primary: basePalette.textDefault,
         secondary: basePalette.textSecondary,
         muted: basePalette.textMuted,
-        inverse: basePalette.textInverse
+        inverse: basePalette.textInverse,
       },
       state: {
         success: basePalette.stateSuccess,
         warning: basePalette.stateWarning,
         error: basePalette.stateError,
-        info: basePalette.stateInfo
+        info: basePalette.stateInfo,
       },
       accent: {
         primary: basePalette.blue,
         secondary: basePalette.cyan,
-        border: basePalette.borderDefault
-      }
+        border: basePalette.borderDefault,
+      },
     }
   }
 }

@@ -44,7 +44,6 @@
   },
   "scripts": {
     "build": "ts-node src/build.ts",
-    "build:legacy": "ts-node src/build-legacy.ts",
     "build:watch": "ts-node-dev --respawn src/build.ts",
     "validate": "ts-node scripts/validate-theme.ts",
     "validate:all": "npm run validate && npm run test",
