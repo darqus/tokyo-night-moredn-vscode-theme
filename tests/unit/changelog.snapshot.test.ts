@@ -6,7 +6,7 @@ describe('CHANGELOG snapshot (format smoke)', () => {
 
   it.skip('snapshot of last section (optional)', () => {
     const content = fs.readFileSync(changelogPath, 'utf8')
-    // Простейшее выделение последнего секционного блока
+    // Simple extraction of the last section block
     const match = content.match(/##\s*\[[^\]]+\][\s\S]*?(?=##\s*\[|$)/)
     expect(match?.[0] || '').toMatchSnapshot()
   })

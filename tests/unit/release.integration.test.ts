@@ -4,8 +4,6 @@ import * as child from 'child_process'
 jest.mock('fs', () => {
   const actual = jest.requireActual('fs') as any
   const memPkg = { version: '1.2.3' }
-  const path = jest.requireActual('path')
-  const pkgPath = path.join(process.cwd(), 'package.json')
   return {
     ...actual,
     readFileSync: jest.fn((p: any, enc?: any) => {
