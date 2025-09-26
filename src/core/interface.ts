@@ -211,11 +211,11 @@ export const interfacePalette: InterfacePalette = {
     findMatch: {
       // Используем новые контрастные цвета для поиска
       // Основной фон для текущего совпадения - яркий и заметный
-      background: withAlpha(basePalette.searchHighlight, 0.35),
+      background: withAlpha(basePalette.searchMatch, 0.2),
       // Четкая граница для выделения активного совпадения
-      border: withAlpha(basePalette.searchBorder, 0.8),
+      border: withAlpha(basePalette.searchBorder, 0),
       // Фон для других совпадений - менее яркий, но видимый
-      highlightBackground: withAlpha(basePalette.searchMatch, 0.25),
+      highlightBackground: withAlpha(basePalette.searchHighlight, 0.25),
     },
     inlineChat: {
       background: darken(basePalette.blue, 0.8),

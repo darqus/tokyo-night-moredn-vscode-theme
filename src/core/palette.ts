@@ -69,8 +69,8 @@ export const basePalette = {
 
   // Search and highlight colors - high contrast for visibility
   searchMatch: createHex('#bb9af7'), // Primary search match (bright purple)
-  searchHighlight: createHex('#e0af68'), // Search highlight (warm orange)
-  searchBorder: createHex('#9d7cd8'), // Search border (medium purple)
+  searchHighlight: createHex('#bb9af7'), // Search highlight (warm orange)
+  searchBorder: createHex('#29acf8'), // Search border (medium purple)
 } as const
 
 export type BaseColor = keyof typeof basePalette
