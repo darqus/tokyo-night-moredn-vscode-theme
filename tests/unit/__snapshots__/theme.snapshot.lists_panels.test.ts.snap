@@ -66,7 +66,7 @@ exports[`Theme partial snapshot: lists & panels should match lists/panels snapsh
   "quickInputList.focusForeground": "#afb9e2",
   "quickInputTitle.background": "#232739",
   "toolbar.activeBackground": "#7dcfff33",
-  "toolbar.hoverBackground": "#7dcfff29",
+  "toolbar.hoverBackground": "#727fb01f",
   "toolbar.hoverOutline": "#00000000",
 }
 `;

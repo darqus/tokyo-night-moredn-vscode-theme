@@ -255,7 +255,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "titleBar.inactiveBackground": "#1f2230",
     "titleBar.inactiveForeground": "#909abe",
     "toolbar.activeBackground": "#7dcfff33",
-    "toolbar.hoverBackground": "#7dcfff29",
+    "toolbar.hoverBackground": "#727fb01f",
     "toolbar.hoverOutline": "#00000000",
     "widget.border": "#363c55",
     "widget.shadow": "#282d43e6",

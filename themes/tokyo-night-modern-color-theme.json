@@ -199,7 +199,7 @@
     "editor.wordHighlightBackground": "#727fb01f",
     "editor.wordHighlightStrongBackground": "#88b0ff42",
     "editor.hoverHighlightBackground": "#727fb01f",
-    "toolbar.hoverBackground": "#7dcfff29",
+    "toolbar.hoverBackground": "#727fb01f",
     "toolbar.activeBackground": "#7dcfff33",
     "toolbar.hoverOutline": "#00000000",
     "debugToolBar.background": "#232739",

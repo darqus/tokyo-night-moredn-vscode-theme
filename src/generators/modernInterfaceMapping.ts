@@ -1202,8 +1202,8 @@ export const tokenConfig: ThemeTokenConfig = {
       tokens: [
         {
           token: 'toolbar.hoverBackground',
-          source: computed((ip) => withAlpha(ip.state.info, 0.16)),
-          description: 'Фон hover элементов toolbar (чуть ярче холодного cyan)',
+          source: surface.background('hover'),
+          description: 'Фон hover элементов toolbar (стандартный hover)',
         },
         {
           token: 'toolbar.activeBackground',
