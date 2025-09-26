@@ -626,13 +626,13 @@ export class PaletteManager implements IPaletteManager {
   private generateInlineChatColors(): any {
     return {
       background: this.darkenColor(basePalette.blue, 0.3),
-      foreground: this.lightenColor(basePalette.textPrimary, 0.1),
+      foreground: this.lightenColor(basePalette.textDefault, 0.1),
     }
   }
 
   private generateBlockquoteColors(): any {
     return {
-      background: this.darkenColor(basePalette.surfaceOverlay, 0.1),
+      background: this.darkenColor(basePalette.bgOverlay, 0.1),
       border: this.lightenColor(basePalette.cyan, 0.2),
     }
   }

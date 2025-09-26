@@ -19,12 +19,12 @@ export const richSyntaxPalette: RichSyntaxPalette = {
 
   // Типы значений и литералы
   literals: {
-    string: basePalette.green, // строки - классический зеленый
+    string: basePalette.stateSuccess, // строки - классический зеленый
     number: basePalette.orange, // числа - оранжевый
-    boolean: basePalette.red, // true/false - красный для выделения
-    null: mix(basePalette.red, basePalette.gray, 0.5), // null/undefined - приглушенный красный
-    regex: mix(basePalette.green, basePalette.yellow, 0.3), // регулярки - желто-зеленый
-    template: mix(basePalette.green, basePalette.cyan, 0.4), // template literals - голубо-зеленый
+    boolean: basePalette.stateError, // true/false - красный для выделения
+    null: mix(basePalette.stateError, basePalette.gray, 0.5), // null/undefined - приглушенный красный
+    regex: mix(basePalette.stateSuccess, basePalette.yellow, 0.3), // регулярки - желто-зеленый
+    template: mix(basePalette.stateSuccess, basePalette.cyan, 0.4), // template literals - голубо-зеленый
   },
 
   // Идентификаторы с контекстом
@@ -65,7 +65,7 @@ export const richSyntaxPalette: RichSyntaxPalette = {
   modern: {
     decorator: basePalette.orange, // @Component - яркий оранжевый
     annotation: mix(basePalette.orange, basePalette.yellow, 0.5), // аннотации
-    macro: mix(basePalette.cyan, basePalette.green, 0.6), // макросы - зелено-голубой
+    macro: mix(basePalette.cyan, basePalette.stateSuccess, 0.6), // макросы - зелено-голубой
     attribute: mix(basePalette.yellow, basePalette.orange, 0.3), // атрибуты
     pragma: mix(basePalette.gray, basePalette.cyan, 0.4), // директивы препроцессора
     directive: mix(basePalette.gray, basePalette.purple, 0.3), // директивы
@@ -73,19 +73,19 @@ export const richSyntaxPalette: RichSyntaxPalette = {
 
   // Разметка и документация
   markup: {
-    tag: basePalette.red, // HTML теги - красный
+    tag: basePalette.stateError, // HTML теги - красный
     attribute: basePalette.magenta, // HTML атрибуты
     heading: basePalette.blue, // заголовки Markdown
     emphasis: basePalette.yellow, // *italic*, **bold**
     link: basePalette.cyan, // ссылки
-    code: mix(basePalette.green, basePalette.gray, 0.3), // `code` блоки
+    code: mix(basePalette.stateSuccess, basePalette.gray, 0.3), // `code` блоки
     quote: mix(basePalette.gray, basePalette.light, 0.5), // > цитаты
   },
 
   // Состояния и диагностика
   states: {
-    error: basePalette.red, // ошибки
-    warning: basePalette.orange, // предупреждения
+    error: basePalette.stateError, // ошибки
+    warning: basePalette.stateWarning, // предупреждения
     info: basePalette.blue, // информация
     hint: basePalette.cyan, // подсказки
     deprecated: withAlpha(mix(basePalette.light, basePalette.gray, 0.7), 0.7), // устаревший код
@@ -96,8 +96,8 @@ export const richSyntaxPalette: RichSyntaxPalette = {
   comments: {
     line: basePalette.gray, // // комментарии
     block: basePalette.gray, // /* комментарии */
-    doc: mix(basePalette.gray, basePalette.green, 0.3), // /** JSDoc */ - зеленоватый
-    todo: mix(basePalette.orange, basePalette.yellow, 0.5), // TODO, FIXME - оранжево-желтый
+    doc: mix(basePalette.gray, basePalette.stateSuccess, 0.3), // /** JSDoc */ - зеленоватый
+    todo: mix(basePalette.stateWarning, basePalette.yellow, 0.5), // TODO, FIXME - оранжево-желтый
     tag: mix(basePalette.cyan, basePalette.gray, 0.6), // @param, @returns - голубо-серый
   },
 

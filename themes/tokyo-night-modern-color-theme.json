@@ -15,8 +15,8 @@
     "merge.currentContentBackground": "#a7c7850f",
     "merge.incomingHeaderBackground": "#7dcfff1f",
     "merge.incomingContentBackground": "#7dcfff0f",
-    "merge.commonHeaderBackground": "#9d7cd81a",
-    "merge.commonContentBackground": "#9d7cd80d",
+    "merge.commonHeaderBackground": "#f7de701a",
+    "merge.commonContentBackground": "#f7de700d",
     "foreground": "#afb9e2",
     "icon.foreground": "#8991b3",
     "descriptionForeground": "#99a3cc",
@@ -210,7 +210,7 @@
     "editor.focusedStackFrameHighlightBackground": "#88b0ff42",
     "debugIcon.breakpointForeground": "#f38095",
     "debugIcon.breakpointDisabledForeground": "#f3809580",
-    "debugIcon.breakpointUnverifiedForeground": "#9d7cd8",
+    "debugIcon.breakpointUnverifiedForeground": "#f7de70",
     "debugIcon.breakpointCurrentStackframeForeground": "#7dcfff",
     "debugIcon.breakpointStackframeForeground": "#7dcfffb3",
     "inlineChat.background": "#182031",
@@ -298,7 +298,7 @@
         "comment keyword.codetag"
       ],
       "settings": {
-        "foreground": "#f4c572",
+        "foreground": "#f7de70",
         "fontStyle": "bold"
       }
     },

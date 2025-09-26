@@ -9,7 +9,7 @@ import type { SyntaxPalette } from '../types/theme'
 export const syntaxPalette: SyntaxPalette = {
   // Основные токены
   keyword: basePalette.magenta, // Ключевые слова (const, function, class)
-  string: basePalette.green, // Строки
+  string: basePalette.stateSuccess, // Строки
   number: basePalette.orange, // Числа
   comment: basePalette.gray, // Комментарии
 
@@ -26,10 +26,10 @@ export const syntaxPalette: SyntaxPalette = {
   // Специальные
   constant: basePalette.yellow, // Константы (true, false, null)
   property: basePalette.cyan, // Свойства объектов
-  tag: basePalette.red, // HTML теги
+  tag: basePalette.stateError, // HTML теги
   attribute: basePalette.magenta, // HTML атрибуты
 
   // Состояния
-  invalid: basePalette.red, // Ошибки в коде
+  invalid: basePalette.stateError, // Ошибки в коде
   deprecated: mix(basePalette.light, basePalette.gray, 0.7), // Устаревший код
 }

@@ -75,11 +75,11 @@ export const tokyoNightConfig: ThemeConfig = {
     error: '#f7768e',
     info: '#7aa2f7',
     // Остальные базовые цвета...
-    'bgBase': '#1a1b26',
-    'bgElevated': '#16161e',
+    'bgPrimary': '#1a1b26',
+    'bgSecondary': '#16161e',
+    'bgTertiary': '#16161e',
     'bgOverlay': '#16161e',
-    'bgSurface': '#16161e',
-    'textPrimary': '#a9b1d6',
+    'textDefault': '#a9b1d6',
     'textSecondary': '#787c99',
     'textMuted': '#414868',
     'textSubtle': '#565a74',
@@ -87,8 +87,8 @@ export const tokyoNightConfig: ThemeConfig = {
   surfaces: [
     {
       name: 'base',
-      background: 'bgBase',
-      foreground: 'textPrimary',
+      background: 'bgPrimary',
+      foreground: 'textDefault',
       border: '#101014',
     },
     {
@@ -147,17 +147,17 @@ export const tokyoNightLightConfig: ThemeConfig = {
   description: 'Beautiful light theme with carefully crafted colors',
   base: {
     ...tokyoNightConfig.base,
-    'bgBase': '#ffffff',
-    'bgElevated': '#f8fafc',
+    'bgPrimary': '#ffffff',
+    'bgSecondary': '#f8fafc',
+    'bgTertiary': '#f8fafc',
     'bgOverlay': '#ffffff',
-    'bgSurface': '#f1f5f9',
-    'textPrimary': '#0f172a',
+    'textDefault': '#0f172a',
     'textSecondary': '#334155',
     'textMuted': '#64748b',
     'textSubtle': '#94a3b8',
   },
   surfaces: tokyoNightConfig.surfaces.map(surface => (surface.name === 'base' ? 
-    { ...surface, background: 'bgBase', foreground: 'textPrimary' } : surface
+    { ...surface, background: 'bgPrimary', foreground: 'textDefault' } : surface
   )),
 }
 

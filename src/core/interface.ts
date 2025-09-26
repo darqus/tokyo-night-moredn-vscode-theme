@@ -14,14 +14,14 @@ import {
 import type { InterfacePalette } from '../types/theme'
 
 export const interfacePalette: InterfacePalette = {
-  // Фоновые цвета
+  // Background colors
   bg: {
-    base: basePalette.black,
-    darkenBase: basePalette.surfaceSidebar,
-    elevated: basePalette.surfacePanel,
-    overlay: basePalette.surfaceOverlay,
-    input: basePalette.surfacePanel,
-    // OKLCH: лёгкая коррекция L для лучшей перцептуальной читаемости
+    base: basePalette.bgPrimary,
+    darkenBase: basePalette.bgSecondary,
+    elevated: basePalette.bgTertiary,
+    overlay: basePalette.bgOverlay,
+    input: basePalette.bgTertiary,
+    // OKLCH: легкая коррекция L для лучшей перцептуальной читаемости
     // amount 0.2 ~ +0.02 L, 0.3 ~ +0.03 L, 0.4 ~ +0.04 L
     // Make hover/active/selection a bit brighter and slightly more opaque
     hover: withAlpha(lightenPerceptual(basePalette.blue, 0.25), 0.12),
@@ -35,124 +35,124 @@ export const interfacePalette: InterfacePalette = {
     // Специализированные цвета для поиска и выделения — вынесены в derived.findMatch
   },
 
-  // Текстовые цвета
+  // Text colors
   text: {
-    primary: basePalette.textPrimary,
-    inverse: basePalette.black,
-    muted: basePalette.textMuted,
-    subtle: basePalette.textSubtle,
+    primary: basePalette.textDefault,
+    inverse: basePalette.textInverse,
+    muted: basePalette.textSecondary,
+    subtle: basePalette.textMuted,
     inactive: mix(basePalette.white, basePalette.gray, 0.75),
     // Дополнительные приглушенные цвета для номеров строк
     // Чуть темнее и нейтральнее для обычных номеров
-    lineNumber: mix(basePalette.black, basePalette.gray, 0.35),
-    // Активный номер — приглушённый холодный (серый с лёгким cyan)
+    lineNumber: mix(basePalette.bgPrimary, basePalette.gray, 0.35),
+    // Активный номер — приглушенный холодный (серый с легким cyan)
     lineNumberActive: mix(basePalette.cyan, basePalette.gray, 0.8),
   },
   // Текст на разных поверхностях (пока проксирует базовые роли, чтобы не менять визуал)
   textOn: {
     base: {
-      primary: basePalette.textPrimary,
-      muted: basePalette.textMuted,
-      subtle: basePalette.textSubtle,
+      primary: basePalette.textDefault,
+      muted: basePalette.textSecondary,
+      subtle: basePalette.textMuted,
       inactive: mix(basePalette.white, basePalette.gray, 0.75),
     },
     elevated: {
-      primary: basePalette.textPrimary,
-      muted: basePalette.textMuted,
-      subtle: basePalette.textSubtle,
+      primary: basePalette.textDefault,
+      muted: basePalette.textSecondary,
+      subtle: basePalette.textMuted,
       inactive: mix(basePalette.white, basePalette.gray, 0.75),
     },
     overlay: {
-      primary: basePalette.textPrimary,
-      muted: lightenPerceptual(basePalette.textMuted, 0.15),
-      subtle: basePalette.textSubtle,
+      primary: basePalette.textDefault,
+      muted: lightenPerceptual(basePalette.textSecondary, 0.15),
+      subtle: basePalette.textMuted,
       inactive: mix(basePalette.white, basePalette.gray, 0.75),
     },
   },
 
-  // Границы
+  // Borders
   border: {
-    default: basePalette.borderThin,
+    default: basePalette.borderDefault,
     focus: withAlpha(basePalette.blue, 0.4),
-    // Лёгкий OKLCH-тон для separator: чуть холоднее нейтрального серого
+    // Легкий OKLCH-тон для separator: чуть холоднее нейтрального серого
     separatorBackground: mixPerceptual(
-      mix(basePalette.black, basePalette.gray, 0.3),
+      mix(basePalette.bgPrimary, basePalette.gray, 0.3),
       basePalette.blue,
       0.05
     ),
   },
 
-  // Кнопки
+  // Buttons
   // primary — насыщенный фон с хорошим контрастом
   // secondary — нейтральный фон (elevated), холодный hover, аккуратная граница
   button: {
     primary: {
-      background: basePalette.primaryButtonBlue,
-      foreground: basePalette.textWhite,
+      background: basePalette.buttonPrimary,
+      foreground: basePalette.white,
       // чуть светлее при hover для выразительности
-      hoverBackground: lightenPerceptual(basePalette.primaryButtonBlue, 0.15),
+      hoverBackground: lightenPerceptual(basePalette.buttonPrimary, 0.15),
       // активная/hover рамка — сплошной link без прозрачности
-      border: basePalette.link,
+      border: basePalette.linkDefault,
       // separator выравнен с border.default (нейтральный)
-      separator: basePalette.borderThin,
+      separator: basePalette.borderDefault,
     },
     secondary: {
       // Нейтральный фон — совпадает с elevated для спокойного UI
-      background: basePalette.surfacePanel,
+      background: basePalette.bgTertiary,
       // Холодный текст, выровненный с textPrimary-цветом темы
-      foreground: basePalette.textPrimary,
+      foreground: basePalette.textDefault,
       // Делает наведение ощутимым, но остаётся холодным и ненавязчивым
-      hoverBackground: lightenPerceptual(basePalette.surfacePanel, 0.15),
+      hoverBackground: lightenPerceptual(basePalette.bgTertiary, 0.15),
       // Нейтральная граница — совпадает с border.default
-      border: basePalette.borderThin,
+      border: basePalette.borderDefault,
     },
   },
 
-  // Бейджи (единая сущность для всех badge.* токенов)
+  // Badges (единая сущность для всех badge.* токенов)
   badge: {
-    bg: basePalette.badgeBlue,
-    fg: basePalette.textWhite,
+    bg: basePalette.buttonPrimary,
+    fg: basePalette.white,
   },
 
-  // Состояния (семантические цвета)
+  // States (семантические цвета)
   state: {
-    info: basePalette.cyan,
-    success: basePalette.green,
-    warning: basePalette.purple,
-    error: basePalette.red,
+    info: basePalette.stateInfo,
+    success: basePalette.stateSuccess,
+    warning: basePalette.stateWarning,
+    error: basePalette.stateError,
     // Hover варианты для состояний
-    infoHover: withAlpha(basePalette.cyan, 0.8),
-    successHover: withAlpha(basePalette.green, 0.8),
-    warningHover: withAlpha(basePalette.purple, 0.8),
-    errorHover: withAlpha(basePalette.red, 0.8),
+    infoHover: withAlpha(basePalette.stateInfo, 0.8),
+    successHover: withAlpha(basePalette.stateSuccess, 0.8),
+    warningHover: withAlpha(basePalette.stateWarning, 0.8),
+    errorHover: withAlpha(basePalette.stateError, 0.8),
   },
   git: {
     renamedResourceForeground: withAlpha(basePalette.cyan, 0.8),
     stageModifiedResourceForeground: withAlpha(basePalette.cyan, 0.9),
-    stageDeletedResourceForeground: withAlpha(basePalette.red, 0.9),
+    stageDeletedResourceForeground: withAlpha(basePalette.stateError, 0.9),
   },
   diff: {
     // Make diff backgrounds more subdued to avoid washing out comments
-    insertedTextBackground: withAlpha(basePalette.green, 0.12),
-    removedTextBackground: withAlpha(basePalette.red, 0.12),
-    insertedLineBackground: withAlpha(basePalette.green, 0.08),
-    removedLineBackground: withAlpha(basePalette.red, 0.08),
+    insertedTextBackground: withAlpha(basePalette.stateSuccess, 0.12),
+    removedTextBackground: withAlpha(basePalette.stateError, 0.12),
+    insertedLineBackground: withAlpha(basePalette.stateSuccess, 0.08),
+    removedLineBackground: withAlpha(basePalette.stateError, 0.08),
   },
   minimap: {
     // Balanced: use cool link‑blue to align with links/highlights
-    findMatchHighlight: withAlpha(basePalette.link, 0.4),
+    findMatchHighlight: withAlpha(basePalette.linkDefault, 0.4),
   },
   // Элементы управления
   dropdown: {
-    background: basePalette.surfacePanel, // соответствует bg.elevated
-    foreground: basePalette.textWhite,
-    border: basePalette.borderThin, // соответствует border.default
-    listBackground: basePalette.surfacePanel, // соответствует bg.elevated
+    background: basePalette.bgTertiary, // соответствует bg.elevated
+    foreground: basePalette.white,
+    border: basePalette.borderDefault, // соответствует border.default
+    listBackground: basePalette.bgTertiary, // соответствует bg.elevated
   },
   // SCM Graph
   scmGraph: {
     label: {
-      hoverForeground: basePalette.black,
+      hoverForeground: basePalette.bgPrimary,
       hoverBackground: basePalette.blue,
     },
     foreground1: basePalette.blue,
@@ -160,32 +160,32 @@ export const interfacePalette: InterfacePalette = {
     foreground3: basePalette.teal,
     foreground4: basePalette.cyan,
     foreground5: basePalette.purple,
-    historyItemHoverAdditionsForeground: basePalette.green,
-    historyItemHoverDeletionsForeground: basePalette.red,
+    historyItemHoverAdditionsForeground: basePalette.stateSuccess,
+    historyItemHoverDeletionsForeground: basePalette.stateError,
     historyItemRefColor: basePalette.blue,
     historyItemRemoteRefColor: basePalette.magenta,
     historyItemBaseRefColor: basePalette.teal,
   },
   derived: {
     link: {
-      foreground: basePalette.link,
+      foreground: basePalette.linkDefault,
     },
     blockquote: {
-      background: basePalette.surfaceOverlay,
+      background: basePalette.bgOverlay,
       border: withAlpha(basePalette.cyan, 0.35),
     },
     terminal: {
       // Base ANSI (non-bright)
-      ansiBlack: basePalette.black,
-      ansiRed: basePalette.red,
-      ansiGreen: basePalette.green,
+      ansiBlack: basePalette.bgPrimary,
+      ansiRed: basePalette.stateError,
+      ansiGreen: basePalette.stateSuccess,
       ansiYellow: basePalette.yellow,
       ansiMagenta: basePalette.magenta,
       // Make non-bright white a softer, cooler near‑white to reduce glare and warmth
       // Step 1: add a subtle cool tint; Step 2: bring slightly down from pure white
       ansiWhite: mixPerceptual(
         mixPerceptual(basePalette.white, basePalette.blue, 0.06),
-        basePalette.black,
+        basePalette.bgPrimary,
         0.1
       ),
       // Cooler hover with cyan->blue mix for terminal command/hover highlight
@@ -193,47 +193,47 @@ export const interfacePalette: InterfacePalette = {
         mix(basePalette.cyan, basePalette.blue, 0.35),
         0.24
       ),
-      ansiBlue: basePalette.link,
-      ansiCyan: basePalette.link,
-      ansiBrightBlack: lighten(basePalette.black, 0.4),
-      ansiBrightRed: lighten(basePalette.red, 0.15),
-      ansiBrightGreen: lighten(basePalette.green, 0.15),
+      ansiBlue: basePalette.linkDefault,
+      ansiCyan: basePalette.linkDefault,
+      ansiBrightBlack: lighten(basePalette.bgPrimary, 0.4),
+      ansiBrightRed: lighten(basePalette.stateError, 0.15),
+      ansiBrightGreen: lighten(basePalette.stateSuccess, 0.15),
       ansiBrightYellow: lighten(basePalette.yellow, 0.15),
-      ansiBrightBlue: basePalette.link,
+      ansiBrightBlue: basePalette.linkDefault,
       ansiBrightMagenta: lighten(basePalette.magenta, 0.15),
-      ansiBrightCyan: basePalette.link,
+      ansiBrightCyan: basePalette.linkDefault,
       // Keep bright white truly white for maximum emphasis
       ansiBrightWhite: basePalette.white,
     },
     overlays: {
-      dropBackground: withAlpha(basePalette.surfaceOverlay, 0.2),
+      dropBackground: withAlpha(basePalette.bgOverlay, 0.2),
     },
     findMatch: {
       // Переключаем схему подсветки поиска на холодный «ссылочный» синий
-      // Лёгкое осветление link‑синего и прозрачность, чтобы не перекрывать контент
-      background: withAlpha(lightenPerceptual(basePalette.link, 0.2), 0.22),
-      // Полупрозрачная синяя граница для чёткости
-      border: withAlpha(basePalette.link, 0.6),
+      // Легкое осветление link‑синего и прозрачность, чтобы не перекрывать контент
+      background: withAlpha(lightenPerceptual(basePalette.linkDefault, 0.2), 0.22),
+      // Полупрозрачная синяя граница для четкости
+      border: withAlpha(basePalette.linkDefault, 0.6),
       // Вариант подсветки для менее сильных совпадений — чуть светлее и прозрачнее
       highlightBackground: withAlpha(
-        lightenPerceptual(basePalette.link, 0.28),
+        lightenPerceptual(basePalette.linkDefault, 0.28),
         0.16
       ),
     },
     inlineChat: {
       background: darken(basePalette.blue, 0.8),
-      foreground: lighten(basePalette.textWhite, 0.12),
+      foreground: lighten(basePalette.white, 0.12),
     },
-    // Shadows: лёгкий OKLCH-сдвиг к более холодному оттенку для четкости
+    // Shadows: легкий OKLCH-сдвиг к более холодному оттенку для четкости
     shadows: {
       // widget: слегка более «холодная» тень + небольшая прозрачность
       widget: withAlpha(
-        mixPerceptual(basePalette.surfaceOverlay, basePalette.blue, 0.06),
+        mixPerceptual(basePalette.bgOverlay, basePalette.blue, 0.06),
         0.9
       ),
       // scrollbar: на чуть-чуть мягче (меньше синего)
       scrollbar: mixPerceptual(
-        basePalette.surfaceOverlay,
+        basePalette.bgOverlay,
         basePalette.blue,
         0.04
       ),
@@ -259,13 +259,13 @@ export const interfacePalette: InterfacePalette = {
 
   // Charts palette used by charts.* tokens
   charts: {
-    foreground: basePalette.textPrimary,
-    lines: basePalette.borderThin,
-    red: basePalette.red,
+    foreground: basePalette.textDefault,
+    lines: basePalette.borderDefault,
+    red: basePalette.stateError,
     blue: basePalette.blue,
     yellow: basePalette.yellow,
     orange: basePalette.orange,
-    green: basePalette.green,
+    green: basePalette.stateSuccess,
     purple: basePalette.purple,
   },
 }

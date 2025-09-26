@@ -35,7 +35,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "debugIcon.breakpointDisabledForeground": "#f3809580",
     "debugIcon.breakpointForeground": "#f38095",
     "debugIcon.breakpointStackframeForeground": "#7dcfffb3",
-    "debugIcon.breakpointUnverifiedForeground": "#9d7cd8",
+    "debugIcon.breakpointUnverifiedForeground": "#f7de70",
     "debugToolBar.background": "#232739",
     "debugToolBar.border": "#7aa2f766",
     "descriptionForeground": "#99a3cc",
@@ -137,8 +137,8 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
     "menubar.selectionBorder": "#29acf8",
     "menubar.selectionForeground": "#afb9e2",
     "merge.border": "#202230",
-    "merge.commonContentBackground": "#9d7cd80d",
-    "merge.commonHeaderBackground": "#9d7cd81a",
+    "merge.commonContentBackground": "#f7de700d",
+    "merge.commonHeaderBackground": "#f7de701a",
     "merge.currentContentBackground": "#a7c7850f",
     "merge.currentHeaderBackground": "#a7c7851f",
     "merge.incomingContentBackground": "#7dcfff0f",
@@ -410,7 +410,7 @@ exports[`Theme snapshot should match the stable snapshot of the generated theme 
       ],
       "settings": {
         "fontStyle": "bold",
-        "foreground": "#f4c572",
+        "foreground": "#f7de70",
       },
     },
     {

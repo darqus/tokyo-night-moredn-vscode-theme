@@ -10,7 +10,7 @@ exports[`Theme partial snapshot: terminal & widgets should match terminal/widget
   "debugIcon.breakpointDisabledForeground": "#f3809580",
   "debugIcon.breakpointForeground": "#f38095",
   "debugIcon.breakpointStackframeForeground": "#7dcfffb3",
-  "debugIcon.breakpointUnverifiedForeground": "#9d7cd8",
+  "debugIcon.breakpointUnverifiedForeground": "#f7de70",
   "debugToolBar.background": "#232739",
   "debugToolBar.border": "#7aa2f766",
   "editorHoverWidget.background": "#1a1b26",
